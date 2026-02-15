@@ -352,7 +352,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get questionTypeTrueFalse => 'Cert/Fals';
 
   @override
-  String get questionTypeEssay => 'Assaig';
+  String get questionTypeEssay => 'Desenvolupament';
 
   @override
   String get questionTypeRandom => 'Tots';
@@ -1385,4 +1385,14 @@ class AppLocalizationsCa extends AppLocalizations {
   String startWithSelectedQuestions(int count) {
     return 'Iniciar amb $count seleccionades';
   }
+
+  @override
+  String get advancedSettingsTitle => 'Ajustes Avançats (Debug)';
+
+  @override
+  String get appLanguageLabel => 'Idioma de l\'aplicació';
+
+  @override
+  String get appLanguageDescription =>
+      'Sobreescriure l\'idioma de l\'aplicació per a proves';
 }

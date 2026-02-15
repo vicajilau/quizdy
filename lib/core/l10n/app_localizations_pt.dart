@@ -1381,4 +1381,14 @@ class AppLocalizationsPt extends AppLocalizations {
   String startWithSelectedQuestions(int count) {
     return 'Iniciar com $count selecionadas';
   }
+
+  @override
+  String get advancedSettingsTitle => 'Configurações Avançadas (Debug)';
+
+  @override
+  String get appLanguageLabel => 'Idioma do aplicativo';
+
+  @override
+  String get appLanguageDescription =>
+      'Substituir o idioma do aplicativo para testes';
 }

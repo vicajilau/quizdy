@@ -7,7 +7,10 @@ import 'package:quiz_app/core/file_handler.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
 import 'package:quiz_app/core/service_locator.dart';
 import 'package:quiz_app/presentation/blocs/file_bloc/file_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quiz_app/presentation/blocs/file_bloc/file_event.dart';
+import 'package:quiz_app/presentation/blocs/locale_cubit/locale_cubit.dart';
+import 'package:quiz_app/presentation/blocs/locale_cubit/locale_state.dart';
 
 void main() {
   setUrlStrategy(null);
@@ -39,43 +42,51 @@ class _QuizApplicationState extends State<QuizApplication> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: appRouter,
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      localeResolutionCallback: (locale, supportedLocales) {
-        if (locale == null) {
-          return supportedLocales.first;
-        }
+    return BlocProvider(
+      create: (context) => LocaleCubit(),
+      child: BlocBuilder<LocaleCubit, LocaleState>(
+        builder: (context, state) {
+          return MaterialApp.router(
+            routerConfig: appRouter,
+            theme: AppTheme.lightTheme,
+            darkTheme: AppTheme.darkTheme,
+            locale: state.locale,
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            localeResolutionCallback: (locale, supportedLocales) {
+              if (locale == null) {
+                return supportedLocales.first;
+              }
 
-        // Check if the current device locale is supported
-        for (final supportedLocale in supportedLocales) {
-          if (supportedLocale.languageCode == locale.languageCode &&
-              supportedLocale.countryCode == locale.countryCode) {
-            return supportedLocale;
-          }
-        }
+              // Check if the current device locale is supported
+              for (final supportedLocale in supportedLocales) {
+                if (supportedLocale.languageCode == locale.languageCode &&
+                    supportedLocale.countryCode == locale.countryCode) {
+                  return supportedLocale;
+                }
+              }
 
-        // If not supported, check if the language code is supported
-        for (final supportedLocale in supportedLocales) {
-          if (supportedLocale.languageCode == locale.languageCode) {
-            return supportedLocale;
-          }
-        }
+              // If not supported, check if the language code is supported
+              for (final supportedLocale in supportedLocales) {
+                if (supportedLocale.languageCode == locale.languageCode) {
+                  return supportedLocale;
+                }
+              }
 
-        // If the locale is not supported, check if we have a fallback for this language
-        // ignoring country code
-        try {
-          return supportedLocales.firstWhere(
-            (l) => l.languageCode == locale.languageCode,
-            orElse: () => const Locale('en'),
+              // If the locale is not supported, check if we have a fallback for this language
+              // ignoring country code
+              try {
+                return supportedLocales.firstWhere(
+                  (l) => l.languageCode == locale.languageCode,
+                  orElse: () => const Locale('en'),
+                );
+              } catch (e) {
+                return const Locale('en');
+              }
+            },
           );
-        } catch (e) {
-          return const Locale('en');
-        }
-      },
+        },
+      ),
     );
   }
 }

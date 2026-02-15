@@ -1914,5 +1914,17 @@
         "example": "5"
       }
     }
+  },
+  "advancedSettingsTitle": "Advanced Settings (Debug)",
+  "@advancedSettingsTitle": {
+    "description": "Title for the advanced settings section shown in debug mode"
+  },
+  "appLanguageLabel": "App Language",
+  "@appLanguageLabel": {
+    "description": "Label for the application language override setting"
+  },
+  "appLanguageDescription": "Override application language for testing",
+  "@appLanguageDescription": {
+    "description": "Description for the application language override setting"
   }
 }

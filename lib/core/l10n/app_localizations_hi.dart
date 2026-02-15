@@ -1367,4 +1367,14 @@ class AppLocalizationsHi extends AppLocalizations {
   String startWithSelectedQuestions(int count) {
     return '$count चयनित के साथ शुरू करें';
   }
+
+  @override
+  String get advancedSettingsTitle => 'उन्नत सेटिंग्स (डिबग)';
+
+  @override
+  String get appLanguageLabel => 'ऐप की भाषा';
+
+  @override
+  String get appLanguageDescription =>
+      'परीक्षण के लिए एप्लिकेशन भाषा को ओवरराइड करें';
 }

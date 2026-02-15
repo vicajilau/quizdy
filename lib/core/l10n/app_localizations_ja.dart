@@ -337,7 +337,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get questionTypeTrueFalse => '真偽';
 
   @override
-  String get questionTypeEssay => 'エッセイ';
+  String get questionTypeEssay => '記述式';
 
   @override
   String get questionTypeRandom => 'すべて';
@@ -1321,4 +1321,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String startWithSelectedQuestions(int count) {
     return '$count問を選択して開始';
   }
+
+  @override
+  String get advancedSettingsTitle => '詳細設定 (デバッグ)';
+
+  @override
+  String get appLanguageLabel => 'アプリの言語';
+
+  @override
+  String get appLanguageDescription => 'テスト用にアプリの言語を上書きする';
 }

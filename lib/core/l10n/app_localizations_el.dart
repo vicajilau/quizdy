@@ -1388,4 +1388,14 @@ class AppLocalizationsEl extends AppLocalizations {
   String startWithSelectedQuestions(int count) {
     return 'Έναρξη με $count επιλεγμένες';
   }
+
+  @override
+  String get advancedSettingsTitle => 'Σύνθετες Ρυθμίσεις (Debug)';
+
+  @override
+  String get appLanguageLabel => 'Γλώσσα εφαρμογής';
+
+  @override
+  String get appLanguageDescription =>
+      'Παράκαμψη γλώσσας εφαρμογής για δοκιμές';
 }

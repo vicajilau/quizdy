@@ -1812,5 +1812,8 @@
     }
   },
   "allQuestionsLabel": "جميع الأسئلة",
-  "startWithSelectedQuestions": "ابدأ بـ {count} محددة"
+  "startWithSelectedQuestions": "ابدأ بـ {count} محددة",
+  "advancedSettingsTitle": "إعدادات متقدمة (تصحيح الأخطاء)",
+  "appLanguageLabel": "لغة التطبيق",
+  "appLanguageDescription": "تجاوز لغة التطبيق للاختبار"
 }

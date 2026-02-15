@@ -540,7 +540,7 @@
   "@questionTypeTrueFalse": {
     "description": "Etiqueta pel tipus de pregunta cert/fals"
   },
-  "questionTypeEssay": "Assaig",
+  "questionTypeEssay": "Desenvolupament",
   "@questionTypeEssay": {
     "description": "Etiqueta per al tipus de pregunta d'assaig"
   },
@@ -1851,5 +1851,8 @@
     }
   },
   "allQuestionsLabel": "Totes les preguntes",
-  "startWithSelectedQuestions": "Iniciar amb {count} seleccionades"
+  "startWithSelectedQuestions": "Iniciar amb {count} seleccionades",
+  "advancedSettingsTitle": "Ajustes Avançats (Debug)",
+  "appLanguageLabel": "Idioma de l'aplicació",
+  "appLanguageDescription": "Sobreescriure l'idioma de l'aplicació per a proves"
 }

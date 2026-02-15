@@ -1857,5 +1857,8 @@
     }
   },
   "allQuestionsLabel": "Alle Fragen",
-  "startWithSelectedQuestions": "Mit {count} ausgewählten starten"
+  "startWithSelectedQuestions": "Mit {count} ausgewählten starten",
+  "advancedSettingsTitle": "Erweiterte Einstellungen (Debug)",
+  "appLanguageLabel": "App-Sprache",
+  "appLanguageDescription": "Anwendungssprache für Tests überschreiben"
 }

@@ -444,7 +444,7 @@
   "@questionTypeTrueFalse": {
     "description": "Etiqueta para o tipo de pregunta certo/falso"
   },
-  "questionTypeEssay": "Ensaio",
+  "questionTypeEssay": "Desenvolvemento",
   "@questionTypeEssay": {
     "description": "Etiqueta para o tipo de pregunta de ensaio"
   },
@@ -1752,5 +1752,8 @@
     }
   },
   "allQuestionsLabel": "Todas as preguntas",
-  "startWithSelectedQuestions": "Iniciar con {count} seleccionadas"
+  "startWithSelectedQuestions": "Iniciar con {count} seleccionadas",
+  "advancedSettingsTitle": "Axustes Avanzados (Debug)",
+  "appLanguageLabel": "Idioma da aplicación",
+  "appLanguageDescription": "Sobrescribir o idioma da aplicación para probas"
 }

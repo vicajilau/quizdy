@@ -367,7 +367,6 @@ class _AiGenerateQuestionsDialogState extends State<AiGenerateQuestionsDialog> {
             _currentStep = 1;
           });
         },
-        getLanguageName: _getLanguageName,
       );
     } else {
       return AiGenerateStep2Widget(
@@ -410,38 +409,4 @@ class _AiGenerateQuestionsDialogState extends State<AiGenerateQuestionsDialog> {
     }
   }
 
-  String _getLanguageName(String code, AppLocalizations localizations) {
-    switch (code) {
-      case 'es':
-        return localizations.languageSpanish;
-      case 'en':
-        return localizations.languageEnglish;
-      case 'fr':
-        return localizations.languageFrench;
-      case 'de':
-        return localizations.languageGerman;
-      case 'el':
-        return localizations.languageGreek;
-      case 'it':
-        return localizations.languageItalian;
-      case 'pt':
-        return localizations.languagePortuguese;
-      case 'ca':
-        return localizations.languageCatalan;
-      case 'eu':
-        return localizations.languageBasque;
-      case 'gl':
-        return localizations.languageGalician;
-      case 'hi':
-        return localizations.languageHindi;
-      case 'zh':
-        return localizations.languageChinese;
-      case 'ar':
-        return localizations.languageArabic;
-      case 'ja':
-        return localizations.languageJapanese;
-      default:
-        return code.toUpperCase();
-    }
-  }
 }

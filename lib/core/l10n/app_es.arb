@@ -446,9 +446,9 @@
   "@questionTypeTrueFalse": {
     "description": "Etiqueta para el tipo de pregunta de verdadero/falso"
   },
-  "questionTypeEssay": "Ensayo",
+  "questionTypeEssay": "Desarrollo",
   "@questionTypeEssay": {
-    "description": "Etiqueta para el tipo de pregunta de ensayo"
+    "description": "Etiqueta para el tipo de pregunta de desarrollo"
   },
   "questionTypeRandom": "Todos",
   "@questionTypeRandom": {
@@ -1296,7 +1296,7 @@
   },
   "evaluateWithAI": "Evaluar con IA",
   "@evaluateWithAI": {
-    "description": "Texto del botón para evaluar respuestas de ensayo con IA"
+    "description": "Texto del botón para evaluar respuestas de desarrollo con IA"
   },
   "aiEvaluation": "Evaluación IA",
   "@aiEvaluation": {
@@ -1312,7 +1312,7 @@
       }
     }
   },
-  "aiEvaluationPromptSystemRole": "Eres un profesor experto evaluando la respuesta de un estudiante a una pregunta de ensayo. Tu tarea es proporcionar una evaluación detallada y constructiva. Responde en el mismo idioma que la respuesta del estudiante.",
+  "aiEvaluationPromptSystemRole": "Eres un profesor experto evaluando la respuesta de un estudiante a una pregunta de desarrollo. Tu tarea es proporcionar una evaluación detallada y constructiva. Responde en el mismo idioma que la respuesta del estudiante.",
   "@aiEvaluationPromptSystemRole": {
     "description": "Rol del sistema para el prompt de evaluación de IA"
   },
@@ -1833,5 +1833,8 @@
         "example": "5"
       }
     }
-  }
+  },
+  "advancedSettingsTitle": "Ajustes Avanzados (Debug)",
+  "appLanguageLabel": "Idioma de la aplicación",
+  "appLanguageDescription": "Sobrescribir el idioma de la aplicación para pruebas"
 }

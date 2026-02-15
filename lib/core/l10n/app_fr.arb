@@ -440,7 +440,7 @@
   "@questionTypeTrueFalse": {
     "description": "Libellé pour le type de question vrai/faux"
   },
-  "questionTypeEssay": "Essai",
+  "questionTypeEssay": "Question à développement",
   "@questionTypeEssay": {
     "description": "Label pour le type de question à développement"
   },
@@ -1800,5 +1800,8 @@
     }
   },
   "allQuestionsLabel": "Toutes les questions",
-  "startWithSelectedQuestions": "Commencer avec {count} sélectionnées"
+  "startWithSelectedQuestions": "Commencer avec {count} sélectionnées",
+  "advancedSettingsTitle": "Paramètres avancés (Debug)",
+  "appLanguageLabel": "Langue de l'application",
+  "appLanguageDescription": "Remplacer la langue de l'application pour les tests"
 }

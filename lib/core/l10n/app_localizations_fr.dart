@@ -353,7 +353,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get questionTypeTrueFalse => 'Vrai/Faux';
 
   @override
-  String get questionTypeEssay => 'Essai';
+  String get questionTypeEssay => 'Question à développement';
 
   @override
   String get questionTypeRandom => 'Tous';
@@ -1387,4 +1387,14 @@ class AppLocalizationsFr extends AppLocalizations {
   String startWithSelectedQuestions(int count) {
     return 'Commencer avec $count sélectionnées';
   }
+
+  @override
+  String get advancedSettingsTitle => 'Paramètres avancés (Debug)';
+
+  @override
+  String get appLanguageLabel => 'Langue de l\'application';
+
+  @override
+  String get appLanguageDescription =>
+      'Remplacer la langue de l\'application pour les tests';
 }

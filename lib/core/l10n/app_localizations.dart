@@ -2491,6 +2491,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Start with {count} selected'**
   String startWithSelectedQuestions(int count);
+
+  /// Title for the advanced settings section shown in debug mode
+  ///
+  /// In en, this message translates to:
+  /// **'Advanced Settings (Debug)'**
+  String get advancedSettingsTitle;
+
+  /// Label for the application language override setting
+  ///
+  /// In en, this message translates to:
+  /// **'App Language'**
+  String get appLanguageLabel;
+
+  /// Description for the application language override setting
+  ///
+  /// In en, this message translates to:
+  /// **'Override application language for testing'**
+  String get appLanguageDescription;
 }
 
 class _AppLocalizationsDelegate

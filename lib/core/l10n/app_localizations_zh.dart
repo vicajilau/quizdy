@@ -336,7 +336,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get questionTypeTrueFalse => '判断题';
 
   @override
-  String get questionTypeEssay => '论文';
+  String get questionTypeEssay => '论述题';
 
   @override
   String get questionTypeRandom => '全部';
@@ -1313,4 +1313,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String startWithSelectedQuestions(int count) {
     return '开始 $count 道已选题目';
   }
+
+  @override
+  String get advancedSettingsTitle => '高级设置 (调试)';
+
+  @override
+  String get appLanguageLabel => '应用语言';
+
+  @override
+  String get appLanguageDescription => '覆盖用于测试的应用语言';
 }

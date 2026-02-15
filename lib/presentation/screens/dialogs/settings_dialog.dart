@@ -9,7 +9,9 @@ import 'package:quiz_app/core/theme/app_theme.dart';
 import 'package:quiz_app/core/theme/extensions/confirm_dialog_colors_extension.dart';
 import 'package:quiz_app/presentation/screens/dialogs/settings_widgets/ai_settings_section.dart';
 import 'package:quiz_app/presentation/screens/dialogs/settings_widgets/exam_settings_section.dart';
+import 'package:flutter/foundation.dart';
 import 'package:quiz_app/presentation/screens/dialogs/settings_widgets/question_settings_section.dart';
+import 'package:quiz_app/presentation/screens/dialogs/settings_widgets/advanced_settings_section.dart';
 
 class SettingsDialog extends StatefulWidget {
   const SettingsDialog({super.key});
@@ -323,6 +325,10 @@ class _SettingsDialogState extends State<SettingsDialog> {
                               });
                             },
                           ),
+                          if (kDebugMode) ...[
+                            const SizedBox(height: 24),
+                            const AdvancedSettingsSection(),
+                          ],
                         ],
                       ),
                     ),

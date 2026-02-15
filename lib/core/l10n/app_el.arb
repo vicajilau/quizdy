@@ -484,5 +484,8 @@
     }
   },
   "allQuestionsLabel": "Όλες οι ερωτήσεις",
-  "startWithSelectedQuestions": "Έναρξη με {count} επιλεγμένες"
+  "startWithSelectedQuestions": "Έναρξη με {count} επιλεγμένες",
+  "advancedSettingsTitle": "Σύνθετες Ρυθμίσεις (Debug)",
+  "appLanguageLabel": "Γλώσσα εφαρμογής",
+  "appLanguageDescription": "Παράκαμψη γλώσσας εφαρμογής για δοκιμές"
 }

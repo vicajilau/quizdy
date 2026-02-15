@@ -1355,4 +1355,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String startWithSelectedQuestions(int count) {
     return 'ابدأ بـ $count محددة';
   }
+
+  @override
+  String get advancedSettingsTitle => 'إعدادات متقدمة (تصحيح الأخطاء)';
+
+  @override
+  String get appLanguageLabel => 'لغة التطبيق';
+
+  @override
+  String get appLanguageDescription => 'تجاوز لغة التطبيق للاختبار';
 }

@@ -452,7 +452,7 @@
   "@questionTypeTrueFalse": {
     "description": "Label for true/false question type"
   },
-  "questionTypeEssay": "エッセイ",
+  "questionTypeEssay": "記述式",
   "@questionTypeEssay": {
     "description": "エッセイ形式の質問のラベル"
   },
@@ -1755,5 +1755,8 @@
     }
   },
   "allQuestionsLabel": "すべての問題",
-  "startWithSelectedQuestions": "{count}問を選択して開始"
+  "startWithSelectedQuestions": "{count}問を選択して開始",
+  "advancedSettingsTitle": "詳細設定 (デバッグ)",
+  "appLanguageLabel": "アプリの言語",
+  "appLanguageDescription": "テスト用にアプリの言語を上書きする"
 }

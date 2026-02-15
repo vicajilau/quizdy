@@ -440,7 +440,7 @@
   "@questionTypeTrueFalse": {
     "description": "Etichetta per il tipo di domanda vero/falso"
   },
-  "questionTypeEssay": "Saggio",
+  "questionTypeEssay": "Risposta aperta",
   "@questionTypeEssay": {
     "description": "Etichetta per il tipo di domanda a saggio"
   },
@@ -1800,5 +1800,8 @@
     }
   },
   "allQuestionsLabel": "Tutte le domande",
-  "startWithSelectedQuestions": "Inizia con {count} selezionate"
+  "startWithSelectedQuestions": "Inizia con {count} selezionate",
+  "advancedSettingsTitle": "Impostazioni avanzate (Debug)",
+  "appLanguageLabel": "Lingua dell'app",
+  "appLanguageDescription": "Sovrascrivi la lingua dell'applicazione per i test"
 }

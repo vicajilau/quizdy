@@ -444,7 +444,7 @@
   "@questionTypeTrueFalse": {
     "description": "Label for true/false question type"
   },
-  "questionTypeEssay": "论文",
+  "questionTypeEssay": "论述题",
   "@questionTypeEssay": {
     "description": "问答题类型的标签"
   },
@@ -1752,5 +1752,8 @@
     }
   },
   "allQuestionsLabel": "所有题目",
-  "startWithSelectedQuestions": "开始 {count} 道已选题目"
+  "startWithSelectedQuestions": "开始 {count} 道已选题目",
+  "advancedSettingsTitle": "高级设置 (调试)",
+  "appLanguageLabel": "应用语言",
+  "appLanguageDescription": "覆盖用于测试的应用语言"
 }

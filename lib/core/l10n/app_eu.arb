@@ -444,7 +444,7 @@
   "@questionTypeTrueFalse": {
     "description": "Egia/gezurra galdera motaren etiketa"
   },
-  "questionTypeEssay": "Saiakera",
+  "questionTypeEssay": "Galdera irekia",
   "@questionTypeEssay": {
     "description": "Saiakera galdera-motaerako etiketa"
   },
@@ -1752,5 +1752,8 @@
     }
   },
   "allQuestionsLabel": "Galdera guztiak",
-  "startWithSelectedQuestions": "Hasi {count} hautatuekin"
+  "startWithSelectedQuestions": "Hasi {count} hautatuekin",
+  "advancedSettingsTitle": "Ezarpen Aurreratuak (Debug)",
+  "appLanguageLabel": "Aplikazioaren hizkuntza",
+  "appLanguageDescription": "Aplikazioaren hizkuntza gainidatzi probetarako"
 }

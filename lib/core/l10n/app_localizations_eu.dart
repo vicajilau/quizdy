@@ -350,7 +350,7 @@ class AppLocalizationsEu extends AppLocalizations {
   String get questionTypeTrueFalse => 'Egia/Gezurra';
 
   @override
-  String get questionTypeEssay => 'Saiakera';
+  String get questionTypeEssay => 'Galdera irekia';
 
   @override
   String get questionTypeRandom => 'Guztiak';
@@ -1378,4 +1378,14 @@ class AppLocalizationsEu extends AppLocalizations {
   String startWithSelectedQuestions(int count) {
     return 'Hasi $count hautatuekin';
   }
+
+  @override
+  String get advancedSettingsTitle => 'Ezarpen Aurreratuak (Debug)';
+
+  @override
+  String get appLanguageLabel => 'Aplikazioaren hizkuntza';
+
+  @override
+  String get appLanguageDescription =>
+      'Aplikazioaren hizkuntza gainidatzi probetarako';
 }

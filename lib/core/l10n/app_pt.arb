@@ -1800,5 +1800,8 @@
     }
   },
   "allQuestionsLabel": "Todas as perguntas",
-  "startWithSelectedQuestions": "Iniciar com {count} selecionadas"
+  "startWithSelectedQuestions": "Iniciar com {count} selecionadas",
+  "advancedSettingsTitle": "Configurações Avançadas (Debug)",
+  "appLanguageLabel": "Idioma do aplicativo",
+  "appLanguageDescription": "Substituir o idioma do aplicativo para testes"
 }

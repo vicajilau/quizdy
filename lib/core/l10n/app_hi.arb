@@ -1755,5 +1755,8 @@
     }
   },
   "allQuestionsLabel": "सभी प्रश्न",
-  "startWithSelectedQuestions": "{count} चयनित के साथ शुरू करें"
+  "startWithSelectedQuestions": "{count} चयनित के साथ शुरू करें",
+  "advancedSettingsTitle": "उन्नत सेटिंग्स (डिबग)",
+  "appLanguageLabel": "ऐप की भाषा",
+  "appLanguageDescription": "परीक्षण के लिए एप्लिकेशन भाषा को ओवरराइड करें"
 }
