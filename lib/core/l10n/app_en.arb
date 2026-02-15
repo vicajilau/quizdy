@@ -538,7 +538,7 @@
       }
     }
   },
-  "aiPrompt": "Focus on the student's question, not on directly answering the original exam question. Explain with a pedagogical approach, providing clear arguments without rambling or going off-topic. Do not structure the response in sections. Do not refer to yourself. Respond in the same language you are asked in.",
+  "aiPrompt": "Focus on the student's question, not on directly answering the original exam question. Explain with a pedagogical approach. For practical exercises or math problems, provide step-by-step instructions. For theoretical questions, provide a concise explanation without structuring the response in sections. Respond in the same language you are asked in.",
   "@aiPrompt": {
     "description": "Base prompt for AI assistant"
   },
@@ -1074,9 +1074,17 @@
   "@aiContentFieldHint": {
     "description": "Hint text for the content input field"
   },
-  "aiAttachFileHint": "Attach a file (PDF, TXT, DOCX)",
+  "aiAttachFileHint": "Attach a file (PDF, TXT, MP3, MP4,...)",
   "@aiAttachFileHint": {
     "description": "Hint text for the file attachment area"
+  },
+  "dropAttachmentHere": "Drop file here",
+  "@dropAttachmentHere": {
+    "description": "Hint shown when dragging a file over the attachment area"
+  },
+  "dropImageHere": "Drop image here",
+  "@dropImageHere": {
+    "description": "Hint shown when dragging an image over the image section"
   },
   "aiNumberQuestionsLabel": "Number of Questions",
   "@aiNumberQuestionsLabel": {
@@ -1109,6 +1117,22 @@
         "example": "150"
       }
     }
+  },
+  "aiGenerationCategoryLabel": "Content Mode",
+  "@aiGenerationCategoryLabel": {
+    "description": "Label for AI generation category selector"
+  },
+  "aiGenerationCategoryTheory": "Theory",
+  "@aiGenerationCategoryTheory": {
+    "description": "Label for theory category"
+  },
+  "aiGenerationCategoryExercises": "Exercises",
+  "@aiGenerationCategoryExercises": {
+    "description": "Label for exercises category"
+  },
+  "aiGenerationCategoryBoth": "Mixed",
+  "@aiGenerationCategoryBoth": {
+    "description": "Label for mixed category"
   },
   "languageSpanish": "Español",
   "@languageSpanish": {
@@ -1880,5 +1904,15 @@
   "allQuestionsLabel": "All Questions",
   "@allQuestionsLabel": {
     "description": "Label for the toggle to select all questions"
+  },
+  "startWithSelectedQuestions": "Start with {count} selected",
+  "@startWithSelectedQuestions": {
+    "description": "Button text to start the quiz with only the selected questions",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
   }
 }

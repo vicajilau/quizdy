@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/data/services/ai/ai_question_generation_service.dart';
+import 'package:quiz_app/domain/models/ai/ai_question_type.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
 
 class AiQuestionTypeSelector extends StatelessWidget {

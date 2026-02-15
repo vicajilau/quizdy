@@ -11,8 +11,13 @@ import 'package:quiz_app/domain/models/quiz/quiz_config_stored_settings.dart';
 
 class QuestionCountSelectionDialog extends StatefulWidget {
   final int totalQuestions;
+  final int selectedQuestionCount;
 
-  const QuestionCountSelectionDialog({super.key, required this.totalQuestions});
+  const QuestionCountSelectionDialog({
+    super.key,
+    required this.totalQuestions,
+    this.selectedQuestionCount = 0,
+  });
 
   @override
   State<QuestionCountSelectionDialog> createState() =>
@@ -162,6 +167,63 @@ class _QuestionCountSelectionDialogState
         }
       }
     });
+  }
+
+  Future<void> _startQuiz({bool useSelectedOnly = false}) async {
+    int finalCount;
+    if (useSelectedOnly) {
+      finalCount = widget.selectedQuestionCount;
+    } else {
+      finalCount = _selectedCount;
+      if (!_allQuestions) {
+        final text = _questionCountController.text;
+        final val = int.tryParse(text);
+        if (text.isEmpty || val == null || val <= 0) {
+          finalCount = 1;
+          if (mounted) {
+            setState(() {
+              _selectedCount = 1;
+              _questionCountController.text = '1';
+            });
+          }
+        } else {
+          finalCount = val.clamp(1, widget.totalQuestions);
+          if (mounted) {
+            setState(() {
+              _selectedCount = finalCount;
+              _questionCountController.text = finalCount.toString();
+            });
+          }
+        }
+      }
+    }
+
+    final examTimeEnabled = await ConfigurationService.instance
+        .getExamTimeEnabled();
+    final examTimeMinutes = await ConfigurationService.instance
+        .getExamTimeMinutes();
+
+    if (mounted) {
+      ConfigurationService.instance.saveQuizConfigSettings(
+        QuizConfigStoredSettings(
+          questionCount: finalCount,
+          isStudyMode: _isStudyMode,
+          subtractPoints: _subtractPoints,
+          penaltyAmount: _penaltyAmount,
+        ),
+      );
+      context.pop(
+        QuizConfig(
+          questionCount: finalCount,
+          isStudyMode: _isStudyMode,
+          enableTimeLimit: examTimeEnabled,
+          timeLimitMinutes: examTimeMinutes,
+          subtractPoints: _subtractPoints,
+          penaltyAmount: _penaltyAmount,
+          useSelectedOnly: useSelectedOnly,
+        ),
+      );
+    }
   }
 
   @override
@@ -503,60 +565,43 @@ class _QuestionCountSelectionDialogState
 
             const SizedBox(height: 32),
 
+            // Start with selected questions button
+            if (widget.selectedQuestionCount > 0) ...[
+              OutlinedButton(
+                onPressed: () => _startQuiz(useSelectedOnly: true),
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: primaryColor,
+                  elevation: 0,
+                  minimumSize: const Size(double.infinity, 56),
+                  side: BorderSide(color: primaryColor, width: 1.5),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  textStyle: const TextStyle(
+                    fontFamily: 'Inter',
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(LucideIcons.checkCircle, size: 20),
+                    const SizedBox(width: 8),
+                    Text(
+                      l10n.startWithSelectedQuestions(
+                        widget.selectedQuestionCount,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 12),
+            ],
+
             // Start Button
             ElevatedButton(
-              onPressed: () async {
-                // Final validation for question count
-                int finalCount = _selectedCount;
-                if (!_allQuestions) {
-                  final text = _questionCountController.text;
-                  final val = int.tryParse(text);
-                  if (text.isEmpty || val == null || val <= 0) {
-                    finalCount = 1;
-                    if (mounted) {
-                      setState(() {
-                        _selectedCount = 1;
-                        _questionCountController.text = '1';
-                      });
-                    }
-                  } else {
-                    finalCount = val.clamp(1, widget.totalQuestions);
-                    if (mounted) {
-                      setState(() {
-                        _selectedCount = finalCount;
-                        _questionCountController.text = finalCount.toString();
-                      });
-                    }
-                  }
-                }
-
-                final examTimeEnabled = await ConfigurationService.instance
-                    .getExamTimeEnabled();
-                final examTimeMinutes = await ConfigurationService.instance
-                    .getExamTimeMinutes();
-
-                if (context.mounted) {
-                  ConfigurationService.instance.saveQuizConfigSettings(
-                    QuizConfigStoredSettings(
-                      questionCount: finalCount,
-                      isStudyMode: _isStudyMode,
-                      subtractPoints: _subtractPoints,
-                      penaltyAmount: _penaltyAmount,
-                    ),
-                  );
-
-                  context.pop(
-                    QuizConfig(
-                      questionCount: finalCount,
-                      isStudyMode: _isStudyMode,
-                      enableTimeLimit: examTimeEnabled,
-                      timeLimitMinutes: examTimeMinutes,
-                      subtractPoints: _subtractPoints,
-                      penaltyAmount: _penaltyAmount,
-                    ),
-                  );
-                }
-              },
+              onPressed: () => _startQuiz(),
               style: ElevatedButton.styleFrom(
                 backgroundColor: primaryColor,
                 foregroundColor: Colors.white,

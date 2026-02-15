@@ -395,7 +395,7 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      'Céntrate na pregunta do estudante, non en responder directamente a pregunta orixinal do exame. Explica cun enfoque pedagóxico, proporcionando argumentos claros sen divagar nin saír do tema. Non estrutures a resposta en seccións. Non te refiras a ti mesmo. Responde na mesma lingua na que se che pregunta.';
+      'Céntrate na pregunta do estudante, non en responder directamente á pregunta orixinal do exame. Explica cun enfoque pedagóxico. Para exercicios prácticos ou problemas matemáticos, proporciona instrucións paso a paso. Para preguntas teóricas, proporciona unha explicación concisa sen estruturar a resposta en seccións. Responde na mesma lingua na que se che pregunta.';
 
   @override
   String get questionLabel => 'Pregunta';
@@ -793,7 +793,13 @@ class AppLocalizationsGl extends AppLocalizations {
       'Introduza un tema como \"Historia da Segunda Guerra Mundial\" ou pegue texto aquí...';
 
   @override
-  String get aiAttachFileHint => 'Anexar ficheiro (PDF, TXT, DOCX)';
+  String get aiAttachFileHint => 'Anexar ficheiro (PDF, TXT, MP3, MP4,...)';
+
+  @override
+  String get dropAttachmentHere => 'Solte o ficheiro aquí';
+
+  @override
+  String get dropImageHere => 'Solte a imaxe aquí';
 
   @override
   String get aiNumberQuestionsLabel => 'Número de preguntas';
@@ -813,6 +819,18 @@ class AppLocalizationsGl extends AppLocalizations {
   String aiTextModeCount(int count) {
     return 'Modo Texto ($count palabras)';
   }
+
+  @override
+  String get aiGenerationCategoryLabel => 'Modo de Contido';
+
+  @override
+  String get aiGenerationCategoryTheory => 'Teoría';
+
+  @override
+  String get aiGenerationCategoryExercises => 'Exercicios';
+
+  @override
+  String get aiGenerationCategoryBoth => 'Mixto';
 
   @override
   String get languageSpanish => 'Español';
@@ -1363,4 +1381,9 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get allQuestionsLabel => 'Todas as preguntas';
+
+  @override
+  String startWithSelectedQuestions(int count) {
+    return 'Iniciar con $count seleccionadas';
+  }
 }

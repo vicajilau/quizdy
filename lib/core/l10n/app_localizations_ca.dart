@@ -394,7 +394,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      'Centreu-vos en la pregunta de l\'estudiant, no en respondre directament la pregunta original de l\'examen. Expliqueu amb un enfocament pedagògic, proporcionant arguments clars sense divagar ni sortir del tema. No estructureu la resposta en seccions. No us referiu a vosaltres mateixos. Responeu en la mateixa llengua en què se us pregunta.';
+      'Centreu-vos en la pregunta de l\'estudiant, no en respondre directament la pregunta original de l\'examen. Expliqueu amb un enfocament pedagògic. Per a exercicis pràctics o problemes matemàtics, proporcioneu instruccions pas a pas. Per a preguntes teòriques, proporcioneu una explicació concisa sense estructurar la resposta en seccions. Responeu en la mateixa llengua en què se us pregunta.';
 
   @override
   String get questionLabel => 'Pregunta';
@@ -791,7 +791,13 @@ class AppLocalizationsCa extends AppLocalizations {
       'Introduïu un tema com \"Història de la Segona Guerra Mundial\" o enganxeu contingut de text aquí...';
 
   @override
-  String get aiAttachFileHint => 'Adjunteu un fitxer (PDF, TXT, DOCX)';
+  String get aiAttachFileHint => 'Adjunteu un fitxer (PDF, TXT, MP3, MP4,...)';
+
+  @override
+  String get dropAttachmentHere => 'Deixeu anar el fitxer aquí';
+
+  @override
+  String get dropImageHere => 'Deixeu anar la imatge aquí';
 
   @override
   String get aiNumberQuestionsLabel => 'Nombre de preguntes';
@@ -811,6 +817,18 @@ class AppLocalizationsCa extends AppLocalizations {
   String aiTextModeCount(int count) {
     return 'Mode Text ($count paraules)';
   }
+
+  @override
+  String get aiGenerationCategoryLabel => 'Modo de Contingut';
+
+  @override
+  String get aiGenerationCategoryTheory => 'Teoria';
+
+  @override
+  String get aiGenerationCategoryExercises => 'Exercicis';
+
+  @override
+  String get aiGenerationCategoryBoth => 'Mixt';
 
   @override
   String get languageSpanish => 'Español';
@@ -1362,4 +1380,9 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get allQuestionsLabel => 'Totes les preguntes';
+
+  @override
+  String startWithSelectedQuestions(int count) {
+    return 'Iniciar amb $count seleccionades';
+  }
 }

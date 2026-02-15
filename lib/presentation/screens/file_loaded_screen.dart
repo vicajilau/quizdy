@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:desktop_drop/desktop_drop.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:quiz_app/core/context_extension.dart';
+import 'package:quiz_app/presentation/utils/dialog_drop_guard.dart';
 import 'package:quiz_app/domain/models/quiz/question.dart';
 import 'package:quiz_app/domain/models/quiz/quiz_file.dart';
 import 'package:quiz_app/domain/models/quiz/quiz_config.dart';
@@ -25,6 +26,7 @@ import 'package:quiz_app/presentation/blocs/file_bloc/file_event.dart';
 import 'package:quiz_app/presentation/blocs/file_bloc/file_state.dart';
 import 'package:quiz_app/presentation/screens/dialogs/question_count_selection_dialog.dart';
 import 'package:quiz_app/presentation/screens/dialogs/import_questions_dialog.dart';
+import 'package:quiz_app/domain/models/ai/ai_generation_config.dart';
 import 'package:quiz_app/presentation/screens/dialogs/ai_generate_questions_dialog.dart';
 import 'package:quiz_app/presentation/screens/widgets/file_loaded_bottom_bar.dart';
 import 'package:quiz_app/presentation/screens/dialogs/settings_dialog.dart';
@@ -636,6 +638,7 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
                 body: DropTarget(
                   onDragDone: (details) {
                     setState(() => _isDragging = false);
+                    if (DialogDropGuard.isActive) return;
                     if (details.files.isNotEmpty) {
                       final firstFile = details.files.first;
                       if (firstFile.path.isNotEmpty) {
@@ -651,7 +654,11 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
                       }
                     }
                   },
-                  onDragEntered: (_) => setState(() => _isDragging = true),
+                  onDragEntered: (_) {
+                    if (!DialogDropGuard.isActive) {
+                      setState(() => _isDragging = true);
+                    }
+                  },
                   onDragExited: (_) => setState(() => _isDragging = false),
                   child: Stack(
                     children: [
@@ -779,15 +786,45 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
                       return;
                     }
 
+                    // Count selected questions that are also enabled
+                    final selectedEnabledCount = _selectedQuestions
+                        .where(
+                          (index) =>
+                              index < cachedQuizFile.questions.length &&
+                              cachedQuizFile.questions[index].isEnabled,
+                        )
+                        .length;
+
                     final quizConfig = await showDialog<QuizConfig>(
                       context: context,
                       builder: (context) => QuestionCountSelectionDialog(
                         totalQuestions: enabledQuestions.length,
+                        selectedQuestionCount: _isSelectionMode
+                            ? selectedEnabledCount
+                            : 0,
                       ),
                     );
 
                     if (quizConfig != null && context.mounted) {
-                      ServiceLocator.instance.registerQuizFile(cachedQuizFile);
+                      QuizFile quizFileToUse = cachedQuizFile;
+
+                      if (quizConfig.useSelectedOnly) {
+                        // Filter to only the selected + enabled questions
+                        final selectedQuestions = <Question>[];
+                        for (final index in _selectedQuestions) {
+                          if (index < cachedQuizFile.questions.length &&
+                              cachedQuizFile.questions[index].isEnabled) {
+                            selectedQuestions.add(
+                              cachedQuizFile.questions[index],
+                            );
+                          }
+                        }
+                        quizFileToUse = cachedQuizFile.copyWith(
+                          questions: selectedQuestions,
+                        );
+                      }
+
+                      ServiceLocator.instance.registerQuizFile(quizFileToUse);
                       ServiceLocator.instance.registerQuizConfig(quizConfig);
                       context.push(AppRoutes.quizFileExecutionScreen);
                     }

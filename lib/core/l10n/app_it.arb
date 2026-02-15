@@ -474,7 +474,7 @@
   "@explanationTooltip": {
     "description": "Testo tooltip per il badge indicatore spiegazione"
   },
-  "aiPrompt": "Concentrati sulla domanda dello studente, non sul rispondere direttamente alla domanda d'esame originale. Spiega con un approccio pedagogico, fornendo argomenti chiari senza divagare o uscire dal tema. Non strutturare la risposta in sezioni. Non riferirti a te stesso. Rispondi nella stessa lingua in cui ti viene posta la domanda.",
+  "aiPrompt": "Concentrati sulla domanda dello studente, non sul rispondere direttamente alla domanda d'esame originale. Spiega con un approccio pedagogico. Per esercizi pratici o problemi matematici, fornisci istruzioni passo dopo passo. Per domande teoriche, fornisci una spiegazione concisa senza strutturare la risposta in sezioni. Rispondi nella stessa lingua in cui ti viene chiesto.",
   "@aiPrompt": {
     "description": "Prompt base per assistente IA"
   },
@@ -1737,12 +1737,36 @@
   "aiEnterContentTitle": "Inserisci contenuto",
   "aiEnterContentDescription": "Inserisci l'argomento o incolla il contenuto da cui generare le domande",
   "aiContentFieldHint": "Inserisci un argomento come \"Storia della Seconda Guerra Mondiale\" o incolla il testo qui...",
-  "aiAttachFileHint": "Allega file (PDF, TXT, DOCX)",
+  "aiAttachFileHint": "Allega file (PDF, TXT, MP3, MP4,...)",
+  "dropAttachmentHere": "Rilascia il file qui",
+  "@dropAttachmentHere": {
+    "description": "Hint shown when dragging a file over the attachment area"
+  },
+  "dropImageHere": "Rilascia l'immagine qui",
+  "@dropImageHere": {
+    "description": "Hint shown when dragging an image over the image section"
+  },
   "aiNumberQuestionsLabel": "Numero di domande",
   "backButton": "Indietro",
   "generateButton": "Genera",
   "aiTopicModeCount": "Modalità Argomento ({count} parole)",
   "aiTextModeCount": "Modalità Testo ({count} parole)",
+  "aiGenerationCategoryLabel": "Modalità Contenuto",
+  "@aiGenerationCategoryLabel": {
+    "description": "Label for AI generation category selector"
+  },
+  "aiGenerationCategoryTheory": "Teoria",
+  "@aiGenerationCategoryTheory": {
+    "description": "Label for theory category"
+  },
+  "aiGenerationCategoryExercises": "Esercizi",
+  "@aiGenerationCategoryExercises": {
+    "description": "Label for exercises category"
+  },
+  "aiGenerationCategoryBoth": "Misto",
+  "@aiGenerationCategoryBoth": {
+    "description": "Label for mixed category"
+  },
   "allLabel": "Tutte",
   "@allLabel": {
     "description": "Etichetta per l'opzione di selezionare tutte le domande"
@@ -1775,5 +1799,6 @@
       }
     }
   },
-  "allQuestionsLabel": "Tutte le domande"
+  "allQuestionsLabel": "Tutte le domande",
+  "startWithSelectedQuestions": "Inizia con {count} selezionate"
 }

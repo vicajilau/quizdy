@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'dart:typed_data';
+import 'package:desktop_drop/desktop_drop.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
+import 'package:quiz_app/presentation/widgets/dialog_drop_zone.dart';
 
-class QuestionImageSection extends StatelessWidget {
+class QuestionImageSection extends StatefulWidget {
   final String? imageData;
   final VoidCallback onImagePicked;
   final VoidCallback onImageRemoved;
@@ -19,119 +21,205 @@ class QuestionImageSection extends StatelessWidget {
   });
 
   @override
+  State<QuestionImageSection> createState() => _QuestionImageSectionState();
+}
+
+class _QuestionImageSectionState extends State<QuestionImageSection> {
+  bool _isDragging = false;
+
+  Future<void> _handleDroppedFile(
+    BuildContext context,
+    DropDoneDetails details,
+  ) async {
+    if (details.files.isEmpty) return;
+    final file = details.files.first;
+
+    final bytes = await file.readAsBytes();
+
+    String extension = file.name.split('.').last.toLowerCase();
+    String mimeType = 'image/$extension';
+    if (extension == 'jpg') mimeType = 'image/jpeg';
+
+    final base64String = base64Encode(bytes);
+    final imageData = 'data:$mimeType;base64,$base64String';
+    widget.onImageChanged(imageData);
+  }
+
+  @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          localizations.imageLabel,
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
-        const SizedBox(height: 8),
-
-        if (imageData != null) ...[
-          // Image preview
-          Container(
-            width: double.infinity,
-            height: 200,
-            decoration: BoxDecoration(
-              border: Border.all(color: Theme.of(context).dividerColor),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image.memory(
-                _getImageBytes(imageData!)!,
-                fit: BoxFit.contain,
-                errorBuilder: (context, error, stackTrace) {
-                  return Container(
-                    alignment: Alignment.center,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.error_outline,
-                          color: Theme.of(context).colorScheme.error,
-                          size: 48,
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          localizations.imageLoadError,
-                          style: TextStyle(
-                            color: Theme.of(context).colorScheme.error,
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ),
+    return DialogDropZone(
+      onFilesDropped: (details) => _handleDroppedFile(context, details),
+      onDragStateChanged: (isDragging) =>
+          setState(() => _isDragging = isDragging),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            localizations.imageLabel,
+            style: Theme.of(context).textTheme.titleMedium,
           ),
           const SizedBox(height: 8),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton.icon(
-                onPressed: () => _pickImage(context),
-                icon: const Icon(Icons.swap_horiz),
-                label: Text(localizations.changeImage),
-              ),
-              const SizedBox(width: 8),
-              OutlinedButton.icon(
-                onPressed: onImageRemoved,
-                icon: const Icon(Icons.delete_outline),
-                label: Text(localizations.removeImage),
-                style: OutlinedButton.styleFrom(
-                  foregroundColor: Theme.of(context).colorScheme.error,
+
+          if (widget.imageData != null) ...[
+            // Image preview
+            Container(
+              width: double.infinity,
+              height: 200,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: _isDragging
+                      ? Theme.of(context).colorScheme.primary
+                      : Theme.of(context).dividerColor,
+                  width: _isDragging ? 2 : 1,
                 ),
+                borderRadius: BorderRadius.circular(8),
               ),
-            ],
-          ),
-        ] else ...[
-          // No image state
-          Container(
-            width: double.infinity,
-            height: 120,
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Theme.of(context).dividerColor,
-                style: BorderStyle.solid,
-              ),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: InkWell(
-              onTap: () => _pickImage(context),
-              borderRadius: BorderRadius.circular(8),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              child: Stack(
                 children: [
-                  Icon(
-                    Icons.add_photo_alternate_outlined,
-                    size: 48,
-                    color: Theme.of(context).colorScheme.primary,
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    localizations.addImageTap,
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontWeight: FontWeight.w500,
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.memory(
+                      _getImageBytes(widget.imageData!)!,
+                      width: double.infinity,
+                      height: 200,
+                      fit: BoxFit.contain,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Container(
+                          alignment: Alignment.center,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.error_outline,
+                                color: Theme.of(context).colorScheme.error,
+                                size: 48,
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                localizations.imageLoadError,
+                                style: TextStyle(
+                                  color: Theme.of(context).colorScheme.error,
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
                     ),
                   ),
-                  const SizedBox(height: 4),
-                  Text(
-                    localizations.imageFormats,
-                    style: Theme.of(context).textTheme.bodySmall,
+                  if (_isDragging)
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.primary.withValues(alpha: 0.15),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      alignment: Alignment.center,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.swap_horiz,
+                            size: 32,
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            localizations.dropImageHere,
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.primary,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 8),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton.icon(
+                    onPressed: () => _pickImage(context),
+                    icon: const Icon(Icons.swap_horiz),
+                    label: Text(localizations.changeImage),
+                  ),
+                  const SizedBox(width: 8),
+                  OutlinedButton.icon(
+                    onPressed: widget.onImageRemoved,
+                    icon: const Icon(Icons.delete_outline),
+                    label: Text(localizations.removeImage),
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: Theme.of(context).colorScheme.error,
+                    ),
                   ),
                 ],
               ),
             ),
-          ),
+          ] else ...[
+            // No image state
+            Container(
+              width: double.infinity,
+              height: 120,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: _isDragging
+                      ? Theme.of(context).colorScheme.primary
+                      : Theme.of(context).dividerColor,
+                  width: _isDragging ? 2 : 1,
+                  style: BorderStyle.solid,
+                ),
+                borderRadius: BorderRadius.circular(8),
+                color: _isDragging
+                    ? Theme.of(
+                        context,
+                      ).colorScheme.primary.withValues(alpha: 0.05)
+                    : null,
+              ),
+              child: InkWell(
+                onTap: () => _pickImage(context),
+                borderRadius: BorderRadius.circular(8),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      _isDragging
+                          ? Icons.download
+                          : Icons.add_photo_alternate_outlined,
+                      size: 48,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      _isDragging
+                          ? localizations.dropImageHere
+                          : localizations.addImageTap,
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    if (!_isDragging) ...[
+                      const SizedBox(height: 4),
+                      Text(
+                        localizations.imageFormats,
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                    ],
+                  ],
+                ),
+              ),
+            ),
+          ],
         ],
-      ],
+      ),
     );
   }
 
@@ -156,7 +244,7 @@ class QuestionImageSection extends StatelessWidget {
           String base64String = base64Encode(file.bytes!);
           String imageData = 'data:$mimeType;base64,$base64String';
 
-          onImageChanged(imageData);
+          widget.onImageChanged(imageData);
         }
       }
     } catch (e) {

@@ -395,7 +395,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      'Εστιάστε στην ερώτηση του μαθητή, όχι στο να απαντήσετε απευθείας την αρχική ερώτηση εξέτασης. Εξηγήστε με παιδαγωγική προσέγγιση, παρέχοντας σαφή επιχειρήματα χωρίς να παρεκκλίνετε από το θέμα. Μη δομείτε την απάντηση σε ενότητες. Μην αναφέρεστε στον εαυτό σας. Απαντάτε στην ίδια γλώσσα που σας ρωτούν.';
+      'Εστιάστε στην ερώτηση του μαθητή, όχι στο να απαντήσετε απευθείας την αρχική ερώτηση εξέτασης. Εξηγήστε με παιδαγωγική προσέγγιση. Για πρακτικές ασκήσεις ή μαθηματικά προβλήματα, παρέχετε οδηγίες βήμα προς βήμα. Για θεωρητικές ερωτήσεις, παρέχετε μια συνοπτική εξήγηση χωρίς να δομείτε την απάντηση σε ενότητες. Απαντάτε στην ίδια γλώσσα που σας ρωτούν.';
 
   @override
   String get questionLabel => 'Ερώτηση';
@@ -795,7 +795,13 @@ class AppLocalizationsEl extends AppLocalizations {
       'Εισάγετε ένα θέμα όπως \"Ιστορία του Β\' Παγκόσμιου Πολέμου\" ή επικολλήστε κείμενο εδώ...';
 
   @override
-  String get aiAttachFileHint => 'Επισύναψη αρχείου (PDF, TXT, DOCX)';
+  String get aiAttachFileHint => 'Επισύναψη αρχείου (PDF, TXT, MP3, MP4,...)';
+
+  @override
+  String get dropAttachmentHere => 'Αφήστε το αρχείο εδώ';
+
+  @override
+  String get dropImageHere => 'Αφήστε την εικόνα εδώ';
 
   @override
   String get aiNumberQuestionsLabel => 'Αριθμός ερωτήσεων';
@@ -815,6 +821,18 @@ class AppLocalizationsEl extends AppLocalizations {
   String aiTextModeCount(int count) {
     return 'Λειτουργία κειμένου ($count λέξεις)';
   }
+
+  @override
+  String get aiGenerationCategoryLabel => 'Λειτουργία Περιεχομένου';
+
+  @override
+  String get aiGenerationCategoryTheory => 'Θεωρία';
+
+  @override
+  String get aiGenerationCategoryExercises => 'Ασκήσεις';
+
+  @override
+  String get aiGenerationCategoryBoth => 'Μικτό';
 
   @override
   String get languageSpanish => 'Ισπανικά';
@@ -1365,4 +1383,9 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get allQuestionsLabel => 'Όλες οι ερωτήσεις';
+
+  @override
+  String startWithSelectedQuestions(int count) {
+    return 'Έναρξη με $count επιλεγμένες';
+  }
 }

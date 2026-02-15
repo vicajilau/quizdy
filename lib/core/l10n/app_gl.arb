@@ -496,7 +496,7 @@
       }
     }
   },
-  "aiPrompt": "Céntrate na pregunta do estudante, non en responder directamente a pregunta orixinal do exame. Explica cun enfoque pedagóxico, proporcionando argumentos claros sen divagar nin saír do tema. Non estrutures a resposta en seccións. Non te refiras a ti mesmo. Responde na mesma lingua na que se che pregunta.",
+  "aiPrompt": "Céntrate na pregunta do estudante, non en responder directamente á pregunta orixinal do exame. Explica cun enfoque pedagóxico. Para exercicios prácticos ou problemas matemáticos, proporciona instrucións paso a paso. Para preguntas teóricas, proporciona unha explicación concisa sen estruturar a resposta en seccións. Responde na mesma lingua na que se che pregunta.",
   "@aiPrompt": {
     "description": "Prompt base para asistente IA"
   },
@@ -1689,12 +1689,36 @@
   "aiEnterContentTitle": "Introducir contido",
   "aiEnterContentDescription": "Introduza o tema ou pegue o contido para xerar preguntas",
   "aiContentFieldHint": "Introduza un tema como \"Historia da Segunda Guerra Mundial\" ou pegue texto aquí...",
-  "aiAttachFileHint": "Anexar ficheiro (PDF, TXT, DOCX)",
+  "aiAttachFileHint": "Anexar ficheiro (PDF, TXT, MP3, MP4,...)",
+  "dropAttachmentHere": "Solte o ficheiro aquí",
+  "@dropAttachmentHere": {
+    "description": "Hint shown when dragging a file over the attachment area"
+  },
+  "dropImageHere": "Solte a imaxe aquí",
+  "@dropImageHere": {
+    "description": "Hint shown when dragging an image over the image section"
+  },
   "aiNumberQuestionsLabel": "Número de preguntas",
   "backButton": "Atrás",
   "generateButton": "Xerar",
   "aiTopicModeCount": "Modo Tema ({count} palabras)",
   "aiTextModeCount": "Modo Texto ({count} palabras)",
+  "aiGenerationCategoryLabel": "Modo de Contido",
+  "@aiGenerationCategoryLabel": {
+    "description": "Label for AI generation category selector"
+  },
+  "aiGenerationCategoryTheory": "Teoría",
+  "@aiGenerationCategoryTheory": {
+    "description": "Label for theory category"
+  },
+  "aiGenerationCategoryExercises": "Exercicios",
+  "@aiGenerationCategoryExercises": {
+    "description": "Label for exercises category"
+  },
+  "aiGenerationCategoryBoth": "Mixto",
+  "@aiGenerationCategoryBoth": {
+    "description": "Label for mixed category"
+  },
   "allLabel": "Todas",
   "@allLabel": {
     "description": "Etiqueta para a opción de seleccionar todas as preguntas"
@@ -1727,5 +1751,6 @@
       }
     }
   },
-  "allQuestionsLabel": "Todas as preguntas"
+  "allQuestionsLabel": "Todas as preguntas",
+  "startWithSelectedQuestions": "Iniciar con {count} seleccionadas"
 }

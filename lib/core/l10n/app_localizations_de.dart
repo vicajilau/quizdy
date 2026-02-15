@@ -392,7 +392,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      'Konzentrieren Sie sich auf die Frage des Studenten, nicht auf die direkte Beantwortung der ursprünglichen Prüfungsfrage. Erklären Sie mit einem pädagogischen Ansatz und liefern Sie klare Argumente ohne abzuschweifen oder vom Thema abzukommen. Strukturieren Sie die Antwort nicht in Abschnitte. Beziehen Sie sich nicht auf sich selbst. Antworten Sie in derselben Sprache, in der Sie gefragt werden.';
+      'Konzentrieren Sie sich auf die Frage des Schülers, nicht auf die direkte Beantwortung der ursprünglichen Prüfungsfrage. Erklären Sie mit einem pädagogischen Ansatz. Geben Sie bei praktischen Übungen oder mathematischen Problemen Schritt-für-Schritt-Anweisungen. Geben Sie bei theoretischen Fragen eine prägnante Erklärung, ohne die Antwort in Abschnitte zu gliedern. Antworten Sie in derselben Sprache, in der Sie gefragt wurden.';
 
   @override
   String get questionLabel => 'Frage';
@@ -794,7 +794,13 @@ class AppLocalizationsDe extends AppLocalizations {
       'Geben Sie ein Thema wie \"Geschichte des Zweiten Weltkriegs\" ein oder fügen Sie hier Textinhalt ein...';
 
   @override
-  String get aiAttachFileHint => 'Datei anhängen (PDF, TXT, DOCX)';
+  String get aiAttachFileHint => 'Datei anhängen (PDF, TXT, MP3, MP4,...)';
+
+  @override
+  String get dropAttachmentHere => 'Datei hier ablegen';
+
+  @override
+  String get dropImageHere => 'Bild hier ablegen';
 
   @override
   String get aiNumberQuestionsLabel => 'Anzahl der Fragen';
@@ -814,6 +820,18 @@ class AppLocalizationsDe extends AppLocalizations {
   String aiTextModeCount(int count) {
     return 'Textmodus ($count Wörter)';
   }
+
+  @override
+  String get aiGenerationCategoryLabel => 'Inhaltsmodus';
+
+  @override
+  String get aiGenerationCategoryTheory => 'Theorie';
+
+  @override
+  String get aiGenerationCategoryExercises => 'Übungen';
+
+  @override
+  String get aiGenerationCategoryBoth => 'Gemischt';
 
   @override
   String get languageSpanish => 'Español';
@@ -1362,4 +1380,9 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get allQuestionsLabel => 'Alle Fragen';
+
+  @override
+  String startWithSelectedQuestions(int count) {
+    return 'Mit $count ausgewählten starten';
+  }
 }

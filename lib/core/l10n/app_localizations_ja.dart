@@ -378,7 +378,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      '学生の質問に焦点を当て、元の試験問題に直接答えるのではなく。教育的なアプローチで説明し、脱線せずに明確な論拠を提供してください。回答をセクションに分けないでください。自分自身に言及しないでください。質問された言語と同じ言語で回答してください。';
+      '元の試験問題に直接答えるのではなく、学生の質問に焦点を当ててください。教育的なアプローチで説明してください。実践的な演習や数学の問題については、ステップバイステップの指示を提供してください。理論的な質問については、回答をセクションに分けずに簡潔な説明を提供してください。質問されたのと同じ言語で回答してください。';
 
   @override
   String get questionLabel => '問題';
@@ -751,7 +751,13 @@ class AppLocalizationsJa extends AppLocalizations {
       '「第二次世界大戦の歴史」のようなトピックを入力するか、ここにテキストを貼り付けてください...';
 
   @override
-  String get aiAttachFileHint => 'ファイルを添付 (PDF, TXT, DOCX)';
+  String get aiAttachFileHint => 'ファイルを添付 (PDF, TXT, MP3, MP4,...)';
+
+  @override
+  String get dropAttachmentHere => 'ファイルをここにドロップ';
+
+  @override
+  String get dropImageHere => '画像をここにドロップ';
 
   @override
   String get aiNumberQuestionsLabel => '質問数';
@@ -771,6 +777,18 @@ class AppLocalizationsJa extends AppLocalizations {
   String aiTextModeCount(int count) {
     return 'テキストモード ($count 語)';
   }
+
+  @override
+  String get aiGenerationCategoryLabel => 'コンテンツモード';
+
+  @override
+  String get aiGenerationCategoryTheory => '理論';
+
+  @override
+  String get aiGenerationCategoryExercises => '演習';
+
+  @override
+  String get aiGenerationCategoryBoth => '混合';
 
   @override
   String get languageSpanish => 'Español';
@@ -1298,4 +1316,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get allQuestionsLabel => 'すべての問題';
+
+  @override
+  String startWithSelectedQuestions(int count) {
+    return '$count問を選択して開始';
+  }
 }

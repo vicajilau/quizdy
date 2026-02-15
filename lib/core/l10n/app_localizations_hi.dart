@@ -388,7 +388,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      'छात्र के प्रश्न पर ध्यान दें, मूल परीक्षा प्रश्न का सीधे उत्तर देने पर नहीं। शैक्षणिक दृष्टिकोण से समझाएं, विषय से भटके बिना स्पष्ट तर्क प्रदान करें। उत्तर को खंडों में न बांटें। अपने आप का संदर्भ न दें। उसी भाषा में जवाब दें जिसमें आपसे पूछा गया है।';
+      'छात्र के प्रश्न पर ध्यान दें, मूल परीक्षा प्रश्न का सीधे उत्तर देने पर नहीं। एक शैक्षणिक दृष्टिकोण के साथ समझाएं। व्यावहारिक अभ्यासों या गणित की समस्याओं के लिए, चरण-दर-चरण निर्देश प्रदान करें। सैद्धांतिक प्रश्नों के लिए, उत्तर को अनुभागों में व्यवस्थित किए बिना एक संक्षिप्त स्पष्टीकरण प्रदान करें। उसी भाषा में उत्तर दें जिसमें आपसे पूछा गया है।';
 
   @override
   String get questionLabel => 'प्रश्न';
@@ -782,7 +782,13 @@ class AppLocalizationsHi extends AppLocalizations {
       '\"द्वितीय विश्व युद्ध का इतिहास\" जैसा कोई विषय दर्ज करें या यहां पाठ पेस्ट करें...';
 
   @override
-  String get aiAttachFileHint => 'फ़ाइल संलग्न करें (PDF, TXT, DOCX)';
+  String get aiAttachFileHint => 'फ़ाइल संलग्न करें (PDF, TXT, MP3, MP4,...)';
+
+  @override
+  String get dropAttachmentHere => 'फ़ाइल यहाँ छोड़ें';
+
+  @override
+  String get dropImageHere => 'छवि यहाँ छोड़ें';
 
   @override
   String get aiNumberQuestionsLabel => 'प्रश्नों की संख्या';
@@ -802,6 +808,18 @@ class AppLocalizationsHi extends AppLocalizations {
   String aiTextModeCount(int count) {
     return 'पाठ मोड ($count शब्द)';
   }
+
+  @override
+  String get aiGenerationCategoryLabel => 'सामग्री मोड';
+
+  @override
+  String get aiGenerationCategoryTheory => 'सिद्धांत';
+
+  @override
+  String get aiGenerationCategoryExercises => 'अभ्यास';
+
+  @override
+  String get aiGenerationCategoryBoth => 'मिश्रित';
 
   @override
   String get languageSpanish => 'Español';
@@ -1344,4 +1362,9 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get allQuestionsLabel => 'सभी प्रश्न';
+
+  @override
+  String startWithSelectedQuestions(int count) {
+    return '$count चयनित के साथ शुरू करें';
+  }
 }

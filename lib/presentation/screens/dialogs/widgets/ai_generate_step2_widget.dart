@@ -1,15 +1,22 @@
+import 'package:desktop_drop/desktop_drop.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:quiz_app/data/services/ai/ai_question_generation_service.dart';
+import 'package:mime/mime.dart';
 import 'package:quiz_app/data/services/ai/ai_service.dart';
 import 'package:quiz_app/domain/models/ai/ai_file_attachment.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
 import 'package:quiz_app/core/theme/app_theme.dart';
 import 'package:quiz_app/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quiz_app/domain/models/ai/ai_generation_config.dart';
+import 'package:quiz_app/domain/models/ai/ai_question_type.dart';
+import 'package:quiz_app/domain/models/ai/ai_generation_category.dart';
+import 'package:quiz_app/presentation/widgets/dialog_drop_zone.dart';
 
 class AiGenerateStep2Widget extends StatefulWidget {
   final TextEditingController textController;
+  final TextEditingController questionCountController;
   final int questionCount;
   final AiFileAttachment? fileAttachment;
   final Set<AiQuestionType> selectedQuestionTypes;
@@ -18,6 +25,7 @@ class AiGenerateStep2Widget extends StatefulWidget {
   final String? selectedModel;
   final VoidCallback onPickFile;
   final VoidCallback onRemoveFile;
+  final ValueChanged<AiFileAttachment> onFileDropped;
   final VoidCallback onBack;
   final ValueChanged<int> onQuestionCountChanged;
   final String Function() getWordCountText;
@@ -27,6 +35,7 @@ class AiGenerateStep2Widget extends StatefulWidget {
   const AiGenerateStep2Widget({
     super.key,
     required this.textController,
+    required this.questionCountController,
     required this.questionCount,
     required this.fileAttachment,
     required this.selectedQuestionTypes,
@@ -35,6 +44,7 @@ class AiGenerateStep2Widget extends StatefulWidget {
     required this.selectedModel,
     required this.onPickFile,
     required this.onRemoveFile,
+    required this.onFileDropped,
     required this.onBack,
     required this.onQuestionCountChanged,
     required this.getWordCountText,
@@ -47,20 +57,51 @@ class AiGenerateStep2Widget extends StatefulWidget {
 }
 
 class _AiGenerateStep2WidgetState extends State<AiGenerateStep2Widget> {
+  late final FocusNode _questionCountFocusNode;
+  AiGenerationCategory _selectedCategory = AiGenerationCategory.both;
+  bool _isDragging = false;
+
   @override
   void initState() {
     super.initState();
     widget.textController.addListener(_onTextChanged);
+    _questionCountFocusNode = FocusNode();
+    _questionCountFocusNode.addListener(_onFocusChange);
   }
 
   @override
   void dispose() {
     widget.textController.removeListener(_onTextChanged);
+    _questionCountFocusNode.removeListener(_onFocusChange);
+    _questionCountFocusNode.dispose();
     super.dispose();
+  }
+
+  void _onFocusChange() {
+    if (!_questionCountFocusNode.hasFocus) {
+      final text = widget.questionCountController.text;
+      final count = int.tryParse(text);
+      if (count == null || count < 1 || count > 50) {
+        // Reset to current valid count
+        widget.questionCountController.text = widget.questionCount.toString();
+      }
+    }
   }
 
   void _onTextChanged() {
     setState(() {});
+  }
+
+  Future<void> _handleDroppedFile(DropDoneDetails details) async {
+    if (details.files.isEmpty) return;
+    final file = details.files.first;
+    final bytes = await file.readAsBytes();
+    final mimeType =
+        lookupMimeType(file.name, headerBytes: bytes) ??
+        'application/octet-stream';
+    widget.onFileDropped(
+      AiFileAttachment(bytes: bytes, mimeType: mimeType, name: file.name),
+    );
   }
 
   @override
@@ -72,7 +113,10 @@ class _AiGenerateStep2WidgetState extends State<AiGenerateStep2Widget> {
     final inputBg = isDark ? AppTheme.borderColorDark : AppTheme.cardColorLight;
     final attachStroke = isDark ? AppTheme.zinc600 : AppTheme.zinc300;
 
-    return Dialog(
+    return DialogDropZone(
+      onFilesDropped: _handleDroppedFile,
+      onDragStateChanged: (isDragging) => setState(() => _isDragging = isDragging),
+      child: Dialog(
       backgroundColor: Colors.transparent,
       elevation: 0,
       insetPadding: const EdgeInsets.all(16),
@@ -195,9 +239,16 @@ class _AiGenerateStep2WidgetState extends State<AiGenerateStep2Widget> {
                         height: 64,
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          color: Colors.transparent,
+                          color: _isDragging
+                              ? AppTheme.primaryColor.withValues(alpha: 0.05)
+                              : Colors.transparent,
                           borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: attachStroke, width: 2),
+                          border: Border.all(
+                            color: _isDragging
+                                ? AppTheme.primaryColor
+                                : attachStroke,
+                            width: 2,
+                          ),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.only(left: 15),
@@ -208,33 +259,50 @@ class _AiGenerateStep2WidgetState extends State<AiGenerateStep2Widget> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(
-                                  LucideIcons.paperclip,
-                                  color: colors.subtitle,
+                                  _isDragging
+                                      ? LucideIcons.download
+                                      : LucideIcons.paperclip,
+                                  color: _isDragging
+                                      ? AppTheme.primaryColor
+                                      : colors.subtitle,
                                   size: 20,
                                 ),
                                 const SizedBox(width: 12),
-                                widget.fileAttachment != null
-                                    ? Text(
-                                        widget.fileAttachment!.name,
-                                        style: TextStyle(
-                                          fontFamily: 'Inter',
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w500,
-                                          color: colors.title,
-                                        ),
-                                        overflow: TextOverflow.ellipsis,
-                                      )
-                                    : Text(
-                                        localizations.aiAttachFileHint,
-                                        style: TextStyle(
-                                          fontFamily: 'Inter',
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w500,
-                                          color: colors.subtitle,
-                                        ),
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                if (widget.fileAttachment != null)
+                                if (_isDragging)
+                                  Text(
+                                    localizations.dropAttachmentHere,
+                                    style: const TextStyle(
+                                      fontFamily: 'Inter',
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                      color: AppTheme.primaryColor,
+                                    ),
+                                    overflow: TextOverflow.ellipsis,
+                                  )
+                                else if (widget.fileAttachment != null)
+                                  Text(
+                                    widget.fileAttachment!.name,
+                                    style: TextStyle(
+                                      fontFamily: 'Inter',
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                      color: colors.title,
+                                    ),
+                                    overflow: TextOverflow.ellipsis,
+                                  )
+                                else
+                                  Text(
+                                    localizations.aiAttachFileHint,
+                                    style: TextStyle(
+                                      fontFamily: 'Inter',
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                      color: colors.subtitle,
+                                    ),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                if (widget.fileAttachment != null &&
+                                    !_isDragging)
                                   Padding(
                                     padding: const EdgeInsets.only(
                                       left: 12.0,
@@ -251,6 +319,64 @@ class _AiGenerateStep2WidgetState extends State<AiGenerateStep2Widget> {
                                   ),
                               ],
                             ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 24),
+
+                    // Content Mode (Category selection)
+                    Text(
+                      localizations.aiGenerationCategoryLabel,
+                      style: TextStyle(
+                        fontFamily: 'Inter',
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        color: colors.subtitle,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    SizedBox(
+                      width: double.infinity,
+                      child: SegmentedButton<AiGenerationCategory>(
+                        segments: [
+                          ButtonSegment<AiGenerationCategory>(
+                            value: AiGenerationCategory.both,
+                            label: Text(localizations.aiGenerationCategoryBoth),
+                          ),
+                          ButtonSegment<AiGenerationCategory>(
+                            value: AiGenerationCategory.exercises,
+                            label: Text(
+                              localizations.aiGenerationCategoryExercises,
+                            ),
+                          ),
+                          ButtonSegment<AiGenerationCategory>(
+                            value: AiGenerationCategory.theory,
+                            label: Text(
+                              localizations.aiGenerationCategoryTheory,
+                            ),
+                          ),
+                        ],
+                        selected: <AiGenerationCategory>{_selectedCategory},
+                        onSelectionChanged:
+                            (Set<AiGenerationCategory> newSelection) {
+                              setState(() {
+                                _selectedCategory = newSelection.first;
+                              });
+                            },
+                        showSelectedIcon: false,
+                        style: SegmentedButton.styleFrom(
+                          selectedBackgroundColor: AppTheme.primaryColor,
+                          selectedForegroundColor: Colors.white,
+                          backgroundColor: inputBg,
+                          side: BorderSide(color: attachStroke),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          textStyle: const TextStyle(
+                            fontFamily: 'Inter',
+                            fontSize: 13,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
@@ -305,14 +431,37 @@ class _AiGenerateStep2WidgetState extends State<AiGenerateStep2Widget> {
                               borderRadius: BorderRadius.circular(12),
                             ),
                             alignment: Alignment.center,
-                            child: Text(
-                              '${widget.questionCount}',
+                            child: TextField(
+                              controller: widget.questionCountController,
+                              focusNode: _questionCountFocusNode,
+                              keyboardType: TextInputType.number,
+                              textAlign: TextAlign.center,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.digitsOnly,
+                                LengthLimitingTextInputFormatter(2),
+                              ],
                               style: TextStyle(
                                 fontFamily: 'Inter',
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
                                 color: colors.title,
                               ),
+                              decoration: const InputDecoration(
+                                border: InputBorder.none,
+                                contentPadding: EdgeInsets.zero,
+                                isDense: true,
+                              ),
+                              onChanged: (value) {
+                                if (value.isEmpty) return;
+                                final count = int.tryParse(value);
+                                if (count != null) {
+                                  if (count > 50) {
+                                    widget.onQuestionCountChanged(50);
+                                  } else if (count > 0) {
+                                    widget.onQuestionCountChanged(count);
+                                  }
+                                }
+                              },
                             ),
                           ),
                         ),
@@ -405,8 +554,10 @@ class _AiGenerateStep2WidgetState extends State<AiGenerateStep2Widget> {
                                 preferredService: widget.selectedService,
                                 preferredModel: widget.selectedModel,
                                 file: widget.fileAttachment,
-                                isTopicMode: widget.fileAttachment == null &&
+                                isTopicMode:
+                                    widget.fileAttachment == null &&
                                     widget.getTopicCount() <= 10,
+                                generationCategory: _selectedCategory,
                               );
                               context.pop(config);
                             }
@@ -446,6 +597,7 @@ class _AiGenerateStep2WidgetState extends State<AiGenerateStep2Widget> {
           ],
         ),
       ),
+    ),
     );
   }
 }

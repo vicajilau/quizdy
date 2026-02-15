@@ -4,44 +4,13 @@ import 'package:quiz_app/data/services/configuration_service.dart';
 import 'package:quiz_app/data/services/ai/ai_service.dart';
 import 'package:quiz_app/data/services/ai/gemini_service.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/domain/models/ai/ai_file_attachment.dart';
 import 'package:quiz_app/domain/models/ai/openai_content_block.dart';
 import 'package:quiz_app/domain/models/quiz/question.dart';
 import 'package:quiz_app/domain/models/quiz/question_type.dart';
 
-// Extended enum to include the "random" option
-enum AiQuestionType {
-  multipleChoice,
-  singleChoice,
-  trueFalse,
-  essay,
-  random, // Mix of all types
-}
-
-// Class for generation configuration
-class AiQuestionGenerationConfig {
-  final int? questionCount;
-  final List<AiQuestionType> questionTypes;
-  final String language;
-  final String content;
-  final AIService? preferredService; // Preferred AI service
-  final String? preferredModel; // Preferred model for the service
-  final AiFileAttachment? file;
-  final bool isTopicMode;
-
-  bool get hasFile => file != null;
-
-  const AiQuestionGenerationConfig({
-    this.questionCount,
-    required this.questionTypes,
-    required this.language,
-    required this.content,
-    this.preferredService,
-    this.preferredModel,
-    this.file,
-    this.isTopicMode = false,
-  });
-}
+import 'package:quiz_app/domain/models/ai/ai_generation_config.dart';
+import 'package:quiz_app/domain/models/ai/ai_question_type.dart';
+import 'package:quiz_app/domain/models/ai/ai_generation_category.dart';
 
 class AiQuestionGenerationService {
   static const String _openaiApiUrl =
@@ -255,6 +224,22 @@ class AiQuestionGenerationService {
         ? 'the provided topics'
         : 'the provided content';
 
+    String categoryInstructions = '';
+    switch (config.generationCategory) {
+      case AiGenerationCategory.theory:
+        categoryInstructions =
+            '7. CONCEPTUAL FOCUS: Questions must be strictly about theory, concepts, definitions, and facts. AVOID any calculations, code-writing exercises, or practical development tasks. If the content contains existing exercises, use them ONLY to understand what knowledge is being tested, but DO NOT ask questions about the exercises themselves.';
+        break;
+      case AiGenerationCategory.exercises:
+        categoryInstructions =
+            '7. PRACTICAL FOCUS: Questions should be practical exercises, problem-solving tasks, or implementation questions. You MAY reuse or adapt existing exercises found in the content, or generate NEW ones that follow a similar pattern and difficulty level.';
+        break;
+      case AiGenerationCategory.both:
+        categoryInstructions =
+            '7. MIXED FOCUS: Provide a balanced mix of theoretical concepts (theory, concepts, definitions, and facts) and practical exercises (practical exercises, problem-solving tasks, or implementation questions). Theoretical questions should focus on facts and definitions, while practical questions can be reused from the content or newly generated following the same style and difficulty.';
+        break;
+    }
+
     return '''
 $header
 INSTRUCTIONS:
@@ -263,6 +248,8 @@ INSTRUCTIONS:
 3. Include a clear explanation for each question
 4. Make sure incorrect answers are plausible but clearly wrong
 5. Explanations should be educational and help understand why the answer is correct
+6. SELF-CONTAINED QUESTIONS: All questions must be fully self-contained so they can be answered without looking at the original source material. If you reuse an existing exercise, make sure to include all necessary context (text, variables, or descriptions) within the question itself. DO NOT reference specific exercise numbers or labels from the source text (e.g., instead of 'In exercise 17...', say 'Given the following scenario...').
+$categoryInstructions
 
 RESPONSE FORMAT (JSON):
 Respond ONLY with a valid JSON array in this exact format:

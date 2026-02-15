@@ -478,7 +478,7 @@
   "@explanationTooltip": {
     "description": "Tooltip text for the explanation indicator badge"
   },
-  "aiPrompt": "专注于学生的问题，而不是直接回答原始考试题目。用教学方法解释，提供清晰的论据，不要跑题或离题。不要将回答分成章节。不要提及自己。用被问问题的相同语言回答。",
+  "aiPrompt": "专注于学生的问题，而不是直接回答原始考试题目。用教学方法解释。对于实践练习或数学问题，提供逐步说明。对于理论问题，提供简明的解释，不要将回答分成章节。用被问到的相同语言回答。",
   "@aiPrompt": {
     "description": "Base prompt for AI assistant"
   },
@@ -1689,12 +1689,36 @@
   "aiEnterContentTitle": "输入内容",
   "aiEnterContentDescription": "输入主题或粘贴内容以生成问题",
   "aiContentFieldHint": "输入主题如“二战史”或在此粘贴文本...",
-  "aiAttachFileHint": "附加文件 (PDF, TXT, DOCX)",
+  "aiAttachFileHint": "附加文件 (PDF, TXT, MP3, MP4,...)",
+  "dropAttachmentHere": "在此处放置文件",
+  "@dropAttachmentHere": {
+    "description": "Hint shown when dragging a file over the attachment area"
+  },
+  "dropImageHere": "在此处放置图片",
+  "@dropImageHere": {
+    "description": "Hint shown when dragging an image over the image section"
+  },
   "aiNumberQuestionsLabel": "问题数量",
   "backButton": "返回",
   "generateButton": "生成",
   "aiTopicModeCount": "主题模式 ({count} 字)",
   "aiTextModeCount": "文本模式 ({count} 字)",
+  "aiGenerationCategoryLabel": "内容模式",
+  "@aiGenerationCategoryLabel": {
+    "description": "Label for AI generation category selector"
+  },
+  "aiGenerationCategoryTheory": "理论",
+  "@aiGenerationCategoryTheory": {
+    "description": "Label for theory category"
+  },
+  "aiGenerationCategoryExercises": "练习",
+  "@aiGenerationCategoryExercises": {
+    "description": "Label for exercises category"
+  },
+  "aiGenerationCategoryBoth": "混合",
+  "@aiGenerationCategoryBoth": {
+    "description": "Label for mixed category"
+  },
   "allLabel": "全部",
   "@allLabel": {
     "description": "选择所有问题的选项标签"
@@ -1727,5 +1751,6 @@
       }
     }
   },
-  "allQuestionsLabel": "所有题目"
+  "allQuestionsLabel": "所有题目",
+  "startWithSelectedQuestions": "开始 {count} 道已选题目"
 }

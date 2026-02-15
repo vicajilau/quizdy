@@ -474,7 +474,7 @@
   "@explanationTooltip": {
     "description": "Texte d'info-bulle pour le badge d'indicateur d'explication"
   },
-  "aiPrompt": "Concentrez-vous sur la question de l'étudiant, pas sur répondre directement à la question d'examen originale. Expliquez avec une approche pédagogique, en fournissant des arguments clairs sans divaguer ni vous écarter du sujet. Ne structurez pas la réponse en sections. Ne vous référez pas à vous-même. Répondez dans la même langue que celle dans laquelle on vous pose la question.",
+  "aiPrompt": "Concentrez-vous sur la question de l'étudiant, pas sur la réponse directe à la question d'examen originale. Expliquez avec une approche pédagogique. Pour les exercices pratiques ou les problèmes mathématiques, fournissez des instructions étape par étape. Pour les questions théoriques, fournissez une explication concise sans structurer la réponse en sections. Répondez dans la même langue que celle dans laquelle on vous a posé la question.",
   "@aiPrompt": {
     "description": "Prompt de base pour l'assistant IA"
   },
@@ -1737,12 +1737,36 @@
   "aiEnterContentTitle": "Saisir le contenu",
   "aiEnterContentDescription": "Entrez le sujet ou collez le contenu pour générer des questions",
   "aiContentFieldHint": "Entrez un sujet comme « Histoire de la Seconde Guerre mondiale » ou collez du texte ici...",
-  "aiAttachFileHint": "Joindre un fichier (PDF, TXT, DOCX)",
+  "aiAttachFileHint": "Joindre un fichier (PDF, TXT, MP3, MP4,...)",
+  "dropAttachmentHere": "Déposez le fichier ici",
+  "@dropAttachmentHere": {
+    "description": "Hint shown when dragging a file over the attachment area"
+  },
+  "dropImageHere": "Déposez l'image ici",
+  "@dropImageHere": {
+    "description": "Hint shown when dragging an image over the image section"
+  },
   "aiNumberQuestionsLabel": "Nombre de questions",
   "backButton": "Retour",
   "generateButton": "Générer",
   "aiTopicModeCount": "Mode Sujet ({count} mots)",
   "aiTextModeCount": "Mode Texte ({count} mots)",
+  "aiGenerationCategoryLabel": "Mode de Contenu",
+  "@aiGenerationCategoryLabel": {
+    "description": "Label for AI generation category selector"
+  },
+  "aiGenerationCategoryTheory": "Théorie",
+  "@aiGenerationCategoryTheory": {
+    "description": "Label for theory category"
+  },
+  "aiGenerationCategoryExercises": "Exercices",
+  "@aiGenerationCategoryExercises": {
+    "description": "Label for exercises category"
+  },
+  "aiGenerationCategoryBoth": "Mixte",
+  "@aiGenerationCategoryBoth": {
+    "description": "Label for mixed category"
+  },
   "allLabel": "Toutes",
   "@allLabel": {
     "description": "Libellé pour l'option de sélectionner toutes les questions"
@@ -1775,5 +1799,6 @@
       }
     }
   },
-  "allQuestionsLabel": "Toutes les questions"
+  "allQuestionsLabel": "Toutes les questions",
+  "startWithSelectedQuestions": "Commencer avec {count} sélectionnées"
 }

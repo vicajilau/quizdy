@@ -486,7 +486,7 @@
   "@explanationTooltip": {
     "description": "Tooltip text for the explanation indicator badge"
   },
-  "aiPrompt": "छात्र के प्रश्न पर ध्यान दें, मूल परीक्षा प्रश्न का सीधे उत्तर देने पर नहीं। शैक्षणिक दृष्टिकोण से समझाएं, विषय से भटके बिना स्पष्ट तर्क प्रदान करें। उत्तर को खंडों में न बांटें। अपने आप का संदर्भ न दें। उसी भाषा में जवाब दें जिसमें आपसे पूछा गया है।",
+  "aiPrompt": "छात्र के प्रश्न पर ध्यान दें, मूल परीक्षा प्रश्न का सीधे उत्तर देने पर नहीं। एक शैक्षणिक दृष्टिकोण के साथ समझाएं। व्यावहारिक अभ्यासों या गणित की समस्याओं के लिए, चरण-दर-चरण निर्देश प्रदान करें। सैद्धांतिक प्रश्नों के लिए, उत्तर को अनुभागों में व्यवस्थित किए बिना एक संक्षिप्त स्पष्टीकरण प्रदान करें। उसी भाषा में उत्तर दें जिसमें आपसे पूछा गया है।",
   "@aiPrompt": {
     "description": "Base prompt for AI assistant"
   },
@@ -1692,12 +1692,36 @@
   "aiEnterContentTitle": "सामग्री दर्ज करें",
   "aiEnterContentDescription": "प्रश्न उत्पन्न करने के लिए विषय दर्ज करें या सामग्री पेस्ट करें",
   "aiContentFieldHint": "\"द्वितीय विश्व युद्ध का इतिहास\" जैसा कोई विषय दर्ज करें या यहां पाठ पेस्ट करें...",
-  "aiAttachFileHint": "फ़ाइल संलग्न करें (PDF, TXT, DOCX)",
+  "aiAttachFileHint": "फ़ाइल संलग्न करें (PDF, TXT, MP3, MP4,...)",
+  "dropAttachmentHere": "फ़ाइल यहाँ छोड़ें",
+  "@dropAttachmentHere": {
+    "description": "Hint shown when dragging a file over the attachment area"
+  },
+  "dropImageHere": "छवि यहाँ छोड़ें",
+  "@dropImageHere": {
+    "description": "Hint shown when dragging an image over the image section"
+  },
   "aiNumberQuestionsLabel": "प्रश्नों की संख्या",
   "backButton": "वापस",
   "generateButton": "उत्पन्न करें",
   "aiTopicModeCount": "विषय मोड ({count} शब्द)",
   "aiTextModeCount": "पाठ मोड ({count} शब्द)",
+  "aiGenerationCategoryLabel": "सामग्री मोड",
+  "@aiGenerationCategoryLabel": {
+    "description": "Label for AI generation category selector"
+  },
+  "aiGenerationCategoryTheory": "सिद्धांत",
+  "@aiGenerationCategoryTheory": {
+    "description": "Label for theory category"
+  },
+  "aiGenerationCategoryExercises": "अभ्यास",
+  "@aiGenerationCategoryExercises": {
+    "description": "Label for exercises category"
+  },
+  "aiGenerationCategoryBoth": "मिश्रित",
+  "@aiGenerationCategoryBoth": {
+    "description": "Label for mixed category"
+  },
   "allLabel": "सभी",
   "@allLabel": {
     "description": "सभी प्रश्नों का चयन करने के विकल्प के लिए लेबल"
@@ -1730,5 +1754,6 @@
       }
     }
   },
-  "allQuestionsLabel": "सभी प्रश्न"
+  "allQuestionsLabel": "सभी प्रश्न",
+  "startWithSelectedQuestions": "{count} चयनित के साथ शुरू करें"
 }

@@ -474,7 +474,7 @@
   "@explanationTooltip": {
     "description": "Texto do tooltip para o emblema indicador de explicação"
   },
-  "aiPrompt": "Concentre-se na pergunta do estudante, não em responder diretamente a pergunta original do exame. Explique com uma abordagem pedagógica, fornecendo argumentos claros sem divagar ou sair do tema. Não estruture a resposta em seções. Não se refira a si mesmo. Responda na mesma língua em que for questionado.",
+  "aiPrompt": "Concentre-se na pergunta do estudante, não em responder diretamente à pergunta original do exame. Explique com uma abordagem pedagógica. Para exercícios práticos ou problemas matemáticos, forneça instruções passo a passo. Para questões teóricas, forneça uma explicação concisa sem estruturar a resposta em seções. Responda no mesmo idioma em que foi perguntado.",
   "@aiPrompt": {
     "description": "Prompt base para assistente IA"
   },
@@ -1737,12 +1737,36 @@
   "aiEnterContentTitle": "Inserir Conteúdo",
   "aiEnterContentDescription": "Insira o tópico ou cole o conteúdo para gerar perguntas",
   "aiContentFieldHint": "Insira um tópico como \"História da Segunda Guerra Mundial\" ou cole o texto aqui...",
-  "aiAttachFileHint": "Anexar arquivo (PDF, TXT, DOCX)",
+  "aiAttachFileHint": "Anexar arquivo (PDF, TXT, MP3, MP4,...)",
+  "dropAttachmentHere": "Solte o arquivo aqui",
+  "@dropAttachmentHere": {
+    "description": "Hint shown when dragging a file over the attachment area"
+  },
+  "dropImageHere": "Solte a imagem aqui",
+  "@dropImageHere": {
+    "description": "Hint shown when dragging an image over the image section"
+  },
   "aiNumberQuestionsLabel": "Número de perguntas",
   "backButton": "Voltar",
   "generateButton": "Gerar",
   "aiTopicModeCount": "Modo Tópico ({count} palavras)",
   "aiTextModeCount": "Modo Texto ({count} palavras)",
+  "aiGenerationCategoryLabel": "Modo de Conteúdo",
+  "@aiGenerationCategoryLabel": {
+    "description": "Label for AI generation category selector"
+  },
+  "aiGenerationCategoryTheory": "Teoria",
+  "@aiGenerationCategoryTheory": {
+    "description": "Label for theory category"
+  },
+  "aiGenerationCategoryExercises": "Exercícios",
+  "@aiGenerationCategoryExercises": {
+    "description": "Label for exercises category"
+  },
+  "aiGenerationCategoryBoth": "Misto",
+  "@aiGenerationCategoryBoth": {
+    "description": "Label for mixed category"
+  },
   "allLabel": "Todas",
   "@allLabel": {
     "description": "Rótulo para a opção de selecionar todas as perguntas"
@@ -1775,5 +1799,6 @@
       }
     }
   },
-  "allQuestionsLabel": "Todas as perguntas"
+  "allQuestionsLabel": "Todas as perguntas",
+  "startWithSelectedQuestions": "Iniciar com {count} selecionadas"
 }

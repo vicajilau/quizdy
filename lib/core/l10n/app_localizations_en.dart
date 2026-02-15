@@ -389,7 +389,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      'Focus on the student\'s question, not on directly answering the original exam question. Explain with a pedagogical approach, providing clear arguments without rambling or going off-topic. Do not structure the response in sections. Do not refer to yourself. Respond in the same language you are asked in.';
+      'Focus on the student\'s question, not on directly answering the original exam question. Explain with a pedagogical approach. For practical exercises or math problems, provide step-by-step instructions. For theoretical questions, provide a concise explanation without structuring the response in sections. Respond in the same language you are asked in.';
 
   @override
   String get questionLabel => 'Question';
@@ -784,7 +784,13 @@ class AppLocalizationsEn extends AppLocalizations {
       'Enter a topic like \"World War II history\" or paste text content here...';
 
   @override
-  String get aiAttachFileHint => 'Attach a file (PDF, TXT, DOCX)';
+  String get aiAttachFileHint => 'Attach a file (PDF, TXT, MP3, MP4,...)';
+
+  @override
+  String get dropAttachmentHere => 'Drop file here';
+
+  @override
+  String get dropImageHere => 'Drop image here';
 
   @override
   String get aiNumberQuestionsLabel => 'Number of Questions';
@@ -804,6 +810,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String aiTextModeCount(int count) {
     return 'Text Mode ($count words)';
   }
+
+  @override
+  String get aiGenerationCategoryLabel => 'Content Mode';
+
+  @override
+  String get aiGenerationCategoryTheory => 'Theory';
+
+  @override
+  String get aiGenerationCategoryExercises => 'Exercises';
+
+  @override
+  String get aiGenerationCategoryBoth => 'Mixed';
 
   @override
   String get languageSpanish => 'Español';
@@ -1347,4 +1365,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get allQuestionsLabel => 'All Questions';
+
+  @override
+  String startWithSelectedQuestions(int count) {
+    return 'Start with $count selected';
+  }
 }

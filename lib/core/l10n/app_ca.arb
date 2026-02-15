@@ -48,9 +48,17 @@
   "@aiContentFieldHint": {
     "description": "Hint text for the content input field"
   },
-  "aiAttachFileHint": "Adjunteu un fitxer (PDF, TXT, DOCX)",
+  "aiAttachFileHint": "Adjunteu un fitxer (PDF, TXT, MP3, MP4,...)",
   "@aiAttachFileHint": {
     "description": "Hint text for the file attachment area"
+  },
+  "dropAttachmentHere": "Deixeu anar el fitxer aquí",
+  "@dropAttachmentHere": {
+    "description": "Hint shown when dragging a file over the attachment area"
+  },
+  "dropImageHere": "Deixeu anar la imatge aquí",
+  "@dropImageHere": {
+    "description": "Hint shown when dragging an image over the image section"
   },
   "aiNumberQuestionsLabel": "Nombre de preguntes",
   "@aiNumberQuestionsLabel": {
@@ -75,6 +83,22 @@
     }
   },
   "aiTextModeCount": "Mode Text ({count} paraules)",
+  "aiGenerationCategoryLabel": "Modo de Contingut",
+  "@aiGenerationCategoryLabel": {
+    "description": "Label for AI generation category selector"
+  },
+  "aiGenerationCategoryTheory": "Teoria",
+  "@aiGenerationCategoryTheory": {
+    "description": "Label for theory category"
+  },
+  "aiGenerationCategoryExercises": "Exercicis",
+  "@aiGenerationCategoryExercises": {
+    "description": "Label for exercises category"
+  },
+  "aiGenerationCategoryBoth": "Mixt",
+  "@aiGenerationCategoryBoth": {
+    "description": "Label for mixed category"
+  },
   "@aiTextModeCount": {
     "description": "Text mode with word count",
     "placeholders": {
@@ -550,7 +574,7 @@
   "@explanationTooltip": {
     "description": "Text del tooltip per l'insígnia indicadora d'explicació"
   },
-  "aiPrompt": "Centreu-vos en la pregunta de l'estudiant, no en respondre directament la pregunta original de l'examen. Expliqueu amb un enfocament pedagògic, proporcionant arguments clars sense divagar ni sortir del tema. No estructureu la resposta en seccions. No us referiu a vosaltres mateixos. Responeu en la mateixa llengua en què se us pregunta.",
+  "aiPrompt": "Centreu-vos en la pregunta de l'estudiant, no en respondre directament la pregunta original de l'examen. Expliqueu amb un enfocament pedagògic. Per a exercicis pràctics o problemes matemàtics, proporcioneu instruccions pas a pas. Per a preguntes teòriques, proporcioneu una explicació concisa sense estructurar la resposta en seccions. Responeu en la mateixa llengua en què se us pregunta.",
   "@aiPrompt": {
     "description": "Prompt base per assistent IA"
   },
@@ -1826,5 +1850,6 @@
       }
     }
   },
-  "allQuestionsLabel": "Totes les preguntes"
+  "allQuestionsLabel": "Totes les preguntes",
+  "startWithSelectedQuestions": "Iniciar amb {count} seleccionades"
 }

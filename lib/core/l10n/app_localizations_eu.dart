@@ -391,7 +391,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      'Zentratu ikaslearen galderan, ez jatorrizko azterketa galderari zuzenean erantzutean. Azaldu ikuspegi pedagogiko batekin, argudio argiak emanez gaia alboratzen gabe. Ez egituratu erantzuna ataletan. Ez erreferentziatu zeure burua. Beti erantzun galdetu zaizun hizkuntza berean.';
+      'Zentratu ikaslearen galderan, ez jatorrizko azterketa galderari zuzenean erantzutean. Azaldu ikuspegi pedagogiko batekin. Ariketa praktikoetarako edo arazo matematikoetarako, eman urratsez urratseko argibideak. Galdera teorikoetarako, eman azalpen zehatza erantzuna ataletan egituratu gabe. Erantzun beti galdetu zaizun hizkuntza berean.';
 
   @override
   String get questionLabel => 'Galdera';
@@ -790,7 +790,13 @@ class AppLocalizationsEu extends AppLocalizations {
       'Sartu gai bat, adibidez \"Bigarren Mundu Gerrako historia\" edo itsatsi testua hemen...';
 
   @override
-  String get aiAttachFileHint => 'Erantsi fitxategia (PDF, TXT, DOCX)';
+  String get aiAttachFileHint => 'Erantsi fitxategia (PDF, TXT, MP3, MP4,...)';
+
+  @override
+  String get dropAttachmentHere => 'Askatu fitxategia hemen';
+
+  @override
+  String get dropImageHere => 'Askatu irudia hemen';
 
   @override
   String get aiNumberQuestionsLabel => 'Galdera kopurua';
@@ -810,6 +816,18 @@ class AppLocalizationsEu extends AppLocalizations {
   String aiTextModeCount(int count) {
     return 'Testu modua ($count hitz)';
   }
+
+  @override
+  String get aiGenerationCategoryLabel => 'Eduki Modua';
+
+  @override
+  String get aiGenerationCategoryTheory => 'Teoria';
+
+  @override
+  String get aiGenerationCategoryExercises => 'Ariketak';
+
+  @override
+  String get aiGenerationCategoryBoth => 'Nahasia';
 
   @override
   String get languageSpanish => 'Español';
@@ -1355,4 +1373,9 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get allQuestionsLabel => 'Galdera guztiak';
+
+  @override
+  String startWithSelectedQuestions(int count) {
+    return 'Hasi $count hautatuekin';
+  }
 }

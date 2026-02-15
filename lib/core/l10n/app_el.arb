@@ -12,12 +12,36 @@
   "aiEnterContentTitle": "Εισαγωγή περιεχομένου",
   "aiEnterContentDescription": "Εισάγετε το θέμα ή επικολλήστε περιεχόμενο για τη δημιουργία ερωτήσεων",
   "aiContentFieldHint": "Εισάγετε ένα θέμα όπως \"Ιστορία του Β' Παγκόσμιου Πολέμου\" ή επικολλήστε κείμενο εδώ...",
-  "aiAttachFileHint": "Επισύναψη αρχείου (PDF, TXT, DOCX)",
+  "aiAttachFileHint": "Επισύναψη αρχείου (PDF, TXT, MP3, MP4,...)",
+  "dropAttachmentHere": "Αφήστε το αρχείο εδώ",
+  "@dropAttachmentHere": {
+    "description": "Hint shown when dragging a file over the attachment area"
+  },
+  "dropImageHere": "Αφήστε την εικόνα εδώ",
+  "@dropImageHere": {
+    "description": "Hint shown when dragging an image over the image section"
+  },
   "aiNumberQuestionsLabel": "Αριθμός ερωτήσεων",
   "backButton": "Πίσω",
   "generateButton": "Δημιουργία",
   "aiTopicModeCount": "Λειτουργία θέματος ({count} λέξεις)",
   "aiTextModeCount": "Λειτουργία κειμένου ({count} λέξεις)",
+  "aiGenerationCategoryLabel": "Λειτουργία Περιεχομένου",
+  "@aiGenerationCategoryLabel": {
+    "description": "Label for AI generation category selector"
+  },
+  "aiGenerationCategoryTheory": "Θεωρία",
+  "@aiGenerationCategoryTheory": {
+    "description": "Label for theory category"
+  },
+  "aiGenerationCategoryExercises": "Ασκήσεις",
+  "@aiGenerationCategoryExercises": {
+    "description": "Label for exercises category"
+  },
+  "aiGenerationCategoryBoth": "Μικτό",
+  "@aiGenerationCategoryBoth": {
+    "description": "Label for mixed category"
+  },
   "load": "Φόρτωση",
   "fileLoaded": "Το αρχείο φορτώθηκε: {filePath}",
   "fileSaved": "Το αρχείο αποθηκεύτηκε: {filePath}",
@@ -122,7 +146,7 @@
   "optionsTooltip": "Αριθμός επιλογών απάντησης για αυτή την ερώτηση",
   "imageTooltip": "Αυτή η ερώτηση έχει συσχετισμένη εικόνα",
   "explanationTooltip": "Αυτή η ερώτηση έχει εξήγηση",
-  "aiPrompt": "Εστιάστε στην ερώτηση του μαθητή, όχι στο να απαντήσετε απευθείας την αρχική ερώτηση εξέτασης. Εξηγήστε με παιδαγωγική προσέγγιση, παρέχοντας σαφή επιχειρήματα χωρίς να παρεκκλίνετε από το θέμα. Μη δομείτε την απάντηση σε ενότητες. Μην αναφέρεστε στον εαυτό σας. Απαντάτε στην ίδια γλώσσα που σας ρωτούν.",
+  "aiPrompt": "Εστιάστε στην ερώτηση του μαθητή, όχι στο να απαντήσετε απευθείας την αρχική ερώτηση εξέτασης. Εξηγήστε με παιδαγωγική προσέγγιση. Για πρακτικές ασκήσεις ή μαθηματικά προβλήματα, παρέχετε οδηγίες βήμα προς βήμα. Για θεωρητικές ερωτήσεις, παρέχετε μια συνοπτική εξήγηση χωρίς να δομείτε την απάντηση σε ενότητες. Απαντάτε στην ίδια γλώσσα που σας ρωτούν.",
   "questionLabel": "Ερώτηση",
   "studentComment": "Σχόλιο μαθητή",
   "aiAssistantTitle": "Βοηθός Μελέτης AI",
@@ -459,5 +483,6 @@
       }
     }
   },
-  "allQuestionsLabel": "Όλες οι ερωτήσεις"
+  "allQuestionsLabel": "Όλες οι ερωτήσεις",
+  "startWithSelectedQuestions": "Έναρξη με {count} επιλεγμένες"
 }

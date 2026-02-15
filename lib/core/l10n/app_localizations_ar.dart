@@ -384,7 +384,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      'ركز على سؤال الطالب، وليس على الإجابة مباشرة على سؤال الامتحان الأصلي. اشرح بمنهج تربوي، مقدماً حججاً واضحة دون الاستطراد أو الخروج عن الموضوع. لا تنظم الإجابة في أقسام. لا تشر إلى نفسك. استجب بنفس اللغة التي يُطرح بها السؤال.';
+      'ركز على سؤال الطالب، وليس على الإجابة مباشرة على سؤال الامتحان الأصلي. اشرح بمنهج تربوي. بالنسبة للتمارين العملية أو المسائل الرياضية، قدم تعليمات خطوة بخطوة. بالنسبة للأسئلة النظرية، قدم شرحًا موجزًا دون تنظيم الإجابة في أقسام. أجب بنفس اللغة التي سُئلت بها.';
 
   @override
   String get questionLabel => 'السؤال';
@@ -776,7 +776,13 @@ class AppLocalizationsAr extends AppLocalizations {
       'أدخل موضوعاً مثل \"تاريخ الحرب العالمية الثانية\" أو الصق محتوى نصي هنا...';
 
   @override
-  String get aiAttachFileHint => 'إرفاق ملف (PDF، TXT، DOCX)';
+  String get aiAttachFileHint => 'إرفاق ملف (PDF، TXT، MP3، MP4،...)';
+
+  @override
+  String get dropAttachmentHere => 'أفلت الملف هنا';
+
+  @override
+  String get dropImageHere => 'أفلت الصورة هنا';
 
   @override
   String get aiNumberQuestionsLabel => 'عدد الأسئلة';
@@ -796,6 +802,18 @@ class AppLocalizationsAr extends AppLocalizations {
   String aiTextModeCount(int count) {
     return 'وضع النص ($count كلمات)';
   }
+
+  @override
+  String get aiGenerationCategoryLabel => 'وضع المحتوى';
+
+  @override
+  String get aiGenerationCategoryTheory => 'نظرية';
+
+  @override
+  String get aiGenerationCategoryExercises => 'تمارين';
+
+  @override
+  String get aiGenerationCategoryBoth => 'مختلط';
 
   @override
   String get languageSpanish => 'Español';
@@ -1332,4 +1350,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get allQuestionsLabel => 'جميع الأسئلة';
+
+  @override
+  String startWithSelectedQuestions(int count) {
+    return 'ابدأ بـ $count محددة';
+  }
 }

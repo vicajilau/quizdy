@@ -48,9 +48,17 @@
   "@aiContentFieldHint": {
     "description": "Hint text for the content input field"
   },
-  "aiAttachFileHint": "إرفاق ملف (PDF، TXT، DOCX)",
+  "aiAttachFileHint": "إرفاق ملف (PDF، TXT، MP3، MP4،...)",
   "@aiAttachFileHint": {
     "description": "Hint text for the file attachment area"
+  },
+  "dropAttachmentHere": "أفلت الملف هنا",
+  "@dropAttachmentHere": {
+    "description": "Hint shown when dragging a file over the attachment area"
+  },
+  "dropImageHere": "أفلت الصورة هنا",
+  "@dropImageHere": {
+    "description": "Hint shown when dragging an image over the image section"
   },
   "aiNumberQuestionsLabel": "عدد الأسئلة",
   "@aiNumberQuestionsLabel": {
@@ -75,6 +83,22 @@
     }
   },
   "aiTextModeCount": "وضع النص ({count} كلمات)",
+  "aiGenerationCategoryLabel": "وضع المحتوى",
+  "@aiGenerationCategoryLabel": {
+    "description": "Label for AI generation category selector"
+  },
+  "aiGenerationCategoryTheory": "نظرية",
+  "@aiGenerationCategoryTheory": {
+    "description": "Label for theory category"
+  },
+  "aiGenerationCategoryExercises": "تمارين",
+  "@aiGenerationCategoryExercises": {
+    "description": "Label for exercises category"
+  },
+  "aiGenerationCategoryBoth": "مختلط",
+  "@aiGenerationCategoryBoth": {
+    "description": "Label for mixed category"
+  },
   "@aiTextModeCount": {
     "description": "Text mode with word count",
     "placeholders": {
@@ -558,7 +582,7 @@
   "@explanationTooltip": {
     "description": "Tooltip text for the explanation indicator badge"
   },
-  "aiPrompt": "ركز على سؤال الطالب، وليس على الإجابة مباشرة على سؤال الامتحان الأصلي. اشرح بمنهج تربوي، مقدماً حججاً واضحة دون الاستطراد أو الخروج عن الموضوع. لا تنظم الإجابة في أقسام. لا تشر إلى نفسك. استجب بنفس اللغة التي يُطرح بها السؤال.",
+  "aiPrompt": "ركز على سؤال الطالب، وليس على الإجابة مباشرة على سؤال الامتحان الأصلي. اشرح بمنهج تربوي. بالنسبة للتمارين العملية أو المسائل الرياضية، قدم تعليمات خطوة بخطوة. بالنسبة للأسئلة النظرية، قدم شرحًا موجزًا دون تنظيم الإجابة في أقسام. أجب بنفس اللغة التي سُئلت بها.",
   "@aiPrompt": {
     "description": "Base prompt for AI assistant"
   },
@@ -1787,5 +1811,6 @@
       }
     }
   },
-  "allQuestionsLabel": "جميع الأسئلة"
+  "allQuestionsLabel": "جميع الأسئلة",
+  "startWithSelectedQuestions": "ابدأ بـ {count} محددة"
 }

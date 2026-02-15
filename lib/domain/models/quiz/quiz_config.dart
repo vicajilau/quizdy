@@ -18,6 +18,9 @@ class QuizConfig {
   /// The amount of points to subtract for each incorrect answer.
   final double penaltyAmount;
 
+  /// Whether to use only the user-selected questions instead of a random subset.
+  final bool useSelectedOnly;
+
   /// Creates a [QuizConfig] instance with the specified settings.
   const QuizConfig({
     required this.questionCount,
@@ -26,6 +29,7 @@ class QuizConfig {
     this.timeLimitMinutes,
     this.subtractPoints = false,
     this.penaltyAmount = 0.0,
+    this.useSelectedOnly = false,
   });
 
   @override
@@ -38,7 +42,8 @@ class QuizConfig {
         other.enableTimeLimit == enableTimeLimit &&
         other.timeLimitMinutes == timeLimitMinutes &&
         other.subtractPoints == subtractPoints &&
-        other.penaltyAmount == penaltyAmount;
+        other.penaltyAmount == penaltyAmount &&
+        other.useSelectedOnly == useSelectedOnly;
   }
 
   @override
@@ -48,9 +53,10 @@ class QuizConfig {
       enableTimeLimit.hashCode ^
       timeLimitMinutes.hashCode ^
       subtractPoints.hashCode ^
-      penaltyAmount.hashCode;
+      penaltyAmount.hashCode ^
+      useSelectedOnly.hashCode;
 
   @override
   String toString() =>
-      'QuizConfig(questionCount: $questionCount, isStudyMode: $isStudyMode, enableTimeLimit: $enableTimeLimit, timeLimitMinutes: $timeLimitMinutes, subtractPoints: $subtractPoints, penaltyAmount: $penaltyAmount)';
+      'QuizConfig(questionCount: $questionCount, isStudyMode: $isStudyMode, enableTimeLimit: $enableTimeLimit, timeLimitMinutes: $timeLimitMinutes, subtractPoints: $subtractPoints, penaltyAmount: $penaltyAmount, useSelectedOnly: $useSelectedOnly)';
 }

@@ -486,7 +486,7 @@
   "@explanationTooltip": {
     "description": "Tooltip text for the explanation indicator badge"
   },
-  "aiPrompt": "学生の質問に焦点を当て、元の試験問題に直接答えるのではなく。教育的なアプローチで説明し、脱線せずに明確な論拠を提供してください。回答をセクションに分けないでください。自分自身に言及しないでください。質問された言語と同じ言語で回答してください。",
+  "aiPrompt": "元の試験問題に直接答えるのではなく、学生の質問に焦点を当ててください。教育的なアプローチで説明してください。実践的な演習や数学の問題については、ステップバイステップの指示を提供してください。理論的な質問については、回答をセクションに分けずに簡潔な説明を提供してください。質問されたのと同じ言語で回答してください。",
   "@aiPrompt": {
     "description": "Base prompt for AI assistant"
   },
@@ -1692,12 +1692,36 @@
   "aiEnterContentTitle": "コンテンツを入力",
   "aiEnterContentDescription": "質問を作成するトピックを入力するか、コンテンツを貼り付けてください",
   "aiContentFieldHint": "「第二次世界大戦の歴史」のようなトピックを入力するか、ここにテキストを貼り付けてください...",
-  "aiAttachFileHint": "ファイルを添付 (PDF, TXT, DOCX)",
+  "aiAttachFileHint": "ファイルを添付 (PDF, TXT, MP3, MP4,...)",
+  "dropAttachmentHere": "ファイルをここにドロップ",
+  "@dropAttachmentHere": {
+    "description": "Hint shown when dragging a file over the attachment area"
+  },
+  "dropImageHere": "画像をここにドロップ",
+  "@dropImageHere": {
+    "description": "Hint shown when dragging an image over the image section"
+  },
   "aiNumberQuestionsLabel": "質問数",
   "backButton": "戻る",
   "generateButton": "生成",
   "aiTopicModeCount": "トピックモード ({count} 語)",
   "aiTextModeCount": "テキストモード ({count} 語)",
+  "aiGenerationCategoryLabel": "コンテンツモード",
+  "@aiGenerationCategoryLabel": {
+    "description": "Label for AI generation category selector"
+  },
+  "aiGenerationCategoryTheory": "理論",
+  "@aiGenerationCategoryTheory": {
+    "description": "Label for theory category"
+  },
+  "aiGenerationCategoryExercises": "演習",
+  "@aiGenerationCategoryExercises": {
+    "description": "Label for exercises category"
+  },
+  "aiGenerationCategoryBoth": "混合",
+  "@aiGenerationCategoryBoth": {
+    "description": "Label for mixed category"
+  },
   "allLabel": "すべて",
   "@allLabel": {
     "description": "すべての質問を選択するオプションのラベル"
@@ -1730,5 +1754,6 @@
       }
     }
   },
-  "allQuestionsLabel": "すべての問題"
+  "allQuestionsLabel": "すべての問題",
+  "startWithSelectedQuestions": "{count}問を選択して開始"
 }

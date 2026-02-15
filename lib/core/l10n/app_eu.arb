@@ -478,7 +478,7 @@
   "@explanationTooltip": {
     "description": "Azalpen adierazle txartelaren tooltip testua"
   },
-  "aiPrompt": "Zentratu ikaslearen galderan, ez jatorrizko azterketa galderari zuzenean erantzutean. Azaldu ikuspegi pedagogiko batekin, argudio argiak emanez gaia alboratzen gabe. Ez egituratu erantzuna ataletan. Ez erreferentziatu zeure burua. Beti erantzun galdetu zaizun hizkuntza berean.",
+  "aiPrompt": "Zentratu ikaslearen galderan, ez jatorrizko azterketa galderari zuzenean erantzutean. Azaldu ikuspegi pedagogiko batekin. Ariketa praktikoetarako edo arazo matematikoetarako, eman urratsez urratseko argibideak. Galdera teorikoetarako, eman azalpen zehatza erantzuna ataletan egituratu gabe. Erantzun beti galdetu zaizun hizkuntza berean.",
   "@aiPrompt": {
     "description": "AI laguntzailearen oinarrizko gonbita"
   },
@@ -1689,12 +1689,36 @@
   "aiEnterContentTitle": "Sartu edukia",
   "aiEnterContentDescription": "Sartu gaia edo itsatsi edukia galderak sortzeko",
   "aiContentFieldHint": "Sartu gai bat, adibidez \"Bigarren Mundu Gerrako historia\" edo itsatsi testua hemen...",
-  "aiAttachFileHint": "Erantsi fitxategia (PDF, TXT, DOCX)",
+  "aiAttachFileHint": "Erantsi fitxategia (PDF, TXT, MP3, MP4,...)",
+  "dropAttachmentHere": "Askatu fitxategia hemen",
+  "@dropAttachmentHere": {
+    "description": "Hint shown when dragging a file over the attachment area"
+  },
+  "dropImageHere": "Askatu irudia hemen",
+  "@dropImageHere": {
+    "description": "Hint shown when dragging an image over the image section"
+  },
   "aiNumberQuestionsLabel": "Galdera kopurua",
   "backButton": "Itzuli",
   "generateButton": "Sortu",
   "aiTopicModeCount": "Gai modua ({count} hitz)",
   "aiTextModeCount": "Testu modua ({count} hitz)",
+  "aiGenerationCategoryLabel": "Eduki Modua",
+  "@aiGenerationCategoryLabel": {
+    "description": "Label for AI generation category selector"
+  },
+  "aiGenerationCategoryTheory": "Teoria",
+  "@aiGenerationCategoryTheory": {
+    "description": "Label for theory category"
+  },
+  "aiGenerationCategoryExercises": "Ariketak",
+  "@aiGenerationCategoryExercises": {
+    "description": "Label for exercises category"
+  },
+  "aiGenerationCategoryBoth": "Nahasia",
+  "@aiGenerationCategoryBoth": {
+    "description": "Label for mixed category"
+  },
   "allLabel": "Guztiak",
   "@allLabel": {
     "description": "Galdera guztiak hautatzeko aukeraren etiketa"
@@ -1727,5 +1751,6 @@
       }
     }
   },
-  "allQuestionsLabel": "Galdera guztiak"
+  "allQuestionsLabel": "Galdera guztiak",
+  "startWithSelectedQuestions": "Hasi {count} hautatuekin"
 }

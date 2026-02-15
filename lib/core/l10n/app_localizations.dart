@@ -773,7 +773,7 @@ abstract class AppLocalizations {
   /// Base prompt for AI assistant
   ///
   /// In en, this message translates to:
-  /// **'Focus on the student\'s question, not on directly answering the original exam question. Explain with a pedagogical approach, providing clear arguments without rambling or going off-topic. Do not structure the response in sections. Do not refer to yourself. Respond in the same language you are asked in.'**
+  /// **'Focus on the student\'s question, not on directly answering the original exam question. Explain with a pedagogical approach. For practical exercises or math problems, provide step-by-step instructions. For theoretical questions, provide a concise explanation without structuring the response in sections. Respond in the same language you are asked in.'**
   String get aiPrompt;
 
   /// Label for question in AI dialog
@@ -1457,8 +1457,20 @@ abstract class AppLocalizations {
   /// Hint text for the file attachment area
   ///
   /// In en, this message translates to:
-  /// **'Attach a file (PDF, TXT, DOCX)'**
+  /// **'Attach a file (PDF, TXT, MP3, MP4,...)'**
   String get aiAttachFileHint;
+
+  /// Hint shown when dragging a file over the attachment area
+  ///
+  /// In en, this message translates to:
+  /// **'Drop file here'**
+  String get dropAttachmentHere;
+
+  /// Hint shown when dragging an image over the image section
+  ///
+  /// In en, this message translates to:
+  /// **'Drop image here'**
+  String get dropImageHere;
 
   /// Label for number of questions input
   ///
@@ -1489,6 +1501,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Text Mode ({count} words)'**
   String aiTextModeCount(int count);
+
+  /// Label for AI generation category selector
+  ///
+  /// In en, this message translates to:
+  /// **'Content Mode'**
+  String get aiGenerationCategoryLabel;
+
+  /// Label for theory category
+  ///
+  /// In en, this message translates to:
+  /// **'Theory'**
+  String get aiGenerationCategoryTheory;
+
+  /// Label for exercises category
+  ///
+  /// In en, this message translates to:
+  /// **'Exercises'**
+  String get aiGenerationCategoryExercises;
+
+  /// Label for mixed category
+  ///
+  /// In en, this message translates to:
+  /// **'Mixed'**
+  String get aiGenerationCategoryBoth;
 
   /// Spanish language name.
   ///
@@ -2449,6 +2485,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'All Questions'**
   String get allQuestionsLabel;
+
+  /// Button text to start the quiz with only the selected questions
+  ///
+  /// In en, this message translates to:
+  /// **'Start with {count} selected'**
+  String startWithSelectedQuestions(int count);
 }
 
 class _AppLocalizationsDelegate

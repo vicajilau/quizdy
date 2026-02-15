@@ -28,7 +28,10 @@ Access Quiz App on your favorite platform:
 - 🐧 **Linux**: [Snapcraft](https://snapcraft.io/quiz-app)
   Download and install easily on any Linux distribution compatible with Snap.
 
-> **Note:** MacOS and iOS versions are under review and will be added soon.
+- 🍎 **macOS**: [Mac App Store](https://apps.apple.com/app/quiz-appl/id6758663432)
+  Native experience optimized for Apple Silicon and Intel Macs.
+
+> **Note:** iOS version is under review and will be added soon.
 
 A cross-platform Flutter application that provides two powerful modes:
 
@@ -256,8 +259,8 @@ For detailed information about AI service limits and configuration, see: **[AI L
 
 ## Requirements
 
-- Flutter SDK 3.0.0 or higher
-- Dart SDK 3.0.0 or higher
+- Flutter SDK 3.41.0 or higher
+- Dart SDK 3.11.0 or higher
 - Android Studio / Xcode for mobile development
 - A device or emulator for testing
 
@@ -578,6 +581,4 @@ We welcome suggestions for:
 
 ## License
 
-This project is under the MIT license.
-
-
+This project is licensed under the BSD 3-Clause License - see the [LICENSE](LICENSE) file for details.

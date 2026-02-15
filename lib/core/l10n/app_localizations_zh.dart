@@ -377,7 +377,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      '专注于学生的问题，而不是直接回答原始考试题目。用教学方法解释，提供清晰的论据，不要跑题或离题。不要将回答分成章节。不要提及自己。用被问问题的相同语言回答。';
+      '专注于学生的问题，而不是直接回答原始考试题目。用教学方法解释。对于实践练习或数学问题，提供逐步说明。对于理论问题，提供简明的解释，不要将回答分成章节。用被问到的相同语言回答。';
 
   @override
   String get questionLabel => '问题';
@@ -746,7 +746,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get aiContentFieldHint => '输入主题如“二战史”或在此粘贴文本...';
 
   @override
-  String get aiAttachFileHint => '附加文件 (PDF, TXT, DOCX)';
+  String get aiAttachFileHint => '附加文件 (PDF, TXT, MP3, MP4,...)';
+
+  @override
+  String get dropAttachmentHere => '在此处放置文件';
+
+  @override
+  String get dropImageHere => '在此处放置图片';
 
   @override
   String get aiNumberQuestionsLabel => '问题数量';
@@ -766,6 +772,18 @@ class AppLocalizationsZh extends AppLocalizations {
   String aiTextModeCount(int count) {
     return '文本模式 ($count 字)';
   }
+
+  @override
+  String get aiGenerationCategoryLabel => '内容模式';
+
+  @override
+  String get aiGenerationCategoryTheory => '理论';
+
+  @override
+  String get aiGenerationCategoryExercises => '练习';
+
+  @override
+  String get aiGenerationCategoryBoth => '混合';
 
   @override
   String get languageSpanish => 'Español';
@@ -1290,4 +1308,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get allQuestionsLabel => '所有题目';
+
+  @override
+  String startWithSelectedQuestions(int count) {
+    return '开始 $count 道已选题目';
+  }
 }

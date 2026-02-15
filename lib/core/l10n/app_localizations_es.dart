@@ -394,7 +394,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      'Enfócate en la pregunta del estudiante, no en responder directamente la pregunta original del examen. Explica con un enfoque pedagógico, proporcionando argumentos claros sin divagar ni salirte del tema. No estructures la respuesta en secciones. No te refieras a ti mismo. Responde en el mismo idioma en que te pregunten.';
+      'Enfócate en la pregunta del estudiante, no en responder directamente la pregunta original del examen. Explica con un enfoque pedagógico. Para ejercicios prácticos o problemas matemáticos, proporciona instrucciones paso a paso. Para preguntas teóricas, proporciona una explicación concisa sin estructurar la respuesta en secciones. Responde en el mismo idioma en que te pregunten.';
 
   @override
   String get questionLabel => 'Pregunta';
@@ -790,7 +790,13 @@ class AppLocalizationsEs extends AppLocalizations {
       'Introduce un tema como \"Historia de la Segunda Guerra Mundial\" o pega el contenido de texto aquí...';
 
   @override
-  String get aiAttachFileHint => 'Adjunta un archivo (PDF, TXT, DOCX)';
+  String get aiAttachFileHint => 'Adjunta un archivo (PDF, TXT, MP3, MP4,...)';
+
+  @override
+  String get dropAttachmentHere => 'Suelta el archivo aquí';
+
+  @override
+  String get dropImageHere => 'Suelta la imagen aquí';
 
   @override
   String get aiNumberQuestionsLabel => 'Número de preguntas';
@@ -810,6 +816,18 @@ class AppLocalizationsEs extends AppLocalizations {
   String aiTextModeCount(int count) {
     return 'Modo Texto ($count palabras)';
   }
+
+  @override
+  String get aiGenerationCategoryLabel => 'Modo de Contenido';
+
+  @override
+  String get aiGenerationCategoryTheory => 'Teoría';
+
+  @override
+  String get aiGenerationCategoryExercises => 'Ejercicios';
+
+  @override
+  String get aiGenerationCategoryBoth => 'Mixto';
 
   @override
   String get languageSpanish => 'Español';
@@ -1357,4 +1375,9 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get allQuestionsLabel => 'Todas las preguntas';
+
+  @override
+  String startWithSelectedQuestions(int count) {
+    return 'Iniciar con $count seleccionadas';
+  }
 }
