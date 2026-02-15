@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
+import 'package:quiz_app/core/l10n/extensions/app_localizations_extension.dart';
 import 'package:quiz_app/data/services/ai/ai_service.dart';
 import 'package:quiz_app/domain/models/ai/ai_question_type.dart';
 import 'package:quiz_app/presentation/screens/dialogs/widgets/ai_question_type_chip.dart';
@@ -21,8 +22,6 @@ class AiGenerateStep1Widget extends StatelessWidget {
   final ValueChanged<String> onLanguageChanged;
   final ValueChanged<AiQuestionType> onQuestionTypeToggled;
   final VoidCallback onNext;
-  final String Function(String code, AppLocalizations localizations)
-  getLanguageName;
 
   const AiGenerateStep1Widget({
     super.key,
@@ -38,7 +37,6 @@ class AiGenerateStep1Widget extends StatelessWidget {
     required this.onLanguageChanged,
     required this.onQuestionTypeToggled,
     required this.onNext,
-    required this.getLanguageName,
   });
 
   @override
@@ -388,7 +386,7 @@ class AiGenerateStep1Widget extends StatelessWidget {
                                 (lang) => DropdownMenuItem(
                                   value: lang,
                                   child: Text(
-                                    getLanguageName(lang, localizations),
+                                    localizations.getLanguageName(lang),
                                   ),
                                 ),
                               )

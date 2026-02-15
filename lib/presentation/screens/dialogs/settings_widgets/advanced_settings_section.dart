@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
+import 'package:quiz_app/core/l10n/extensions/app_localizations_extension.dart';
 import 'package:quiz_app/core/theme/app_theme.dart';
 import 'package:quiz_app/core/theme/extensions/confirm_dialog_colors_extension.dart';
 import 'package:quiz_app/presentation/blocs/locale_bloc/locale_bloc.dart';
@@ -77,6 +78,8 @@ class AdvancedSettingsSection extends StatelessWidget {
                   ),
                   const SizedBox(width: 16),
                   BlocBuilder<LocaleBloc, LocaleState>(
+                    buildWhen: (previous, current) =>
+                        previous.locale != current.locale,
                     builder: (context, state) {
                       return Container(
                         padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -107,7 +110,9 @@ class AdvancedSettingsSection extends StatelessWidget {
                               return DropdownMenuItem(
                                 value: locale,
                                 child: Text(
-                                  _getLanguageName(locale.languageCode),
+                                  AppLocalizations.of(
+                                    context,
+                                  )!.getLanguageName(locale.languageCode),
                                 ),
                               );
                             }).toList(),
@@ -130,32 +135,5 @@ class AdvancedSettingsSection extends StatelessWidget {
         ),
       ],
     );
-  }
-
-  String _getLanguageName(String code) {
-    switch (code) {
-      case 'en':
-        return 'English';
-      case 'es':
-        return 'Español';
-      case 'de':
-        return 'Deutsch';
-      case 'it':
-        return 'Italiano';
-      case 'pt':
-        return 'Português';
-      case 'fr':
-        return 'Français';
-      case 'gl':
-        return 'Galego';
-      case 'ar':
-        return 'العربية';
-      case 'ja':
-        return '日本語';
-      case 'ko':
-        return '한국어';
-      default:
-        return code.toUpperCase();
-    }
   }
 }
