@@ -4,10 +4,13 @@ import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/core/theme/app_theme.dart';
+
 import 'package:quiz_app/data/services/configuration_service.dart';
 import 'package:quiz_app/domain/models/quiz/quiz_config.dart';
 import 'package:quiz_app/domain/models/quiz/quiz_config_stored_settings.dart';
+import 'package:quiz_app/presentation/screens/dialogs/count_selection/advanced_settings_section.dart';
+import 'package:quiz_app/presentation/screens/dialogs/count_selection/count_control_button.dart';
+import 'package:quiz_app/presentation/screens/dialogs/count_selection/quiz_mode_selection.dart';
 
 class QuestionCountSelectionDialog extends StatefulWidget {
   final int totalQuestions;
@@ -457,7 +460,7 @@ class _QuestionCountSelectionDialogState
                             Row(
                               children: [
                                 // Minus Button
-                                _buildCountControl(
+                                CountControlButton(
                                   icon: LucideIcons.minus,
                                   onTap: _decrementCount,
                                   bgColor: controlBgColor,
@@ -568,7 +571,7 @@ class _QuestionCountSelectionDialogState
                                 ),
                                 const SizedBox(width: 16),
                                 // Plus Button
-                                _buildCountControl(
+                                CountControlButton(
                                   icon: LucideIcons.plus,
                                   onTap: _incrementCount,
                                   bgColor: primaryColor,
@@ -583,79 +586,84 @@ class _QuestionCountSelectionDialogState
 
                     const SizedBox(height: 32),
 
-                    // Quiz Mode
-                    Text(
-                      l10n.quizModeTitle,
-                      style: TextStyle(
-                        fontFamily: 'Inter',
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        color: subTextColor,
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-
-                    // Mode Options (Horizontal Row)
-                    Row(
-                      children: [
-                        Expanded(
-                          child: _buildModeOption(
-                            context: context,
-                            title: AppLocalizations.of(context)!.examModeLabel,
-                            icon: LucideIcons.fileText,
-                            isSelected: !_isStudyMode,
-                            onTap: () => setState(() => _isStudyMode = false),
-                            primaryColor: primaryColor,
-                            defaultBgColor: controlBgColor,
-                            defaultTextColor: subTextColor,
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: _buildModeOption(
-                            context: context,
-                            title: AppLocalizations.of(context)!.studyModeLabel,
-                            icon: LucideIcons.bookOpen,
-                            isSelected: _isStudyMode,
-                            onTap: () => setState(() {
-                              _isStudyMode = true;
-                              _subtractPoints = false;
-                              _enableMaxIncorrectAnswers = false;
-                            }),
-                            primaryColor: primaryColor,
-                            defaultBgColor: controlBgColor,
-                            defaultTextColor: subTextColor,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 12),
-
-                    // Mode Description
-                    Text(
-                      _isStudyMode
-                          ? AppLocalizations.of(context)!.studyModeDescription
-                          : AppLocalizations.of(context)!.examModeDescription,
-                      style: TextStyle(
-                        fontFamily: 'Inter',
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        color: subTextColor,
-                        height: 1.4,
-                      ),
-                      textAlign: TextAlign.start,
+                    QuizModeSelection(
+                      isStudyMode: _isStudyMode,
+                      onModeChanged: (isStudyMode) {
+                        setState(() {
+                          _isStudyMode = isStudyMode;
+                          if (_isStudyMode) {
+                            _subtractPoints = false;
+                            _enableMaxIncorrectAnswers = false;
+                          }
+                        });
+                      },
+                      primaryColor: primaryColor,
+                      controlBgColor: controlBgColor,
+                      subTextColor: subTextColor,
                     ),
 
                     const SizedBox(height: 12),
-                    _buildAdvancedOptions(
-                      context,
-                      textColor,
-                      subTextColor,
-                      borderColor,
-                      primaryColor,
-                      controlBgColor,
-                      controlIconColor,
-                      isDark,
+                    AdvancedSettingsSection(
+                      isStudyMode: _isStudyMode,
+                      isDark: isDark,
+                      textColor: textColor,
+                      subTextColor: subTextColor,
+                      borderColor: borderColor,
+                      primaryColor: primaryColor,
+                      controlBgColor: controlBgColor,
+                      controlIconColor: controlIconColor,
+                      subtractPoints: _subtractPoints,
+                      penaltyAmount: _penaltyAmount,
+                      penaltyController: _penaltyController,
+                      penaltyFocusNode: _penaltyFocusNode,
+                      onSubtractPointsChanged: (value) {
+                        setState(() {
+                          _subtractPoints = value;
+                          if (_subtractPoints && _penaltyAmount <= 0.0) {
+                            _penaltyAmount = 0.05;
+                            _penaltyController.text = '0.05';
+                          }
+                        });
+                      },
+                      onPenaltyAmountChanged: (val) {
+                        setState(() {
+                          _penaltyAmount = val;
+                        });
+                      },
+                      onIncrementPenalty: _incrementPenalty,
+                      onDecrementPenalty: _decrementPenalty,
+                      enableMaxIncorrectAnswers: _enableMaxIncorrectAnswers,
+                      maxIncorrectAnswersLimit: _maxIncorrectAnswersLimit,
+                      maxIncorrectAnswersController:
+                          _maxIncorrectAnswersController,
+                      maxIncorrectAnswersFocusNode:
+                          _maxIncorrectAnswersFocusNode,
+                      onEnableMaxIncorrectAnswersChanged: (value) {
+                        setState(() {
+                          _enableMaxIncorrectAnswers = value;
+                        });
+                      },
+                      onMaxIncorrectAnswersLimitChanged: (val) {
+                        setState(() {
+                          _maxIncorrectAnswersLimit = val.clamp(
+                            1,
+                            _selectedCount,
+                          );
+                          if (val != _maxIncorrectAnswersLimit) {
+                            _maxIncorrectAnswersController.text =
+                                _maxIncorrectAnswersLimit.toString();
+                            _maxIncorrectAnswersController
+                                .selection = TextSelection.fromPosition(
+                              TextPosition(
+                                offset:
+                                    _maxIncorrectAnswersController.text.length,
+                              ),
+                            );
+                          }
+                        });
+                      },
+                      onIncrementMaxIncorrect: _incrementMaxIncorrect,
+                      onDecrementMaxIncorrect: _decrementMaxIncorrect,
                     ),
                   ],
                 ),
@@ -726,407 +734,6 @@ class _QuestionCountSelectionDialogState
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildCountControl({
-    required IconData icon,
-    VoidCallback? onTap,
-    required Color bgColor,
-    required Color iconColor,
-  }) {
-    return IconButton(
-      onPressed: onTap,
-      style: IconButton.styleFrom(
-        backgroundColor: bgColor,
-        foregroundColor: iconColor,
-        fixedSize: const Size(48, 48),
-        padding: EdgeInsets.zero,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      ),
-      icon: Icon(icon, size: 20),
-    );
-  }
-
-  Widget _buildModeOption({
-    required BuildContext context,
-    required String title,
-    required IconData icon,
-    required bool isSelected,
-    required VoidCallback onTap,
-    required Color primaryColor,
-    required Color defaultBgColor,
-    required Color defaultTextColor,
-  }) {
-    return IconButton(
-      onPressed: onTap,
-      style: IconButton.styleFrom(
-        backgroundColor: isSelected ? primaryColor : defaultBgColor,
-        foregroundColor: isSelected ? Colors.white : defaultTextColor,
-        minimumSize: const Size(double.infinity, 64),
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      ),
-      icon: SizedBox(
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              icon,
-              size: 20,
-              color: isSelected ? Colors.white : defaultTextColor,
-            ),
-            const SizedBox(height: 4),
-            Text(
-              title,
-              style: TextStyle(
-                fontFamily: 'Inter',
-                fontSize: 14,
-                fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
-                color: isSelected ? Colors.white : defaultTextColor,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildAdvancedOptions(
-    BuildContext context,
-    Color textColor,
-    Color subTextColor,
-    Color borderColor,
-    Color primaryColor,
-    Color controlBgColor,
-    Color controlIconColor,
-    bool isDark,
-  ) {
-    return AnimatedSize(
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (!_isStudyMode) ...[
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              decoration: BoxDecoration(
-                color: isDark
-                    ? const Color(0xFF3F3F46)
-                    : const Color(0xFFF4F4F5),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          AppLocalizations.of(context)!.subtractPointsLabel,
-                          style: TextStyle(
-                            fontFamily: 'Inter',
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                            color: textColor,
-                          ),
-                        ),
-                        if (_subtractPoints) ...[
-                          const SizedBox(height: 2),
-                          Text(
-                            AppLocalizations.of(context)!.penaltyPointsLabel(
-                              _penaltyAmount.toStringAsFixed(2),
-                            ),
-                            style: const TextStyle(
-                              fontFamily: 'Inter',
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                              color: AppTheme.errorColor,
-                            ),
-                          ),
-                        ],
-                      ],
-                    ),
-                  ),
-                  Switch(
-                    value: _subtractPoints,
-                    onChanged: (value) {
-                      setState(() {
-                        _subtractPoints = value;
-                        if (_subtractPoints && _penaltyAmount <= 0.0) {
-                          _penaltyAmount = 0.05;
-                          _penaltyController.text = '0.05';
-                        }
-                      });
-                    },
-                    activeTrackColor: primaryColor,
-                    activeThumbColor: Colors.white,
-                    inactiveThumbColor: Colors.white,
-                    inactiveTrackColor: isDark
-                        ? AppTheme.zinc600
-                        : AppTheme.zinc300,
-                    trackOutlineColor: WidgetStateProperty.all(
-                      Colors.transparent,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            if (_subtractPoints) ...[
-              const SizedBox(height: 12),
-              // Reusing Question Count style for consistency
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    AppLocalizations.of(context)!.penaltyAmountLabel,
-                    style: TextStyle(
-                      fontFamily: 'Inter',
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: subTextColor,
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  Row(
-                    children: [
-                      _buildCountControl(
-                        icon: LucideIcons.minus,
-                        onTap: _decrementPenalty,
-                        bgColor: controlBgColor,
-                        iconColor: controlIconColor,
-                      ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: Container(
-                          height: 48,
-                          decoration: BoxDecoration(
-                            color: controlBgColor,
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          alignment: Alignment.center,
-                          child: TextFormField(
-                            controller: _penaltyController,
-                            focusNode: _penaltyFocusNode,
-                            keyboardType: const TextInputType.numberWithOptions(
-                              decimal: true,
-                            ),
-                            inputFormatters: [
-                              FilteringTextInputFormatter.allow(
-                                RegExp(r'[0-9.,]'),
-                              ),
-                            ],
-                            textAlign: TextAlign.center,
-                            decoration: const InputDecoration(
-                              border: InputBorder.none,
-                              isDense: true,
-                              contentPadding: EdgeInsets.zero,
-                            ),
-                            style: TextStyle(
-                              fontFamily: 'Inter',
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
-                              color: textColor,
-                            ),
-                            onChanged: (value) {
-                              // Allow empty string while typing
-                              if (value.isEmpty) return;
-
-                              // Replace comma with dot for consistency
-                              final normalizedValue = value.replaceAll(
-                                ',',
-                                '.',
-                              );
-                              final val = double.tryParse(normalizedValue);
-
-                              if (val != null && val >= 0) {
-                                setState(() {
-                                  _penaltyAmount = val;
-                                });
-                              }
-                            },
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 16),
-                      _buildCountControl(
-                        icon: LucideIcons.plus,
-                        onTap: _incrementPenalty,
-                        bgColor: primaryColor,
-                        iconColor: Colors.white,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
-            const SizedBox(height: 16),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              decoration: BoxDecoration(
-                color: isDark
-                    ? const Color(0xFF3F3F46)
-                    : const Color(0xFFF4F4F5),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          AppLocalizations.of(
-                            context,
-                          )!.maxIncorrectAnswersLabel,
-                          style: TextStyle(
-                            fontFamily: 'Inter',
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                            color: textColor,
-                          ),
-                        ),
-                        const SizedBox(height: 2),
-                        Text(
-                          AppLocalizations.of(
-                            context,
-                          )!.maxIncorrectAnswersDescription,
-                          style: TextStyle(
-                            fontFamily: 'Inter',
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: subTextColor,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Switch(
-                    value: _enableMaxIncorrectAnswers,
-                    onChanged: (value) {
-                      setState(() {
-                        _enableMaxIncorrectAnswers = value;
-                      });
-                    },
-                    activeTrackColor: primaryColor,
-                    activeThumbColor: Colors.white,
-                    inactiveThumbColor: Colors.white,
-                    inactiveTrackColor: isDark
-                        ? AppTheme.zinc600
-                        : AppTheme.zinc300,
-                    trackOutlineColor: WidgetStateProperty.all(
-                      Colors.transparent,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            if (_enableMaxIncorrectAnswers) ...[
-              const SizedBox(height: 12),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    AppLocalizations.of(context)!.maxIncorrectAnswersLimitLabel,
-                    style: TextStyle(
-                      fontFamily: 'Inter',
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: subTextColor,
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  Container(
-                    height: 56,
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    decoration: BoxDecoration(
-                      color: controlBgColor,
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(
-                        color: borderColor.withValues(alpha: 0.5),
-                      ),
-                    ),
-                    child: Row(
-                      children: [
-                        _buildCountControl(
-                          icon: LucideIcons.minus,
-                          onTap: _decrementMaxIncorrect,
-                          bgColor: isDark
-                              ? AppTheme.zinc900.withValues(alpha: 0.5)
-                              : Colors.white,
-                          iconColor: primaryColor,
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 8),
-                            child: Center(
-                              child: TextField(
-                                controller: _maxIncorrectAnswersController,
-                                focusNode: _maxIncorrectAnswersFocusNode,
-                                textAlign: TextAlign.center,
-                                keyboardType: TextInputType.number,
-                                style: TextStyle(
-                                  fontFamily: 'Inter',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600,
-                                  color: textColor,
-                                ),
-                                decoration: const InputDecoration(
-                                  isDense: true,
-                                  border: InputBorder.none,
-                                  contentPadding: EdgeInsets.zero,
-                                ),
-                                onChanged: (value) {
-                                  final val = int.tryParse(value);
-                                  if (val != null) {
-                                    setState(() {
-                                      _maxIncorrectAnswersLimit = val.clamp(
-                                        1,
-                                        _selectedCount,
-                                      );
-                                      if (val != _maxIncorrectAnswersLimit) {
-                                        _maxIncorrectAnswersController.text =
-                                            _maxIncorrectAnswersLimit
-                                                .toString();
-                                        _maxIncorrectAnswersController
-                                                .selection =
-                                            TextSelection.fromPosition(
-                                              TextPosition(
-                                                offset:
-                                                    _maxIncorrectAnswersController
-                                                        .text
-                                                        .length,
-                                              ),
-                                            );
-                                      }
-                                    });
-                                  }
-                                },
-                              ),
-                            ),
-                          ),
-                        ),
-                        _buildCountControl(
-                          icon: LucideIcons.plus,
-                          onTap: _incrementMaxIncorrect,
-                          bgColor: isDark
-                              ? AppTheme.zinc900.withValues(alpha: 0.5)
-                              : Colors.white,
-                          iconColor: primaryColor,
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ],
-        ],
       ),
     );
   }
