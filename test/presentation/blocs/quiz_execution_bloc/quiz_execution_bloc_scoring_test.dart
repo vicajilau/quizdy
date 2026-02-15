@@ -184,7 +184,7 @@ void main() {
     );
 
     blocTest<QuizExecutionBloc, QuizExecutionState>(
-      'ends quiz immediately when max incorrect answers limit is reached (EXAM MODE)',
+      'ends quiz when max incorrect answers limit is reached AFTER navigating (EXAM MODE)',
       build: () => quizExecutionBloc,
       act: (bloc) {
         bloc.add(
@@ -198,16 +198,51 @@ void main() {
             ),
           ),
         );
-        // Answer incorrectly (limit is 1, so this should trigger completion)
+        // Answer incorrectly (limit is 1)
         bloc.add(AnswerSelected(1, true));
+        // Should NOT end yet, just update state
+        bloc.add(NextQuestionRequested());
       },
       expect: () => [
         isA<QuizExecutionInProgress>(), // Started
+        isA<QuizExecutionInProgress>(), // Answered (still in progress)
         isA<QuizExecutionCompleted>().having(
           (s) => s.wasLimitReached,
           'wasLimitReached',
           true,
-        ), // Completed immediately
+        ), // Completed after navigation attempt
+      ],
+    );
+
+    blocTest<QuizExecutionBloc, QuizExecutionState>(
+      'does NOT end quiz if answer is corrected before navigating (EXAM MODE)',
+      build: () => quizExecutionBloc,
+      act: (bloc) {
+        bloc.add(
+          QuizExecutionStarted(
+            [testQuestion, testQuestion], // 2 questions
+            quizConfig: const QuizConfig(
+              questionCount: 2,
+              isStudyMode: false,
+              enableMaxIncorrectAnswers: true,
+              maxIncorrectAnswers: 1,
+            ),
+          ),
+        );
+        // Answer incorrectly (limit is 1)
+        bloc.add(AnswerSelected(1, true));
+
+        // Correct the answer (Option A is correct)
+        bloc.add(AnswerSelected(0, true));
+
+        // Navigate
+        bloc.add(NextQuestionRequested());
+      },
+      expect: () => [
+        isA<QuizExecutionInProgress>(), // Started
+        isA<QuizExecutionInProgress>(), // Answered Incorrectly
+        isA<QuizExecutionInProgress>(), // Answered Correctly
+        isA<QuizExecutionInProgress>(), // Next Question (Success)
       ],
     );
 

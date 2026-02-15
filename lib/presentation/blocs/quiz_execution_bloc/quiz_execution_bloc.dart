@@ -77,15 +77,7 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
           incorrectAnswersCount: incorrectCount,
         );
 
-        // Check if limit reached (only in Exam Mode)
-        if (!newState.isStudyMode &&
-            newState.quizConfig.enableMaxIncorrectAnswers &&
-            newState.quizConfig.maxIncorrectAnswers != null &&
-            incorrectCount >= newState.quizConfig.maxIncorrectAnswers!) {
-          _emitQuizCompleted(emit, newState, wasLimitReached: true);
-        } else {
-          emit(newState);
-        }
+        emit(newState);
       }
     });
 
@@ -113,15 +105,7 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
           incorrectAnswersCount: incorrectCount,
         );
 
-        // Check if limit reached (only in Exam Mode)
-        if (!newState.isStudyMode &&
-            newState.quizConfig.enableMaxIncorrectAnswers &&
-            newState.quizConfig.maxIncorrectAnswers != null &&
-            incorrectCount >= newState.quizConfig.maxIncorrectAnswers!) {
-          _emitQuizCompleted(emit, newState, wasLimitReached: true);
-        } else {
-          emit(newState);
-        }
+        emit(newState);
       }
     });
 
@@ -154,6 +138,17 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
     on<NextQuestionRequested>((event, emit) {
       if (state is QuizExecutionInProgress) {
         final currentState = state as QuizExecutionInProgress;
+
+        // Check for max incorrect answers limit (Deferred Check)
+        if (!currentState.isStudyMode &&
+            currentState.quizConfig.enableMaxIncorrectAnswers &&
+            currentState.quizConfig.maxIncorrectAnswers != null &&
+            currentState.incorrectAnswersCount >=
+                currentState.quizConfig.maxIncorrectAnswers!) {
+          _emitQuizCompleted(emit, currentState, wasLimitReached: true);
+          return;
+        }
+
         if (!currentState.isLastQuestion) {
           emit(
             currentState.copyWith(
@@ -181,7 +176,18 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
     // Handle quiz submission
     on<QuizSubmitted>((event, emit) {
       if (state is QuizExecutionInProgress) {
-        _emitQuizCompleted(emit, state as QuizExecutionInProgress);
+        final currentState = state as QuizExecutionInProgress;
+
+        // Check for max incorrect answers limit (Deferred Check)
+        if (!currentState.isStudyMode &&
+            currentState.quizConfig.enableMaxIncorrectAnswers &&
+            currentState.quizConfig.maxIncorrectAnswers != null &&
+            currentState.incorrectAnswersCount >=
+                currentState.quizConfig.maxIncorrectAnswers!) {
+          _emitQuizCompleted(emit, currentState, wasLimitReached: true);
+        } else {
+          _emitQuizCompleted(emit, currentState);
+        }
       }
     });
 
