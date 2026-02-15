@@ -9,8 +9,8 @@ import 'package:quiz_app/core/service_locator.dart';
 import 'package:quiz_app/presentation/blocs/file_bloc/file_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quiz_app/presentation/blocs/file_bloc/file_event.dart';
-import 'package:quiz_app/presentation/blocs/locale_bloc/locale_bloc.dart';
-import 'package:quiz_app/presentation/blocs/locale_bloc/locale_state.dart';
+import 'package:quiz_app/presentation/blocs/locale_cubit/locale_cubit.dart';
+import 'package:quiz_app/presentation/blocs/locale_cubit/locale_state.dart';
 
 void main() {
   setUrlStrategy(null);
@@ -43,8 +43,8 @@ class _QuizApplicationState extends State<QuizApplication> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LocaleBloc(),
-      child: BlocBuilder<LocaleBloc, LocaleState>(
+      create: (context) => LocaleCubit(),
+      child: BlocBuilder<LocaleCubit, LocaleState>(
         builder: (context, state) {
           return MaterialApp.router(
             routerConfig: appRouter,
