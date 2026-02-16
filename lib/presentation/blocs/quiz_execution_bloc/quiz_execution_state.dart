@@ -1,6 +1,7 @@
 import 'package:quiz_app/domain/models/quiz/question.dart';
 import 'package:quiz_app/domain/models/quiz/question_type.dart';
 import 'package:quiz_app/domain/models/quiz/quiz_config.dart';
+import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_scoring_helper.dart';
 
 /// Abstract class representing the base state for quiz execution.
 abstract class QuizExecutionState {}
@@ -139,7 +140,7 @@ class QuizExecutionCompleted extends QuizExecutionState {
       final question = entry.value;
       final userAnswer = userAnswers[index] ?? [];
       final essayAnswer = essayAnswers[index] ?? '';
-      final isCorrect = _isAnswerCorrect(question, userAnswer, essayAnswer);
+      final isCorrect = QuizScoringHelper.isAnswerCorrect(question, userAnswer, essayAnswer);
 
       return QuestionResult(
         question: question,
@@ -151,22 +152,6 @@ class QuizExecutionCompleted extends QuizExecutionState {
     }).toList();
   }
 
-  bool _isAnswerCorrect(
-    Question question,
-    List<int> userAnswers,
-    String essayAnswer,
-  ) {
-    // Essay questions are always considered "correct" since they require manual grading
-    if (question.type == QuestionType.essay) {
-      return essayAnswer.trim().isNotEmpty;
-    }
-
-    final correctAnswers = question.correctAnswers;
-    if (correctAnswers.length != userAnswers.length) return false;
-    final sortedCorrect = List<int>.from(correctAnswers)..sort();
-    final sortedUser = List<int>.from(userAnswers)..sort();
-    return sortedCorrect.toString() == sortedUser.toString();
-  }
 }
 
 /// Class to represent individual question results

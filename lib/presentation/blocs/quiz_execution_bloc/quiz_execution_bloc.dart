@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quiz_app/domain/models/quiz/question.dart';
 import 'package:quiz_app/domain/models/quiz/question_type.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
+import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_scoring_helper.dart';
 
 /// BLoC for managing quiz execution state and logic.
 class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
@@ -66,7 +66,7 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
         }
 
         // Calculate current incorrect count
-        final incorrectCount = _calculateResultsCount(
+        final incorrectCount = QuizScoringHelper.calculateResults(
           currentState.questions,
           newUserAnswers,
           currentState.essayAnswers,
@@ -94,7 +94,7 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
         newEssayAnswers[currentQuestionIndex] = event.text;
 
         // Calculate current incorrect count
-        final incorrectCount = _calculateResultsCount(
+        final incorrectCount = QuizScoringHelper.calculateResults(
           currentState.questions,
           currentState.userAnswers,
           newEssayAnswers,
@@ -209,83 +209,24 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
     });
   }
 
-  /// Helper method to check if answer is correct
-  bool _isAnswerCorrect(
-    Question question,
-    List<int> userAnswers,
-    String essayAnswer,
-  ) {
-    // Essay questions are always considered "correct" since they require manual grading
-    if (question.type == QuestionType.essay) {
-      return essayAnswer.trim().isNotEmpty;
-    }
-
-    final correctAnswers = question.correctAnswers;
-    if (correctAnswers.length != userAnswers.length) return false;
-    final sortedCorrect = List<int>.from(correctAnswers)..sort();
-    final sortedUser = List<int>.from(userAnswers)..sort();
-    return sortedCorrect.toString() == sortedUser.toString();
-  }
-
-  /// Calculates correct and incorrect counts
-  _QuizResults _calculateResultsCount(
-    List<Question> questions,
-    Map<int, List<int>> userAnswers,
-    Map<int, String> essayAnswers,
-  ) {
-    int correctCount = 0;
-    int incorrectCount = 0;
-
-    for (int i = 0; i < questions.length; i++) {
-      final question = questions[i];
-      final userAnswer = userAnswers[i] ?? [];
-      final essayAnswer = essayAnswers[i] ?? '';
-
-      // Determine if answered
-      bool isAnswered = false;
-      if (question.type == QuestionType.essay) {
-        isAnswered = essayAnswer.trim().isNotEmpty;
-      } else {
-        isAnswered = userAnswer.isNotEmpty;
-      }
-
-      if (isAnswered) {
-        if (_isAnswerCorrect(question, userAnswer, essayAnswer)) {
-          correctCount++;
-        } else {
-          incorrectCount++;
-        }
-      }
-    }
-
-    return _QuizResults(correctCount, incorrectCount);
-  }
-
   /// Helper to emit completion state
   void _emitQuizCompleted(
     Emitter<QuizExecutionState> emit,
     QuizExecutionInProgress currentState, {
     bool wasLimitReached = false,
   }) {
-    final results = _calculateResultsCount(
+    final results = QuizScoringHelper.calculateResults(
       currentState.questions,
       currentState.userAnswers,
       currentState.essayAnswers,
     );
 
-    // Calculate score
-    double penalty =
-        (currentState.quizConfig.subtractPoints &&
-            !currentState.quizConfig.isStudyMode)
-        ? currentState.quizConfig.penaltyAmount
-        : 0.0;
-
-    double netScore =
-        results.correctAnswers - (results.incorrectAnswers * penalty);
-    double totalQuestions = currentState.totalQuestions.toDouble();
-    double scorePercentage = totalQuestions > 0
-        ? (netScore / totalQuestions) * 100
-        : 0.0;
+    final scorePercentage = QuizScoringHelper.calculateScore(
+      results.correctAnswers,
+      results.incorrectAnswers,
+      currentState.totalQuestions,
+      currentState.quizConfig,
+    );
 
     emit(
       QuizExecutionCompleted(
@@ -300,11 +241,4 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
       ),
     );
   }
-}
-
-class _QuizResults {
-  final int correctAnswers;
-  final int incorrectAnswers;
-
-  _QuizResults(this.correctAnswers, this.incorrectAnswers);
 }
