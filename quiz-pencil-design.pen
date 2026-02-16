@@ -12837,6 +12837,390 @@
           ]
         }
       ]
+    },
+    {
+      "type": "frame",
+      "id": "6cu28",
+      "x": 2560,
+      "y": 0,
+      "name": "Image Picker - Dark",
+      "width": 420,
+      "fill": "#09090B",
+      "layout": "vertical",
+      "gap": 32,
+      "padding": 32,
+      "children": [
+        {
+          "type": "frame",
+          "id": "GNPJy",
+          "name": "Empty State Card",
+          "width": "fill_container",
+          "fill": "#18181B",
+          "cornerRadius": 16,
+          "layout": "vertical",
+          "gap": 16,
+          "padding": 20,
+          "children": [
+            {
+              "type": "text",
+              "id": "fv0Sf",
+              "name": "titleText",
+              "fill": "#FAFAFA",
+              "content": "Imagen",
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "wVIcy",
+              "name": "Drop Zone",
+              "width": "fill_container",
+              "cornerRadius": 12,
+              "stroke": {
+                "align": "inside",
+                "thickness": 2,
+                "fill": "#3F3F46"
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "padding": [
+                32,
+                20
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "qtju0",
+                  "name": "Icons Row",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "ekLA4",
+                      "name": "icon1",
+                      "width": 28,
+                      "height": 28,
+                      "iconFontName": "image-plus",
+                      "iconFontFamily": "lucide",
+                      "fill": "#8B5CF6"
+                    },
+                    {
+                      "type": "text",
+                      "id": "4LHGV",
+                      "name": "slashText",
+                      "fill": "#71717A",
+                      "content": "/",
+                      "fontFamily": "Inter",
+                      "fontSize": 20,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "tqe9G",
+                      "name": "icon2",
+                      "width": 28,
+                      "height": 28,
+                      "iconFontName": "clipboard-paste",
+                      "iconFontFamily": "lucide",
+                      "fill": "#8B5CF6"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "eI3Sb",
+                  "name": "dropText",
+                  "fill": "#FAFAFA",
+                  "content": "Toca para agregar o pega una imagen",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "elnct",
+                  "name": "formatText",
+                  "fill": "#71717A",
+                  "content": "Formatos: JPG, PNG, GIF",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "0mWNd",
+              "name": "Divider Row",
+              "width": "fill_container",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "1v3BX",
+                  "name": "Line Left",
+                  "width": "fill_container",
+                  "height": 1,
+                  "fill": "#27272A"
+                },
+                {
+                  "type": "text",
+                  "id": "VHzi2",
+                  "name": "oText",
+                  "fill": "#71717A",
+                  "content": "o",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "gpKpT",
+                  "name": "Line Right",
+                  "width": "fill_container",
+                  "height": 1,
+                  "fill": "#27272A"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "WvU6j",
+              "name": "Paste Button",
+              "width": "fill_container",
+              "height": 48,
+              "fill": "#27272A",
+              "cornerRadius": 12,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "#3F3F46"
+              },
+              "gap": 8,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "dBkLq",
+                  "name": "pasteIcon",
+                  "width": 18,
+                  "height": 18,
+                  "iconFontName": "clipboard-paste",
+                  "iconFontFamily": "lucide",
+                  "fill": "#FAFAFA"
+                },
+                {
+                  "type": "text",
+                  "id": "KX0Vi",
+                  "name": "pasteTxt",
+                  "fill": "#FAFAFA",
+                  "content": "Pegar desde portapapeles",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "20O13",
+          "name": "sectionLabel",
+          "fill": "#71717A",
+          "content": "Con imagen cargada",
+          "fontFamily": "Inter",
+          "fontSize": 13,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "puClr",
+          "name": "Loaded State Card",
+          "width": "fill_container",
+          "fill": "#18181B",
+          "cornerRadius": 16,
+          "layout": "vertical",
+          "gap": 16,
+          "padding": 20,
+          "children": [
+            {
+              "type": "text",
+              "id": "Gcbro",
+              "name": "titleText2",
+              "fill": "#FAFAFA",
+              "content": "Imagen",
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "b7Reo",
+              "name": "Image Preview",
+              "metadata": {
+                "type": "unsplash",
+                "username": "silverkblack",
+                "link": "https://unsplash.com/@silverkblack",
+                "author": "Vitaly Gariev"
+              },
+              "clip": true,
+              "width": "fill_container",
+              "height": 200,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "./images/generated-1771227801208.png",
+                "mode": "fill"
+              },
+              "cornerRadius": 12
+            },
+            {
+              "type": "frame",
+              "id": "D6ph0",
+              "name": "Action Buttons",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "fziLG",
+                  "name": "Change Button",
+                  "height": 40,
+                  "fill": "#27272A",
+                  "cornerRadius": 10,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#3F3F46"
+                  },
+                  "gap": 6,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "qyBnI",
+                      "name": "changeIcon",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "settings-2",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FAFAFA"
+                    },
+                    {
+                      "type": "text",
+                      "id": "t994B",
+                      "name": "changeTxt",
+                      "fill": "#FAFAFA",
+                      "content": "Cambiar",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "XdCiF",
+                  "name": "Paste Button",
+                  "height": 40,
+                  "fill": "#27272A",
+                  "cornerRadius": 10,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#3F3F46"
+                  },
+                  "gap": 6,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "IemfU",
+                      "name": "pasteIcon2",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "clipboard-paste",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FAFAFA"
+                    },
+                    {
+                      "type": "text",
+                      "id": "VjT5N",
+                      "name": "pasteTxt2",
+                      "fill": "#FAFAFA",
+                      "content": "Pegar",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "WWWez",
+                  "name": "Delete Button",
+                  "height": 40,
+                  "fill": "#3B1117",
+                  "cornerRadius": 10,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#7F1D1D"
+                  },
+                  "gap": 6,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "d4esw",
+                      "name": "deleteIcon",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "trash-2",
+                      "iconFontFamily": "lucide",
+                      "fill": "#EF4444"
+                    },
+                    {
+                      "type": "text",
+                      "id": "g9k0a",
+                      "name": "deleteTxt",
+                      "fill": "#EF4444",
+                      "content": "Eliminar",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
