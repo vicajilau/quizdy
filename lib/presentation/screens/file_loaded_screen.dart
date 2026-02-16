@@ -129,7 +129,7 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
         QuizFileSaveRequested(
           cachedQuizFile,
           AppLocalizations.of(context)!.saveButton,
-          fileName ?? 'quiz.quiz', // Fallback just in case
+          fileName,
         ),
       );
     }
