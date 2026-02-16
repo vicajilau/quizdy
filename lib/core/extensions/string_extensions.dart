@@ -85,4 +85,21 @@ extension StringExtensions on String {
     final regex = RegExp(r'^AIza[a-zA-Z0-9_-]{31,}$');
     return regex.hasMatch(trim());
   }
+
+  /// Sanitizes a string to be used as a valid filename
+  ///
+  /// Replaces invalid characters with underscores and trims whitespace.
+  /// Allowed characters: alphanumeric, dots, underscores, and hyphens.
+  ///
+  /// Example:
+  /// ```dart
+  /// val filename = "My Cool File/Name?".sanitizeFilename; // "My_Cool_File_Name_"
+  /// ```
+  String get sanitizeFilename {
+    // Replace invalid characters with underscore
+    // Keep alphanumeric, dots, underscores, and hyphens
+    final sanitized = replaceAll(RegExp(r'[^a-zA-Z0-9._-]'), '_');
+    // Remove leading/trailing underscores or dots if desired, or just trim
+    return sanitized.trim();
+  }
 }

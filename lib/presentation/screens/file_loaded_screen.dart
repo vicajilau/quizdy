@@ -97,13 +97,19 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
   }
 
   Future<void> _handleSave() async {
+    // Get existing filename from path, or generate one from title
     var fileName = cachedQuizFile.filePath?.split('/').last;
 
-    // If fileName is null, empty, or likely a blob URL (doesn't have .quiz extension), ask for a name
+    if (fileName == null || fileName.isEmpty) {
+      final sanitizedTitle = cachedQuizFile.metadata.title.sanitizeFilename;
+      fileName = sanitizedTitle.isNotEmpty
+          ? '$sanitizedTitle.quiz'
+          : 'quiz.quiz';
+    }
+
+    // On Web, if existing filename is invalid (e.g. blob), ask for name
     if (kIsWeb &&
-        (fileName == null ||
-            fileName.isEmpty ||
-            !fileName.toLowerCase().endsWith('.quiz'))) {
+        (fileName.isEmpty || !fileName.toLowerCase().endsWith('.quiz'))) {
       if (!mounted) return;
       final result = await showDialog<String>(
         context: context,
@@ -117,12 +123,13 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
         return;
       }
     }
+
     if (mounted) {
       widget.fileBloc.add(
         QuizFileSaveRequested(
           cachedQuizFile,
           AppLocalizations.of(context)!.saveButton,
-          fileName ?? '',
+          fileName ?? 'quiz.quiz', // Fallback just in case
         ),
       );
     }
