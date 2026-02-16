@@ -97,13 +97,19 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
   }
 
   Future<void> _handleSave() async {
+    // Get existing filename from path, or generate one from title
     var fileName = cachedQuizFile.filePath?.split('/').last;
 
-    // If fileName is null, empty, or likely a blob URL (doesn't have .quiz extension), ask for a name
+    if (fileName == null || fileName.isEmpty) {
+      final sanitizedTitle = cachedQuizFile.metadata.title.sanitizeFilename;
+      fileName = sanitizedTitle.isNotEmpty
+          ? '$sanitizedTitle.quiz'
+          : 'quiz.quiz';
+    }
+
+    // On Web, if existing filename is invalid (e.g. blob), ask for name
     if (kIsWeb &&
-        (fileName == null ||
-            fileName.isEmpty ||
-            !fileName.toLowerCase().endsWith('.quiz'))) {
+        (fileName.isEmpty || !fileName.toLowerCase().endsWith('.quiz'))) {
       if (!mounted) return;
       final result = await showDialog<String>(
         context: context,
@@ -117,12 +123,13 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
         return;
       }
     }
+
     if (mounted) {
       widget.fileBloc.add(
         QuizFileSaveRequested(
           cachedQuizFile,
           AppLocalizations.of(context)!.saveButton,
-          fileName ?? '',
+          fileName,
         ),
       );
     }
@@ -380,9 +387,16 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
       setState(() {
         final indices = _selectedQuestions.toList()
           ..sort((a, b) => b.compareTo(a));
+
+        // Create a new list to avoid in-place mutation issues with state
+        final updatedQuestions = List<Question>.from(cachedQuizFile.questions);
+
         for (final index in indices) {
-          cachedQuizFile.questions.removeAt(index);
+          updatedQuestions.removeAt(index);
         }
+
+        // Update cachedQuizFile with the new list
+        cachedQuizFile = cachedQuizFile.copyWith(questions: updatedQuestions);
         _selectedQuestions.clear();
       });
     }
@@ -666,7 +680,7 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
                         padding: const EdgeInsets.symmetric(horizontal: 24.0),
                         child: QuestionListWidget(
                           quizFile: cachedQuizFile,
-                          onFileChange: () {},
+                          onFileChange: () => setState(() {}),
                           isSelectionMode: _isSelectionMode,
                           selectedQuestions: _selectedQuestions,
                           onToggleSelection: _toggleQuestionSelection,
