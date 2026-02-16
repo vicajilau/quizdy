@@ -225,10 +225,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   }
                 },
                 onDragExited: (_) => setState(() => _isDragging = false),
-                child: SafeArea(
-                  child: Stack(
-                    children: [
-                      LayoutBuilder(
+                child: Stack(
+                  children: [
+                    SafeArea(
+                      child: LayoutBuilder(
                         builder: (context, constraints) {
                           final isMobile = constraints.maxWidth < 600;
                           // Calculate the visual top margin:
@@ -276,17 +276,17 @@ class _HomeScreenState extends State<HomeScreen> {
                           );
                         },
                       ),
-                      if (_isLoading)
-                        Positioned.fill(
-                          child: Container(
-                            color: Colors.black.withValues(alpha: 0.3),
-                            child: const Center(
-                              child: CircularProgressIndicator(),
-                            ),
+                    ),
+                    if (_isLoading)
+                      Positioned.fill(
+                        child: Container(
+                          color: Colors.black.withValues(alpha: 0.3),
+                          child: const Center(
+                            child: CircularProgressIndicator(),
                           ),
                         ),
-                    ],
-                  ),
+                      ),
+                  ],
                 ),
               ),
             );
