@@ -406,6 +406,22 @@
   "@timeLimitMinutes": {
     "description": "Etiqueta para a entrada de minutos do límite de tempo do exame"
   },
+  "maxIncorrectAnswersLabel": "Límite de erros",
+  "@maxIncorrectAnswersLabel": {
+    "description": "Etiqueta para a configuración do límite de erros"
+  },
+  "maxIncorrectAnswersDescription": "Establece un límite de respostas incorrectas para o exame. Se se chega a este límite, o quiz deterase inmediatamente.",
+  "@maxIncorrectAnswersDescription": {
+    "description": "Descrición da funcionalidade do límite de erros"
+  },
+  "maxIncorrectAnswersLimitLabel": "Número máximo de erros",
+  "@maxIncorrectAnswersLimitLabel": {
+    "description": "Etiqueta para o campo de entrada do número de erros"
+  },
+  "quizFailedLimitReached": "Quiz Detido: Límite de Erros Acadado",
+  "@quizFailedLimitReached": {
+    "description": "Mensaxe mostrada cando o quiz se detén por acadar o límite de erros"
+  },
   "examTimeExpiredTitle": "Tempo esgotado!",
   "@examTimeExpiredTitle": {
     "description": "Título para o diálogo tempo do exame esgotado"

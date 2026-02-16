@@ -372,6 +372,22 @@
   "@startQuiz": {
     "description": "Button text to start the quiz"
   },
+  "maxIncorrectAnswersLabel": "Limit incorrect answers",
+  "@maxIncorrectAnswersLabel": {
+    "description": "Label for the toggle to limit incorrect answers"
+  },
+  "maxIncorrectAnswersDescription": "The quiz will end immediately if you reach this limit.",
+  "@maxIncorrectAnswersDescription": {
+    "description": "Description for the limit incorrect answers feature"
+  },
+  "maxIncorrectAnswersLimitLabel": "Maximum allowed errors",
+  "@maxIncorrectAnswersLimitLabel": {
+    "description": "Label for the input field of maximum incorrect answers"
+  },
+  "quizFailedLimitReached": "Quiz Stopped: Error Limit Reached",
+  "@quizFailedLimitReached": {
+    "description": "Title for the results screen when the error limit is reached"
+  },
   "errorInvalidNumber": "Please enter a valid number",
   "@errorInvalidNumber": {
     "description": "Error message for invalid number input"

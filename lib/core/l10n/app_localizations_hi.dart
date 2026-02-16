@@ -266,6 +266,19 @@ class AppLocalizationsHi extends AppLocalizations {
   String get startQuiz => 'क्विज़ शुरू करें';
 
   @override
+  String get maxIncorrectAnswersLabel => 'गलत उत्तरों को सीमित करें';
+
+  @override
+  String get maxIncorrectAnswersDescription =>
+      'यदि आप इस सीमा तक पहुँच जाते हैं तो क्विज़ तुरंत समाप्त हो जाएगी।';
+
+  @override
+  String get maxIncorrectAnswersLimitLabel => 'अधिकतम अनुमत त्रुटियां';
+
+  @override
+  String get quizFailedLimitReached => 'क्विज़ रुका: त्रुटि सीमा पूरी हो गई';
+
+  @override
   String get errorInvalidNumber => 'कृपया वैध संख्या दर्ज करें';
 
   @override

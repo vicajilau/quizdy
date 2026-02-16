@@ -269,6 +269,21 @@ class AppLocalizationsEl extends AppLocalizations {
   String get startQuiz => 'Έναρξη Κουίζ';
 
   @override
+  String get maxIncorrectAnswersLabel => 'Περιορισμός λανθασμένων απαντήσεων';
+
+  @override
+  String get maxIncorrectAnswersDescription =>
+      'Το κουίζ θα τερματιστεί αμέσως εάν φτάσετε σε αυτό το όριο.';
+
+  @override
+  String get maxIncorrectAnswersLimitLabel =>
+      'Μέγιστος αριθμός επιτρεπόμενων σφαλμάτων';
+
+  @override
+  String get quizFailedLimitReached =>
+      'Το κουίζ διακόπηκε: Συμπληρώθηκε το όριο σφαλμάτων';
+
+  @override
   String get errorInvalidNumber => 'Παρακαλώ εισάγετε έγκυρο αριθμό';
 
   @override

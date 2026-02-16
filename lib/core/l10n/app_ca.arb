@@ -502,6 +502,22 @@
   "@timeLimitMinutes": {
     "description": "Etiqueta per l'entrada de minuts del límit de temps de l'examen"
   },
+  "maxIncorrectAnswersLabel": "Límit d'errors",
+  "@maxIncorrectAnswersLabel": {
+    "description": "Etiqueta per a la configuració del límit d'errors"
+  },
+  "maxIncorrectAnswersDescription": "Estableix un límit de respostes incorrectes per a l'examen. Si s'arriba a aquest límit, el quiz s'aturarà immediatament.",
+  "@maxIncorrectAnswersDescription": {
+    "description": "Descripció de la funcionalitat del límit d'errors"
+  },
+  "maxIncorrectAnswersLimitLabel": "Nombre màxim d'errors",
+  "@maxIncorrectAnswersLimitLabel": {
+    "description": "Etiqueta per al camp d'entrada del nombre d'errors"
+  },
+  "quizFailedLimitReached": "Quiz Aturat: Límit d'Errors Arribat",
+  "@quizFailedLimitReached": {
+    "description": "Missatge mostrat quan el quiz s'atura per haver arribat al límit d'errors"
+  },
   "examTimeExpiredTitle": "Temps esgotat!",
   "@examTimeExpiredTitle": {
     "description": "Títol pel diàleg temps de l'examen esgotat"

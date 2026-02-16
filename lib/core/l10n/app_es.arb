@@ -348,6 +348,25 @@
   "selectQuestionCountMessage": "¿Cuántas preguntas te gustaría responder en este quiz?",
   "allQuestions": "Todas las preguntas ({count})",
   "startQuiz": "Iniciar Quiz",
+  "@startQuiz": {
+    "description": "Texto del botón para iniciar el quiz"
+  },
+  "maxIncorrectAnswersLabel": "Limitar respuestas incorrectas",
+  "@maxIncorrectAnswersLabel": {
+    "description": "Etiqueta para el interruptor de limitar respuestas incorrectas"
+  },
+  "maxIncorrectAnswersDescription": "El quiz terminará inmediatamente si alcanzas este límite.",
+  "@maxIncorrectAnswersDescription": {
+    "description": "Descripción para la funcionalidad de limitar respuestas incorrectas"
+  },
+  "maxIncorrectAnswersLimitLabel": "Máximo de errores permitidos",
+  "@maxIncorrectAnswersLimitLabel": {
+    "description": "Etiqueta para el campo de entrada del máximo de respuestas incorrectas"
+  },
+  "quizFailedLimitReached": "Quiz detenido: Límite de errores alcanzado",
+  "@quizFailedLimitReached": {
+    "description": "Título para la pantalla de resultados cuando se alcanza el límite de errores"
+  },
   "errorInvalidNumber": "Por favor ingresa un número válido",
   "errorNumberMustBePositive": "El número debe ser mayor que 0",
   "customNumberLabel": "O introduce un número personalizado:",

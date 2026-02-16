@@ -267,6 +267,20 @@ class AppLocalizationsPt extends AppLocalizations {
   String get startQuiz => 'Iniciar Quiz';
 
   @override
+  String get maxIncorrectAnswersLabel => 'Limitar respostas incorretas';
+
+  @override
+  String get maxIncorrectAnswersDescription =>
+      'O quiz terminará imediatamente se atingir este limite.';
+
+  @override
+  String get maxIncorrectAnswersLimitLabel => 'Máximo de erros permitidos';
+
+  @override
+  String get quizFailedLimitReached =>
+      'Quiz interrompido: Limite de erros atingido';
+
+  @override
   String get errorInvalidNumber => 'Por favor, digite um número válido';
 
   @override

@@ -1818,5 +1818,21 @@
   "appLanguageDescription": "تجاوز لغة التطبيق للاختبار",
   "pasteFromClipboard": "لصق من الحافظة",
   "pasteImage": "لصق",
-  "clipboardNoImage": "لم يتم العثور على صورة في الحافظة"
+  "clipboardNoImage": "لم يتم العثور على صورة في الحافظة",
+  "maxIncorrectAnswersLabel": "تقييد الإجابات الخاطئة",
+  "@maxIncorrectAnswersLabel": {
+    "description": "Label for the toggle to limit incorrect answers"
+  },
+  "maxIncorrectAnswersDescription": "سيتوقف الاختبار فورًا إذا وصلت إلى هذا الحد.",
+  "@maxIncorrectAnswersDescription": {
+    "description": "Description for the limit incorrect answers feature"
+  },
+  "maxIncorrectAnswersLimitLabel": "الحد الأقصى للأخطاء المسموح بها",
+  "@maxIncorrectAnswersLimitLabel": {
+    "description": "Label for the input field of maximum incorrect answers"
+  },
+  "quizFailedLimitReached": "توقف الاختبار: تم الوصول إلى حد الخطأ",
+  "@quizFailedLimitReached": {
+    "description": "Title for the results screen when the error limit is reached"
+  }
 }

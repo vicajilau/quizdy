@@ -490,5 +490,21 @@
   "appLanguageDescription": "Παράκαμψη γλώσσας εφαρμογής για δοκιμές",
   "pasteFromClipboard": "Επικόλληση από πρόχειρο",
   "pasteImage": "Επικόλληση",
-  "clipboardNoImage": "Δεν βρέθηκε εικόνα στο πρόχειρο"
+  "clipboardNoImage": "Δεν βρέθηκε εικόνα στο πρόχειρο",
+  "maxIncorrectAnswersLabel": "Περιορισμός λανθασμένων απαντήσεων",
+  "@maxIncorrectAnswersLabel": {
+    "description": "Label for the toggle to limit incorrect answers"
+  },
+  "maxIncorrectAnswersDescription": "Το κουίζ θα τερματιστεί αμέσως εάν φτάσετε σε αυτό το όριο.",
+  "@maxIncorrectAnswersDescription": {
+    "description": "Description for the limit incorrect answers feature"
+  },
+  "maxIncorrectAnswersLimitLabel": "Μέγιστος αριθμός επιτρεπόμενων σφαλμάτων",
+  "@maxIncorrectAnswersLimitLabel": {
+    "description": "Label for the input field of maximum incorrect answers"
+  },
+  "quizFailedLimitReached": "Το κουίζ διακόπηκε: Συμπληρώθηκε το όριο σφαλμάτων",
+  "@quizFailedLimitReached": {
+    "description": "Title for the results screen when the error limit is reached"
+  }
 }

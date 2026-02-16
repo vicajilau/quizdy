@@ -259,6 +259,18 @@ class AppLocalizationsZh extends AppLocalizations {
   String get startQuiz => '开始测验';
 
   @override
+  String get maxIncorrectAnswersLabel => '限制错误答案';
+
+  @override
+  String get maxIncorrectAnswersDescription => '如果达到此限制，测验将立即结束。';
+
+  @override
+  String get maxIncorrectAnswersLimitLabel => '允许的最大错误数';
+
+  @override
+  String get quizFailedLimitReached => '测验停止：已达到错误限制';
+
+  @override
   String get errorInvalidNumber => '请输入有效数字';
 
   @override

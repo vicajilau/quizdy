@@ -21,6 +21,12 @@ class QuizConfig {
   /// Whether to use only the user-selected questions instead of a random subset.
   final bool useSelectedOnly;
 
+  /// Whether a limit for incorrect answers is enabled.
+  final bool enableMaxIncorrectAnswers;
+
+  /// The maximum number of incorrect answers allowed before the quiz ends.
+  final int? maxIncorrectAnswers;
+
   /// Creates a [QuizConfig] instance with the specified settings.
   const QuizConfig({
     required this.questionCount,
@@ -30,6 +36,8 @@ class QuizConfig {
     this.subtractPoints = false,
     this.penaltyAmount = 0.0,
     this.useSelectedOnly = false,
+    this.enableMaxIncorrectAnswers = false,
+    this.maxIncorrectAnswers,
   });
 
   @override
@@ -43,7 +51,9 @@ class QuizConfig {
         other.timeLimitMinutes == timeLimitMinutes &&
         other.subtractPoints == subtractPoints &&
         other.penaltyAmount == penaltyAmount &&
-        other.useSelectedOnly == useSelectedOnly;
+        other.useSelectedOnly == useSelectedOnly &&
+        other.enableMaxIncorrectAnswers == enableMaxIncorrectAnswers &&
+        other.maxIncorrectAnswers == maxIncorrectAnswers;
   }
 
   @override
@@ -54,9 +64,11 @@ class QuizConfig {
       timeLimitMinutes.hashCode ^
       subtractPoints.hashCode ^
       penaltyAmount.hashCode ^
-      useSelectedOnly.hashCode;
+      useSelectedOnly.hashCode ^
+      enableMaxIncorrectAnswers.hashCode ^
+      maxIncorrectAnswers.hashCode;
 
   @override
   String toString() =>
-      'QuizConfig(questionCount: $questionCount, isStudyMode: $isStudyMode, enableTimeLimit: $enableTimeLimit, timeLimitMinutes: $timeLimitMinutes, subtractPoints: $subtractPoints, penaltyAmount: $penaltyAmount, useSelectedOnly: $useSelectedOnly)';
+      'QuizConfig(questionCount: $questionCount, isStudyMode: $isStudyMode, enableTimeLimit: $enableTimeLimit, timeLimitMinutes: $timeLimitMinutes, subtractPoints: $subtractPoints, penaltyAmount: $penaltyAmount, useSelectedOnly: $useSelectedOnly, enableMaxIncorrectAnswers: $enableMaxIncorrectAnswers, maxIncorrectAnswers: $maxIncorrectAnswers)';
 }

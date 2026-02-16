@@ -1,6 +1,7 @@
 import 'package:quiz_app/domain/models/quiz/question.dart';
 import 'package:quiz_app/domain/models/quiz/question_type.dart';
 import 'package:quiz_app/domain/models/quiz/quiz_config.dart';
+import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_scoring_helper.dart';
 
 /// Abstract class representing the base state for quiz execution.
 abstract class QuizExecutionState {}
@@ -20,12 +21,14 @@ class QuizExecutionInProgress extends QuizExecutionState {
   validatedQuestions; // Indices of questions that have been checked in Study Mode
   final bool isStudyMode;
   final QuizConfig quizConfig;
+  final int incorrectAnswersCount;
 
   QuizExecutionInProgress({
     required this.questions,
     required this.currentQuestionIndex,
     required this.userAnswers,
     required this.quizConfig,
+    this.incorrectAnswersCount = 0,
     Map<int, String>? essayAnswers,
     Set<int>? validatedQuestions,
   }) : totalQuestions = questions.length,
@@ -92,6 +95,7 @@ class QuizExecutionInProgress extends QuizExecutionState {
     Map<int, String>? essayAnswers,
     Set<int>? validatedQuestions,
     QuizConfig? quizConfig,
+    int? incorrectAnswersCount,
   }) {
     return QuizExecutionInProgress(
       questions: questions ?? this.questions,
@@ -100,6 +104,8 @@ class QuizExecutionInProgress extends QuizExecutionState {
       essayAnswers: essayAnswers ?? this.essayAnswers,
       validatedQuestions: validatedQuestions ?? this.validatedQuestions,
       quizConfig: quizConfig ?? this.quizConfig,
+      incorrectAnswersCount:
+          incorrectAnswersCount ?? this.incorrectAnswersCount,
     );
   }
 }
@@ -114,6 +120,7 @@ class QuizExecutionCompleted extends QuizExecutionState {
   final double score; // percentage
   final bool isStudyMode;
   final QuizConfig quizConfig;
+  final bool wasLimitReached;
 
   QuizExecutionCompleted({
     required this.questions,
@@ -123,6 +130,7 @@ class QuizExecutionCompleted extends QuizExecutionState {
     required this.totalQuestions,
     required this.quizConfig,
     required this.score,
+    this.wasLimitReached = false,
   }) : isStudyMode = quizConfig.isStudyMode;
 
   /// Get details for each question
@@ -132,7 +140,7 @@ class QuizExecutionCompleted extends QuizExecutionState {
       final question = entry.value;
       final userAnswer = userAnswers[index] ?? [];
       final essayAnswer = essayAnswers[index] ?? '';
-      final isCorrect = _isAnswerCorrect(question, userAnswer, essayAnswer);
+      final isCorrect = QuizScoringHelper.isAnswerCorrect(question, userAnswer, essayAnswer);
 
       return QuestionResult(
         question: question,
@@ -144,22 +152,6 @@ class QuizExecutionCompleted extends QuizExecutionState {
     }).toList();
   }
 
-  bool _isAnswerCorrect(
-    Question question,
-    List<int> userAnswers,
-    String essayAnswer,
-  ) {
-    // Essay questions are always considered "correct" since they require manual grading
-    if (question.type == QuestionType.essay) {
-      return essayAnswer.trim().isNotEmpty;
-    }
-
-    final correctAnswers = question.correctAnswers;
-    if (correctAnswers.length != userAnswers.length) return false;
-    final sortedCorrect = List<int>.from(correctAnswers)..sort();
-    final sortedUser = List<int>.from(userAnswers)..sort();
-    return sortedCorrect.toString() == sortedUser.toString();
-  }
 }
 
 /// Class to represent individual question results

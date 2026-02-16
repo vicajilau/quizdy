@@ -1761,5 +1761,21 @@
   "appLanguageDescription": "テスト用にアプリの言語を上書きする",
   "pasteFromClipboard": "クリップボードから貼り付け",
   "pasteImage": "貼り付け",
-  "clipboardNoImage": "クリップボードに画像が見つかりません"
+  "clipboardNoImage": "クリップボードに画像が見つかりません",
+  "maxIncorrectAnswersLabel": "不正解数を制限する",
+  "@maxIncorrectAnswersLabel": {
+    "description": "Label for the toggle to limit incorrect answers"
+  },
+  "maxIncorrectAnswersDescription": "制限に達するとクイズは直ちに終了します。",
+  "@maxIncorrectAnswersDescription": {
+    "description": "Description for the limit incorrect answers feature"
+  },
+  "maxIncorrectAnswersLimitLabel": "最大許容エラー数",
+  "@maxIncorrectAnswersLimitLabel": {
+    "description": "Label for the input field of maximum incorrect answers"
+  },
+  "quizFailedLimitReached": "クイズ停止：エラー制限に達しました",
+  "@quizFailedLimitReached": {
+    "description": "Title for the results screen when the error limit is reached"
+  }
 }

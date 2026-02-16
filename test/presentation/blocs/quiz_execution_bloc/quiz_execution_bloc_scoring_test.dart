@@ -153,5 +153,124 @@ void main() {
         ), // (0 - 0.5) / 2 * 100 = -25%
       ],
     );
+    blocTest<QuizExecutionBloc, QuizExecutionState>(
+      'calculates score correctly WITH penalty in STUDY MODE (penalty should be ignored)',
+      build: () => quizExecutionBloc,
+      act: (bloc) {
+        bloc.add(
+          QuizExecutionStarted(
+            [testQuestion],
+            quizConfig: const QuizConfig(
+              questionCount: 1,
+              isStudyMode: true,
+              subtractPoints: true,
+              penaltyAmount: 0.5,
+            ),
+          ),
+        );
+        // Answer incorrectly
+        bloc.add(AnswerSelected(1, true)); // Option B (index 1) is wrong
+        bloc.add(QuizSubmitted());
+      },
+      expect: () => [
+        isA<QuizExecutionInProgress>(),
+        isA<QuizExecutionInProgress>(),
+        isA<QuizExecutionCompleted>().having(
+          (s) => s.score,
+          'score',
+          0.0,
+        ), // Score should be 0.0, not -50.0
+      ],
+    );
+
+    blocTest<QuizExecutionBloc, QuizExecutionState>(
+      'ends quiz when max incorrect answers limit is reached AFTER navigating (EXAM MODE)',
+      build: () => quizExecutionBloc,
+      act: (bloc) {
+        bloc.add(
+          QuizExecutionStarted(
+            [testQuestion, testQuestion], // 2 questions
+            quizConfig: const QuizConfig(
+              questionCount: 2,
+              isStudyMode: false,
+              enableMaxIncorrectAnswers: true,
+              maxIncorrectAnswers: 1,
+            ),
+          ),
+        );
+        // Answer incorrectly (limit is 1)
+        bloc.add(AnswerSelected(1, true));
+        // Should NOT end yet, just update state
+        bloc.add(NextQuestionRequested());
+      },
+      expect: () => [
+        isA<QuizExecutionInProgress>(), // Started
+        isA<QuizExecutionInProgress>(), // Answered (still in progress)
+        isA<QuizExecutionCompleted>().having(
+          (s) => s.wasLimitReached,
+          'wasLimitReached',
+          true,
+        ), // Completed after navigation attempt
+      ],
+    );
+
+    blocTest<QuizExecutionBloc, QuizExecutionState>(
+      'does NOT end quiz if answer is corrected before navigating (EXAM MODE)',
+      build: () => quizExecutionBloc,
+      act: (bloc) {
+        bloc.add(
+          QuizExecutionStarted(
+            [testQuestion, testQuestion], // 2 questions
+            quizConfig: const QuizConfig(
+              questionCount: 2,
+              isStudyMode: false,
+              enableMaxIncorrectAnswers: true,
+              maxIncorrectAnswers: 1,
+            ),
+          ),
+        );
+        // Answer incorrectly (limit is 1)
+        bloc.add(AnswerSelected(1, true));
+
+        // Correct the answer (Option A is correct)
+        bloc.add(AnswerSelected(0, true));
+
+        // Navigate
+        bloc.add(NextQuestionRequested());
+      },
+      expect: () => [
+        isA<QuizExecutionInProgress>(), // Started
+        isA<QuizExecutionInProgress>(), // Answered Incorrectly
+        isA<QuizExecutionInProgress>(), // Answered Correctly
+        isA<QuizExecutionInProgress>(), // Next Question (Success)
+      ],
+    );
+
+    blocTest<QuizExecutionBloc, QuizExecutionState>(
+      'does NOT end quiz even if max incorrect answers is reached in STUDY MODE',
+      build: () => quizExecutionBloc,
+      act: (bloc) {
+        bloc.add(
+          QuizExecutionStarted(
+            [testQuestion, testQuestion], // 2 questions
+            quizConfig: const QuizConfig(
+              questionCount: 2,
+              isStudyMode: true,
+              enableMaxIncorrectAnswers: true,
+              maxIncorrectAnswers: 1,
+            ),
+          ),
+        );
+        // Answer incorrectly
+        bloc.add(AnswerSelected(1, true));
+        // Verify we are still in progress
+        bloc.add(NextQuestionRequested());
+      },
+      expect: () => [
+        isA<QuizExecutionInProgress>(), // Started
+        isA<QuizExecutionInProgress>(), // Answered (but still in progress)
+        isA<QuizExecutionInProgress>(), // Next question
+      ],
+    );
   });
 }

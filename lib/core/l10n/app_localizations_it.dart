@@ -267,13 +267,27 @@ class AppLocalizationsIt extends AppLocalizations {
   String get startQuiz => 'Inizia quiz';
 
   @override
+  String get maxIncorrectAnswersLabel => 'Limita risposte errate';
+
+  @override
+  String get maxIncorrectAnswersDescription =>
+      'Il quiz terminerà immediatamente se raggiungi questo limite.';
+
+  @override
+  String get maxIncorrectAnswersLimitLabel => 'Massimo errori consentiti';
+
+  @override
+  String get quizFailedLimitReached =>
+      'Quiz interrotto: Limite errori raggiunto';
+
+  @override
   String get errorInvalidNumber => 'Inserisci un numero valido';
 
   @override
   String get errorNumberMustBePositive => 'Il numero deve essere maggiore di 0';
 
   @override
-  String get customNumberLabel => 'O inserisci un numero personalizzato:';
+  String get customNumberLabel => 'O inserisci un numbero personalizzato:';
 
   @override
   String get numberInputLabel => 'Numero di domande';

@@ -1758,5 +1758,21 @@
   "appLanguageDescription": "覆盖用于测试的应用语言",
   "pasteFromClipboard": "从剪贴板粘贴",
   "pasteImage": "粘贴",
-  "clipboardNoImage": "剪贴板中未找到图片"
+  "clipboardNoImage": "剪贴板中未找到图片",
+  "maxIncorrectAnswersLabel": "限制错误答案",
+  "@maxIncorrectAnswersLabel": {
+    "description": "Label for the toggle to limit incorrect answers"
+  },
+  "maxIncorrectAnswersDescription": "如果达到此限制，测验将立即结束。",
+  "@maxIncorrectAnswersDescription": {
+    "description": "Description for the limit incorrect answers feature"
+  },
+  "maxIncorrectAnswersLimitLabel": "允许的最大错误数",
+  "@maxIncorrectAnswersLimitLabel": {
+    "description": "Label for the input field of maximum incorrect answers"
+  },
+  "quizFailedLimitReached": "测验停止：已达到错误限制",
+  "@quizFailedLimitReached": {
+    "description": "Title for the results screen when the error limit is reached"
+  }
 }

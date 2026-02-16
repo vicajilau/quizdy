@@ -28,6 +28,10 @@ class ConfigurationService {
 
   static const String _lastQuestionCountKey = 'last_question_count';
   static const String _lastQuizModeKey = 'last_quiz_mode';
+  static const String _lastQuizEnableMaxIncorrectAnswersKey =
+      'last_quiz_enable_max_incorrect_answers';
+  static const String _lastQuizMaxIncorrectAnswersKey =
+      'last_quiz_max_incorrect_answers';
 
   static ConfigurationService? _instance;
   static ConfigurationService get instance =>
@@ -274,6 +278,18 @@ class ConfigurationService {
     if (settings.penaltyAmount != null) {
       await prefs.setDouble(_lastQuizPenaltyAmountKey, settings.penaltyAmount!);
     }
+    if (settings.enableMaxIncorrectAnswers != null) {
+      await prefs.setBool(
+        _lastQuizEnableMaxIncorrectAnswersKey,
+        settings.enableMaxIncorrectAnswers!,
+      );
+    }
+    if (settings.maxIncorrectAnswers != null) {
+      await prefs.setInt(
+        _lastQuizMaxIncorrectAnswersKey,
+        settings.maxIncorrectAnswers!,
+      );
+    }
   }
 
   /// Gets the Quiz Config settings
@@ -285,6 +301,10 @@ class ConfigurationService {
       isStudyMode: prefs.getBool(_lastQuizModeKey),
       subtractPoints: prefs.getBool(_lastQuizSubtractPointsKey),
       penaltyAmount: prefs.getDouble(_lastQuizPenaltyAmountKey),
+      enableMaxIncorrectAnswers: prefs.getBool(
+        _lastQuizEnableMaxIncorrectAnswersKey,
+      ),
+      maxIncorrectAnswers: prefs.getInt(_lastQuizMaxIncorrectAnswersKey),
     );
   }
 

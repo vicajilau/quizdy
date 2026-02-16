@@ -262,6 +262,19 @@ class AppLocalizationsAr extends AppLocalizations {
   String get startQuiz => 'بدء الاختبار';
 
   @override
+  String get maxIncorrectAnswersLabel => 'تقييد الإجابات الخاطئة';
+
+  @override
+  String get maxIncorrectAnswersDescription =>
+      'سيتوقف الاختبار فورًا إذا وصلت إلى هذا الحد.';
+
+  @override
+  String get maxIncorrectAnswersLimitLabel => 'الحد الأقصى للأخطاء المسموح بها';
+
+  @override
+  String get quizFailedLimitReached => 'توقف الاختبار: تم الوصول إلى حد الخطأ';
+
+  @override
   String get errorInvalidNumber => 'يرجى إدخال رقم صالح';
 
   @override

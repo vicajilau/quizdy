@@ -426,6 +426,22 @@
   "@startQuiz": {
     "description": "Schaltflächentext zum Starten des Quiz"
   },
+  "maxIncorrectAnswersLabel": "Falsche Antworten begrenzen",
+  "@maxIncorrectAnswersLabel": {
+    "description": "Bezeichnung für den Schalter zum Begrenzen falscher Antworten"
+  },
+  "maxIncorrectAnswersDescription": "Das Quiz wird sofort beendet, wenn Sie dieses Limit erreichen.",
+  "@maxIncorrectAnswersDescription": {
+    "description": "Beschreibung für die Funktion zum Begrenzen falscher Antworten"
+  },
+  "maxIncorrectAnswersLimitLabel": "Maximal zulässige Fehler",
+  "@maxIncorrectAnswersLimitLabel": {
+    "description": "Bezeichnung für das Eingabefeld der maximalen falschen Antworten"
+  },
+  "quizFailedLimitReached": "Quiz gestoppt: Fehlerlimit erreicht",
+  "@quizFailedLimitReached": {
+    "description": "Titel für den Ergebnisbildschirm, wenn das Fehlerlimit erreicht ist"
+  },
   "customNumberLabel": "Oder geben Sie eine benutzerdefinierte Zahl ein:",
   "@customNumberLabel": {
     "description": "Beschriftung für den benutzerdefinierten Zahlen-Eingabebereich"

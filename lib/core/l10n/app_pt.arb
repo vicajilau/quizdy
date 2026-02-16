@@ -330,6 +330,22 @@
   "@startQuiz": {
     "description": "Texto do botão para iniciar o quiz"
   },
+  "maxIncorrectAnswersLabel": "Limitar respostas incorretas",
+  "@maxIncorrectAnswersLabel": {
+    "description": "Rótulo para a alternância de limitar respostas incorretas"
+  },
+  "maxIncorrectAnswersDescription": "O quiz terminará imediatamente se atingir este limite.",
+  "@maxIncorrectAnswersDescription": {
+    "description": "Descrição para a funcionalidade de limitar respostas incorretas"
+  },
+  "maxIncorrectAnswersLimitLabel": "Máximo de erros permitidos",
+  "@maxIncorrectAnswersLimitLabel": {
+    "description": "Rótulo para o campo de entrada do máximo de respostas incorretas"
+  },
+  "quizFailedLimitReached": "Quiz interrompido: Limite de erros atingido",
+  "@quizFailedLimitReached": {
+    "description": "Título para o ecrã de resultados quando o limite de erros é atingido"
+  },
   "customNumberLabel": "Ou digite um número personalizado:",
   "@customNumberLabel": {
     "description": "Rótulo para a seção de entrada de número personalizado"

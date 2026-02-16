@@ -406,6 +406,22 @@
   "@timeLimitMinutes": {
     "description": "Azterketaren denbora muga minutu sarreraren etiketa"
   },
+  "maxIncorrectAnswersLabel": "Errore muga",
+  "@maxIncorrectAnswersLabel": {
+    "description": "Errore muga konfiguratzeko etiketa"
+  },
+  "maxIncorrectAnswersDescription": "Azterketarako erantzun okerren muga ezarri. Muga horretara iritsiz gero, quiz-a berehala geldituko da.",
+  "@maxIncorrectAnswersDescription": {
+    "description": "Errore muga funtzionalitatearen deskribapena"
+  },
+  "maxIncorrectAnswersLimitLabel": "Gehienezko errore kopurua",
+  "@maxIncorrectAnswersLimitLabel": {
+    "description": "Errore kopurua sartzeko eremuaren etiketa"
+  },
+  "quizFailedLimitReached": "Quiz-a Geldituta: Errore Muga Gaindituta",
+  "@quizFailedLimitReached": {
+    "description": "Errore muga iristeagatik quiz-a gelditzen denean erakusten den mezua"
+  },
   "examTimeExpiredTitle": "Denbora Amaitu da!",
   "@examTimeExpiredTitle": {
     "description": "Azterketaren denbora amaitu elkarrizketaren izenburua"

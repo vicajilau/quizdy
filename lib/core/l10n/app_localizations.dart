@@ -560,6 +560,30 @@ abstract class AppLocalizations {
   /// **'Start Quiz'**
   String get startQuiz;
 
+  /// Label for the toggle to limit incorrect answers
+  ///
+  /// In en, this message translates to:
+  /// **'Limit incorrect answers'**
+  String get maxIncorrectAnswersLabel;
+
+  /// Description for the limit incorrect answers feature
+  ///
+  /// In en, this message translates to:
+  /// **'The quiz will end immediately if you reach this limit.'**
+  String get maxIncorrectAnswersDescription;
+
+  /// Label for the input field of maximum incorrect answers
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum allowed errors'**
+  String get maxIncorrectAnswersLimitLabel;
+
+  /// Title for the results screen when the error limit is reached
+  ///
+  /// In en, this message translates to:
+  /// **'Quiz Stopped: Error Limit Reached'**
+  String get quizFailedLimitReached;
+
   /// Error message for invalid number input
   ///
   /// In en, this message translates to:

@@ -1761,5 +1761,21 @@
   "appLanguageDescription": "परीक्षण के लिए एप्लिकेशन भाषा को ओवरराइड करें",
   "pasteFromClipboard": "क्लिपबोर्ड से पेस्ट करें",
   "pasteImage": "पेस्ट",
-  "clipboardNoImage": "क्लिपबोर्ड में कोई छवि नहीं मिली"
+  "clipboardNoImage": "क्लिपबोर्ड में कोई छवि नहीं मिली",
+  "maxIncorrectAnswersLabel": "गलत उत्तरों को सीमित करें",
+  "@maxIncorrectAnswersLabel": {
+    "description": "Label for the toggle to limit incorrect answers"
+  },
+  "maxIncorrectAnswersDescription": "यदि आप इस सीमा तक पहुँच जाते हैं तो क्विज़ तुरंत समाप्त हो जाएगी।",
+  "@maxIncorrectAnswersDescription": {
+    "description": "Description for the limit incorrect answers feature"
+  },
+  "maxIncorrectAnswersLimitLabel": "अधिकतम अनुमत त्रुटियां",
+  "@maxIncorrectAnswersLimitLabel": {
+    "description": "Label for the input field of maximum incorrect answers"
+  },
+  "quizFailedLimitReached": "क्विज़ रुका: त्रुटि सीमा पूरी हो गई",
+  "@quizFailedLimitReached": {
+    "description": "Title for the results screen when the error limit is reached"
+  }
 }

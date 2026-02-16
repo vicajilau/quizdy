@@ -266,6 +266,20 @@ class AppLocalizationsEu extends AppLocalizations {
   String get startQuiz => 'Quiz Hasi';
 
   @override
+  String get maxIncorrectAnswersLabel => 'Errore muga';
+
+  @override
+  String get maxIncorrectAnswersDescription =>
+      'Azterketarako erantzun okerren muga ezarri. Muga horretara iritsiz gero, quiz-a berehala geldituko da.';
+
+  @override
+  String get maxIncorrectAnswersLimitLabel => 'Gehienezko errore kopurua';
+
+  @override
+  String get quizFailedLimitReached =>
+      'Quiz-a Geldituta: Errore Muga Gaindituta';
+
+  @override
   String get errorInvalidNumber => 'Mesedez, sartu zenbaki baliozkoa';
 
   @override

@@ -30,7 +30,9 @@ class QuizCompletedView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                AppLocalizations.of(context)!.quizCompleted,
+                state.wasLimitReached
+                    ? AppLocalizations.of(context)!.quizFailedLimitReached
+                    : AppLocalizations.of(context)!.quizCompleted,
                 style: theme.textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
@@ -83,7 +85,9 @@ class QuizCompletedView extends StatelessWidget {
                                 alpha: 0.1,
                               ),
                               valueColor: AlwaysStoppedAnimation<Color>(
-                                state.score >= 70 ? successColor : alertColor,
+                                (state.score >= 70 && !state.wasLimitReached)
+                                    ? successColor
+                                    : alertColor,
                               ),
                               strokeCap: StrokeCap.round,
                             ),
@@ -95,7 +99,9 @@ class QuizCompletedView extends StatelessWidget {
                                 '${state.score % 1 == 0 ? state.score.toStringAsFixed(0) : state.score.toStringAsFixed(1)}%',
                                 style: theme.textTheme.headlineMedium?.copyWith(
                                   fontWeight: FontWeight.bold,
-                                  color: state.score >= 70
+                                  color:
+                                      (state.score >= 70 &&
+                                          !state.wasLimitReached)
                                       ? successColor
                                       : alertColor,
                                 ),
@@ -112,7 +118,7 @@ class QuizCompletedView extends StatelessWidget {
                       ),
                       const SizedBox(height: 24),
                       Text(
-                        state.score >= 70
+                        (state.score >= 70 && !state.wasLimitReached)
                             ? AppLocalizations.of(context)!.congratulations
                             : AppLocalizations.of(context)!.keepPracticing,
                         style: theme.textTheme.titleLarge?.copyWith(
