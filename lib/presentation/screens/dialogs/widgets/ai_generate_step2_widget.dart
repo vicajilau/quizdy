@@ -25,6 +25,7 @@ class AiGenerateStep2Widget extends StatefulWidget {
   final String? selectedModel;
   final VoidCallback onPickFile;
   final VoidCallback onRemoveFile;
+  final VoidCallback onPasteFromClipboard;
   final ValueChanged<AiFileAttachment> onFileDropped;
   final VoidCallback onBack;
   final ValueChanged<int> onQuestionCountChanged;
@@ -44,6 +45,7 @@ class AiGenerateStep2Widget extends StatefulWidget {
     required this.selectedModel,
     required this.onPickFile,
     required this.onRemoveFile,
+    required this.onPasteFromClipboard,
     required this.onFileDropped,
     required this.onBack,
     required this.onQuestionCountChanged,
@@ -323,6 +325,23 @@ class _AiGenerateStep2WidgetState extends State<AiGenerateStep2Widget> {
                         ),
                       ),
                     ),
+                    if (widget.fileAttachment == null) ...[
+                      const SizedBox(height: 8),
+                      SizedBox(
+                        width: double.infinity,
+                        child: OutlinedButton.icon(
+                          onPressed: widget.onPasteFromClipboard,
+                          icon: const Icon(LucideIcons.clipboardPaste, size: 18),
+                          label: Text(localizations.pasteFromClipboard),
+                          style: OutlinedButton.styleFrom(
+                            side: BorderSide(color: attachStroke),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                     const SizedBox(height: 24),
 
                     // Content Mode (Category selection)

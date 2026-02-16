@@ -3,7 +3,10 @@ import 'dart:typed_data';
 import 'package:desktop_drop/desktop_drop.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:lucide_icons/lucide_icons.dart';
+import 'package:quiz_app/core/context_extension.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
+import 'package:quiz_app/presentation/utils/clipboard_image_helper.dart';
 import 'package:quiz_app/presentation/widgets/dialog_drop_zone.dart';
 
 class QuestionImageSection extends StatefulWidget {
@@ -84,7 +87,7 @@ class _QuestionImageSectionState extends State<QuestionImageSection> {
                       _getImageBytes(widget.imageData!)!,
                       width: double.infinity,
                       height: 200,
-                      fit: BoxFit.contain,
+                      fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) {
                         return Container(
                           alignment: Alignment.center,
@@ -153,6 +156,12 @@ class _QuestionImageSectionState extends State<QuestionImageSection> {
                   ),
                   const SizedBox(width: 8),
                   OutlinedButton.icon(
+                    onPressed: () => _pasteFromClipboard(context),
+                    icon: const Icon(LucideIcons.clipboardPaste),
+                    label: Text(localizations.pasteImage),
+                  ),
+                  const SizedBox(width: 8),
+                  OutlinedButton.icon(
                     onPressed: widget.onImageRemoved,
                     icon: const Icon(Icons.delete_outline),
                     label: Text(localizations.removeImage),
@@ -217,10 +226,29 @@ class _QuestionImageSectionState extends State<QuestionImageSection> {
                 ),
               ),
             ),
+            const SizedBox(height: 8),
+            SizedBox(
+              width: double.infinity,
+              child: OutlinedButton.icon(
+                onPressed: () => _pasteFromClipboard(context),
+                icon: const Icon(LucideIcons.clipboardPaste, size: 18),
+                label: Text(localizations.pasteFromClipboard),
+              ),
+            ),
           ],
         ],
       ),
     );
+  }
+
+  Future<void> _pasteFromClipboard(BuildContext context) async {
+    final imageData = await ClipboardImageHelper.getClipboardImageAsBase64();
+    if (!context.mounted) return;
+    if (imageData != null) {
+      widget.onImageChanged(imageData);
+    } else {
+      context.presentSnackBar(AppLocalizations.of(context)!.clipboardNoImage);
+    }
   }
 
   /// Pick an image file and convert to base64
