@@ -584,10 +584,11 @@ packages:
   pasteboard:
     dependency: "direct main"
     description:
-      name: pasteboard
-      sha256: "9ff73ada33f79a59ff91f6c01881fd4ed0a0031cfc4ae2d86c0384471525fca1"
-      url: "https://pub.dev"
-    source: hosted
+      path: "packages/pasteboard"
+      ref: "feature/spm-support"
+      resolved-ref: "0da82d63ad17726aa609d89496398dcec8852418"
+      url: "https://github.com/vicajilau/flutter-plugins.git"
+    source: git
     version: "0.4.0"
   path:
     dependency: transitive
