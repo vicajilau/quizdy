@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.7.0]
 
+- feat: Disable penalty in Study Mode and add max incorrect answers limit for Exam Mode with auto-termination.
 - ui: Added branded loading screen with animated spinner in `index.html` to replace blank white screen during app initialization, with light/dark theme support.
 - feat: Allow manual editing of the number of questions in the AI generation dialog via a text field.
 - feat: Added "Content Mode" selection (Theory, Exercises,Mixed) to AI generation to refine results and avoid unwanted generic exercises.
