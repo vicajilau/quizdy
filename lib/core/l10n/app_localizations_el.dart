@@ -9,6 +9,16 @@ class AppLocalizationsEl extends AppLocalizations {
   AppLocalizationsEl([String locale = 'el']) : super(locale);
 
   @override
+  String get abortQuizTitle => 'Ακύρωση κουίζ;';
+
+  @override
+  String get abortQuizMessage =>
+      'Το άνοιγμα ενός νέου αρχείου θα διακόψει το τρέχον κουίζ.';
+
+  @override
+  String get stopAndOpenButton => 'Διακοπή & Άνοιγμα';
+
+  @override
   String get titleAppBar => 'Κουίζ - Προσομοιωτής Εξετάσεων';
 
   @override

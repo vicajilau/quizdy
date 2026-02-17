@@ -9,6 +9,15 @@ class AppLocalizationsHi extends AppLocalizations {
   AppLocalizationsHi([String locale = 'hi']) : super(locale);
 
   @override
+  String get abortQuizTitle => 'क्विज़ रद्द करें?';
+
+  @override
+  String get abortQuizMessage => 'नई फ़ाइल खोलने से वर्तमान क्विज़ रुक जाएगा।';
+
+  @override
+  String get stopAndOpenButton => 'रोकें और खोलें';
+
+  @override
   String get titleAppBar => 'क्विज़ - परीक्षा सिमुलेटर';
 
   @override

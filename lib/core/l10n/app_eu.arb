@@ -1,5 +1,8 @@
 {
   "@@locale": "eu",
+  "abortQuizTitle": "Galdetegia abortatu?",
+  "abortQuizMessage": "Fitxategi berri bat irekitzeak uneko galdetegia geldituko du.",
+  "stopAndOpenButton": "Gelditu eta Ireki",
   "titleAppBar": "Quiz - Azterketa Simuladorea",
   "@titleAppBar": {
     "description": "AppBar-ean erakutsitako aplikazioaren izenburua."

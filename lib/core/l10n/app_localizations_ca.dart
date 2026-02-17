@@ -9,6 +9,16 @@ class AppLocalizationsCa extends AppLocalizations {
   AppLocalizationsCa([String locale = 'ca']) : super(locale);
 
   @override
+  String get abortQuizTitle => 'Avortar qüestionari?';
+
+  @override
+  String get abortQuizMessage =>
+      'Obrir un fitxer nou aturarà el qüestionari actual.';
+
+  @override
+  String get stopAndOpenButton => 'Aturar i Obri';
+
+  @override
   String get titleAppBar => 'Quiz - Simulador d\'Exàmens';
 
   @override

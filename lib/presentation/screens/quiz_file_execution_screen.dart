@@ -12,6 +12,11 @@ import 'package:quiz_app/data/services/quiz_service.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
+import 'package:go_router/go_router.dart';
+import 'package:quiz_app/presentation/blocs/file_bloc/file_bloc.dart';
+import 'package:quiz_app/presentation/blocs/file_bloc/file_event.dart';
+import 'package:quiz_app/presentation/blocs/file_bloc/file_state.dart';
+import 'package:quiz_app/routes/app_router.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/quiz_in_progress_view.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/quiz_completed_view.dart';
 import 'package:quiz_app/core/theme/app_theme.dart';
@@ -28,6 +33,8 @@ class QuizFileExecutionScreen extends StatefulWidget {
 
 class _QuizFileExecutionScreenState extends State<QuizFileExecutionScreen> {
   bool _randomizeAnswers = false;
+  bool _isReplacing = false;
+
   @override
   void initState() {
     super.initState();
@@ -74,39 +81,95 @@ class _QuizFileExecutionScreenState extends State<QuizFileExecutionScreen> {
 
         final questionsToUse = snapshot.data as List<Question>;
 
-        return BlocProvider<QuizExecutionBloc>(
-          create: (_) {
-            final quizConfig =
-                ServiceLocator.instance.getQuizConfig() ??
-                QuizConfig(
-                  questionCount: questionsToUse.length,
-                  isStudyMode: false,
-                );
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider<QuizExecutionBloc>(
+              create: (_) {
+                final quizConfig =
+                    ServiceLocator.instance.getQuizConfig() ??
+                    QuizConfig(
+                      questionCount: questionsToUse.length,
+                      isStudyMode: false,
+                    );
 
-            return ServiceLocator.instance.getIt<QuizExecutionBloc>()..add(
-              QuizExecutionStarted(questionsToUse, quizConfig: quizConfig),
-            );
-          },
+                return ServiceLocator.instance.getIt<QuizExecutionBloc>()..add(
+                  QuizExecutionStarted(questionsToUse, quizConfig: quizConfig),
+                );
+              },
+            ),
+            BlocProvider.value(
+              value: ServiceLocator.instance.getIt<FileBloc>(),
+            ),
+          ],
           child: Builder(
-            builder: (context) => Scaffold(
-              backgroundColor: isDark ? AppTheme.zinc900 : AppTheme.zinc50,
-              body: SafeArea(
-                child: BlocConsumer<QuizExecutionBloc, QuizExecutionState>(
-                  listener: (context, state) {
-                    if (state is QuizExecutionCompleted) {
-                      // Handled by view
-                    }
-                  },
-                  builder: (context, state) {
-                    if (state is QuizExecutionInitial) {
-                      return const Center(child: CircularProgressIndicator());
-                    } else if (state is QuizExecutionInProgress) {
-                      return QuizInProgressView(state: state);
-                    } else if (state is QuizExecutionCompleted) {
-                      return QuizCompletedView(state: state);
-                    }
-                    return const SizedBox.shrink();
-                  },
+            builder: (context) => BlocListener<FileBloc, FileState>(
+              listener: (context, state) async {
+                if (state is FileLoaded && _isReplacing) {
+                  context.go(AppRoutes.fileLoadedScreen);
+                } else if (state is FileReplacementRequest) {
+                  final confirmed = await showDialog<bool>(
+                    context: context,
+                    barrierDismissible: false,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: Text(
+                          AppLocalizations.of(context)!.abortQuizTitle,
+                        ),
+                        content: Text(
+                          AppLocalizations.of(context)!.abortQuizMessage,
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop(false);
+                            },
+                            child: Text(
+                              AppLocalizations.of(context)!.cancelButton,
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop(true);
+                            },
+                            child: Text(
+                              AppLocalizations.of(context)!.stopAndOpenButton,
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+
+                  if (confirmed == true && context.mounted) {
+                    setState(() {
+                      _isReplacing = true;
+                    });
+                    context.read<FileBloc>().add(ConfirmFileReplacement());
+                  } else if (context.mounted) {
+                    context.read<FileBloc>().add(CancelFileReplacement());
+                  }
+                }
+              },
+              child: Scaffold(
+                backgroundColor: isDark ? AppTheme.zinc900 : AppTheme.zinc50,
+                body: SafeArea(
+                  child: BlocConsumer<QuizExecutionBloc, QuizExecutionState>(
+                    listener: (context, state) {
+                      if (state is QuizExecutionCompleted) {
+                        // Handled by view
+                      }
+                    },
+                    builder: (context, state) {
+                      if (state is QuizExecutionInitial) {
+                        return const Center(child: CircularProgressIndicator());
+                      } else if (state is QuizExecutionInProgress) {
+                        return QuizInProgressView(state: state);
+                      } else if (state is QuizExecutionCompleted) {
+                        return QuizCompletedView(state: state);
+                      }
+                      return const SizedBox.shrink();
+                    },
+                  ),
                 ),
               ),
             ),

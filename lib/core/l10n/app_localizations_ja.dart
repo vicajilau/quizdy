@@ -9,6 +9,15 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
+  String get abortQuizTitle => 'クイズを中止しますか？';
+
+  @override
+  String get abortQuizMessage => '新しいファイルを開くと、現在のクイズが停止します。';
+
+  @override
+  String get stopAndOpenButton => '停止して開く';
+
+  @override
   String get titleAppBar => 'クイズ - 試験シミュレーター';
 
   @override

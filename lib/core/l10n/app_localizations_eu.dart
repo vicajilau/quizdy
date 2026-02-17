@@ -9,6 +9,16 @@ class AppLocalizationsEu extends AppLocalizations {
   AppLocalizationsEu([String locale = 'eu']) : super(locale);
 
   @override
+  String get abortQuizTitle => 'Galdetegia abortatu?';
+
+  @override
+  String get abortQuizMessage =>
+      'Fitxategi berri bat irekitzeak uneko galdetegia geldituko du.';
+
+  @override
+  String get stopAndOpenButton => 'Gelditu eta Ireki';
+
+  @override
   String get titleAppBar => 'Quiz - Azterketa Simuladorea';
 
   @override

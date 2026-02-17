@@ -1,5 +1,8 @@
 {
   "@@locale": "pt",
+  "abortQuizTitle": "Abortar quiz?",
+  "abortQuizMessage": "Abrir um novo arquivo interromperá o quiz atual.",
+  "stopAndOpenButton": "Parar e Abrir",
   "titleAppBar": "Quiz - Simulador de Exames",
   "@titleAppBar": {
     "description": "Título da aplicação exibido na AppBar."

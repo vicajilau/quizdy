@@ -9,6 +9,16 @@ class AppLocalizationsDe extends AppLocalizations {
   AppLocalizationsDe([String locale = 'de']) : super(locale);
 
   @override
+  String get abortQuizTitle => 'Quiz abbrechen?';
+
+  @override
+  String get abortQuizMessage =>
+      'Das Öffnen einer neuen Datei beendet das aktuelle Quiz.';
+
+  @override
+  String get stopAndOpenButton => 'Stoppen & Öffnen';
+
+  @override
   String get titleAppBar => 'Quiz - Prüfungssimulator';
 
   @override

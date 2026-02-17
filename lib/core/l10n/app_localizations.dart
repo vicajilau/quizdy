@@ -122,6 +122,24 @@ abstract class AppLocalizations {
     Locale('zh'),
   ];
 
+  /// No description provided for @abortQuizTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Abort Quiz?'**
+  String get abortQuizTitle;
+
+  /// No description provided for @abortQuizMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Opening a new file will stop the current quiz.'**
+  String get abortQuizMessage;
+
+  /// No description provided for @stopAndOpenButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop & Open'**
+  String get stopAndOpenButton;
+
   /// Title of the application displayed in the AppBar.
   ///
   /// In en, this message translates to:

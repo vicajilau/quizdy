@@ -9,6 +9,16 @@ class AppLocalizationsGl extends AppLocalizations {
   AppLocalizationsGl([String locale = 'gl']) : super(locale);
 
   @override
+  String get abortQuizTitle => 'Abortar cuestionario?';
+
+  @override
+  String get abortQuizMessage =>
+      'Abrir un novo ficheiro deterá o cuestionario actual.';
+
+  @override
+  String get stopAndOpenButton => 'Deter e Abrir';
+
+  @override
   String get titleAppBar => 'Quiz - Simulador de Exames';
 
   @override

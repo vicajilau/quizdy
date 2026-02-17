@@ -1,5 +1,8 @@
 {
   "@@locale": "ca",
+  "abortQuizTitle": "Avortar qüestionari?",
+  "abortQuizMessage": "Obrir un fitxer nou aturarà el qüestionari actual.",
+  "stopAndOpenButton": "Aturar i Obri",
   "titleAppBar": "Quiz - Simulador d'Exàmens",
   "@titleAppBar": {
     "description": "Títol de l'aplicació mostrat a l'AppBar."

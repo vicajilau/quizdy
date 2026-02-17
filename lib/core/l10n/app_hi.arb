@@ -1,5 +1,8 @@
 {
   "@@locale": "hi",
+  "abortQuizTitle": "क्विज़ रद्द करें?",
+  "abortQuizMessage": "नई फ़ाइल खोलने से वर्तमान क्विज़ रुक जाएगा।",
+  "stopAndOpenButton": "रोकें और खोलें",
   "titleAppBar": "क्विज़ - परीक्षा सिमुलेटर",
   "@titleAppBar": {
     "description": "Title of the application displayed in the AppBar."

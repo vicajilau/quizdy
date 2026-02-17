@@ -1,5 +1,8 @@
 {
   "@@locale": "zh",
+  "abortQuizTitle": "中止测验？",
+  "abortQuizMessage": "打开新文件将停止当前测验。",
+  "stopAndOpenButton": "停止并打开",
   "titleAppBar": "测验 - 考试模拟器",
   "@titleAppBar": {
     "description": "Title of the application displayed in the AppBar."

@@ -1,5 +1,8 @@
 {
   "@@locale": "ja",
+  "abortQuizTitle": "クイズを中止しますか？",
+  "abortQuizMessage": "新しいファイルを開くと、現在のクイズが停止します。",
+  "stopAndOpenButton": "停止して開く",
   "titleAppBar": "クイズ - 試験シミュレーター",
   "@titleAppBar": {
     "description": "Title of the application displayed in the AppBar."

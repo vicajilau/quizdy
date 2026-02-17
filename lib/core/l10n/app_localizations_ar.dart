@@ -9,6 +9,16 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
+  String get abortQuizTitle => 'إلغاء الاختبار؟';
+
+  @override
+  String get abortQuizMessage =>
+      'سيؤدي فتح ملف جديد إلى إيقاف الاختبار الحالي.';
+
+  @override
+  String get stopAndOpenButton => 'إيقاف وفتح';
+
+  @override
   String get titleAppBar => 'اختبار - محاكي الامتحان';
 
   @override

@@ -1,5 +1,8 @@
 {
   "@@locale": "ar",
+  "abortQuizTitle": "إلغاء الاختبار؟",
+  "abortQuizMessage": "سيؤدي فتح ملف جديد إلى إيقاف الاختبار الحالي.",
+  "stopAndOpenButton": "إيقاف وفتح",
   "titleAppBar": "اختبار - محاكي الامتحان",
   "@titleAppBar": {
     "description": "Title of the application displayed in the AppBar."

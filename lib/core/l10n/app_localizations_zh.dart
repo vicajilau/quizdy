@@ -9,6 +9,15 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
+  String get abortQuizTitle => '中止测验？';
+
+  @override
+  String get abortQuizMessage => '打开新文件将停止当前测验。';
+
+  @override
+  String get stopAndOpenButton => '停止并打开';
+
+  @override
   String get titleAppBar => '测验 - 考试模拟器';
 
   @override
