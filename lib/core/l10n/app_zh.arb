@@ -36,7 +36,23 @@
       }
     }
   },
-  "dropFileHere": "点击这里或将.quiz文件拖拽到屏幕",
+  "dropFileHere": "点击徽标或将 .quiz 文件拖到屏幕上",
+  "errorOpeningFile": "打开文件时出错",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "加载新 Quiz",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "已加载一个 Quiz。您要用新文件替换它吗？",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "加载",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
+  },
   "@dropFileHere": {
     "description": "Text displayed inside the drop area for dragging files."
   },

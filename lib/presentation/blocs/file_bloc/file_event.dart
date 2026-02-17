@@ -54,6 +54,12 @@ class CreateQuizWithQuestions extends FileEvent {
   });
 }
 
+/// Event triggered to confirm file replacement.
+class ConfirmFileReplacement extends FileEvent {}
+
+/// Event triggered to cancel file replacement.
+class CancelFileReplacement extends FileEvent {}
+
 /// Event triggered to reset the file state.
 /// This event can be used to clear any file-related data or state.
 class QuizFileReset extends FileEvent {}

@@ -51,7 +51,20 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get dropFileHere =>
-      'Preme aquí ou arrastra un ficheiro .quiz á pantalla';
+      'Fai clic no logotipo ou arrastra un ficheiro .quiz á pantalla';
+
+  @override
+  String get errorOpeningFile => 'Erro ao abrir o ficheiro';
+
+  @override
+  String get replaceFileTitle => 'Cargar novo Quiz';
+
+  @override
+  String get replaceFileMessage =>
+      'Xa hai un Quiz cargado. Queres substituílo polo novo ficheiro?';
+
+  @override
+  String get replaceButton => 'Cargar';
 
   @override
   String get clickOrDragFile =>

@@ -53,6 +53,19 @@ class AppLocalizationsAr extends AppLocalizations {
   String get dropFileHere => 'انقر فوق الشعار أو اسحب ملف .quiz إلى الشاشة';
 
   @override
+  String get errorOpeningFile => 'خطأ في فتح الملف';
+
+  @override
+  String get replaceFileTitle => 'تحميل اختبار Quiz جديد';
+
+  @override
+  String get replaceFileMessage =>
+      'هناك اختبار Quiz محمل بالفعل. هل تريد استبداله بالملف الجديد؟';
+
+  @override
+  String get replaceButton => 'تحميل';
+
+  @override
   String get clickOrDragFile => 'انقر للتحميل أو اسحب ملف .quiz إلى الشاشة';
 
   @override

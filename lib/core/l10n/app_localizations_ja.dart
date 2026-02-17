@@ -53,6 +53,18 @@ class AppLocalizationsJa extends AppLocalizations {
   String get dropFileHere => 'ここをクリックするか、.quizファイルを画面にドラッグしてください';
 
   @override
+  String get errorOpeningFile => 'ファイルを開く際にエラーが発生しました';
+
+  @override
+  String get replaceFileTitle => '新しいQuizを読み込む';
+
+  @override
+  String get replaceFileMessage => 'Quizはすでに読み込まれています。新しいファイルに置き換えますか？';
+
+  @override
+  String get replaceButton => '読み込む';
+
+  @override
   String get clickOrDragFile => 'クリックしてロードするか、.quizファイルを画面にドラッグしてください';
 
   @override

@@ -51,7 +51,20 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get dropFileHere =>
-      'Egin klik hemen edo arrastatu .quiz fitxategi bat pantailara';
+      'Egin klik logoan edo arrastatu .quiz fitxategi bat pantailara';
+
+  @override
+  String get errorOpeningFile => 'Errorea fitxategia irekitzean';
+
+  @override
+  String get replaceFileTitle => 'Quiz berria kargatu';
+
+  @override
+  String get replaceFileMessage =>
+      'Dagoeneko Quiz bat kargatuta dago. Fitxategi berriarekin ordezkatu nahi duzu?';
+
+  @override
+  String get replaceButton => 'Kargatu';
 
   @override
   String get clickOrDragFile =>

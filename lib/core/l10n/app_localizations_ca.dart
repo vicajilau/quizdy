@@ -51,7 +51,20 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get dropFileHere =>
-      'Feu clic aquí o arrossegueu un fitxer .quiz a la pantalla';
+      'Feu clic al logotip o arrossegueu un fitxer .quiz a la pantalla';
+
+  @override
+  String get errorOpeningFile => 'Error en obrir el fitxer';
+
+  @override
+  String get replaceFileTitle => 'Carregar nou Quiz';
+
+  @override
+  String get replaceFileMessage =>
+      'Ja hi ha un Quiz carregat. Vols substituir-lo pel nou fitxer?';
+
+  @override
+  String get replaceButton => 'Carregar';
 
   @override
   String get clickOrDragFile =>

@@ -54,6 +54,19 @@ class AppLocalizationsEl extends AppLocalizations {
       'Κάντε κλικ στο λογότυπο ή σύρετε ένα αρχείο .quiz στην οθόνη';
 
   @override
+  String get errorOpeningFile => 'Σφάλμα κατά το άνοιγμα του αρχείου';
+
+  @override
+  String get replaceFileTitle => 'Φόρτωση νέου Quiz';
+
+  @override
+  String get replaceFileMessage =>
+      'Ένα Quiz είναι ήδη φορτωμένο. Θέλετε να το αντικαταστήσετε με το νέο αρχείο;';
+
+  @override
+  String get replaceButton => 'Φόρτωση';
+
+  @override
   String get clickOrDragFile =>
       'Κάντε κλικ για φόρτωση ή σύρετε ένα αρχείο .quiz στην οθόνη';
 

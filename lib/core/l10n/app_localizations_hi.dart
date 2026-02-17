@@ -51,7 +51,20 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get dropFileHere =>
-      'यहाँ क्लिक करें या स्क्रीन पर .quiz फ़ाइल ड्रैग करें';
+      'लोगो पर क्लिक करें या किसी .quiz फ़ाइल को स्क्रीन पर खींचें';
+
+  @override
+  String get errorOpeningFile => 'फ़ाइल खोलने में त्रुटि';
+
+  @override
+  String get replaceFileTitle => 'नया क्विज़ (Quiz) लोड करें';
+
+  @override
+  String get replaceFileMessage =>
+      'एक क्विज़ (Quiz) पहले से लोड है। क्या आप इसे नई फ़ाइल से बदलना चाहते हैं?';
+
+  @override
+  String get replaceButton => 'लोड करें';
 
   @override
   String get clickOrDragFile =>

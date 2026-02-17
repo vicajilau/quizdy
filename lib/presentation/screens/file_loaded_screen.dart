@@ -409,6 +409,13 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
   }
 
   @override
+  void dispose() {
+    // Reset file bloc when leaving this screen
+    widget.fileBloc.add(QuizFileReset());
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     // ignore: deprecated_member_use
     return WillPopScope(
@@ -423,9 +430,32 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
             if (state is FileLoaded) {
               cachedQuizFile = state.quizFile.deepCopy();
               setState(() {});
+            }
+            if (state is FileSaved) {
+              cachedQuizFile = state.quizFile.deepCopy();
+              setState(() {});
               context.presentSnackBar(
                 AppLocalizations.of(context)!.saveSuccess,
               );
+            }
+            if (state is FileReplacementRequest) {
+              showDialog(
+                context: context,
+                builder: (context) => CustomConfirmDialog(
+                  title: AppLocalizations.of(context)!.replaceFileTitle,
+                  message: AppLocalizations.of(context)!.replaceFileMessage,
+                  confirmText: AppLocalizations.of(context)!.replaceButton,
+                  isDestructive: false,
+                ),
+              ).then((confirmed) {
+                if (!context.mounted) return;
+                debugPrint('FileReplacement Dialog result: $confirmed');
+                if (confirmed == true) {
+                  context.read<FileBloc>().add(ConfirmFileReplacement());
+                } else {
+                  context.read<FileBloc>().add(CancelFileReplacement());
+                }
+              });
             }
             if (state is FileError) {
               context.presentSnackBar(state.getDescription(context));
@@ -471,7 +501,10 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
                             onPressed: () async {
                               final shouldExit = await _confirmExit();
                               if (shouldExit && context.mounted) {
-                                context.pop();
+                                // Since we navigate here using `go` from home
+                                // we should use `go` to return home to ensure we don't
+                                // try to pop an empty stack.
+                                context.go(AppRoutes.home);
                               }
                             },
                           ),

@@ -133,6 +133,22 @@
     }
   },
   "dropFileHere": "انقر فوق الشعار أو اسحب ملف .quiz إلى الشاشة",
+  "errorOpeningFile": "خطأ في فتح الملف",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "تحميل اختبار Quiz جديد",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "هناك اختبار Quiz محمل بالفعل. هل تريد استبداله بالملف الجديد؟",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "تحميل",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
+  },
   "@dropFileHere": {
     "description": "النص المعروض داخل منطقة الإفلات لسحب الملفات."
   },

@@ -36,6 +36,22 @@
       }
     }
   },
+  "errorOpeningFile": "ファイルを開く際にエラーが発生しました",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "新しいQuizを読み込む",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "Quizはすでに読み込まれています。新しいファイルに置き換えますか？",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "読み込む",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
+  },
   "dropFileHere": "ここをクリックするか、.quizファイルを画面にドラッグしてください",
   "@dropFileHere": {
     "description": "Text displayed inside the drop area for dragging files."

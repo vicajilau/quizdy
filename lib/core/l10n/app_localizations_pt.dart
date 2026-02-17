@@ -54,6 +54,19 @@ class AppLocalizationsPt extends AppLocalizations {
       'Clique no logotipo ou arraste um arquivo .quiz para a tela';
 
   @override
+  String get errorOpeningFile => 'Erro ao abrir o arquivo';
+
+  @override
+  String get replaceFileTitle => 'Carregar novo Quiz';
+
+  @override
+  String get replaceFileMessage =>
+      'Um Quiz já está carregado. Deseja substituí-lo pelo novo arquivo?';
+
+  @override
+  String get replaceButton => 'Carregar';
+
+  @override
   String get clickOrDragFile =>
       'Clique para carregar ou arraste um arquiro .quiz para a tela';
 

@@ -132,7 +132,23 @@
       }
     }
   },
-  "dropFileHere": "Hier klicken oder eine .quiz-Datei auf den Bildschirm ziehen",
+  "dropFileHere": "Klicken Sie auf das Logo oder ziehen Sie eine .quiz-Datei auf den Bildschirm",
+  "errorOpeningFile": "Fehler beim Öffnen der Datei",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "Neues Quiz laden",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "Ein Quiz ist bereits geladen. Möchten Sie es durch die neue Datei ersetzen?",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "Laden",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
+  },
   "@dropFileHere": {
     "description": "Text, der im Ablagebereich zum Ziehen von Dateien angezeigt wird."
   },

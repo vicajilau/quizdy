@@ -36,7 +36,23 @@
       }
     }
   },
-  "dropFileHere": "Preme aquí ou arrastra un ficheiro .quiz á pantalla",
+  "dropFileHere": "Fai clic no logotipo ou arrastra un ficheiro .quiz á pantalla",
+  "errorOpeningFile": "Erro ao abrir o ficheiro",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "Cargar novo Quiz",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "Xa hai un Quiz cargado. Queres substituílo polo novo ficheiro?",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "Cargar",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
+  },
   "@dropFileHere": {
     "description": "Texto mostrado na área de soltar para arrastrar ficheiros."
   },

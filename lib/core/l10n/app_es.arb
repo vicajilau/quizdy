@@ -70,6 +70,22 @@
       }
     }
   },
+  "errorOpeningFile": "Error al abrir el archivo",
+  "@errorOpeningFile": {
+    "description": "Mensaje de error genérico cuando falla la apertura de un archivo."
+  },
+  "replaceFileTitle": "Cargar nuevo Quiz",
+  "@replaceFileTitle": {
+    "description": "Título del diálogo de confirmación para reemplazar el archivo actual."
+  },
+  "replaceFileMessage": "Ya hay un Quiz cargado. ¿Deseas reemplazarlo con el nuevo archivo?",
+  "@replaceFileMessage": {
+    "description": "Mensaje del diálogo de confirmación para reemplazar el archivo actual."
+  },
+  "replaceButton": "Cargar",
+  "@replaceButton": {
+    "description": "Texto del botón confirmar reemplazo."
+  },
   "errorLoadingFile": "Error al cargar el archivo: {error}",
   "@errorLoadingFile": {
     "description": "Mensaje de error mostrado cuando falla la carga de un archivo.",

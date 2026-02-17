@@ -132,7 +132,23 @@
       }
     }
   },
-  "dropFileHere": "Feu clic aquí o arrossegueu un fitxer .quiz a la pantalla",
+  "dropFileHere": "Feu clic al logotip o arrossegueu un fitxer .quiz a la pantalla",
+  "errorOpeningFile": "Error en obrir el fitxer",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "Carregar nou Quiz",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "Ja hi ha un Quiz carregat. Vols substituir-lo pel nou fitxer?",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "Carregar",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
+  },
   "@dropFileHere": {
     "description": "Text mostrat a l'àrea de deixar anar per arrossegar fitxers."
   },

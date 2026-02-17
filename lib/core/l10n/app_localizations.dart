@@ -200,6 +200,30 @@ abstract class AppLocalizations {
   /// **'Click logo or drag a .quiz file to the screen'**
   String get dropFileHere;
 
+  /// Generic error message when opening a file fails.
+  ///
+  /// In en, this message translates to:
+  /// **'Error opening file'**
+  String get errorOpeningFile;
+
+  /// Title of the confirmation dialog to replace the current file.
+  ///
+  /// In en, this message translates to:
+  /// **'Load new Quiz'**
+  String get replaceFileTitle;
+
+  /// Message of the confirmation dialog to replace the current file.
+  ///
+  /// In en, this message translates to:
+  /// **'A Quiz is already loaded. Do you want to replace it with the new file?'**
+  String get replaceFileMessage;
+
+  /// Button to confirm replacing the file.
+  ///
+  /// In en, this message translates to:
+  /// **'Load'**
+  String get replaceButton;
+
   /// Text displayed below the drop area
   ///
   /// In en, this message translates to:
