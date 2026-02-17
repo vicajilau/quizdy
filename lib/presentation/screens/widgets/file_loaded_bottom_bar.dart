@@ -54,6 +54,25 @@ class _FileLoadedBottomBarState extends State<FileLoadedBottomBar> {
     super.dispose();
   }
 
+  @override
+  void didUpdateWidget(FileLoadedBottomBar oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.selectedQuestionCount != widget.selectedQuestionCount ||
+        oldWidget.showSaveButton != widget.showSaveButton) {
+      _scrollToStart();
+    }
+  }
+
+  void _scrollToStart() {
+    if (_scrollController.hasClients) {
+      _scrollController.animateTo(
+        0,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeOut,
+      );
+    }
+  }
+
   void _updateShadows() {
     if (!_scrollController.hasClients) return;
 
@@ -146,33 +165,77 @@ class _FileLoadedBottomBarState extends State<FileLoadedBottomBar> {
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            _buildActionButton(
-                              context,
-                              icon: LucideIcons.plus,
-                              label: AppLocalizations.of(context)!.addQuestion,
-                              onPressed: widget.onAddQuestion,
-                              backgroundColor: addBtnBg,
-                              borderColor: addBtnBorder,
-                              textColor: addBtnText,
-                              iconColor: addBtnIcon,
+                            // Delete Action Button
+                            if (widget.selectedQuestionCount > 0)
+                              Padding(
+                                padding: const EdgeInsetsGeometry.only(
+                                  right: 12,
+                                ),
+                                child: _buildActionButton(
+                                  context,
+                                  icon: LucideIcons.trash2,
+                                  label:
+                                      '${AppLocalizations.of(context)!.deleteButton} (${widget.selectedQuestionCount})',
+                                  onPressed: widget.onDelete,
+                                  backgroundColor: deleteBtnBg,
+                                  textColor: deleteBtnText,
+                                  iconColor: deleteBtnIcon,
+                                ),
+                              ),
+                            // Save Action Button
+                            if (widget.showSaveButton)
+                              Padding(
+                                padding: const EdgeInsetsGeometry.only(
+                                  right: 12,
+                                ),
+                                child: _buildActionButton(
+                                  context,
+                                  icon: LucideIcons.save,
+                                  label: AppLocalizations.of(
+                                    context,
+                                  )!.saveButton,
+                                  onPressed: widget.onSave,
+                                  backgroundColor: secondaryBtnBg,
+                                  textColor: secondaryBtnText,
+                                  iconColor: secondaryBtnIcon,
+                                ),
+                              ),
+                            // Add Question Action Button
+                            Padding(
+                              padding: const EdgeInsetsGeometry.only(right: 12),
+                              child: _buildActionButton(
+                                context,
+                                icon: LucideIcons.plus,
+                                label: AppLocalizations.of(
+                                  context,
+                                )!.addQuestion,
+                                onPressed: widget.onAddQuestion,
+                                backgroundColor: addBtnBg,
+                                borderColor: addBtnBorder,
+                                textColor: addBtnText,
+                                iconColor: addBtnIcon,
+                              ),
                             ),
-                            const SizedBox(width: 12),
-                            _buildActionButton(
-                              context,
-                              icon: LucideIcons.sparkles,
-                              label: widget.hasQuestions
-                                  ? AppLocalizations.of(
-                                      context,
-                                    )!.addQuestionsWithAI
-                                  : AppLocalizations.of(
-                                      context,
-                                    )!.generateQuestionsWithAI,
-                              onPressed: widget.onGenerateAI,
-                              backgroundColor: const Color(
-                                0xFF14B8A6,
-                              ), // Teal 500
+                            // Generate Questions Action Button
+                            Padding(
+                              padding: const EdgeInsetsGeometry.only(right: 12),
+                              child: _buildActionButton(
+                                context,
+                                icon: LucideIcons.sparkles,
+                                label: widget.hasQuestions
+                                    ? AppLocalizations.of(
+                                        context,
+                                      )!.addQuestionsWithAI
+                                    : AppLocalizations.of(
+                                        context,
+                                      )!.generateQuestionsWithAI,
+                                onPressed: widget.onGenerateAI,
+                                backgroundColor: const Color(
+                                  0xFF14B8A6,
+                                ), // Teal 500
+                              ),
                             ),
-                            const SizedBox(width: 12),
+                            // Upload Action Button
                             _buildActionButton(
                               context,
                               icon: LucideIcons.upload,
@@ -182,31 +245,6 @@ class _FileLoadedBottomBarState extends State<FileLoadedBottomBar> {
                               textColor: secondaryBtnText,
                               iconColor: secondaryBtnIcon,
                             ),
-                            if (widget.showSaveButton) ...[
-                              const SizedBox(width: 12),
-                              _buildActionButton(
-                                context,
-                                icon: LucideIcons.save,
-                                label: AppLocalizations.of(context)!.saveButton,
-                                onPressed: widget.onSave,
-                                backgroundColor: secondaryBtnBg,
-                                textColor: secondaryBtnText,
-                                iconColor: secondaryBtnIcon,
-                              ),
-                            ],
-                            if (widget.selectedQuestionCount > 0) ...[
-                              const SizedBox(width: 12),
-                              _buildActionButton(
-                                context,
-                                icon: LucideIcons.trash2,
-                                label:
-                                    '${AppLocalizations.of(context)!.deleteButton} (${widget.selectedQuestionCount})',
-                                onPressed: widget.onDelete,
-                                backgroundColor: deleteBtnBg,
-                                textColor: deleteBtnText,
-                                iconColor: deleteBtnIcon,
-                              ),
-                            ],
                           ],
                         ),
                       ),
