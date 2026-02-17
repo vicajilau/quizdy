@@ -683,6 +683,9 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
                 ),
                 body: DropTarget(
                   onDragDone: (details) {
+                    if (ModalRoute.of(context)?.isCurrent != true) {
+                      return;
+                    }
                     setState(() => _isDragging = false);
                     if (DialogDropGuard.isActive) return;
                     if (details.files.isNotEmpty) {
