@@ -424,9 +424,7 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
               cachedQuizFile = state.quizFile.deepCopy();
               setState(() {});
               context.presentSnackBar(
-                AppLocalizations.of(
-                  context,
-                )!.fileSaved(state.quizFile.filePath!),
+                AppLocalizations.of(context)!.saveSuccess,
               );
             }
             if (state is FileError) {
