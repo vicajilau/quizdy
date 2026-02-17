@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - feature: Add drag & drop file support for the AI question generation and manual question creation dialogs, with a guard to prevent conflicts with the global .quiz file drop handler.
 - fix: Resolved a crash on iOS when saving a new quiz file by ensuring a valid default filename is generated.
 - refactor: Upgraded project to Flutter 3.41.0.
+- refactor: Migrated iOS app to UIScene lifecycle to ensure compatibility with future iOS versions.
 
 ## [1.6.0] - 2026-02-11
 
