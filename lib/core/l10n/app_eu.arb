@@ -1,5 +1,8 @@
 {
   "@@locale": "eu",
+  "abortQuizTitle": "Quiz-a abortatu?",
+  "abortQuizMessage": "Fitxategi berri bat irekitzeak uneko galdetegia geldituko du.",
+  "stopAndOpenButton": "Gelditu eta Ireki",
   "titleAppBar": "Quiz - Azterketa Simuladorea",
   "@titleAppBar": {
     "description": "AppBar-ean erakutsitako aplikazioaren izenburua."
@@ -36,7 +39,23 @@
       }
     }
   },
-  "dropFileHere": "Egin klik hemen edo arrastatu .quiz fitxategi bat pantailara",
+  "errorOpeningFile": "Errorea fitxategia irekitzean",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "Quiz berria kargatu",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "Dagoeneko Quiz bat kargatuta dago. Fitxategi berriarekin ordezkatu nahi duzu?",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "Kargatu",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
+  },
+  "dropFileHere": "Egin klik logoan edo arrastatu .quiz fitxategi bat pantailara",
   "@dropFileHere": {
     "description": "Fitxategiak arrastatzeko eremuan erakusten den testua."
   },
@@ -98,11 +117,11 @@
   "@confirmExitTitle": {
     "description": "Irtetzearen berrespen elkarrizketaren izenburua."
   },
-  "confirmExitMessage": "Ziur zaude gorde gabe irten nahi duzula?",
+  "confirmExitMessage": "Gorde gabeko aldaketak daude. Aldaketak baztertuz irten nahi duzu?",
   "@confirmExitMessage": {
     "description": "Irtetzearen berrespen elkarrizketaren mezua."
   },
-  "exitButton": "Irten",
+  "exitButton": "Irten gorde gabe",
   "@exitButton": {
     "description": "Irten botoiaren testua."
   },

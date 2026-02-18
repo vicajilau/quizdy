@@ -9,6 +9,15 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
+  String get abortQuizTitle => 'クイズを中止しますか？';
+
+  @override
+  String get abortQuizMessage => '新しいファイルを開くと、現在のクイズが停止します。';
+
+  @override
+  String get stopAndOpenButton => '停止して開く';
+
+  @override
   String get titleAppBar => 'クイズ - 試験シミュレーター';
 
   @override
@@ -53,6 +62,18 @@ class AppLocalizationsJa extends AppLocalizations {
   String get dropFileHere => 'ここをクリックするか、.quizファイルを画面にドラッグしてください';
 
   @override
+  String get errorOpeningFile => 'ファイルを開く際にエラーが発生しました';
+
+  @override
+  String get replaceFileTitle => '新しいQuizを読み込む';
+
+  @override
+  String get replaceFileMessage => 'Quizはすでに読み込まれています。新しいファイルに置き換えますか？';
+
+  @override
+  String get replaceButton => '読み込む';
+
+  @override
   String get clickOrDragFile => 'クリックしてロードするか、.quizファイルを画面にドラッグしてください';
 
   @override
@@ -89,10 +110,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get confirmExitTitle => '終了の確認';
 
   @override
-  String get confirmExitMessage => '本当に保存せずに終了しますか？';
+  String get confirmExitMessage => '保存されていない変更があります。変更を破棄して終了しますか？';
 
   @override
-  String get exitButton => '終了';
+  String get exitButton => '保存せずに終了';
 
   @override
   String get saveDialogTitle => '出力ファイルを選択してください：';

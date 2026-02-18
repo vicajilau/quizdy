@@ -9,6 +9,16 @@ class AppLocalizationsEl extends AppLocalizations {
   AppLocalizationsEl([String locale = 'el']) : super(locale);
 
   @override
+  String get abortQuizTitle => 'Ακύρωση Quiz;';
+
+  @override
+  String get abortQuizMessage =>
+      'Το άνοιγμα ενός νέου αρχείου θα διακόψει το τρέχον κουίζ.';
+
+  @override
+  String get stopAndOpenButton => 'Διακοπή & Άνοιγμα';
+
+  @override
   String get titleAppBar => 'Κουίζ - Προσομοιωτής Εξετάσεων';
 
   @override
@@ -54,6 +64,19 @@ class AppLocalizationsEl extends AppLocalizations {
       'Κάντε κλικ στο λογότυπο ή σύρετε ένα αρχείο .quiz στην οθόνη';
 
   @override
+  String get errorOpeningFile => 'Σφάλμα κατά το άνοιγμα του αρχείου';
+
+  @override
+  String get replaceFileTitle => 'Φόρτωση νέου Quiz';
+
+  @override
+  String get replaceFileMessage =>
+      'Ένα Quiz είναι ήδη φορτωμένο. Θέλετε να το αντικαταστήσετε με το νέο αρχείο;';
+
+  @override
+  String get replaceButton => 'Φόρτωση';
+
+  @override
   String get clickOrDragFile =>
       'Κάντε κλικ για φόρτωση ή σύρετε ένα αρχείο .quiz στην οθόνη';
 
@@ -93,10 +116,10 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get confirmExitMessage =>
-      'Είστε σίγουροι ότι θέλετε να φύγετε χωρίς αποθήκευση;';
+      'Υπάρχουν μη αποθηκευμένες αλλαγές. Θέλετε να φύγετε απορρίπτοντας τις αλλαγές;';
 
   @override
-  String get exitButton => 'Έξοδος';
+  String get exitButton => 'Έξοδος χωρίς αποθήκευση';
 
   @override
   String get saveDialogTitle => 'Παρακαλώ επιλέξτε αρχείο εξόδου:';

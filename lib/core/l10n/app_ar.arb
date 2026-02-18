@@ -1,5 +1,8 @@
 {
   "@@locale": "ar",
+  "abortQuizTitle": "إلغاء Quiz؟",
+  "abortQuizMessage": "سيؤدي فتح ملف جديد إلى إيقاف الاختبار الحالي.",
+  "stopAndOpenButton": "إيقاف وفتح",
   "titleAppBar": "اختبار - محاكي الامتحان",
   "@titleAppBar": {
     "description": "Title of the application displayed in the AppBar."
@@ -133,6 +136,22 @@
     }
   },
   "dropFileHere": "انقر فوق الشعار أو اسحب ملف .quiz إلى الشاشة",
+  "errorOpeningFile": "خطأ في فتح الملف",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "تحميل اختبار Quiz جديد",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "هناك اختبار Quiz محمل بالفعل. هل تريد استبداله بالملف الجديد؟",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "تحميل",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
+  },
   "@dropFileHere": {
     "description": "النص المعروض داخل منطقة الإفلات لسحب الملفات."
   },
@@ -194,11 +213,11 @@
   "@confirmExitTitle": {
     "description": "Title for the confirmation dialog when exiting."
   },
-  "confirmExitMessage": "هل أنت متأكد من أنك تريد الخروج بدون حفظ؟",
+  "confirmExitMessage": "هناك تغييرات غير محفوظة. هل تريد الخروج وتجاهل التغييرات؟",
   "@confirmExitMessage": {
     "description": "Message in the confirmation dialog for exiting."
   },
-  "exitButton": "خروج",
+  "exitButton": "خروج بدون حفظ",
   "@exitButton": {
     "description": "Exit button text."
   },

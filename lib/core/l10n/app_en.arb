@@ -1,5 +1,8 @@
 {
   "@@locale": "en",
+  "abortQuizTitle": "Abort Quiz?",
+  "abortQuizMessage": "Opening a new file will stop the current quiz.",
+  "stopAndOpenButton": "Stop & Open",
   "titleAppBar": "Quiz - Exam Simulator",
   "@titleAppBar": {
     "description": "Title of the application displayed in the AppBar."
@@ -61,6 +64,22 @@
     }
   },
   "dropFileHere": "Click logo or drag a .quiz file to the screen",
+  "errorOpeningFile": "Error opening file",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "Load new Quiz",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "A Quiz is already loaded. Do you want to replace it with the new file?",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "Load",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
+  },
   "@dropFileHere": {
     "description": "Text displayed inside the drop area for dragging files."
   },
@@ -122,11 +141,11 @@
   "@confirmExitTitle": {
     "description": "Title for the confirmation dialog when exiting."
   },
-  "confirmExitMessage": "Are you sure you want to leave without saving?",
+  "confirmExitMessage": "There are unsaved changes. Do you want to leave and discard changes?",
   "@confirmExitMessage": {
     "description": "Message in the confirmation dialog for exiting."
   },
-  "exitButton": "Exit",
+  "exitButton": "Exit without saving",
   "@exitButton": {
     "description": "Exit button text."
   },

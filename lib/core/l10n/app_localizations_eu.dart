@@ -9,6 +9,16 @@ class AppLocalizationsEu extends AppLocalizations {
   AppLocalizationsEu([String locale = 'eu']) : super(locale);
 
   @override
+  String get abortQuizTitle => 'Quiz-a abortatu?';
+
+  @override
+  String get abortQuizMessage =>
+      'Fitxategi berri bat irekitzeak uneko galdetegia geldituko du.';
+
+  @override
+  String get stopAndOpenButton => 'Gelditu eta Ireki';
+
+  @override
   String get titleAppBar => 'Quiz - Azterketa Simuladorea';
 
   @override
@@ -51,7 +61,20 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get dropFileHere =>
-      'Egin klik hemen edo arrastatu .quiz fitxategi bat pantailara';
+      'Egin klik logoan edo arrastatu .quiz fitxategi bat pantailara';
+
+  @override
+  String get errorOpeningFile => 'Errorea fitxategia irekitzean';
+
+  @override
+  String get replaceFileTitle => 'Quiz berria kargatu';
+
+  @override
+  String get replaceFileMessage =>
+      'Dagoeneko Quiz bat kargatuta dago. Fitxategi berriarekin ordezkatu nahi duzu?';
+
+  @override
+  String get replaceButton => 'Kargatu';
 
   @override
   String get clickOrDragFile =>
@@ -92,10 +115,11 @@ class AppLocalizationsEu extends AppLocalizations {
   String get confirmExitTitle => 'Irteera Berretsi';
 
   @override
-  String get confirmExitMessage => 'Ziur zaude gorde gabe irten nahi duzula?';
+  String get confirmExitMessage =>
+      'Gorde gabeko aldaketak daude. Aldaketak baztertuz irten nahi duzu?';
 
   @override
-  String get exitButton => 'Irten';
+  String get exitButton => 'Irten gorde gabe';
 
   @override
   String get saveDialogTitle => 'Hautatu irteera fitxategia:';

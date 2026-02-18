@@ -6,7 +6,6 @@ import 'package:quiz_app/core/context_extension.dart';
 import 'package:quiz_app/domain/models/custom_exceptions/bad_quiz_file_exception.dart';
 import 'package:quiz_app/presentation/utils/dialog_drop_guard.dart';
 
-import 'package:quiz_app/core/file_handler.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
 import 'package:quiz_app/core/service_locator.dart';
 import 'package:quiz_app/routes/app_router.dart';
@@ -173,9 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
         listener: (context, state) async {
           if (state is FileLoaded) {
             setState(() => _isLoading = false);
-            final _ = await context.push(AppRoutes.fileLoadedScreen);
-            if (!context.mounted) return;
-            context.read<FileBloc>().add(QuizFileReset());
+            context.go(AppRoutes.fileLoadedScreen);
           }
           if (state is FileError && context.mounted) {
             setState(() => _isLoading = false);
@@ -194,7 +191,6 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         child: Builder(
           builder: (context) {
-            checkDeepLink(context);
             return Scaffold(
               body: DropTarget(
                 onDragDone: (details) {
@@ -294,11 +290,5 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
-  }
-
-  void checkDeepLink(BuildContext c) {
-    FileHandler.initialize((filePath) {
-      c.read<FileBloc>().add(FileDropped(filePath));
-    });
   }
 }

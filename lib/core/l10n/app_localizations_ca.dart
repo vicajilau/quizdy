@@ -9,6 +9,16 @@ class AppLocalizationsCa extends AppLocalizations {
   AppLocalizationsCa([String locale = 'ca']) : super(locale);
 
   @override
+  String get abortQuizTitle => 'Avortar Quiz?';
+
+  @override
+  String get abortQuizMessage =>
+      'Obrir un fitxer nou aturarà el qüestionari actual.';
+
+  @override
+  String get stopAndOpenButton => 'Aturar i Obri';
+
+  @override
   String get titleAppBar => 'Quiz - Simulador d\'Exàmens';
 
   @override
@@ -51,7 +61,20 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get dropFileHere =>
-      'Feu clic aquí o arrossegueu un fitxer .quiz a la pantalla';
+      'Feu clic al logotip o arrossegueu un fitxer .quiz a la pantalla';
+
+  @override
+  String get errorOpeningFile => 'Error en obrir el fitxer';
+
+  @override
+  String get replaceFileTitle => 'Carregar nou Quiz';
+
+  @override
+  String get replaceFileMessage =>
+      'Ja hi ha un Quiz carregat. Vols substituir-lo pel nou fitxer?';
+
+  @override
+  String get replaceButton => 'Carregar';
 
   @override
   String get clickOrDragFile =>
@@ -92,10 +115,11 @@ class AppLocalizationsCa extends AppLocalizations {
   String get confirmExitTitle => 'Confirmar sortida';
 
   @override
-  String get confirmExitMessage => 'Esteu segur que voleu sortir sense desar?';
+  String get confirmExitMessage =>
+      'Hi ha canvis sense desar. Voleu sortir descartant els canvis?';
 
   @override
-  String get exitButton => 'Sortir';
+  String get exitButton => 'Sortir sense desar';
 
   @override
   String get saveDialogTitle => 'Seleccioneu un fitxer de sortida:';

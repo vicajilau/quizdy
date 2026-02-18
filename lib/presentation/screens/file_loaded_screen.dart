@@ -22,6 +22,8 @@ import 'package:quiz_app/core/service_locator.dart';
 import 'package:quiz_app/data/services/configuration_service.dart';
 import 'package:quiz_app/domain/use_cases/check_file_changes_use_case.dart';
 import 'package:quiz_app/presentation/blocs/file_bloc/file_bloc.dart';
+import 'package:quiz_app/data/repositories/quiz_file_repository.dart';
+import 'package:quiz_app/domain/models/custom_exceptions/bad_quiz_file_exception.dart';
 import 'package:quiz_app/presentation/blocs/file_bloc/file_event.dart';
 import 'package:quiz_app/presentation/blocs/file_bloc/file_state.dart';
 import 'package:quiz_app/presentation/screens/dialogs/question_count_selection_dialog.dart';
@@ -155,85 +157,72 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
   /// Handle importing questions from a dropped file
   Future<void> _handleFileImport(String filePath) async {
     try {
-      // Create a temporary file bloc to load the dropped file
-      final tempFileBloc = FileBloc(
-        fileRepository: ServiceLocator.instance.getIt(),
-      );
+      final repository = ServiceLocator.instance.getIt<QuizFileRepository>();
 
-      tempFileBloc.add(FileDropped(filePath));
+      // Load the file content directly without updating the original file reference
+      // This prevents the "Save" button from appearing prematurely
+      final importedQuizFile = await repository.loadQuizFileContent(filePath);
 
-      // Listen to the file load result
-      await for (final state in tempFileBloc.stream) {
-        if (state is FileLoaded) {
-          final importedQuizFile = state.quizFile;
-
-          if (importedQuizFile.questions.isEmpty) {
-            if (mounted) {
-              context.presentSnackBar(
-                AppLocalizations.of(context)!.errorLoadingFile(
-                  AppLocalizations.of(context)!.noQuestionsInFile,
-                ),
-              );
-            }
-            break;
-          }
-
-          if (cachedQuizFile.questions.isEmpty) {
-            setState(() {
-              cachedQuizFile.questions.insertAll(0, importedQuizFile.questions);
-            });
-            if (mounted) {
-              context.presentSnackBar(
-                AppLocalizations.of(
-                  context,
-                )!.questionsImportedSuccess(importedQuizFile.questions.length),
-              );
-            }
-            return;
-          }
-
-          // Show import dialog
-          final questionsPosition = await showDialog<QuestionsPosition>(
-            context: context,
-            barrierDismissible: false,
-            builder: (context) => ImportQuestionsDialog(
-              questionCount: importedQuizFile.questions.length,
-              fileName: filePath.split('/').last,
+      if (importedQuizFile.questions.isEmpty) {
+        if (mounted) {
+          context.presentSnackBar(
+            AppLocalizations.of(context)!.errorLoadingFile(
+              AppLocalizations.of(context)!.noQuestionsInFile,
             ),
           );
-
-          if (questionsPosition != null && mounted) {
-            setState(() {
-              if (questionsPosition == QuestionsPosition.beginning) {
-                // Insert at the beginning
-                cachedQuizFile.questions.insertAll(
-                  0,
-                  importedQuizFile.questions,
-                );
-              } else {
-                // Insert at the end
-                cachedQuizFile.questions.addAll(importedQuizFile.questions);
-              }
-            });
-
-            if (mounted) {
-              context.presentSnackBar(
-                AppLocalizations.of(
-                  context,
-                )!.questionsImportedSuccess(importedQuizFile.questions.length),
-              );
-            }
-          }
-          break;
-        } else if (state is FileError) {
-          if (mounted) {
-            context.presentSnackBar(state.getDescription(context));
-          }
-          break;
         }
+        return;
       }
 
-      tempFileBloc.close();
+      if (cachedQuizFile.questions.isEmpty) {
+        setState(() {
+          cachedQuizFile.questions.insertAll(0, importedQuizFile.questions);
+        });
+        if (mounted) {
+          context.presentSnackBar(
+            AppLocalizations.of(
+              context,
+            )!.questionsImportedSuccess(importedQuizFile.questions.length),
+          );
+        }
+        return;
+      }
+
+      // Show import dialog
+      if (!mounted) return;
+
+      final questionsPosition = await showDialog<QuestionsPosition>(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => ImportQuestionsDialog(
+          questionCount: importedQuizFile.questions.length,
+          fileName: filePath.split('/').last,
+        ),
+      );
+
+      if (questionsPosition != null && mounted) {
+        setState(() {
+          if (questionsPosition == QuestionsPosition.beginning) {
+            // Insert at the beginning
+            cachedQuizFile.questions.insertAll(0, importedQuizFile.questions);
+          } else {
+            // Insert at the end
+            cachedQuizFile.questions.addAll(importedQuizFile.questions);
+          }
+        });
+
+        if (mounted) {
+          context.presentSnackBar(
+            AppLocalizations.of(
+              context,
+            )!.questionsImportedSuccess(importedQuizFile.questions.length),
+          );
+        }
+      }
+    } on BadQuizFileException catch (e) {
+      if (mounted) {
+        context.presentSnackBar(e.toString());
+      }
     } catch (e) {
       if (mounted) {
         context.presentSnackBar(
@@ -409,6 +398,13 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
   }
 
   @override
+  void dispose() {
+    // Reset file bloc when leaving this screen
+    widget.fileBloc.add(QuizFileReset());
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     // ignore: deprecated_member_use
     return WillPopScope(
@@ -423,11 +419,33 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
             if (state is FileLoaded) {
               cachedQuizFile = state.quizFile.deepCopy();
               setState(() {});
+            }
+            if (state is FileSaved) {
+              cachedQuizFile = state.quizFile.deepCopy();
+              setState(() {});
               context.presentSnackBar(
-                AppLocalizations.of(
-                  context,
-                )!.fileSaved(state.quizFile.filePath!),
+                AppLocalizations.of(context)!.saveSuccess,
               );
+            }
+            if (state is FileReplacementRequest &&
+                ModalRoute.of(context)?.isCurrent == true) {
+              showDialog(
+                context: context,
+                builder: (context) => CustomConfirmDialog(
+                  title: AppLocalizations.of(context)!.replaceFileTitle,
+                  message: AppLocalizations.of(context)!.replaceFileMessage,
+                  confirmText: AppLocalizations.of(context)!.replaceButton,
+                  isDestructive: false,
+                ),
+              ).then((confirmed) {
+                if (!context.mounted) return;
+                debugPrint('FileReplacement Dialog result: $confirmed');
+                if (confirmed == true) {
+                  context.read<FileBloc>().add(ConfirmFileReplacement());
+                } else {
+                  context.read<FileBloc>().add(CancelFileReplacement());
+                }
+              });
             }
             if (state is FileError) {
               context.presentSnackBar(state.getDescription(context));
@@ -473,7 +491,10 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
                             onPressed: () async {
                               final shouldExit = await _confirmExit();
                               if (shouldExit && context.mounted) {
-                                context.pop();
+                                // Since we navigate here using `go` from home
+                                // we should use `go` to return home to ensure we don't
+                                // try to pop an empty stack.
+                                context.go(AppRoutes.home);
                               }
                             },
                           ),
@@ -651,6 +672,9 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
                 ),
                 body: DropTarget(
                   onDragDone: (details) {
+                    if (ModalRoute.of(context)?.isCurrent != true) {
+                      return;
+                    }
                     setState(() => _isDragging = false);
                     if (DialogDropGuard.isActive) return;
                     if (details.files.isNotEmpty) {

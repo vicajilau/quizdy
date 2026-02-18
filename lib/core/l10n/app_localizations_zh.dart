@@ -9,6 +9,15 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
+  String get abortQuizTitle => '中止Quiz？';
+
+  @override
+  String get abortQuizMessage => '打开新文件将停止当前测验。';
+
+  @override
+  String get stopAndOpenButton => '停止并打开';
+
+  @override
   String get titleAppBar => '测验 - 考试模拟器';
 
   @override
@@ -50,7 +59,19 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get dropFileHere => '点击这里或将.quiz文件拖拽到屏幕';
+  String get dropFileHere => '点击徽标或将 .quiz 文件拖到屏幕上';
+
+  @override
+  String get errorOpeningFile => '打开文件时出错';
+
+  @override
+  String get replaceFileTitle => '加载新 Quiz';
+
+  @override
+  String get replaceFileMessage => '已加载一个 Quiz。您要用新文件替换它吗？';
+
+  @override
+  String get replaceButton => '加载';
 
   @override
   String get clickOrDragFile => '点击加载或将 .quiz 文件拖动到屏幕上';
@@ -89,10 +110,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get confirmExitTitle => '确认退出';
 
   @override
-  String get confirmExitMessage => '您确定要在不保存的情况下退出吗？';
+  String get confirmExitMessage => '有未保存的更改。您要放弃更改并离开吗？';
 
   @override
-  String get exitButton => '退出';
+  String get exitButton => '退出不保存';
 
   @override
   String get saveDialogTitle => '请选择输出文件：';

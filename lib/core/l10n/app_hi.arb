@@ -1,5 +1,8 @@
 {
   "@@locale": "hi",
+  "abortQuizTitle": "क्विज़ रद्द करें?",
+  "abortQuizMessage": "नई फ़ाइल खोलने से वर्तमान क्विज़ रुक जाएगा।",
+  "stopAndOpenButton": "रोकें और खोलें",
   "titleAppBar": "क्विज़ - परीक्षा सिमुलेटर",
   "@titleAppBar": {
     "description": "Title of the application displayed in the AppBar."
@@ -36,7 +39,23 @@
       }
     }
   },
-  "dropFileHere": "यहाँ क्लिक करें या स्क्रीन पर .quiz फ़ाइल ड्रैग करें",
+  "dropFileHere": "लोगो पर क्लिक करें या किसी .quiz फ़ाइल को स्क्रीन पर खींचें",
+  "errorOpeningFile": "फ़ाइल खोलने में त्रुटि",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "नया क्विज़ (Quiz) लोड करें",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "एक क्विज़ (Quiz) पहले से लोड है। क्या आप इसे नई फ़ाइल से बदलना चाहते हैं?",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "लोड करें",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
+  },
   "@dropFileHere": {
     "description": "Text displayed inside the drop area for dragging files."
   },
@@ -98,11 +117,11 @@
   "@confirmExitTitle": {
     "description": "Title for the confirmation dialog when exiting."
   },
-  "confirmExitMessage": "क्या आप वाकई बिना सेव किए बाहर निकलना चाहते हैं?",
+  "confirmExitMessage": "बिना सहेजे गए बदलाव मौजूद हैं। क्या आप बदलावों को रद्द करके बाहर निकलना चाहते हैं?",
   "@confirmExitMessage": {
     "description": "Message in the confirmation dialog for exiting."
   },
-  "exitButton": "बाहर निकलें",
+  "exitButton": "बिना सहेजे बाहर निकलें",
   "@exitButton": {
     "description": "Exit button text."
   },

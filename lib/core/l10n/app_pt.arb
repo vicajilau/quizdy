@@ -1,5 +1,8 @@
 {
   "@@locale": "pt",
+  "abortQuizTitle": "Abortar Quiz?",
+  "abortQuizMessage": "Abrir um novo arquivo interromperá o quiz atual.",
+  "stopAndOpenButton": "Parar e Abrir",
   "titleAppBar": "Quiz - Simulador de Exames",
   "@titleAppBar": {
     "description": "Título da aplicação exibido na AppBar."
@@ -37,6 +40,22 @@
     }
   },
   "dropFileHere": "Clique no logotipo ou arraste um arquivo .quiz para a tela",
+  "errorOpeningFile": "Erro ao abrir o arquivo",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "Carregar novo Quiz",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "Um Quiz já está carregado. Deseja substituí-lo pelo novo arquivo?",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "Carregar",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
+  },
   "@dropFileHere": {
     "description": "Texto exibido dentro da área de soltar arquivos."
   },
@@ -98,11 +117,11 @@
   "@confirmExitTitle": {
     "description": "Título para a caixa de diálogo de confirmação ao sair."
   },
-  "confirmExitMessage": "Tem certeza de que deseja sair sem salvar?",
+  "confirmExitMessage": "Existem alterações não salvas. Deseja sair e descartar as alterações?",
   "@confirmExitMessage": {
     "description": "Mensagem na caixa de diálogo de confirmação para sair."
   },
-  "exitButton": "Sair",
+  "exitButton": "Sair sem guardar",
   "@exitButton": {
     "description": "Texto do botão Sair."
   },

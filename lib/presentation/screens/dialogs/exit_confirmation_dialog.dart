@@ -10,7 +10,6 @@ class ExitConfirmationDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.appColors;
-    const primaryColor = AppTheme.primaryColor;
 
     return Dialog(
       backgroundColor: Colors.transparent,
@@ -82,7 +81,7 @@ class ExitConfirmationDialog extends StatelessWidget {
             ElevatedButton(
               onPressed: () => context.pop(true),
               style: ElevatedButton.styleFrom(
-                backgroundColor: primaryColor,
+                backgroundColor: AppTheme.errorColor,
                 foregroundColor: Colors.white,
                 elevation: 0,
                 minimumSize: const Size(double.infinity, 56),

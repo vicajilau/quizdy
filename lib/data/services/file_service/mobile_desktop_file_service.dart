@@ -26,7 +26,22 @@ class QuizFileService implements IFileService {
   /// - Returns: A `QuizFile` object containing the parsed data from the file.
   /// - Throws: [BadQuizFileException] if the file extension is invalid.
   @override
+  @override
   Future<QuizFile> readQuizFile(String filePath) async {
+    final quizFile = await readQuizFileContent(filePath);
+    originalFile = quizFile.deepCopy();
+    return quizFile;
+  }
+
+  /// Reads a `.quiz` file from the specified [filePath] and parses it into a `QuizFile` object.
+  ///
+  /// Throws a [BadQuizFileException] if the file does not have a `.quiz` extension.
+  ///
+  /// - [filePath]: The path to the `.quiz` file.
+  /// - Returns: A `QuizFile` object containing the parsed data from the file.
+  /// - Throws: [BadQuizFileException] if the file extension is invalid.
+  @override
+  Future<QuizFile> readQuizFileContent(String filePath) async {
     if (!filePath.endsWith('.quiz')) {
       throw const BadQuizFileException(
         type: BadQuizFileErrorType.invalidExtension,
@@ -40,7 +55,6 @@ class QuizFileService implements IFileService {
     // Decode the string content into a Map and convert it to a QuizFile object
     final json = jsonDecode(content) as Map<String, dynamic>;
     final quizFile = QuizFile.fromJson(json, filePath: filePath);
-    originalFile = quizFile.deepCopy();
     return quizFile;
   }
 
@@ -62,9 +76,13 @@ class QuizFileService implements IFileService {
     final content = jsonEncode(quizFile.toJson());
     final bytes = Uint8List.fromList(utf8.encode(content));
 
+    final String sanitizedFileName = fileName
+        .split(Platform.pathSeparator)
+        .last;
+
     String? outputFile = await FilePicker.platform.saveFile(
       dialogTitle: dialogTitle,
-      fileName: fileName,
+      fileName: sanitizedFileName,
       allowedExtensions: ['quiz'],
       type: FileType.custom,
       bytes: bytes,
@@ -98,6 +116,18 @@ class QuizFileService implements IFileService {
   /// - Returns: A `QuizFile` object if a valid file is selected, or `null` if no file is selected.
   @override
   Future<QuizFile?> pickFile() async {
+    final file = await pickFileContent();
+    if (file != null) {
+      originalFile = file.deepCopy();
+    }
+    return file;
+  }
+
+  /// Opens a file picker dialog for the user to select a `.quiz` file WITHOUT updating original file state.
+  ///
+  /// - Returns: A `QuizFile` object if a valid file is selected, or `null` if no file is selected.
+  @override
+  Future<QuizFile?> pickFileContent() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
       allowedExtensions: ['quiz'],
@@ -108,7 +138,7 @@ class QuizFileService implements IFileService {
       final platformFile = result.files.first;
 
       if (platformFile.path != null) {
-        return await readQuizFile(platformFile.path!);
+        return await readQuizFileContent(platformFile.path!);
       }
     }
     return null;

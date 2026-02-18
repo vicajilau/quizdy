@@ -1,5 +1,8 @@
 {
   "@@locale": "el",
+  "abortQuizTitle": "Ακύρωση Quiz;",
+  "abortQuizMessage": "Το άνοιγμα ενός νέου αρχείου θα διακόψει το τρέχον κουίζ.",
+  "stopAndOpenButton": "Διακοπή & Άνοιγμα",
   "titleAppBar": "Κουίζ - Προσομοιωτής Εξετάσεων",
   "create": "Δημιουργία",
   "preview": "Προεπισκόπηση",
@@ -46,6 +49,22 @@
   "fileLoaded": "Το αρχείο φορτώθηκε: {filePath}",
   "fileSaved": "Το αρχείο αποθηκεύτηκε: {filePath}",
   "dropFileHere": "Κάντε κλικ στο λογότυπο ή σύρετε ένα αρχείο .quiz στην οθόνη",
+  "errorOpeningFile": "Σφάλμα κατά το άνοιγμα του αρχείου",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "Φόρτωση νέου Quiz",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "Ένα Quiz είναι ήδη φορτωμένο. Θέλετε να το αντικαταστήσετε με το νέο αρχείο;",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "Φόρτωση",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
+  },
   "clickOrDragFile": "Κάντε κλικ για φόρτωση ή σύρετε ένα αρχείο .quiz στην οθόνη",
   "@clickOrDragFile": {
     "description": "Κείμενο που εμφανίζεται κάτω από την περιοχή φόρτωσης"
@@ -59,8 +78,8 @@
   "confirmDeleteMessage": "Είστε σίγουροι ότι θέλετε να διαγράψετε τη διαδικασία `{processName}`;",
   "deleteButton": "Διαγραφή",
   "confirmExitTitle": "Επιβεβαίωση Εξόδου",
-  "confirmExitMessage": "Είστε σίγουροι ότι θέλετε να φύγετε χωρίς αποθήκευση;",
-  "exitButton": "Έξοδος",
+  "confirmExitMessage": "Υπάρχουν μη αποθηκευμένες αλλαγές. Θέλετε να φύγετε απορρίπτοντας τις αλλαγές;",
+  "exitButton": "Έξοδος χωρίς αποθήκευση",
   "saveDialogTitle": "Παρακαλώ επιλέξτε αρχείο εξόδου:",
   "createQuizFileTitle": "Δημιουργία Αρχείου Quiz",
   "editQuizFileTitle": "Επεξεργασία Αρχείου Κουίζ",

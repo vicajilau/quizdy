@@ -9,6 +9,15 @@ class AppLocalizationsHi extends AppLocalizations {
   AppLocalizationsHi([String locale = 'hi']) : super(locale);
 
   @override
+  String get abortQuizTitle => 'क्विज़ रद्द करें?';
+
+  @override
+  String get abortQuizMessage => 'नई फ़ाइल खोलने से वर्तमान क्विज़ रुक जाएगा।';
+
+  @override
+  String get stopAndOpenButton => 'रोकें और खोलें';
+
+  @override
   String get titleAppBar => 'क्विज़ - परीक्षा सिमुलेटर';
 
   @override
@@ -51,7 +60,20 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get dropFileHere =>
-      'यहाँ क्लिक करें या स्क्रीन पर .quiz फ़ाइल ड्रैग करें';
+      'लोगो पर क्लिक करें या किसी .quiz फ़ाइल को स्क्रीन पर खींचें';
+
+  @override
+  String get errorOpeningFile => 'फ़ाइल खोलने में त्रुटि';
+
+  @override
+  String get replaceFileTitle => 'नया क्विज़ (Quiz) लोड करें';
+
+  @override
+  String get replaceFileMessage =>
+      'एक क्विज़ (Quiz) पहले से लोड है। क्या आप इसे नई फ़ाइल से बदलना चाहते हैं?';
+
+  @override
+  String get replaceButton => 'लोड करें';
 
   @override
   String get clickOrDragFile =>
@@ -93,10 +115,10 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get confirmExitMessage =>
-      'क्या आप वाकई बिना सेव किए बाहर निकलना चाहते हैं?';
+      'बिना सहेजे गए बदलाव मौजूद हैं। क्या आप बदलावों को रद्द करके बाहर निकलना चाहते हैं?';
 
   @override
-  String get exitButton => 'बाहर निकलें';
+  String get exitButton => 'बिना सहेजे बाहर निकलें';
 
   @override
   String get saveDialogTitle => 'कृपया आउटपुट फ़ाइल चुनें:';

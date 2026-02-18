@@ -103,6 +103,42 @@ class QuizFileRepository {
   /// `pickFile` method, and registers the selected file in the service locator.
   ///
   /// - Returns: A `Future<QuizFile?>` containing the selected `QuizFile`, or `null` if no file was selected.
+  /// Loads a `QuizFile` from a file at the specified [filePath] WITHOUT registering it.
+  ///
+  /// - [filePath]: The path to the file to load.
+  /// - Returns: A `Future<QuizFile>` containing the loaded `QuizFile`.
+  Future<QuizFile> loadQuizFileContent(String filePath) async {
+    return await _fileService.readQuizFileContent(filePath);
+  }
+
+  /// Registers a `QuizFile` as the active file in the system.
+  void registerQuizFile(QuizFile quizFile) {
+    ServiceLocator.instance.registerQuizFile(quizFile);
+    // Also update the originalFile in fileService to match this new file
+    // This is crucial because readQuizFileContent doesn't update it.
+    _fileService.originalFile = quizFile.deepCopy();
+  }
+
+  /// Picks a file manually using the file picker dialog WITHOUT registering it.
+  ///
+  /// - Returns: A `Future<QuizFile?>` containing the selected `QuizFile`, or `null`.
+  Future<QuizFile?> pickFileContent() async {
+    // We need to access pickFile from service but service.pickFile() calls readQuizFile() which has side effects?
+    // Wait, service.pickFile calls readQuizFile.
+    // I need to update service.pickFile to use readQuizFileContent if possible?
+    // Or just let pickFile have side effects and refactor service.pickFile?
+    // Let's look at service.pickFile implementation again.
+    // IT CALLS readQuizFile. So it has side effects.
+
+    // I should refactor service.pickFile to NOT have side effects?
+    // But pickFile is "open file".
+    // I need a pickFileContent in service too?
+    return await _fileService.pickFileContent();
+  }
+
+  /// Picks a file manually using the file picker dialog.
+  ///
+  /// - Returns: A `Future<QuizFile?>` containing the selected `QuizFile`, or `null` if no file was selected.
   Future<QuizFile?> pickFileManually() async {
     final quizFile = await _fileService.pickFile();
     if (quizFile != null) {

@@ -1,5 +1,8 @@
 {
   "@@locale": "de",
+  "abortQuizTitle": "Quiz abbrechen?",
+  "abortQuizMessage": "Das Öffnen einer neuen Datei beendet das aktuelle Quiz.",
+  "stopAndOpenButton": "Stoppen & Öffnen",
   "titleAppBar": "Quiz - Prüfungssimulator",
   "@titleAppBar": {
     "description": "Titel der Anwendung in der AppBar angezeigt."
@@ -132,7 +135,23 @@
       }
     }
   },
-  "dropFileHere": "Hier klicken oder eine .quiz-Datei auf den Bildschirm ziehen",
+  "dropFileHere": "Klicken Sie auf das Logo oder ziehen Sie eine .quiz-Datei auf den Bildschirm",
+  "errorOpeningFile": "Fehler beim Öffnen der Datei",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "Neues Quiz laden",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "Ein Quiz ist bereits geladen. Möchten Sie es durch die neue Datei ersetzen?",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "Laden",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
+  },
   "@dropFileHere": {
     "description": "Text, der im Ablagebereich zum Ziehen von Dateien angezeigt wird."
   },
@@ -194,11 +213,11 @@
   "@confirmExitTitle": {
     "description": "Titel für den Bestätigungsdialog beim Beenden."
   },
-  "confirmExitMessage": "Sind Sie sicher, dass Sie ohne Speichern beenden möchten?",
+  "confirmExitMessage": "Es gibt ungespeicherte Änderungen. Möchten Sie verlassen und die Änderungen verwerfen?",
   "@confirmExitMessage": {
     "description": "Nachricht im Bestätigungsdialog für das Beenden."
   },
-  "exitButton": "Beenden",
+  "exitButton": "Beenden ohne zu speichern",
   "@exitButton": {
     "description": "Beenden-Schaltflächentext."
   },

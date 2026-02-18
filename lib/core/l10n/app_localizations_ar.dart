@@ -9,6 +9,16 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
+  String get abortQuizTitle => 'إلغاء Quiz؟';
+
+  @override
+  String get abortQuizMessage =>
+      'سيؤدي فتح ملف جديد إلى إيقاف الاختبار الحالي.';
+
+  @override
+  String get stopAndOpenButton => 'إيقاف وفتح';
+
+  @override
   String get titleAppBar => 'اختبار - محاكي الامتحان';
 
   @override
@@ -53,6 +63,19 @@ class AppLocalizationsAr extends AppLocalizations {
   String get dropFileHere => 'انقر فوق الشعار أو اسحب ملف .quiz إلى الشاشة';
 
   @override
+  String get errorOpeningFile => 'خطأ في فتح الملف';
+
+  @override
+  String get replaceFileTitle => 'تحميل اختبار Quiz جديد';
+
+  @override
+  String get replaceFileMessage =>
+      'هناك اختبار Quiz محمل بالفعل. هل تريد استبداله بالملف الجديد؟';
+
+  @override
+  String get replaceButton => 'تحميل';
+
+  @override
   String get clickOrDragFile => 'انقر للتحميل أو اسحب ملف .quiz إلى الشاشة';
 
   @override
@@ -89,10 +112,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get confirmExitTitle => 'تأكيد الخروج';
 
   @override
-  String get confirmExitMessage => 'هل أنت متأكد من أنك تريد الخروج بدون حفظ؟';
+  String get confirmExitMessage =>
+      'هناك تغييرات غير محفوظة. هل تريد الخروج وتجاهل التغييرات؟';
 
   @override
-  String get exitButton => 'خروج';
+  String get exitButton => 'خروج بدون حفظ';
 
   @override
   String get saveDialogTitle => 'يرجى اختيار ملف الإخراج:';

@@ -1,5 +1,8 @@
 {
   "@@locale": "ca",
+  "abortQuizTitle": "Avortar Quiz?",
+  "abortQuizMessage": "Obrir un fitxer nou aturarà el qüestionari actual.",
+  "stopAndOpenButton": "Aturar i Obri",
   "titleAppBar": "Quiz - Simulador d'Exàmens",
   "@titleAppBar": {
     "description": "Títol de l'aplicació mostrat a l'AppBar."
@@ -132,7 +135,23 @@
       }
     }
   },
-  "dropFileHere": "Feu clic aquí o arrossegueu un fitxer .quiz a la pantalla",
+  "dropFileHere": "Feu clic al logotip o arrossegueu un fitxer .quiz a la pantalla",
+  "errorOpeningFile": "Error en obrir el fitxer",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "Carregar nou Quiz",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "Ja hi ha un Quiz carregat. Vols substituir-lo pel nou fitxer?",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "Carregar",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
+  },
   "@dropFileHere": {
     "description": "Text mostrat a l'àrea de deixar anar per arrossegar fitxers."
   },
@@ -194,11 +213,11 @@
   "@confirmExitTitle": {
     "description": "Títol per al diàleg de confirmació en sortir."
   },
-  "confirmExitMessage": "Esteu segur que voleu sortir sense desar?",
+  "confirmExitMessage": "Hi ha canvis sense desar. Voleu sortir descartant els canvis?",
   "@confirmExitMessage": {
     "description": "Missatge al diàleg de confirmació per sortir."
   },
-  "exitButton": "Sortir",
+  "exitButton": "Sortir sense desar",
   "@exitButton": {
     "description": "Text del botó Sortir."
   },

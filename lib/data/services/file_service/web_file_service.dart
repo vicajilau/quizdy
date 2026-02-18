@@ -23,10 +23,23 @@ class QuizFileService implements IFileService {
   /// - Returns: A `QuizFile` object containing the parsed data from the file.
   /// - Throws: An exception if there is an error reading or decoding the file.
   @override
+  @override
   Future<QuizFile> readQuizFile(String filePath) async {
+    final quizFile = await readQuizFileContent(filePath);
+    originalFile = quizFile.deepCopy();
+    return quizFile;
+  }
+
+  /// Reads a `.quiz` file from the specified [filePath], retrieves its binary data,
+  /// and decodes it into a `QuizFile` object.
+  ///
+  /// - [filePath]: The path or URL of the `.quiz` file.
+  /// - Returns: A `QuizFile` object containing the parsed data from the file.
+  /// - Throws: An exception if there is an error reading or decoding the file.
+  @override
+  Future<QuizFile> readQuizFileContent(String filePath) async {
     final codeUnits = await readBlobFile(filePath);
     final quizFile = decodeAndCreateQuizFile(filePath, codeUnits);
-    originalFile = quizFile.deepCopy();
     return quizFile;
   }
 
@@ -81,6 +94,18 @@ class QuizFileService implements IFileService {
   /// - Returns: A `QuizFile` object if a valid file is selected, or `null` if no file is selected.
   @override
   Future<QuizFile?> pickFile() async {
+    final file = await pickFileContent();
+    if (file != null) {
+      originalFile = file.deepCopy();
+    }
+    return file;
+  }
+
+  /// Opens a file picker dialog for the user to select a `.quiz` file WITHOUT updating original file state.
+  ///
+  /// - Returns: A `QuizFile` object if a valid file is selected, or `null` if no file is selected.
+  @override
+  Future<QuizFile?> pickFileContent() async {
     // Open the file picker dialog
     final result = await FilePicker.platform.pickFiles(
       type: FileType.custom,

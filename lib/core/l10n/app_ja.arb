@@ -1,5 +1,8 @@
 {
   "@@locale": "ja",
+  "abortQuizTitle": "クイズを中止しますか？",
+  "abortQuizMessage": "新しいファイルを開くと、現在のクイズが停止します。",
+  "stopAndOpenButton": "停止して開く",
   "titleAppBar": "クイズ - 試験シミュレーター",
   "@titleAppBar": {
     "description": "Title of the application displayed in the AppBar."
@@ -35,6 +38,22 @@
         "example": "/path/to/file.quiz"
       }
     }
+  },
+  "errorOpeningFile": "ファイルを開く際にエラーが発生しました",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "新しいQuizを読み込む",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "Quizはすでに読み込まれています。新しいファイルに置き換えますか？",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "読み込む",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
   },
   "dropFileHere": "ここをクリックするか、.quizファイルを画面にドラッグしてください",
   "@dropFileHere": {
@@ -98,11 +117,11 @@
   "@confirmExitTitle": {
     "description": "Title for the confirmation dialog when exiting."
   },
-  "confirmExitMessage": "本当に保存せずに終了しますか？",
+  "confirmExitMessage": "保存されていない変更があります。変更を破棄して終了しますか？",
   "@confirmExitMessage": {
     "description": "Message in the confirmation dialog for exiting."
   },
-  "exitButton": "終了",
+  "exitButton": "保存せずに終了",
   "@exitButton": {
     "description": "Exit button text."
   },

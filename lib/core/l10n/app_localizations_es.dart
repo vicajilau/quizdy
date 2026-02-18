@@ -9,6 +9,16 @@ class AppLocalizationsEs extends AppLocalizations {
   AppLocalizationsEs([String locale = 'es']) : super(locale);
 
   @override
+  String get abortQuizTitle => '¿Abortar Quiz?';
+
+  @override
+  String get abortQuizMessage =>
+      'Abrir un nuevo archivo detendrá el cuestionario actual.';
+
+  @override
+  String get stopAndOpenButton => 'Detener y Abrir';
+
+  @override
   String get titleAppBar => 'Quiz - Simulador de exámenes';
 
   @override
@@ -54,6 +64,19 @@ class AppLocalizationsEs extends AppLocalizations {
       'Haz clic en el logo o arrastra un archivo .quiz a la pantalla';
 
   @override
+  String get errorOpeningFile => 'Error al abrir el archivo';
+
+  @override
+  String get replaceFileTitle => 'Cargar nuevo Quiz';
+
+  @override
+  String get replaceFileMessage =>
+      'Ya hay un Quiz cargado. ¿Deseas reemplazarlo con el nuevo archivo?';
+
+  @override
+  String get replaceButton => 'Cargar';
+
+  @override
   String get clickOrDragFile =>
       'Haz clic para cargar o arrastra un archivo .quiz a la pantalla';
 
@@ -93,10 +116,10 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get confirmExitMessage =>
-      '¿Estás seguro de que quieres salir sin guardar?';
+      'Existen cambios sin guardar. ¿Quieres salir descartando los cambios?';
 
   @override
-  String get exitButton => 'Salir';
+  String get exitButton => 'Salir sin guardar';
 
   @override
   String get saveDialogTitle => 'Por favor selecciona un archivo de salida:';

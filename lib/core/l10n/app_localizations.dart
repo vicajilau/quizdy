@@ -122,6 +122,24 @@ abstract class AppLocalizations {
     Locale('zh'),
   ];
 
+  /// No description provided for @abortQuizTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Abort Quiz?'**
+  String get abortQuizTitle;
+
+  /// No description provided for @abortQuizMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Opening a new file will stop the current quiz.'**
+  String get abortQuizMessage;
+
+  /// No description provided for @stopAndOpenButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop & Open'**
+  String get stopAndOpenButton;
+
   /// Title of the application displayed in the AppBar.
   ///
   /// In en, this message translates to:
@@ -200,6 +218,30 @@ abstract class AppLocalizations {
   /// **'Click logo or drag a .quiz file to the screen'**
   String get dropFileHere;
 
+  /// Generic error message when opening a file fails.
+  ///
+  /// In en, this message translates to:
+  /// **'Error opening file'**
+  String get errorOpeningFile;
+
+  /// Title of the confirmation dialog to replace the current file.
+  ///
+  /// In en, this message translates to:
+  /// **'Load new Quiz'**
+  String get replaceFileTitle;
+
+  /// Message of the confirmation dialog to replace the current file.
+  ///
+  /// In en, this message translates to:
+  /// **'A Quiz is already loaded. Do you want to replace it with the new file?'**
+  String get replaceFileMessage;
+
+  /// Button to confirm replacing the file.
+  ///
+  /// In en, this message translates to:
+  /// **'Load'**
+  String get replaceButton;
+
   /// Text displayed below the drop area
   ///
   /// In en, this message translates to:
@@ -263,13 +305,13 @@ abstract class AppLocalizations {
   /// Message in the confirmation dialog for exiting.
   ///
   /// In en, this message translates to:
-  /// **'Are you sure you want to leave without saving?'**
+  /// **'There are unsaved changes. Do you want to leave and discard changes?'**
   String get confirmExitMessage;
 
   /// Exit button text.
   ///
   /// In en, this message translates to:
-  /// **'Exit'**
+  /// **'Exit without saving'**
   String get exitButton;
 
   /// Title for the save dialog.

@@ -1,5 +1,8 @@
 {
   "@@locale": "fr",
+  "abortQuizTitle": "Abandonner le Quiz ?",
+  "abortQuizMessage": "L'ouverture d'un nouveau fichier arrêtera le quiz en cours.",
+  "stopAndOpenButton": "Arrêter & Ouvrir",
   "titleAppBar": "Quiz - Simulateur d'Examens",
   "@titleAppBar": {
     "description": "Titre de l'application affiché dans l'AppBar."
@@ -37,6 +40,22 @@
     }
   },
   "dropFileHere": "Cliquez ici ou faites glisser un fichier .quiz vers l'écran",
+  "errorOpeningFile": "Erreur lors de l'ouverture du fichier",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "Charger un nouveau Quiz",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "Un Quiz est déjà chargé. Voulez-vous le remplacer par le nouveau fichier ?",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "Charger",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
+  },
   "@dropFileHere": {
     "description": "Texte affiché dans la zone de dépôt pour faire glisser des fichiers."
   },
@@ -98,11 +117,11 @@
   "@confirmExitTitle": {
     "description": "Titre de la boîte de dialogue de confirmation lors de la sortie."
   },
-  "confirmExitMessage": "Êtes-vous sûr de vouloir quitter sans sauvegarder ?",
+  "confirmExitMessage": "Il y a des modifications non enregistrées. Voulez-vous quitter et ignorer les modifications ?",
   "@confirmExitMessage": {
     "description": "Message dans la boîte de dialogue de confirmation pour la sortie."
   },
-  "exitButton": "Quitter",
+  "exitButton": "Quitter sans enregistrer",
   "@exitButton": {
     "description": "Texte du bouton Quitter."
   },
