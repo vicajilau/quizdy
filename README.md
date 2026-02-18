@@ -28,10 +28,11 @@ Access Quiz App on your favorite platform:
 - 🐧 **Linux**: [Snapcraft](https://snapcraft.io/quiz-app)
   Download and install easily on any Linux distribution compatible with Snap.
 
+- 📱 **iOS**: [App Store](https://apps.apple.com/app/quiz-appl/id6758663432)
+  Available for iPhone and iPad with a native, optimized experience.
+
 - 🍎 **macOS**: [Mac App Store](https://apps.apple.com/app/quiz-appl/id6758663432)
   Native experience optimized for Apple Silicon and Intel Macs.
-
-> **Note:** iOS version is under review and will be added soon.
 
 A cross-platform Flutter application that provides two powerful modes:
 
