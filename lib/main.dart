@@ -13,8 +13,10 @@ import 'package:quiz_app/presentation/blocs/locale_cubit/locale_cubit.dart';
 import 'package:quiz_app/presentation/blocs/locale_cubit/locale_state.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   setUrlStrategy(null);
   ServiceLocator.instance.setup();
+
   runApp(const QuizApplication());
 }
 
@@ -29,7 +31,6 @@ class _QuizApplicationState extends State<QuizApplication> {
   @override
   void initState() {
     super.initState();
-
     FileHandler.initialize((filePath) {
       if (mounted) {
         final fileBloc = ServiceLocator.instance.getIt<FileBloc>();
