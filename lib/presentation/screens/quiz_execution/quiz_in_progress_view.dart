@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lucide_icons/lucide_icons.dart';
+import 'package:quiz_app/core/context_extension.dart';
+import 'package:quiz_app/core/l10n/app_localizations.dart';
 import 'package:quiz_app/core/theme/app_theme.dart';
 import 'package:quiz_app/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quiz_app/data/services/configuration_service.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
@@ -9,6 +13,7 @@ import 'package:quiz_app/presentation/screens/quiz_execution/quiz_progress_indic
 import 'package:quiz_app/presentation/screens/quiz_execution/quiz_question_header.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/quiz_options_wrapper.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/quiz_navigation_buttons.dart';
+import 'package:quiz_app/presentation/screens/quiz_execution/widgets/ai_studio_chat_side_panel.dart';
 import 'package:quiz_app/core/service_locator.dart';
 import 'package:quiz_app/presentation/screens/dialogs/back_press_handler.dart';
 import 'package:quiz_app/presentation/widgets/exam_timer.dart';
@@ -22,12 +27,47 @@ class QuizInProgressView extends StatefulWidget {
   State<QuizInProgressView> createState() => _QuizInProgressViewState();
 }
 
-class _QuizInProgressViewState extends State<QuizInProgressView> {
+class _QuizInProgressViewState extends State<QuizInProgressView>
+    with SingleTickerProviderStateMixin {
   final ScrollController _scrollController = ScrollController();
+  final GlobalKey<AiStudioChatSidePanelState> _chatPanelKey =
+      GlobalKey<AiStudioChatSidePanelState>();
+
+  bool _isChatOpen = false;
+  bool _isChatMounted = false;
+  bool _isAiAvailable = false;
+
+  late final AnimationController _mobileChatAnimController;
+  late final Animation<Offset> _mobileChatSlide;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkAiAvailability();
+    _mobileChatAnimController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+    );
+    _mobileChatSlide =
+        Tween<Offset>(begin: const Offset(1, 0), end: Offset.zero).animate(
+          CurvedAnimation(
+            parent: _mobileChatAnimController,
+            curve: Curves.easeInOut,
+          ),
+        );
+  }
+
+  Future<void> _checkAiAvailability() async {
+    final isAvailable = await ConfigurationService.instance.getIsAiAvailable();
+    if (mounted) {
+      setState(() => _isAiAvailable = isAvailable);
+    }
+  }
 
   @override
   void dispose() {
     _scrollController.dispose();
+    _mobileChatAnimController.dispose();
     super.dispose();
   }
 
@@ -43,23 +83,48 @@ class _QuizInProgressViewState extends State<QuizInProgressView> {
     });
   }
 
+  bool _isWide() => MediaQuery.of(context).size.width >= 800;
+
+  void openAiChat({String? prefillText}) {
+    setState(() {
+      _isChatOpen = true;
+      _isChatMounted = true;
+    });
+    if (!_isWide()) {
+      _mobileChatAnimController.forward();
+    }
+    if (prefillText != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _chatPanelKey.currentState?.prefillQuestion(prefillText);
+      });
+    }
+  }
+
+  void _closeChat() {
+    if (_isWide()) {
+      setState(() => _isChatOpen = false);
+    } else {
+      _mobileChatAnimController.reverse().then((_) {
+        if (mounted) setState(() => _isChatOpen = false);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    // Get Study Mode setting
     final quizConfig = ServiceLocator.instance.getQuizConfig();
     final isStudyMode = quizConfig?.isStudyMode ?? false;
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final colors = context.appColors;
 
-    // Design Tokens
     final closeBtnBorder = isDark ? Colors.transparent : AppTheme.zinc200;
     final cardBorder = isDark ? Colors.transparent : AppTheme.zinc200;
     final showTimer = !isStudyMode && (quizConfig?.enableTimeLimit ?? false);
+    final showAi = isStudyMode && _isAiAvailable;
 
     return BlocListener<QuizExecutionBloc, QuizExecutionState>(
       listener: (context, state) {
         if (state is QuizExecutionInProgress && isStudyMode) {
-          // If the question was just validated (Answer checked)
           if (state.isCurrentQuestionValidated &&
               !widget.state.isCurrentQuestionValidated) {
             _scrollToBottom();
@@ -74,103 +139,185 @@ class _QuizInProgressViewState extends State<QuizInProgressView> {
         }
         return false;
       },
-      child: Column(
-        children: [
-          // Custom Header (Close Left + Progress Center)
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 24.0,
-              vertical: 16.0,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                // Progress Indicator (Left)
-                Expanded(child: QuizProgressIndicator(state: widget.state)),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final isWide = constraints.maxWidth >= 800;
 
-                if (showTimer) ...[
-                  const SizedBox(width: 8),
-                  ExamTimerWidget(
-                    initialDurationMinutes: quizConfig?.timeLimitMinutes ?? 0,
-                    onTimeExpired: () {
-                      context.read<QuizExecutionBloc>().add(QuizSubmitted());
-                    },
-                  ),
-                ],
+          // Sync mobile animation state on resize
+          if (isWide && _isChatOpen) {
+            // On desktop, ensure mobile animation is reset
+            _mobileChatAnimController.value = 0.0;
+          } else if (!isWide && _isChatOpen) {
+            // On mobile with chat open, ensure animation is at end
+            _mobileChatAnimController.value = 1.0;
+          }
 
-                const SizedBox(width: 16),
+          final quizContent = Column(
+            children: [
+              // Header
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24.0,
+                  vertical: 16.0,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(child: QuizProgressIndicator(state: widget.state)),
+                    if (showTimer) ...[
+                      const SizedBox(width: 8),
+                      ExamTimerWidget(
+                        initialDurationMinutes:
+                            quizConfig?.timeLimitMinutes ?? 0,
+                        onTimeExpired: () {
+                          context.read<QuizExecutionBloc>().add(
+                            QuizSubmitted(),
+                          );
+                        },
+                      ),
+                    ],
+                    const SizedBox(width: 16),
+                    IconButton(
+                      onPressed: () => BackPressHandler.handle(
+                        context,
+                        context.read<QuizExecutionBloc>(),
+                      ),
+                      style: IconButton.styleFrom(
+                        backgroundColor: colors.card,
+                        fixedSize: const Size(48, 48),
+                        padding: EdgeInsets.zero,
+                        shape: CircleBorder(
+                          side: closeBtnBorder == Colors.transparent
+                              ? BorderSide.none
+                              : BorderSide(color: closeBtnBorder),
+                        ),
+                      ),
+                      icon: Icon(Icons.close, color: colors.subtitle, size: 24),
+                    ),
+                    if (isStudyMode && !_isChatOpen) ...[
+                      const SizedBox(width: 8),
+                      IconButton(
+                        onPressed: _isAiAvailable
+                            ? openAiChat
+                            : () => context.presentSnackBar(
+                                AppLocalizations.of(context)!.aiApiKeyRequired,
+                              ),
+                        style: IconButton.styleFrom(
+                          backgroundColor: colors.card,
+                          fixedSize: const Size(48, 48),
+                          padding: EdgeInsets.zero,
+                          shape: CircleBorder(
+                            side: closeBtnBorder == Colors.transparent
+                                ? BorderSide.none
+                                : BorderSide(color: closeBtnBorder),
+                          ),
+                        ),
+                        icon: const Icon(
+                          LucideIcons.sparkles,
+                          color: AppTheme.primaryColor,
+                          size: 24,
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
+              ),
 
-                // Close Button (Right)
-                IconButton(
-                  onPressed: () => BackPressHandler.handle(
-                    context,
-                    context.read<QuizExecutionBloc>(),
-                  ),
-                  style: IconButton.styleFrom(
-                    backgroundColor: colors.card,
-                    fixedSize: const Size(48, 48),
-                    padding: EdgeInsets.zero,
-                    shape: CircleBorder(
-                      side: closeBtnBorder == Colors.transparent
-                          ? BorderSide.none
-                          : BorderSide(color: closeBtnBorder),
+              // Main Content
+              Expanded(
+                child: Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 720),
+                    child: SingleChildScrollView(
+                      controller: _scrollController,
+                      padding: const EdgeInsets.symmetric(horizontal: 24),
+                      child: Container(
+                        padding: const EdgeInsets.all(32),
+                        decoration: BoxDecoration(
+                          color: colors.card,
+                          borderRadius: BorderRadius.circular(24),
+                          border: Border.all(color: cardBorder),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            QuizQuestionHeader(state: widget.state),
+                            const SizedBox(height: 32),
+                            QuizOptionsWrapper(
+                              state: widget.state,
+                              onAskAi: showAi ? openAiChat : null,
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
-                  icon: Icon(Icons.close, color: colors.subtitle, size: 24),
+                ),
+              ),
+
+              // Footer
+              Container(
+                height: 120,
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                alignment: Alignment.center,
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 720),
+                  child: QuizNavigationButtons(
+                    state: widget.state,
+                    isStudyMode: isStudyMode,
+                  ),
+                ),
+              ),
+            ],
+          );
+
+          // Single chat panel instance — never rebuilt across layouts
+          final chatPanel = AiStudioChatSidePanel(
+            key: _chatPanelKey,
+            question: widget.state.currentQuestion,
+            isFullScreen: !isWide,
+            onClose: _closeChat,
+          );
+
+          // Wide layout: Row with animated sidebar
+          if (isWide) {
+            return Row(
+              children: [
+                Expanded(child: quizContent),
+                AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                  width: _isChatOpen ? 400 : 0,
+                  clipBehavior: Clip.hardEdge,
+                  decoration: const BoxDecoration(),
+                  child: OverflowBox(
+                    alignment: Alignment.topLeft,
+                    minWidth: 400,
+                    maxWidth: 400,
+                    child: chatPanel,
+                  ),
                 ),
               ],
-            ),
-          ),
+            );
+          }
 
-          // Main Content (Centered Question Card)
-          Expanded(
-            child: Center(
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 720),
-                child: SingleChildScrollView(
-                  controller: _scrollController,
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
-                  child: Container(
-                    padding: const EdgeInsets.all(32),
-                    decoration: BoxDecoration(
-                      color: colors.card,
-                      borderRadius: BorderRadius.circular(24),
-                      border: Border.all(color: cardBorder),
-                    ),
-                    child: Column(
-                      crossAxisAlignment:
-                          CrossAxisAlignment.center, // Center aligned text
-                      children: [
-                        // Question Header (Text, Number, Type)
-                        // Note: Ensure QuestionHeader text alignment is handled inside that widget or here
-                        QuizQuestionHeader(state: widget.state),
-
-                        const SizedBox(height: 32),
-
-                        // Options
-                        QuizOptionsWrapper(state: widget.state),
-                      ],
+          // Narrow layout: Stack with slide overlay
+          return Stack(
+            children: [
+              quizContent,
+              if (_isChatMounted)
+                Positioned.fill(
+                  child: IgnorePointer(
+                    ignoring: !_isChatOpen,
+                    child: SlideTransition(
+                      position: _mobileChatSlide,
+                      child: Material(color: colors.card, child: chatPanel),
                     ),
                   ),
                 ),
-              ),
-            ),
-          ),
-
-          // Footer (Navigation Buttons)
-          Container(
-            height: 120,
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            alignment: Alignment.center,
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 720),
-              child: QuizNavigationButtons(
-                state: widget.state,
-                isStudyMode: isStudyMode,
-              ),
-            ),
-          ),
-        ],
+            ],
+          );
+        },
       ),
     );
   }

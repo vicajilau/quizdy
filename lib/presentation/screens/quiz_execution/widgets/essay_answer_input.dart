@@ -9,7 +9,7 @@ import 'package:quiz_app/data/services/ai/ai_service.dart';
 import 'package:quiz_app/data/services/ai/ai_service_selector.dart';
 import 'package:quiz_app/data/services/ai/ai_question_generation_service.dart';
 import 'package:quiz_app/core/extensions/string_extensions.dart';
-import 'package:quiz_app/presentation/screens/quiz_execution/widgets/ai_assistant_button.dart';
+import 'package:quiz_app/presentation/screens/quiz_execution/widgets/ai_studio_chat_button.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/widgets/ai_evaluate_button.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/widgets/ai_evaluation_result.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/widgets/ai_service_selector.dart';
@@ -39,6 +39,9 @@ class EssayAnswerInput extends StatefulWidget {
   /// The current execution state of the quiz.
   final QuizExecutionInProgress state;
 
+  /// Callback to open the AI chat panel with an optional pre-filled question.
+  final void Function({String? prefillText})? onAskAi;
+
   /// Creates an [EssayAnswerInput].
   const EssayAnswerInput({
     super.key,
@@ -48,6 +51,7 @@ class EssayAnswerInput extends StatefulWidget {
     required this.isStudyMode,
     required this.isAiAvailable,
     required this.state,
+    this.onAskAi,
   });
 
   @override
@@ -153,9 +157,16 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // AI Assistant Button (Only in Study Mode and if AI is available)
-          if (widget.isStudyMode && widget.isAiAvailable)
-            AiAssistantButton(question: widget.question),
+          // AI Chat Button (opens sidebar, only in Study Mode and if AI is available)
+          if (widget.isStudyMode &&
+              widget.isAiAvailable &&
+              widget.onAskAi != null)
+            AiStudioChatButton(
+              question: widget.question,
+              onPressed: () => widget.onAskAi!(
+                prefillText: AppLocalizations.of(context)!.aiHelpWithQuestion,
+              ),
+            ),
 
           Text(
             AppLocalizations.of(context)!.questionTypeEssay,
