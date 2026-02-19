@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.7.0]
 
+- ui: Improved adaptability of quiz completion buttons "Try Again" and "Retry Errors" on mobile devices to prevent text overflow.
 - feat: Added "Paste from clipboard" image attachment support in manual question creation and AI generation dialogs using the `pasteboard` package.
 - feat: Disable penalty in Study Mode and add max incorrect answers limit for Exam Mode with auto-termination.
 - ui: Added branded loading screen with animated spinner in `index.html` to replace blank white screen during app initialization, with light/dark theme support.

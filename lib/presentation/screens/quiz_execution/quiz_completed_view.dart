@@ -197,20 +197,14 @@ class QuizCompletedView extends StatelessWidget {
               );
               final homeBtn = QuizHomeButton(isDarkMode: isDarkMode);
 
-              // Responsive Layout Logic:
-              // Mobile AND has incorrect answers (3 buttons total) -> 2 Rows
+              // Mobile AND has incorrect answers (3 buttons total) -> Vertical stack
               if (isMobile && hasIncorrect) {
                 return Column(
+                  spacing: 12,
                   children: [
-                    Row(
-                      spacing: 12,
-                      children: [
-                        Expanded(child: tryAgainBtn),
-                        Expanded(child: retryBtn),
-                      ],
-                    ),
-                    const SizedBox(height: 12),
-                    Row(children: [Expanded(child: homeBtn)]),
+                    SizedBox(width: double.infinity, child: tryAgainBtn),
+                    SizedBox(width: double.infinity, child: retryBtn),
+                    SizedBox(width: double.infinity, child: homeBtn),
                   ],
                 );
               }
