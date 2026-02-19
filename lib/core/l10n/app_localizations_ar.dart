@@ -1316,6 +1316,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get askAiAssistant => 'اسأل مساعد الذكاء الاصطناعي';
 
   @override
+  String get askAiAboutQuestion => 'اسأل الذكاء الاصطناعي عن هذا السؤال';
+
+  @override
+  String get aiHelpWithQuestion => 'ساعدني في فهم هذا السؤال';
+
+  @override
   String get sorteosLabel => 'Raffles';
 
   @override

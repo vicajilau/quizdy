@@ -1701,6 +1701,8 @@
   "@askAiAssistant": {
     "description": "Button label to open AI assistant for current question"
   },
+  "askAiAboutQuestion": "Perguntar à IA sobre esta questão",
+  "aiHelpWithQuestion": "Ajuda-me a entender esta questão",
   "evaluateWithAI": "Avaliar com IA",
   "@evaluateWithAI": {
     "description": "Button label to evaluate essay answer with AI"

@@ -1758,6 +1758,8 @@
   "checkAnswer": "تحقق",
   "quizModeTitle": "وضع الاختبار",
   "askAiAssistant": "اسأل مساعد الذكاء الاصطناعي",
+  "askAiAboutQuestion": "اسأل الذكاء الاصطناعي عن هذا السؤال",
+  "aiHelpWithQuestion": "ساعدني في فهم هذا السؤال",
   "evaluateWithAI": "تقييم بالذكاء الاصطناعي",
   "aiEvaluation": "تقييم الذكاء الاصطناعي",
   "sorteosLabel": "Raffles",

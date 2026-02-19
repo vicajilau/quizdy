@@ -2414,6 +2414,18 @@ abstract class AppLocalizations {
   /// **'Ask AI Assistant'**
   String get askAiAssistant;
 
+  /// Button label in quiz to open AI chat sidebar for the current question
+  ///
+  /// In en, this message translates to:
+  /// **'Ask AI about this question'**
+  String get askAiAboutQuestion;
+
+  /// Auto-filled text in AI chat when user clicks ask AI about question button
+  ///
+  /// In en, this message translates to:
+  /// **'Help me understand this question'**
+  String get aiHelpWithQuestion;
+
   /// Label for the raffles button
   ///
   /// In en, this message translates to:

@@ -1271,6 +1271,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get askAiAssistant => '询问 AI 助手';
 
   @override
+  String get askAiAboutQuestion => '向 AI 询问此问题';
+
+  @override
+  String get aiHelpWithQuestion => '帮我理解这道题';
+
+  @override
   String get sorteosLabel => 'Raffles';
 
   @override

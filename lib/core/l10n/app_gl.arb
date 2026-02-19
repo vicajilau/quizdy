@@ -1689,6 +1689,8 @@
   "quizModeTitle": "Modo cuestionario",
   "skip": "Saltar",
   "askAiAssistant": "Preguntar ao asistente de IA",
+  "askAiAboutQuestion": "Preguntar á IA sobre esta pregunta",
+  "aiHelpWithQuestion": "Axúdame a entender esta pregunta",
   "evaluateWithAI": "Avaliar con IA",
   "aiEvaluation": "Avaliación de IA",
   "sorteosLabel": "Raffles",

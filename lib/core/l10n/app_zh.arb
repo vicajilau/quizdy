@@ -1655,6 +1655,8 @@
   "quizModeTitle": "测验模式",
   "skip": "跳过",
   "askAiAssistant": "询问 AI 助手",
+  "askAiAboutQuestion": "向 AI 询问此问题",
+  "aiHelpWithQuestion": "帮我理解这道题",
   "evaluateWithAI": "用 AI 评估",
   "aiEvaluation": "AI 评估",
   "sorteosLabel": "Raffles",
