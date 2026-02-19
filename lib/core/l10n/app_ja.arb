@@ -1662,6 +1662,8 @@
   "checkAnswer": "確認",
   "quizModeTitle": "クイズモード",
   "askAiAssistant": "AIアシスタントに聞く",
+  "askAiAboutQuestion": "この問題についてAIに聞く",
+  "aiHelpWithQuestion": "この問題を理解するのを手伝って",
   "evaluateWithAI": "AIで評価",
   "aiEvaluation": "AI評価",
   "sorteosLabel": "Raffles",

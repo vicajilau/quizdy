@@ -1804,6 +1804,8 @@
   "@askAiAssistant": {
     "description": "Button label to open AI assistant for current question"
   },
+  "askAiAboutQuestion": "Preguntar a la IA sobre esta pregunta",
+  "aiHelpWithQuestion": "Ayúdame a entender esta pregunta",
   "sorteosLabel": "Sorteos",
   "@sorteosLabel": {
     "description": "Label for the raffles button"

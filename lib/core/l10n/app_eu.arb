@@ -1671,6 +1671,8 @@
   "quizModeTitle": "Galdetegi Modua",
   "skip": "Saltatu",
   "askAiAssistant": "Galdetu AI Laguntzaileari",
+  "askAiAboutQuestion": "Galdetu AIri galdera honi buruz",
+  "aiHelpWithQuestion": "Lagundu galdera hau ulertzen",
   "evaluateWithAI": "Ebaluatu AIrekin",
   "aiEvaluation": "AI Ebaluazioa",
   "sorteosLabel": "Raffles",
