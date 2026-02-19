@@ -7,8 +7,9 @@ import 'package:quiz_app/presentation/screens/quiz_execution/quiz_question_optio
 /// Wrapper widget that loads quiz configuration and passes it to QuizQuestionOptions
 class QuizOptionsWrapper extends StatefulWidget {
   final QuizExecutionInProgress state;
+  final void Function({String? prefillText})? onAskAi;
 
-  const QuizOptionsWrapper({super.key, required this.state});
+  const QuizOptionsWrapper({super.key, required this.state, this.onAskAi});
 
   @override
   State<QuizOptionsWrapper> createState() => _QuizOptionsWrapperState();
@@ -52,6 +53,7 @@ class _QuizOptionsWrapperState extends State<QuizOptionsWrapper> {
       state: widget.state,
       showCorrectAnswerCount: _showCorrectAnswerCount,
       isStudyMode: _isStudyMode,
+      onAskAi: widget.onAskAi,
     );
   }
 }
