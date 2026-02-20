@@ -1211,4 +1211,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get clipboardNoImage => 'لم يتم العثور على صورة في الحافظة';
+
+  @override
+  String get close => 'إغلاق';
+
+  @override
+  String get congratulations => '🎉 تهانينا! 🎉';
 }

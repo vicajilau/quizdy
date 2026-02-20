@@ -1235,4 +1235,10 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get clipboardNoImage =>
       'Nenhuma imagem encontrada na área de transferência';
+
+  @override
+  String get close => 'Fechar';
+
+  @override
+  String get congratulations => '🎉 Parabéns! 🎉';
 }

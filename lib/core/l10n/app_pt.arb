@@ -1541,5 +1541,13 @@
   "appLanguageDescription": "Substituir o idioma do aplicativo para testes",
   "pasteFromClipboard": "Colar da área de transferência",
   "pasteImage": "Colar",
-  "clipboardNoImage": "Nenhuma imagem encontrada na área de transferência"
+  "clipboardNoImage": "Nenhuma imagem encontrada na área de transferência",
+  "close": "Fechar",
+  "@close": {
+    "description": "Close button text"
+  },
+  "congratulations": "🎉 Parabéns! 🎉",
+  "@congratulations": {
+    "description": "Congratulations message in winner dialog"
+  }
 }

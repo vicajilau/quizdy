@@ -1170,4 +1170,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get clipboardNoImage => '剪贴板中未找到图片';
+
+  @override
+  String get close => '关闭';
+
+  @override
+  String get congratulations => '🎉 恭喜！ 🎉';
 }

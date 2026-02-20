@@ -1223,4 +1223,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get clipboardNoImage => 'No image found in clipboard';
+
+  @override
+  String get close => 'Close';
+
+  @override
+  String get congratulations => '🎉 Congratulations! 🎉';
 }

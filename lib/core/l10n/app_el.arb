@@ -466,5 +466,13 @@
   "quizFailedLimitReached": "Το κουίζ διακόπηκε: Συμπληρώθηκε το όριο σφαλμάτων",
   "@quizFailedLimitReached": {
     "description": "Title for the results screen when the error limit is reached"
+  },
+  "close": "Κλείσιμο",
+  "@close": {
+    "description": "Close button text"
+  },
+  "congratulations": "🎉 Συγχαρητήρια! 🎉",
+  "@congratulations": {
+    "description": "Congratulations message in winner dialog"
   }
 }

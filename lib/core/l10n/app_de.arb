@@ -1598,5 +1598,13 @@
   "appLanguageDescription": "Anwendungssprache für Tests überschreiben",
   "pasteFromClipboard": "Aus Zwischenablage einfügen",
   "pasteImage": "Einfügen",
-  "clipboardNoImage": "Kein Bild in der Zwischenablage gefunden"
+  "clipboardNoImage": "Kein Bild in der Zwischenablage gefunden",
+  "close": "Schließen",
+  "@close": {
+    "description": "Close button text"
+  },
+  "congratulations": "🎉 Herzlichen Glückwunsch! 🎉",
+  "@congratulations": {
+    "description": "Congratulations message in winner dialog"
+  }
 }

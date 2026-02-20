@@ -1236,4 +1236,10 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get clipboardNoImage => 'No s\'ha trobat cap imatge al porta-retalls';
+
+  @override
+  String get close => 'Tancar';
+
+  @override
+  String get congratulations => '🎉 Enhorabona! 🎉';
 }

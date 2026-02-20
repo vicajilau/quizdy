@@ -1228,4 +1228,10 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get clipboardNoImage => 'Nessuna immagine trovata negli appunti';
+
+  @override
+  String get close => 'Chiudi';
+
+  @override
+  String get congratulations => '🎉 Congratulazioni! 🎉';
 }

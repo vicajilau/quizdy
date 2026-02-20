@@ -1502,5 +1502,13 @@
   "appLanguageDescription": "Aplikazioaren hizkuntza gainidatzi probetarako",
   "pasteFromClipboard": "Itsatsi arbeletik",
   "pasteImage": "Itsatsi",
-  "clipboardNoImage": "Ez da irudirik aurkitu arbelean"
+  "clipboardNoImage": "Ez da irudirik aurkitu arbelean",
+  "close": "Itxi",
+  "@close": {
+    "description": "Close button text"
+  },
+  "congratulations": "🎉 Zorionak! 🎉",
+  "@congratulations": {
+    "description": "Congratulations message in winner dialog"
+  }
 }

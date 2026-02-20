@@ -1220,4 +1220,10 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get clipboardNoImage => 'क्लिपबोर्ड में कोई छवि नहीं मिली';
+
+  @override
+  String get close => 'बंद करें';
+
+  @override
+  String get congratulations => '🎉 बधाई हो! 🎉';
 }

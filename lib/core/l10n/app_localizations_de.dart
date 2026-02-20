@@ -1237,4 +1237,10 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get clipboardNoImage => 'Kein Bild in der Zwischenablage gefunden';
+
+  @override
+  String get close => 'Schließen';
+
+  @override
+  String get congratulations => '🎉 Herzlichen Glückwunsch! 🎉';
 }

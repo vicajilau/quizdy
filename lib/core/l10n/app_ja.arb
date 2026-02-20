@@ -1505,5 +1505,13 @@
   "quizFailedLimitReached": "クイズ停止：エラー制限に達しました",
   "@quizFailedLimitReached": {
     "description": "Title for the results screen when the error limit is reached"
+  },
+  "close": "閉じる",
+  "@close": {
+    "description": "Close button text"
+  },
+  "congratulations": "🎉 おめでとうございます！ 🎉",
+  "@congratulations": {
+    "description": "Congratulations message in winner dialog"
   }
 }

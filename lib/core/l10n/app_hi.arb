@@ -1505,5 +1505,13 @@
   "quizFailedLimitReached": "क्विज़ रुका: त्रुटि सीमा पूरी हो गई",
   "@quizFailedLimitReached": {
     "description": "Title for the results screen when the error limit is reached"
+  },
+  "close": "बंद करें",
+  "@close": {
+    "description": "Close button text"
+  },
+  "congratulations": "🎉 बधाई हो! 🎉",
+  "@congratulations": {
+    "description": "Congratulations message in winner dialog"
   }
 }

@@ -1236,4 +1236,10 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get clipboardNoImage => 'Non se atopou imaxe no portapapeis';
+
+  @override
+  String get close => 'Pechar';
+
+  @override
+  String get congratulations => '🎉 Parabéns! 🎉';
 }

@@ -1502,5 +1502,13 @@
   "appLanguageDescription": "Sobrescribir o idioma da aplicación para probas",
   "pasteFromClipboard": "Pegar dende o portapapeis",
   "pasteImage": "Pegar",
-  "clipboardNoImage": "Non se atopou imaxe no portapapeis"
+  "clipboardNoImage": "Non se atopou imaxe no portapapeis",
+  "close": "Pechar",
+  "@close": {
+    "description": "Close button text"
+  },
+  "congratulations": "🎉 Parabéns! 🎉",
+  "@congratulations": {
+    "description": "Congratulations message in winner dialog"
+  }
 }

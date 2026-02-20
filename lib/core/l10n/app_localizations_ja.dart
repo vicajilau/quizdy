@@ -1177,4 +1177,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get clipboardNoImage => 'クリップボードに画像が見つかりません';
+
+  @override
+  String get close => '閉じる';
+
+  @override
+  String get congratulations => '🎉 おめでとうございます！ 🎉';
 }

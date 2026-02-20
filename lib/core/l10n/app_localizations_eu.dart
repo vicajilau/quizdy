@@ -1233,4 +1233,10 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get clipboardNoImage => 'Ez da irudirik aurkitu arbelean';
+
+  @override
+  String get close => 'Itxi';
+
+  @override
+  String get congratulations => '🎉 Zorionak! 🎉';
 }

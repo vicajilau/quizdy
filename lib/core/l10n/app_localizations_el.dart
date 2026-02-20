@@ -1241,4 +1241,10 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get clipboardNoImage => 'Δεν βρέθηκε εικόνα στο πρόχειρο';
+
+  @override
+  String get close => 'Κλείσιμο';
+
+  @override
+  String get congratulations => '🎉 Συγχαρητήρια! 🎉';
 }

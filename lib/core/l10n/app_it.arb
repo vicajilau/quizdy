@@ -1541,5 +1541,13 @@
   "appLanguageDescription": "Sovrascrivi la lingua dell'applicazione per i test",
   "pasteFromClipboard": "Incolla dagli appunti",
   "pasteImage": "Incolla",
-  "clipboardNoImage": "Nessuna immagine trovata negli appunti"
+  "clipboardNoImage": "Nessuna immagine trovata negli appunti",
+  "close": "Chiudi",
+  "@close": {
+    "description": "Close button text"
+  },
+  "congratulations": "🎉 Congratulazioni! 🎉",
+  "@congratulations": {
+    "description": "Congratulations message in winner dialog"
+  }
 }

@@ -1598,5 +1598,13 @@
   "appLanguageDescription": "Sobreescriure l'idioma de l'aplicació per a proves",
   "pasteFromClipboard": "Enganxar des del porta-retalls",
   "pasteImage": "Enganxar",
-  "clipboardNoImage": "No s'ha trobat cap imatge al porta-retalls"
+  "clipboardNoImage": "No s'ha trobat cap imatge al porta-retalls",
+  "close": "Tancar",
+  "@close": {
+    "description": "Close button text"
+  },
+  "congratulations": "🎉 Enhorabona! 🎉",
+  "@congratulations": {
+    "description": "Congratulations message in winner dialog"
+  }
 }

@@ -1679,5 +1679,13 @@
   "clipboardNoImage": "No image found in clipboard",
   "@clipboardNoImage": {
     "description": "Error message when no image is found in the clipboard"
+  },
+  "close": "Close",
+  "@close": {
+    "description": "Close button text"
+  },
+  "congratulations": "🎉 Congratulations! 🎉",
+  "@congratulations": {
+    "description": "Congratulations message in winner dialog"
   }
 }

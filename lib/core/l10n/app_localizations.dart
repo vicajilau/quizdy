@@ -2239,6 +2239,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No image found in clipboard'**
   String get clipboardNoImage;
+
+  /// Close button text
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// Congratulations message in winner dialog
+  ///
+  /// In en, this message translates to:
+  /// **'🎉 Congratulations! 🎉'**
+  String get congratulations;
 }
 
 class _AppLocalizationsDelegate

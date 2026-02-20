@@ -1541,5 +1541,13 @@
   "appLanguageDescription": "Remplacer la langue de l'application pour les tests",
   "pasteFromClipboard": "Coller depuis le presse-papiers",
   "pasteImage": "Coller",
-  "clipboardNoImage": "Aucune image trouvée dans le presse-papiers"
+  "clipboardNoImage": "Aucune image trouvée dans le presse-papiers",
+  "close": "Fermer",
+  "@close": {
+    "description": "Close button text"
+  },
+  "congratulations": "🎉 Félicitations ! 🎉",
+  "@congratulations": {
+    "description": "Congratulations message in winner dialog"
+  }
 }

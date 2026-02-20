@@ -1577,5 +1577,13 @@
   "appLanguageDescription": "Sobrescribir el idioma de la aplicación para pruebas",
   "pasteFromClipboard": "Pegar desde portapapeles",
   "pasteImage": "Pegar",
-  "clipboardNoImage": "No se encontró imagen en el portapapeles"
+  "clipboardNoImage": "No se encontró imagen en el portapapeles",
+  "close": "Cerrar",
+  "@close": {
+    "description": "Close button text"
+  },
+  "congratulations": "🎉 ¡Enhorabuena! 🎉",
+  "@congratulations": {
+    "description": "Congratulations message in winner dialog"
+  }
 }

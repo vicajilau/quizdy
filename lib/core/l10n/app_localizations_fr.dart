@@ -1241,4 +1241,10 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get clipboardNoImage => 'Aucune image trouvée dans le presse-papiers';
+
+  @override
+  String get close => 'Fermer';
+
+  @override
+  String get congratulations => '🎉 Félicitations ! 🎉';
 }
