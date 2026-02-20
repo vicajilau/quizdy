@@ -95,7 +95,7 @@ class _QuizInProgressViewState extends State<QuizInProgressView>
     }
     if (prefillText != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        _chatPanelKey.currentState?.prefillQuestion(prefillText);
+        _chatPanelKey.currentState?.prefillQuestion(prefillText, autoSend: true);
       });
     }
   }
