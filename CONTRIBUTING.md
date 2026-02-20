@@ -5,7 +5,7 @@ _tl;dr: be [courteous](CODE_OF_CONDUCT.md), check existing issues, follow the de
 Welcome
 -------
 
-We invite you to contribute to Quiz App! This project is built with Flutter and focuses on creating an interactive quiz application with features like AI-powered question generation, multilingual support, and raffle functionality.
+We invite you to contribute to Quiz App! This project is built with Flutter and focuses on creating an interactive quiz application with features like AI-powered question generation and multilingual support.
 
 There are many ways to contribute:
 - Writing code and fixing bugs
