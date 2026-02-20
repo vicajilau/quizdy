@@ -29,9 +29,7 @@ bool FlutterWindow::OnCreate() {
   RegisterPlugins(flutter_controller_->engine());
   SetChildContent(flutter_controller_->view()->GetNativeWindow());
 
-  flutter_controller_->engine()->SetNextFrameCallback([&]() {
-    this->Show();
-  });
+  flutter_controller_->engine()->SetNextFrameCallback([&]() { this->Show(); });
 
   // Flutter can complete the first frame before the "show window" callback is
   // registered. The following call ensures a frame is pending to ensure the
@@ -64,9 +62,9 @@ FlutterWindow::MessageHandler(HWND hwnd, UINT const message,
   }
 
   switch (message) {
-    case WM_FONTCHANGE:
-      flutter_controller_->engine()->ReloadSystemFonts();
-      break;
+  case WM_FONTCHANGE:
+    flutter_controller_->engine()->ReloadSystemFonts();
+    break;
   }
 
   return Win32Window::MessageHandler(hwnd, message, wparam, lparam);
@@ -79,13 +77,13 @@ void FlutterWindow::SendFileOpenEvent(const std::string &file_path) {
 
   // Use SetNextFrameCallback to ensure Flutter is fully initialized
   flutter_controller_->engine()->SetNextFrameCallback([this, file_path]() {
-    auto channel = std::make_shared<flutter::MethodChannel<flutter::EncodableValue>>(
-        flutter_controller_->engine()->messenger(),
-        "quiz.file",
-        &flutter::StandardMethodCodec::GetInstance()
-    );
+    auto channel =
+        std::make_shared<flutter::MethodChannel<flutter::EncodableValue>>(
+            flutter_controller_->engine()->messenger(), "quiz.file",
+            &flutter::StandardMethodCodec::GetInstance());
 
     // Send the path to the Flutter channel
-    channel->InvokeMethod("openFile", std::make_unique<flutter::EncodableValue>(file_path));
+    channel->InvokeMethod("openFile",
+                          std::make_unique<flutter::EncodableValue>(file_path));
   });
 }

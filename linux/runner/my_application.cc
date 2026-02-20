@@ -9,15 +9,15 @@
 
 struct _MyApplication {
   GtkApplication parent_instance;
-  char** dart_entrypoint_arguments;
+  char **dart_entrypoint_arguments;
 };
 
 G_DEFINE_TYPE(MyApplication, my_application, GTK_TYPE_APPLICATION)
 
 // Implements GApplication::activate.
-static void my_application_activate(GApplication* application) {
-  MyApplication* self = MY_APPLICATION(application);
-  GtkWindow* window =
+static void my_application_activate(GApplication *application) {
+  MyApplication *self = MY_APPLICATION(application);
+  GtkWindow *window =
       GTK_WINDOW(gtk_application_window_new(GTK_APPLICATION(application)));
 
   // Use a header bar when running in GNOME as this is the common style used
@@ -29,16 +29,16 @@ static void my_application_activate(GApplication* application) {
   // if future cases occur).
   gboolean use_header_bar = TRUE;
 #ifdef GDK_WINDOWING_X11
-  GdkScreen* screen = gtk_window_get_screen(window);
+  GdkScreen *screen = gtk_window_get_screen(window);
   if (GDK_IS_X11_SCREEN(screen)) {
-    const gchar* wm_name = gdk_x11_screen_get_window_manager_name(screen);
+    const gchar *wm_name = gdk_x11_screen_get_window_manager_name(screen);
     if (g_strcmp0(wm_name, "GNOME Shell") != 0) {
       use_header_bar = FALSE;
     }
   }
 #endif
   if (use_header_bar) {
-    GtkHeaderBar* header_bar = GTK_HEADER_BAR(gtk_header_bar_new());
+    GtkHeaderBar *header_bar = GTK_HEADER_BAR(gtk_header_bar_new());
     gtk_widget_show(GTK_WIDGET(header_bar));
     gtk_header_bar_set_title(header_bar, "Quiz App");
     gtk_header_bar_set_show_close_button(header_bar, TRUE);
@@ -47,13 +47,21 @@ static void my_application_activate(GApplication* application) {
     gtk_window_set_title(window, "Quiz App");
   }
 
-  gtk_window_set_default_size(window, 1280, 720);
+  gtk_window_set_default_size(window, 1024, 800);
+
+  GdkGeometry geometry;
+  geometry.min_width = 500;
+  geometry.min_height = 500;
+  gtk_window_set_geometry_hints(window, GTK_WIDGET(window), &geometry,
+                                GDK_HINT_MIN_SIZE);
+
   gtk_widget_show(GTK_WIDGET(window));
 
   g_autoptr(FlDartProject) project = fl_dart_project_new();
-  fl_dart_project_set_dart_entrypoint_arguments(project, self->dart_entrypoint_arguments);
+  fl_dart_project_set_dart_entrypoint_arguments(
+      project, self->dart_entrypoint_arguments);
 
-  FlView* view = fl_view_new(project);
+  FlView *view = fl_view_new(project);
   gtk_widget_show(GTK_WIDGET(view));
   gtk_container_add(GTK_CONTAINER(window), GTK_WIDGET(view));
 
@@ -63,30 +71,36 @@ static void my_application_activate(GApplication* application) {
 
   // Add support for the application to handle Quiz file opening.
   // Get Flutter engine to communicate with Dart.
-  FlEngine* engine = fl_view_get_engine(view);
-  FlBinaryMessenger* messenger = fl_engine_get_binary_messenger(engine);
+  FlEngine *engine = fl_view_get_engine(view);
+  FlBinaryMessenger *messenger = fl_engine_get_binary_messenger(engine);
 
   // Create the MethodChannel
-  g_autoptr(FlMethodChannel) channel = fl_method_channel_new(messenger, "quiz.file", FL_METHOD_CODEC(fl_standard_method_codec_new()));
+  g_autoptr(FlMethodChannel) channel = fl_method_channel_new(
+      messenger, "quiz.file", FL_METHOD_CODEC(fl_standard_method_codec_new()));
 
   // Send file argument if exists
-  if (self->dart_entrypoint_arguments && self->dart_entrypoint_arguments[0] != nullptr) {
-    g_autoptr(FlValue) file_path = fl_value_new_string(self->dart_entrypoint_arguments[0]);
-    fl_method_channel_invoke_method(channel, "openFile", file_path, nullptr, nullptr, nullptr);
+  if (self->dart_entrypoint_arguments &&
+      self->dart_entrypoint_arguments[0] != nullptr) {
+    g_autoptr(FlValue) file_path =
+        fl_value_new_string(self->dart_entrypoint_arguments[0]);
+    fl_method_channel_invoke_method(channel, "openFile", file_path, nullptr,
+                                    nullptr, nullptr);
   }
 }
 
 // Implements GApplication::local_command_line.
-static gboolean my_application_local_command_line(GApplication* application, gchar*** arguments, int* exit_status) {
-  MyApplication* self = MY_APPLICATION(application);
+static gboolean my_application_local_command_line(GApplication *application,
+                                                  gchar ***arguments,
+                                                  int *exit_status) {
+  MyApplication *self = MY_APPLICATION(application);
   // Strip out the first argument as it is the binary name.
   self->dart_entrypoint_arguments = g_strdupv(*arguments + 1);
 
   g_autoptr(GError) error = nullptr;
   if (!g_application_register(application, nullptr, &error)) {
-     g_warning("Failed to register: %s", error->message);
-     *exit_status = 1;
-     return TRUE;
+    g_warning("Failed to register: %s", error->message);
+    *exit_status = 1;
+    return TRUE;
   }
 
   g_application_activate(application);
@@ -96,8 +110,8 @@ static gboolean my_application_local_command_line(GApplication* application, gch
 }
 
 // Implements GApplication::startup.
-static void my_application_startup(GApplication* application) {
-  //MyApplication* self = MY_APPLICATION(object);
+static void my_application_startup(GApplication *application) {
+  // MyApplication* self = MY_APPLICATION(object);
 
   // Perform any actions required at application startup.
 
@@ -105,8 +119,8 @@ static void my_application_startup(GApplication* application) {
 }
 
 // Implements GApplication::shutdown.
-static void my_application_shutdown(GApplication* application) {
-  //MyApplication* self = MY_APPLICATION(object);
+static void my_application_shutdown(GApplication *application) {
+  // MyApplication* self = MY_APPLICATION(object);
 
   // Perform any actions required at application shutdown.
 
@@ -114,23 +128,24 @@ static void my_application_shutdown(GApplication* application) {
 }
 
 // Implements GObject::dispose.
-static void my_application_dispose(GObject* object) {
-  MyApplication* self = MY_APPLICATION(object);
+static void my_application_dispose(GObject *object) {
+  MyApplication *self = MY_APPLICATION(object);
   g_clear_pointer(&self->dart_entrypoint_arguments, g_strfreev);
   G_OBJECT_CLASS(my_application_parent_class)->dispose(object);
 }
 
-static void my_application_class_init(MyApplicationClass* klass) {
+static void my_application_class_init(MyApplicationClass *klass) {
   G_APPLICATION_CLASS(klass)->activate = my_application_activate;
-  G_APPLICATION_CLASS(klass)->local_command_line = my_application_local_command_line;
+  G_APPLICATION_CLASS(klass)->local_command_line =
+      my_application_local_command_line;
   G_APPLICATION_CLASS(klass)->startup = my_application_startup;
   G_APPLICATION_CLASS(klass)->shutdown = my_application_shutdown;
   G_OBJECT_CLASS(klass)->dispose = my_application_dispose;
 }
 
-static void my_application_init(MyApplication* self) {}
+static void my_application_init(MyApplication *self) {}
 
-MyApplication* my_application_new() {
+MyApplication *my_application_new() {
   // Set the program name to the application ID, which helps various systems
   // like GTK and desktop environments map this running application to its
   // corresponding .desktop file. This ensures better integration by allowing
@@ -138,7 +153,6 @@ MyApplication* my_application_new() {
   g_set_prgname(APPLICATION_ID);
 
   return MY_APPLICATION(g_object_new(my_application_get_type(),
-                                     "application-id", APPLICATION_ID,
-                                     "flags", G_APPLICATION_NON_UNIQUE,
-                                     nullptr));
+                                     "application-id", APPLICATION_ID, "flags",
+                                     G_APPLICATION_NON_UNIQUE, nullptr));
 }

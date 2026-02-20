@@ -1,8 +1,8 @@
 #include <flutter/dart_project.h>
 #include <flutter/flutter_view_controller.h>
-#include <windows.h>
-#include <vector>
 #include <string>
+#include <vector>
+#include <windows.h>
 
 #include "flutter_window.h"
 #include "utils.h"
@@ -26,14 +26,15 @@ int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
   // Save the first argument in a temporary variable before doing move()
   std::string file_path;
   if (!command_line_arguments.empty()) {
-    file_path = command_line_arguments[0]; // We copy the path because the object is modified afterwards
+    file_path = command_line_arguments[0]; // We copy the path because the
+                                           // object is modified afterwards
   }
 
   project.set_dart_entrypoint_arguments(std::move(command_line_arguments));
 
   FlutterWindow window(project);
   Win32Window::Point origin(10, 10);
-  Win32Window::Size size(1280, 720);
+  Win32Window::Size size(1024, 800);
   if (!window.Create(L"Quiz App", origin, size)) {
     return EXIT_FAILURE;
   }
@@ -42,7 +43,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
   // Check if there is a deep link to a .quiz file
   if (!file_path.empty()) {
     // Check if the file has .quiz extension
-    if (file_path.length() >= 5 && file_path.substr(file_path.length() - 5) == ".quiz") {
+    if (file_path.length() >= 5 &&
+        file_path.substr(file_path.length() - 5) == ".quiz") {
       window.SendFileOpenEvent(file_path);
     }
   }
