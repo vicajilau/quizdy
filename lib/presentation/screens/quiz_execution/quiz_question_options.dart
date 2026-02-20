@@ -86,7 +86,7 @@ class _QuizQuestionOptionsState extends State<QuizQuestionOptions> {
         currentAnswer:
             widget.state.essayAnswers[widget.state.currentQuestionIndex] ?? '',
         isStudyMode: widget.isStudyMode,
-        isAiAvailable: widget.onAskAi != null,
+        isAiAvailable: _isAiAvailable,
         state: widget.state,
         onAskAi: widget.onAskAi,
       );
