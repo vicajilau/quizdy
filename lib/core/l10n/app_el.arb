@@ -425,6 +425,8 @@
   "quizModeTitle": "Λειτουργία Κουίζ",
   "skip": "Παράλειψη",
   "askAiAssistant": "Ρωτήστε τον Βοηθό AI",
+  "askAiAboutQuestion": "Ρωτήστε την AI για αυτήν την ερώτηση",
+  "aiHelpWithQuestion": "Βοήθησέ με να κατανοήσω αυτήν την ερώτηση",
   "sorteosLabel": "Raffles",
   "edit": "Επεξεργασία",
   "enable": "Ενεργοποίηση",

@@ -1339,6 +1339,12 @@ class AppLocalizationsEu extends AppLocalizations {
   String get askAiAssistant => 'Galdetu AI Laguntzaileari';
 
   @override
+  String get askAiAboutQuestion => 'Galdetu AIri galdera honi buruz';
+
+  @override
+  String get aiHelpWithQuestion => 'Lagundu galdera hau ulertzen';
+
+  @override
   String get sorteosLabel => 'Raffles';
 
   @override

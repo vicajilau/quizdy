@@ -1845,6 +1845,14 @@
   "@askAiAssistant": {
     "description": "Button label to open AI assistant for current question"
   },
+  "askAiAboutQuestion": "Ask AI about this question",
+  "@askAiAboutQuestion": {
+    "description": "Button label in quiz to open AI chat sidebar for the current question"
+  },
+  "aiHelpWithQuestion": "Help me understand this question",
+  "@aiHelpWithQuestion": {
+    "description": "Auto-filled text in AI chat when user clicks ask AI about question button"
+  },
   "sorteosLabel": "Raffles",
   "@sorteosLabel": {
     "description": "Label for the raffles button"

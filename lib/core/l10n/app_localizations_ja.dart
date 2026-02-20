@@ -1279,6 +1279,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get askAiAssistant => 'AIアシスタントに聞く';
 
   @override
+  String get askAiAboutQuestion => 'この問題についてAIに聞く';
+
+  @override
+  String get aiHelpWithQuestion => 'この問題を理解するのを手伝って';
+
+  @override
   String get sorteosLabel => 'Raffles';
 
   @override

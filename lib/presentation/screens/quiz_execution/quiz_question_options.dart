@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quiz_app/data/services/configuration_service.dart';
 import 'package:quiz_app/domain/models/quiz/question_type.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/data/services/configuration_service.dart';
-import 'package:quiz_app/presentation/screens/quiz_execution/widgets/ai_assistant_button.dart';
+import 'package:quiz_app/presentation/screens/quiz_execution/widgets/ai_studio_chat_button.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/widgets/essay_answer_input.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/widgets/question_option_tile.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/widgets/quiz_question_explanation.dart';
@@ -29,12 +29,16 @@ class QuizQuestionOptions extends StatefulWidget {
   /// Whether the quiz is in Study Mode (immediate feedback enabled).
   final bool isStudyMode;
 
+  /// Callback to open the AI chat panel, optionally with a pre-filled question.
+  final void Function({String? prefillText})? onAskAi;
+
   /// Creates a [QuizQuestionOptions] widget.
   const QuizQuestionOptions({
     super.key,
     required this.state,
     this.showCorrectAnswerCount = false,
     this.isStudyMode = false,
+    this.onAskAi,
   });
 
   @override
@@ -82,18 +86,22 @@ class _QuizQuestionOptionsState extends State<QuizQuestionOptions> {
         currentAnswer:
             widget.state.essayAnswers[widget.state.currentQuestionIndex] ?? '',
         isStudyMode: widget.isStudyMode,
-        isAiAvailable: _isAiAvailable,
+        isAiAvailable: widget.onAskAi != null,
         state: widget.state,
+        onAskAi: widget.onAskAi,
       );
     }
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // AI Assistant Button (Always visible in Study Mode, disabled if AI unavailable)
+        // AI Chat Button (opens sidebar, visible in Study Mode when AI is available)
         if (widget.isStudyMode)
-          AiAssistantButton(
+          AiStudioChatButton(
             question: widget.state.currentQuestion,
+            onPressed: () => widget.onAskAi!(
+              prefillText: AppLocalizations.of(context)!.aiHelpWithQuestion,
+            ),
             isAiAvailable: _isAiAvailable,
           ),
 

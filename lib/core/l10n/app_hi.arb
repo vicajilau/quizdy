@@ -1662,6 +1662,8 @@
   "checkAnswer": "जांचें",
   "quizModeTitle": "क्विज़ मोड",
   "askAiAssistant": "AI सहायक से पूछें",
+  "askAiAboutQuestion": "इस प्रश्न के बारे में AI से पूछें",
+  "aiHelpWithQuestion": "इस प्रश्न को समझने में मेरी मदद करो",
   "evaluateWithAI": "AI के साथ मूल्यांकन करें",
   "aiEvaluation": "AI मूल्यांकन",
   "sorteosLabel": "Raffles",

@@ -1341,6 +1341,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get askAiAssistant => 'Preguntar a la IA';
 
   @override
+  String get askAiAboutQuestion => 'Preguntar a la IA sobre esta pregunta';
+
+  @override
+  String get aiHelpWithQuestion => 'Ayúdame a entender esta pregunta';
+
+  @override
   String get sorteosLabel => 'Sorteos';
 
   @override
