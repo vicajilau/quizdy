@@ -157,15 +157,14 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // AI Chat Button (opens sidebar, only in Study Mode and if AI is available)
-          if (widget.isStudyMode &&
-              widget.isAiAvailable &&
-              widget.onAskAi != null)
+          // AI Chat Button (opens sidebar, visible in Study Mode)
+          if (widget.isStudyMode)
             AiStudioChatButton(
               question: widget.question,
               onPressed: () => widget.onAskAi!(
                 prefillText: AppLocalizations.of(context)!.aiHelpWithQuestion,
               ),
+              isAiAvailable: widget.isAiAvailable,
             ),
 
           Text(
