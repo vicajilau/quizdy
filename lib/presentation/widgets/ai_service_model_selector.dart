@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/data/services/configuration_service.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/core/theme/app_theme.dart';
-import 'package:quiz_app/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quiz_app/core/theme/extensions/ai_assistant_theme.dart';
 import 'package:quiz_app/data/services/ai/ai_service.dart';
 import 'package:quiz_app/data/services/ai/ai_service_selector.dart';
 import 'package:lucide_icons/lucide_icons.dart';
@@ -42,6 +41,7 @@ class _AiServiceModelSelectorState extends State<AiServiceModelSelector> {
   List<AIService> _availableServices = [];
   AIService? _selectedService;
   String? _selectedModel;
+  bool _isExpanded = false;
   bool _isLoading = true;
 
   @override
@@ -135,8 +135,13 @@ class _AiServiceModelSelectorState extends State<AiServiceModelSelector> {
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    final colors = context.appColors;
+    final aiTheme = Theme.of(context).extension<AiAssistantTheme>()!;
+    final headerBg = aiTheme.selectorHeaderBg;
+    final contentBg = aiTheme.selectorContentBg;
+    final borderColor = aiTheme.selectorBorderColor;
+    final labelColor = aiTheme.selectorLabelColor;
+    final textColor = aiTheme.selectorTextColor;
+    final chevronColor = aiTheme.selectorLabelColor;
 
     Widget buildSelector({
       required String label,
@@ -155,19 +160,18 @@ class _AiServiceModelSelectorState extends State<AiServiceModelSelector> {
             label,
             style: TextStyle(
               fontFamily: 'Inter',
-              fontSize: 13,
+              fontSize: 12,
               fontWeight: FontWeight.w500,
-              color: colors.subtitle,
+              color: labelColor,
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 6),
           Container(
-            height: 48,
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            height: 40,
+            padding: const EdgeInsets.symmetric(horizontal: 12),
             decoration: BoxDecoration(
-              color: colors.surface,
-              borderRadius: BorderRadius.circular(12),
-              border: isDark ? null : Border.all(color: colors.border),
+              color: headerBg,
+              borderRadius: BorderRadius.circular(10),
             ),
             alignment: Alignment.centerLeft,
             child: isLoading
@@ -175,9 +179,9 @@ class _AiServiceModelSelectorState extends State<AiServiceModelSelector> {
                     loadingText ?? 'Loading...',
                     style: TextStyle(
                       fontFamily: 'Inter',
-                      fontSize: 14,
+                      fontSize: 13,
                       fontWeight: FontWeight.w500,
-                      color: colors.title,
+                      color: textColor,
                     ),
                   )
                 : (items.isEmpty && emptyText != null)
@@ -185,28 +189,52 @@ class _AiServiceModelSelectorState extends State<AiServiceModelSelector> {
                     emptyText,
                     style: TextStyle(
                       fontFamily: 'Inter',
-                      fontSize: 14,
+                      fontSize: 13,
                       fontWeight: FontWeight.w500,
-                      color: colors.title,
+                      color: textColor,
                     ),
                   )
                 : DropdownButtonHideUnderline(
                     child: DropdownButton<String>(
                       value: value,
                       isExpanded: true,
-                      icon: const Icon(
+                      icon: Icon(
                         LucideIcons.chevronDown,
-                        color: AppTheme.zinc400,
-                        size: 18,
+                        color: chevronColor,
+                        size: 16,
                       ),
-                      dropdownColor: colors.card,
-                      style: TextStyle(
-                        fontFamily: 'Inter',
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        color: colors.title,
-                      ),
-                      items: items,
+                      dropdownColor: headerBg,
+                      selectedItemBuilder: (context) {
+                        return items.map((item) {
+                          return Container(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              item.value ?? '',
+                              style: TextStyle(
+                                fontFamily: 'Inter',
+                                fontSize: 13,
+                                fontWeight: FontWeight.w500,
+                                color: textColor,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          );
+                        }).toList();
+                      },
+                      items: items.map((item) {
+                        return DropdownMenuItem<String>(
+                          value: item.value,
+                          child: Text(
+                            item.value ?? '',
+                            style: TextStyle(
+                              fontFamily: 'Inter',
+                              fontSize: 13,
+                              fontWeight: FontWeight.w500,
+                              color: textColor,
+                            ),
+                          ),
+                        );
+                      }).toList(),
                       onChanged: isEnabled ? onChanged : null,
                     ),
                   ),
@@ -215,83 +243,166 @@ class _AiServiceModelSelectorState extends State<AiServiceModelSelector> {
       );
     }
 
-    // Mapping for Lucide Icons or standard Material
-    // Since we might not have direct Lucide access in this file helper, using Icons.
-    // The design uses 'chevron-down'. Material 'keyboard_arrow_down' is close.
+    Widget buildHeader(bool expanded) {
+      return Container(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+        decoration: BoxDecoration(
+          color: headerBg,
+          borderRadius: BorderRadius.vertical(
+            top: const Radius.circular(12),
+            bottom: Radius.circular(expanded ? 0 : 12),
+          ),
+        ),
+        child: Row(
+          children: [
+            const Icon(
+              LucideIcons.sparkles,
+              size: 16,
+              color: Color(0xFF8B5CF6), // Violet 500
+            ),
+            const SizedBox(width: 8),
+            Text(
+              localizations.aiDefaultModelTitle,
+              style: TextStyle(
+                fontFamily: 'Inter',
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+                color: textColor,
+              ),
+            ),
+            const Spacer(),
+            Icon(
+              expanded ? LucideIcons.chevronUp : LucideIcons.chevronDown,
+              size: 16,
+              color: chevronColor,
+            ),
+          ],
+        ),
+      );
+    }
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // AI Service Selector
-        buildSelector(
-          label: localizations.aiServiceLabel,
-          value: _selectedService?.serviceName,
-          items: _availableServices
-              .map(
-                (s) => DropdownMenuItem(
-                  value: s.serviceName,
-                  child: Text(s.serviceName),
+        InkWell(
+          onTap: () => setState(() => _isExpanded = !_isExpanded),
+          borderRadius: BorderRadius.circular(12),
+          child: AnimatedCrossFade(
+            duration: const Duration(milliseconds: 300),
+            sizeCurve: Curves.easeInOut,
+            firstCurve: Curves.easeInOut,
+            secondCurve: Curves.easeInOut,
+            crossFadeState: _isExpanded
+                ? CrossFadeState.showSecond
+                : CrossFadeState.showFirst,
+            firstChild: buildHeader(false),
+            secondChild: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                buildHeader(true),
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.only(
+                    top: 12,
+                    bottom: 14,
+                    left: 14,
+                    right: 14,
+                  ),
+                  decoration: BoxDecoration(
+                    color: contentBg,
+                    borderRadius: const BorderRadius.vertical(
+                      bottom: Radius.circular(12),
+                    ),
+                    border: Border(
+                      left: BorderSide(color: borderColor),
+                      right: BorderSide(color: borderColor),
+                      bottom: BorderSide(color: borderColor),
+                    ),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // AI Service Selector
+                      buildSelector(
+                        label: '${localizations.aiServiceLabel}:',
+                        value: _selectedService?.serviceName,
+                        items: _availableServices
+                            .map(
+                              (s) => DropdownMenuItem(
+                                value: s.serviceName,
+                                child: Text(s.serviceName),
+                              ),
+                            )
+                            .toList(),
+                        onChanged: widget.enabled
+                            ? (val) async {
+                                final service = _availableServices.firstWhere(
+                                  (s) => s.serviceName == val,
+                                );
+
+                                if (service.serviceName !=
+                                    _selectedService?.serviceName) {
+                                  final newModel = service.defaultModel;
+                                  setState(() {
+                                    _selectedService = service;
+                                    _selectedModel = newModel;
+                                  });
+                                  widget.onServiceChanged?.call(service);
+                                  widget.onModelChanged?.call(newModel);
+                                  if (widget.saveToPreferences) {
+                                    await ConfigurationService.instance
+                                        .saveDefaultAIService(
+                                          service.serviceName,
+                                        );
+                                    await ConfigurationService.instance
+                                        .saveDefaultAIModel(newModel);
+                                  }
+                                }
+                              }
+                            : null,
+                        isLoading: _isLoading,
+                        loadingText: localizations.aiServicesLoading,
+                        emptyText: localizations.aiServicesNotConfigured,
+                        isEnabled: widget.enabled,
+                      ),
+
+                      if (_selectedService != null &&
+                          _availableServices.isNotEmpty) ...[
+                        const SizedBox(height: 12),
+                        // Model Selector
+                        buildSelector(
+                          label: localizations.aiModelLabel,
+                          value: _selectedModel,
+                          items: _selectedService!.availableModels
+                              .map(
+                                (m) =>
+                                    DropdownMenuItem(value: m, child: Text(m)),
+                              )
+                              .toList(),
+                          onChanged: widget.enabled
+                              ? (val) async {
+                                  if (val != null) {
+                                    setState(() {
+                                      _selectedModel = val;
+                                    });
+                                    widget.onModelChanged?.call(val);
+                                    if (widget.saveToPreferences) {
+                                      await ConfigurationService.instance
+                                          .saveDefaultAIModel(val);
+                                    }
+                                  }
+                                }
+                              : null,
+                          isEnabled: widget.enabled,
+                        ),
+                      ],
+                    ],
+                  ),
                 ),
-              )
-              .toList(),
-          onChanged: widget.enabled
-              ? (val) async {
-                  final service = _availableServices.firstWhere(
-                    (s) => s.serviceName == val,
-                  );
-
-                  if (service.serviceName != _selectedService?.serviceName) {
-                    final newModel = service.defaultModel;
-                    setState(() {
-                      _selectedService = service;
-                      _selectedModel = newModel;
-                    });
-                    widget.onServiceChanged?.call(service);
-                    widget.onModelChanged?.call(newModel);
-                    if (widget.saveToPreferences) {
-                      await ConfigurationService.instance.saveDefaultAIService(
-                        service.serviceName,
-                      );
-                      await ConfigurationService.instance.saveDefaultAIModel(
-                        newModel,
-                      );
-                    }
-                  }
-                }
-              : null,
-          isLoading: _isLoading,
-          loadingText: localizations.aiServicesLoading,
-          emptyText: localizations.aiServicesNotConfigured,
-          isEnabled: widget.enabled,
-        ),
-
-        if (_selectedService != null && _availableServices.isNotEmpty) ...[
-          const SizedBox(height: 16),
-          // Model Selector
-          buildSelector(
-            label: localizations.aiModelLabel,
-            value: _selectedModel,
-            items: _selectedService!.availableModels
-                .map((m) => DropdownMenuItem(value: m, child: Text(m)))
-                .toList(),
-            onChanged: widget.enabled
-                ? (val) async {
-                    if (val != null) {
-                      setState(() {
-                        _selectedModel = val;
-                      });
-                      widget.onModelChanged?.call(val);
-                      if (widget.saveToPreferences) {
-                        await ConfigurationService.instance.saveDefaultAIModel(
-                          val,
-                        );
-                      }
-                    }
-                  }
-                : null,
-            isEnabled: widget.enabled,
+              ],
+            ),
           ),
-        ],
+        ),
       ],
     );
   }

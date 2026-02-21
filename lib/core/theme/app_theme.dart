@@ -6,6 +6,7 @@ import 'package:quiz_app/core/theme/extensions/exam_timer_theme.dart';
 import 'package:quiz_app/core/theme/extensions/home_theme.dart';
 import 'package:quiz_app/core/theme/extensions/file_loaded_theme.dart';
 import 'package:quiz_app/core/theme/extensions/question_dialog_theme.dart';
+import 'package:quiz_app/core/theme/extensions/ai_assistant_theme.dart';
 
 class AppTheme {
   // Define main application colors
@@ -174,6 +175,26 @@ class AppTheme {
         closeIconColor: textSecondaryColor,
         shadowColor: shadowColor,
       ),
+      const AiAssistantTheme(
+        selectorHeaderBg: zinc100,
+        selectorContentBg: zinc50,
+        selectorBorderColor: zinc200,
+        selectorLabelColor: zinc500,
+        selectorTextColor: zinc900,
+        sidebarBg: Colors.white,
+        sidebarHeaderBtnBg: zinc100,
+        sidebarBorderColor: zinc200,
+        chatTitleColor: zinc900,
+        inputFillColor: Colors.white,
+        inputHintColor: zinc400,
+        userBubbleBg: violet100,
+        userBubbleTextColor: zinc900,
+        aiBubbleBg: zinc100,
+        aiBubbleLabelColor: primaryColor,
+        aiAssistantLabelColor: primaryColor,
+        errorBubbleBg: Color(0xFFFEE2E2), // Red 100
+        errorBubbleBorderColor: Color(0xFFFECACA), // Red 200
+      ),
     ],
   );
 
@@ -319,6 +340,28 @@ class AppTheme {
         closeButtonColor: borderColorDark,
         closeIconColor: Color(0xFFA1A1AA), // hintColor
         shadowColor: Color(0x40000000), // black with opacity
+      ),
+      AiAssistantTheme(
+        selectorHeaderBg: zinc700,
+        selectorContentBg: const Color(0xFF1E1E22),
+        selectorBorderColor: zinc700,
+        selectorLabelColor: zinc400,
+        selectorTextColor: Colors.white,
+        sidebarBg: zinc800,
+        sidebarHeaderBtnBg: zinc700,
+        sidebarBorderColor: zinc700,
+        chatTitleColor: Colors.white,
+        inputFillColor: zinc800,
+        inputHintColor: zinc400,
+        userBubbleBg: const Color(
+          0xFF4C1D95,
+        ).withValues(alpha: 0.3), // violet900
+        userBubbleTextColor: Colors.white,
+        aiBubbleBg: zinc700.withValues(alpha: 0.3),
+        aiBubbleLabelColor: primaryColor,
+        aiAssistantLabelColor: primaryColor,
+        errorBubbleBg: const Color(0xFF450A0A), // Red 950
+        errorBubbleBorderColor: const Color(0xFF7F1D1D), // Red 900
       ),
     ],
   );

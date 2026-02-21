@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gpt_markdown/gpt_markdown.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
+import 'package:quiz_app/core/theme/extensions/ai_assistant_theme.dart';
 
 /// A widget that displays a single chat message bubble.
 ///
@@ -37,6 +38,7 @@ class AiChatBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
+    final aiTheme = theme.extension<AiAssistantTheme>()!;
 
     if (isUser) {
       return Align(
@@ -45,7 +47,7 @@ class AiChatBubble extends StatelessWidget {
           margin: const EdgeInsets.only(bottom: 16, left: 48),
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: theme.colorScheme.primaryContainer,
+            color: aiTheme.userBubbleBg,
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(12),
               topRight: Radius.circular(12),
@@ -56,7 +58,7 @@ class AiChatBubble extends StatelessWidget {
           child: Text(
             content,
             style: theme.textTheme.bodyMedium?.copyWith(
-              color: theme.colorScheme.onPrimaryContainer,
+              color: aiTheme.userBubbleTextColor,
             ),
           ),
         ),
@@ -70,22 +72,16 @@ class AiChatBubble extends StatelessWidget {
         width: double.infinity,
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: isError
-              ? theme.colorScheme.errorContainer
-              : theme.colorScheme.surfaceContainerHighest.withValues(
-                  alpha: 0.5,
-                ),
+          color: isError ? aiTheme.errorBubbleBg : aiTheme.aiBubbleBg,
+          border: isError
+              ? Border.all(color: aiTheme.errorBubbleBorderColor)
+              : null,
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(12),
             topRight: Radius.circular(12),
             bottomLeft: Radius.circular(4),
             bottomRight: Radius.circular(12),
           ),
-          border: isError
-              ? Border.all(
-                  color: theme.colorScheme.error.withValues(alpha: 0.5),
-                )
-              : null,
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,

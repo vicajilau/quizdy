@@ -14,6 +14,7 @@ import 'package:quiz_app/presentation/screens/dialogs/widgets/ai_chat_bubble.dar
 import 'package:quiz_app/presentation/screens/dialogs/widgets/question_context_widget.dart';
 import 'package:quiz_app/core/theme/app_theme.dart';
 import 'package:quiz_app/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quiz_app/core/extensions/focus_node_extension.dart';
 
 class AIQuestionDialog extends StatefulWidget {
   final Question question;
@@ -27,6 +28,7 @@ class AIQuestionDialog extends StatefulWidget {
 class _AIQuestionDialogState extends State<AIQuestionDialog> {
   final TextEditingController _questionController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
+  final FocusNode _focusNode = FocusNode();
   bool _isLoading = false;
 
   // Chat state
@@ -42,12 +44,14 @@ class _AIQuestionDialogState extends State<AIQuestionDialog> {
   @override
   void initState() {
     super.initState();
+    _focusNode.setupAiChatKeyHandler(_askAI);
   }
 
   @override
   void dispose() {
     _questionController.dispose();
     _scrollController.dispose();
+    _focusNode.dispose();
     super.dispose();
   }
 
@@ -395,6 +399,7 @@ class _AIQuestionDialogState extends State<AIQuestionDialog> {
                     ),
                     child: TextField(
                       controller: _questionController,
+                      focusNode: _focusNode,
                       decoration: InputDecoration(
                         hintText: localizations.askAIHint,
                         hintStyle: TextStyle(
@@ -415,7 +420,7 @@ class _AIQuestionDialogState extends State<AIQuestionDialog> {
                       ),
                       maxLines: 3,
                       minLines: 1,
-                      onSubmitted: (_) => _askAI(),
+                      textInputAction: TextInputAction.newline,
                     ),
                   ),
                 ),
