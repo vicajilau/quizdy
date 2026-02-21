@@ -988,208 +988,6 @@ class AppLocalizationsJa extends AppLocalizations {
       '回答形式：\n1. 評点：[X/10] - 評点を簡潔に正当化する\n2. 長所：回答の肯定的な側面を述べる\n3. 改善領域：改善できる側面を指摘する\n4. 具体的なコメント：詳細で建設的なフィードバックを提供する\n5. 提案：改善のための具体的な推奨事項を提供する\n\n評価において建設的、具体的、教育的であること。目標は学生の学習と改善を助けることです。二人称で話しかけ、専門的で親しみやすい口調を使用してください。';
 
   @override
-  String get raffleTitle => '抽選';
-
-  @override
-  String get raffleTooltip => '抽選画面を開く';
-
-  @override
-  String get participantListTitle => '参加者リスト';
-
-  @override
-  String get participantListHint => '改行で区切られた名前を入力してください';
-
-  @override
-  String get participantListPlaceholder => '参加者の名前をここに入力してください...\n一行に一つの名前';
-
-  @override
-  String get clearList => 'リストをクリア';
-
-  @override
-  String get participants => '参加者';
-
-  @override
-  String get noParticipants => '参加者はいません';
-
-  @override
-  String get addParticipantsHint => '抽選を開始するには参加者を追加してください';
-
-  @override
-  String get activeParticipants => 'アクティブな参加者';
-
-  @override
-  String get alreadySelected => '既に選択済み';
-
-  @override
-  String totalParticipants(int count) {
-    return '総参加者数';
-  }
-
-  @override
-  String activeVsWinners(int active, int winners) {
-    return '$active人アクティブ、$winners人当選';
-  }
-
-  @override
-  String get startRaffle => '抽選開始';
-
-  @override
-  String get raffling => '抽選中...';
-
-  @override
-  String get selectingWinner => '当選者を選択中...';
-
-  @override
-  String get allParticipantsSelected => 'すべての参加者が選択されました';
-
-  @override
-  String get addParticipantsToStart => '抽選を開始するには参加者を追加してください';
-
-  @override
-  String participantsReadyCount(int count) {
-    return '$count人が抽選の準備ができています';
-  }
-
-  @override
-  String get resetWinners => '当選者をリセット';
-
-  @override
-  String get resetWinnersConfirmTitle => '当選者をリセットしますか？';
-
-  @override
-  String get resetWinnersConfirmMessage => 'これによりすべての当選者がアクティブ参加者リストに戻されます。';
-
-  @override
-  String get resetRaffleTitle => '抽選をリセットしますか？';
-
-  @override
-  String get resetRaffleConfirmMessage => 'これによりすべての当選者とアクティブ参加者がリセットされます。';
-
-  @override
-  String get cancel => 'キャンセル';
-
-  @override
-  String get reset => 'リセット';
-
-  @override
-  String get viewWinners => '当選者を見る';
-
-  @override
-  String get congratulations => '🎉 おめでとうございます！ 🎉';
-
-  @override
-  String positionLabel(int position) {
-    return '第$position位';
-  }
-
-  @override
-  String remainingParticipants(int count) {
-    return '残りの参加者：$count人';
-  }
-
-  @override
-  String get continueRaffle => '抽選を続ける';
-
-  @override
-  String get finishRaffle => '抽選を終了';
-
-  @override
-  String get winnersTitle => '当選者';
-
-  @override
-  String get shareResults => '結果を共有';
-
-  @override
-  String get noWinnersYet => 'まだ当選者はいません';
-
-  @override
-  String get performRaffleToSeeWinners => '当選者を見るには抽選を行ってください';
-
-  @override
-  String get goToRaffle => '抽選へ移動';
-
-  @override
-  String get raffleCompleted => '抽選完了！';
-
-  @override
-  String winnersSelectedCount(int count) {
-    return '$count人の当選者が選ばれました';
-  }
-
-  @override
-  String get newRaffle => '新しい抽選';
-
-  @override
-  String get shareResultsTitle => '抽選結果';
-
-  @override
-  String get raffleResultsLabel => '抽選結果：';
-
-  @override
-  String get close => '閉じる';
-
-  @override
-  String get share => 'コピー';
-
-  @override
-  String get shareNotImplemented => '共有機能はまだ実装されていません';
-
-  @override
-  String get firstPlace => '第1位';
-
-  @override
-  String get secondPlace => '第2位';
-
-  @override
-  String get thirdPlace => '第3位';
-
-  @override
-  String nthPlace(int position) {
-    return '第$position位';
-  }
-
-  @override
-  String placeLabel(String position) {
-    return '順位';
-  }
-
-  @override
-  String get raffleResultsHeader => '抽選結果 - null人の当選者';
-
-  @override
-  String totalWinners(int count) {
-    return '総当選者数：$count人';
-  }
-
-  @override
-  String get noWinnersToShare => '共有する当選者はいません';
-
-  @override
-  String get shareSuccess => '結果が正常にコピーされました';
-
-  @override
-  String get selectLogo => 'ロゴを選択';
-
-  @override
-  String get logoUrl => 'ロゴURL';
-
-  @override
-  String get logoUrlHint => '抽選用のカスタムロゴとして使用する画像のURLを入力してください';
-
-  @override
-  String get invalidLogoUrl =>
-      '無効な画像URLです。.jpg、.png、.gifなどで終わる有効なURLである必要があります。';
-
-  @override
-  String get logoPreview => 'プレビュー';
-
-  @override
-  String get removeLogo => 'ロゴを削除';
-
-  @override
-  String get logoTooLargeWarning => '画像が大きすぎて保存できません。このセッション中のみ使用されます。';
-
-  @override
   String get aiModeTopicTitle => 'トピックモード';
 
   @override
@@ -1283,9 +1081,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get aiHelpWithQuestion => 'この問題を理解するのを手伝って';
-
-  @override
-  String get sorteosLabel => 'Raffles';
 
   @override
   String get edit => '編集';
@@ -1382,4 +1177,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get clipboardNoImage => 'クリップボードに画像が見つかりません';
+
+  @override
+  String get close => '閉じる';
+
+  @override
+  String get congratulations => '🎉 おめでとうございます！ 🎉';
 }

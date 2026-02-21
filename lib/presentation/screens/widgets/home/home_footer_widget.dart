@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
 import 'package:quiz_app/presentation/blocs/file_bloc/file_bloc.dart';
 import 'package:quiz_app/presentation/blocs/file_bloc/file_event.dart';
-import 'package:quiz_app/routes/app_router.dart';
 
 class HomeFooterWidget extends StatelessWidget {
   final bool isLoading;
@@ -110,22 +108,6 @@ class HomeFooterWidget extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 16),
-          TextButton.icon(
-            onPressed: isLoading ? null : () => context.go(AppRoutes.raffle),
-            icon: Icon(
-              LucideIcons.gift,
-              size: 20,
-              color: Theme.of(context).primaryColor,
-            ),
-            label: Text(
-              AppLocalizations.of(context)!.sorteosLabel,
-              style: TextStyle(
-                color: Theme.of(context).primaryColor,
-                fontWeight: FontWeight.w600,
-                fontSize: 15,
-              ),
-            ),
-          ),
         ],
       ),
     );

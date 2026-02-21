@@ -1042,217 +1042,6 @@ class AppLocalizationsEl extends AppLocalizations {
       'ΜΟΡΦΗ ΑΠΑΝΤΗΣΗΣ:\n1. ΒΑΘΜΟΣ: [X/10] - Δικαιολογήστε σύντομα τον βαθμό\n2. ΔΥΝΑΤΑ ΣΗΜΕΙΑ: Αναφέρετε θετικές πτυχές της απάντησης\n3. ΠΕΡΙΟΧΕΣ ΓΙΑ ΒΕΛΤΙΩΣΗ: Επισημάνετε πτυχές που θα μπορούσαν να βελτιωθούν\n4. ΕΙΔΙΚΑ ΣΧΟΛΙΑ: Παρέχετε λεπτομερή και εποικοδομητικά σχόλια\n5. ΠΡΟΤΑΣΕΙΣ: Προσφέρετε συγκεκριμένες συστάσεις για βελτίωση\n\nΝα είστε εποικοδομητικοί, συγκεκριμένοι και εκπαιδευτικοί στην αξιολόγησή σας. Στόχος είναι να βοηθήσετε τον μαθητή να μάθει και να βελτιωθεί. Απευθυνθείτε σε αυτόν στον δεύτερο ενικό και χρησιμοποιήστε επαγγελματικό και φιλικό ύφος.';
 
   @override
-  String get raffleTitle => 'Κλήρωση';
-
-  @override
-  String get raffleTooltip => 'Κλήρωση';
-
-  @override
-  String get participantListTitle => 'Λίστα Συμμετεχόντων';
-
-  @override
-  String get participantListHint => 'Εισάγετε ένα όνομα ανά γραμμή:';
-
-  @override
-  String get participantListPlaceholder =>
-      'Γιάννης Παπαδόπουλος\nΜαρία Ιωαννίδου\nΝίκος Γεωργίου\n...';
-
-  @override
-  String get clearList => 'Καθαρισμός Λίστας';
-
-  @override
-  String get participants => 'Συμμετέχοντες';
-
-  @override
-  String get noParticipants => 'Κανένας συμμετέχων';
-
-  @override
-  String get addParticipantsHint => 'Προσθέστε ονόματα στην περιοχή κειμένου';
-
-  @override
-  String get activeParticipants => 'Ενεργοί Συμμετέχοντες';
-
-  @override
-  String get alreadySelected => 'Ήδη Επιλεγμένοι';
-
-  @override
-  String totalParticipants(int count) {
-    return 'Σύνολο: $count';
-  }
-
-  @override
-  String activeVsWinners(int active, int winners) {
-    return 'Ενεργοί: $active | Νικητές: $winners';
-  }
-
-  @override
-  String get startRaffle => 'Έναρξη Κλήρωσης';
-
-  @override
-  String get raffling => 'Κλήρωση...';
-
-  @override
-  String get selectingWinner => 'Επιλογή νικητή...';
-
-  @override
-  String get allParticipantsSelected =>
-      'Όλοι οι συμμετέχοντες έχουν ήδη επιλεγεί';
-
-  @override
-  String get addParticipantsToStart =>
-      'Προσθέστε συμμετέχοντες για να ξεκινήσετε την κλήρωση';
-
-  @override
-  String participantsReadyCount(int count) {
-    return '$count συμμετέχων/οντες έτοιμος/οι για κλήρωση';
-  }
-
-  @override
-  String get resetWinners => 'Επαναφορά Νικητών';
-
-  @override
-  String get resetWinnersConfirmTitle => 'Επαναφορά Νικητών';
-
-  @override
-  String get resetWinnersConfirmMessage =>
-      'Είστε σίγουροι ότι θέλετε να επαναφέρετε τη λίστα νικητών; Όλοι οι συμμετέχοντες θα είναι διαθέσιμοι για την κλήρωση ξανά.';
-
-  @override
-  String get resetRaffleTitle => 'Επαναφορά Κλήρωσης';
-
-  @override
-  String get resetRaffleConfirmMessage =>
-      'Είστε σίγουροι ότι θέλετε να επαναφέρετε την κλήρωση; Όλοι οι συμμετέχοντες και οι νικητές θα χαθούν.';
-
-  @override
-  String get cancel => 'Ακύρωση';
-
-  @override
-  String get reset => 'Επαναφορά';
-
-  @override
-  String get viewWinners => 'Προβολή νικητών';
-
-  @override
-  String get congratulations => '🎉 Συγχαρητήρια! 🎉';
-
-  @override
-  String positionLabel(int position) {
-    return 'Θέση: $positionη';
-  }
-
-  @override
-  String remainingParticipants(int count) {
-    return 'Υπόλοιποι συμμετέχοντες: $count';
-  }
-
-  @override
-  String get continueRaffle => 'Συνέχεια Κλήρωσης';
-
-  @override
-  String get finishRaffle => 'Ολοκλήρωση Κλήρωσης';
-
-  @override
-  String get winnersTitle => 'Νικητές Κλήρωσης';
-
-  @override
-  String get shareResults => 'Κοινοποίηση αποτελεσμάτων';
-
-  @override
-  String get noWinnersYet => 'Δεν υπάρχουν νικητές ακόμα';
-
-  @override
-  String get performRaffleToSeeWinners =>
-      'Πραγματοποιήστε μια κλήρωση για να δείτε τους νικητές εδώ';
-
-  @override
-  String get goToRaffle => 'Μετάβαση στην Κλήρωση';
-
-  @override
-  String get raffleCompleted => 'Κλήρωση Ολοκληρώθηκε';
-
-  @override
-  String winnersSelectedCount(int count) {
-    return '$count νικητής/ές επιλέχθηκε/αν';
-  }
-
-  @override
-  String get newRaffle => 'Νέα Κλήρωση';
-
-  @override
-  String get shareResultsTitle => 'Κοινοποίηση Αποτελεσμάτων';
-
-  @override
-  String get raffleResultsLabel => 'Αποτελέσματα κλήρωσης:';
-
-  @override
-  String get close => 'Κλείσιμο';
-
-  @override
-  String get share => 'Αντιγραφή';
-
-  @override
-  String get shareNotImplemented =>
-      'Η λειτουργία κοινοποίησης δεν έχει υλοποιηθεί';
-
-  @override
-  String get firstPlace => '1ος';
-
-  @override
-  String get secondPlace => '2ος';
-
-  @override
-  String get thirdPlace => '3ος';
-
-  @override
-  String nthPlace(int position) {
-    return '$positionος';
-  }
-
-  @override
-  String placeLabel(String position) {
-    return '$position θέση';
-  }
-
-  @override
-  String get raffleResultsHeader => '🏆 ΑΠΟΤΕΛΕΣΜΑΤΑ ΚΛΗΡΩΣΗΣ 🏆';
-
-  @override
-  String totalWinners(int count) {
-    return 'Σύνολο νικητών: $count';
-  }
-
-  @override
-  String get noWinnersToShare => 'Κανένας νικητής.';
-
-  @override
-  String get shareSuccess => 'Τα αποτελέσματα αντιγράφηκαν επιτυχώς';
-
-  @override
-  String get selectLogo => 'Επιλογή Λογότυπου';
-
-  @override
-  String get logoUrl => 'URL Λογότυπου';
-
-  @override
-  String get logoUrlHint =>
-      'Εισάγετε το URL μιας εικόνας για χρήση ως προσαρμοσμένο λογότυπο για την κλήρωση';
-
-  @override
-  String get invalidLogoUrl =>
-      'Μη έγκυρο URL εικόνας. Πρέπει να είναι έγκυρο URL που τελειώνει σε .jpg, .png, .gif, κλπ.';
-
-  @override
-  String get logoPreview => 'Προεπισκόπηση';
-
-  @override
-  String get removeLogo => 'Αφαίρεση Λογότυπου';
-
-  @override
-  String get logoTooLargeWarning =>
-      'Η εικόνα είναι πολύ μεγάλη για να αποθηκευτεί. Θα χρησιμοποιηθεί μόνο κατά τη διάρκεια αυτής της συνεδρίας.';
-
-  @override
   String get aiModeTopicTitle => 'Λειτουργία Θέματος';
 
   @override
@@ -1355,9 +1144,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get aiHelpWithQuestion => 'Βοήθησέ με να κατανοήσω αυτήν την ερώτηση';
 
   @override
-  String get sorteosLabel => 'Raffles';
-
-  @override
   String get edit => 'Επεξεργασία';
 
   @override
@@ -1455,4 +1241,10 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get clipboardNoImage => 'Δεν βρέθηκε εικόνα στο πρόχειρο';
+
+  @override
+  String get close => 'Κλείσιμο';
+
+  @override
+  String get congratulations => '🎉 Συγχαρητήρια! 🎉';
 }

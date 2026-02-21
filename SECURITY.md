@@ -45,7 +45,7 @@ When reporting a vulnerability, please include:
 
 Quiz App is designed with privacy in mind:
 
-- **Local Storage Only**: All quiz data and raffle information is stored locally
+- **Local Storage Only**: All quiz data is stored locally
 - **No External Data**: The app doesn't send personal data to external servers
 - **File Processing**: Uploaded images are processed locally in the browser
 - **API Keys**: AI service API keys are stored locally and not transmitted elsewhere

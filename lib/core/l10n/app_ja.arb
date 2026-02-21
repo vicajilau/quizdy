@@ -269,10 +269,6 @@
   "@finishQuizConfirmation": {
     "description": "Confirmation message for finishing quiz"
   },
-  "cancel": "キャンセル",
-  "@cancel": {
-    "description": "Cancel button text"
-  },
   "abandonQuiz": "クイズを放棄",
   "@abandonQuiz": {
     "description": "Title of abandon quiz dialog"
@@ -1271,298 +1267,6 @@
   "@aiEvaluationPromptResponseFormat": {
     "description": "評価の回答形式指示"
   },
-  "raffleTitle": "抽選",
-  "@raffleTitle": {
-    "description": "抽選画面のタイトル"
-  },
-  "raffleTooltip": "抽選画面を開く",
-  "@raffleTooltip": {
-    "description": "アプリバーの抽選アイコンのツールチップ"
-  },
-  "participantListTitle": "参加者リスト",
-  "@participantListTitle": {
-    "description": "参加者リストセクションのタイトル"
-  },
-  "participantListHint": "改行で区切られた名前を入力してください",
-  "@participantListHint": {
-    "description": "参加者入力フィールドのヒントテキスト"
-  },
-  "participantListPlaceholder": "参加者の名前をここに入力してください...\n一行に一つの名前",
-  "@participantListPlaceholder": {
-    "description": "参加者入力フィールドのプレースホルダーテキスト"
-  },
-  "clearList": "リストをクリア",
-  "@clearList": {
-    "description": "参加者リストをクリアするボタンのラベル"
-  },
-  "participants": "参加者",
-  "@participants": {
-    "description": "参加者の一般的なラベル"
-  },
-  "noParticipants": "参加者はいません",
-  "@noParticipants": {
-    "description": "参加者がいない時に表示されるメッセージ"
-  },
-  "addParticipantsHint": "抽選を開始するには参加者を追加してください",
-  "@addParticipantsHint": {
-    "description": "参加者を追加するためのヒント"
-  },
-  "activeParticipants": "アクティブな参加者",
-  "@activeParticipants": {
-    "description": "アクティブな参加者のカウンター"
-  },
-  "alreadySelected": "既に選択済み",
-  "@alreadySelected": {
-    "description": "既に選択された参加者の説明"
-  },
-  "totalParticipants": "総参加者数",
-  "@totalParticipants": {
-    "description": "総参加者数のカウンター"
-  },
-  "activeVsWinners": "{active}人アクティブ、{winners}人当選",
-  "@activeVsWinners": {
-    "description": "アクティブな参加者対当選者の数を表示",
-    "placeholders": {
-      "active": {
-        "type": "int",
-        "example": "5"
-      },
-      "winners": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "startRaffle": "抽選開始",
-  "@startRaffle": {
-    "description": "抽選を開始するボタンのラベル"
-  },
-  "raffling": "抽選中...",
-  "@raffling": {
-    "description": "抽選プロセス中に表示されるテキスト"
-  },
-  "selectingWinner": "当選者を選択中...",
-  "@selectingWinner": {
-    "description": "当選者選択中に表示されるテキスト"
-  },
-  "allParticipantsSelected": "すべての参加者が選択されました",
-  "@allParticipantsSelected": {
-    "description": "すべての参加者が選択された時に表示されるメッセージ"
-  },
-  "addParticipantsToStart": "抽選を開始するには参加者を追加してください",
-  "@addParticipantsToStart": {
-    "description": "抽選に参加者がいない時に表示されるメッセージ"
-  },
-  "participantsReadyCount": "{count}人が抽選の準備ができています",
-  "@participantsReadyCount": {
-    "description": "抽選の準備ができている参加者のカウンター",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "5"
-      }
-    }
-  },
-  "resetWinners": "当選者をリセット",
-  "@resetWinners": {
-    "description": "当選者をリセットするボタンのラベル"
-  },
-  "resetWinnersConfirmTitle": "当選者をリセットしますか？",
-  "@resetWinnersConfirmTitle": {
-    "description": "当選者リセット確認ダイアログのタイトル"
-  },
-  "resetWinnersConfirmMessage": "これによりすべての当選者がアクティブ参加者リストに戻されます。",
-  "@resetWinnersConfirmMessage": {
-    "description": "当選者リセット確認メッセージ"
-  },
-  "resetRaffleTitle": "抽選をリセットしますか？",
-  "@resetRaffleTitle": {
-    "description": "抽選リセット確認ダイアログのタイトル"
-  },
-  "resetRaffleConfirmMessage": "これによりすべての当選者とアクティブ参加者がリセットされます。",
-  "@resetRaffleConfirmMessage": {
-    "description": "抽選リセット確認メッセージ"
-  },
-  "reset": "リセット",
-  "@reset": {
-    "description": "リセットボタンのラベル"
-  },
-  "viewWinners": "当選者を見る",
-  "@viewWinners": {
-    "description": "当選者を見るボタンのラベル"
-  },
-  "congratulations": "🎉 おめでとうございます！ 🎉",
-  "@congratulations": {
-    "description": "当選者への祝福メッセージ"
-  },
-  "positionLabel": "第{position}位",
-  "@positionLabel": {
-    "description": "当選者の順位ラベル",
-    "placeholders": {
-      "position": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "remainingParticipants": "残りの参加者：{count}人",
-  "@remainingParticipants": {
-    "description": "残りの参加者のカウンター",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "continueRaffle": "抽選を続ける",
-  "@continueRaffle": {
-    "description": "抽選を続けるボタンのラベル"
-  },
-  "finishRaffle": "抽選を終了",
-  "@finishRaffle": {
-    "description": "抽選を終了するボタンのラベル"
-  },
-  "winnersTitle": "当選者",
-  "@winnersTitle": {
-    "description": "当選者画面のタイトル"
-  },
-  "shareResults": "結果を共有",
-  "@shareResults": {
-    "description": "結果を共有するボタンのラベル"
-  },
-  "noWinnersYet": "まだ当選者はいません",
-  "@noWinnersYet": {
-    "description": "当選者がいない時に表示されるメッセージ"
-  },
-  "performRaffleToSeeWinners": "当選者を見るには抽選を行ってください",
-  "@performRaffleToSeeWinners": {
-    "description": "抽選を促すメッセージ"
-  },
-  "goToRaffle": "抽選へ移動",
-  "@goToRaffle": {
-    "description": "抽選に移動するボタンのラベル"
-  },
-  "raffleCompleted": "抽選完了！",
-  "@raffleCompleted": {
-    "description": "抽選完了時に表示されるメッセージ"
-  },
-  "winnersSelectedCount": "{count}人の当選者が選ばれました",
-  "@winnersSelectedCount": {
-    "description": "選ばれた当選者のカウンター",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "newRaffle": "新しい抽選",
-  "@newRaffle": {
-    "description": "新しい抽選を開始するボタンのラベル"
-  },
-  "shareResultsTitle": "抽選結果",
-  "@shareResultsTitle": {
-    "description": "結果共有ダイアログのタイトル"
-  },
-  "raffleResultsLabel": "抽選結果：",
-  "@raffleResultsLabel": {
-    "description": "抽選結果のラベル"
-  },
-  "close": "閉じる",
-  "@close": {
-    "description": "閉じるボタンのラベル"
-  },
-  "share": "コピー",
-  "@share": {
-    "description": "コピーボタンのラベル"
-  },
-  "shareNotImplemented": "共有機能はまだ実装されていません",
-  "@shareNotImplemented": {
-    "description": "共有機能が実装されていない時のメッセージ"
-  },
-  "firstPlace": "第1位",
-  "@firstPlace": {
-    "description": "第1位のラベル"
-  },
-  "secondPlace": "第2位",
-  "@secondPlace": {
-    "description": "第2位のラベル"
-  },
-  "thirdPlace": "第3位",
-  "@thirdPlace": {
-    "description": "第3位のラベル"
-  },
-  "nthPlace": "第{position}位",
-  "@nthPlace": {
-    "description": "任意の順位のラベル",
-    "placeholders": {
-      "position": {
-        "type": "int",
-        "example": "4"
-      }
-    }
-  },
-  "placeLabel": "順位",
-  "@placeLabel": {
-    "description": "順位の一般的なラベル"
-  },
-  "raffleResultsHeader": "抽選結果 - {count}人の当選者",
-  "@raffleResultsHeader": {
-    "description": "当選者数を含む抽選結果のヘッダー",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "totalWinners": "総当選者数：{count}人",
-  "@totalWinners": {
-    "description": "総当選者数のカウンター",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "5"
-      }
-    }
-  },
-  "noWinnersToShare": "共有する当選者はいません",
-  "@noWinnersToShare": {
-    "description": "共有する当選者がいない時に表示されるメッセージ"
-  },
-  "shareSuccess": "結果が正常にコピーされました",
-  "@shareSuccess": {
-    "description": "結果をコピーした後に表示される成功メッセージ"
-  },
-  "selectLogo": "ロゴを選択",
-  "@selectLogo": {
-    "description": "カスタムロゴを選択するダイアログのタイトル"
-  },
-  "logoUrl": "ロゴURL",
-  "@logoUrl": {
-    "description": "ロゴURL入力フィールドのラベル"
-  },
-  "logoUrlHint": "抽選用のカスタムロゴとして使用する画像のURLを入力してください",
-  "@logoUrlHint": {
-    "description": "ロゴURLフィールドを説明するヘルプテキスト"
-  },
-  "invalidLogoUrl": "無効な画像URLです。.jpg、.png、.gifなどで終わる有効なURLである必要があります。",
-  "@invalidLogoUrl": {
-    "description": "無効なロゴURLのエラーメッセージ"
-  },
-  "logoPreview": "プレビュー",
-  "@logoPreview": {
-    "description": "ロゴプレビューセクションのタイトル"
-  },
-  "removeLogo": "ロゴを削除",
-  "@removeLogo": {
-    "description": "カスタムロゴを削除するボタンのテキスト"
-  },
-  "logoTooLargeWarning": "画像が大きすぎて保存できません。このセッション中のみ使用されます。",
-  "@logoTooLargeWarning": {
-    "description": "ロゴが永続的な保存には大きすぎる場合の警告メッセージ"
-  },
   "aiModeTopicTitle": "トピックモード",
   "@aiModeTopicTitle": {
     "description": "AIアシスタントのトピックモードのタイトル"
@@ -1666,7 +1370,6 @@
   "aiHelpWithQuestion": "この問題を理解するのを手伝って",
   "evaluateWithAI": "AIで評価",
   "aiEvaluation": "AI評価",
-  "sorteosLabel": "Raffles",
   "edit": "編集",
   "enable": "有効化",
   "disable": "無効化",
@@ -1802,5 +1505,13 @@
   "quizFailedLimitReached": "クイズ停止：エラー制限に達しました",
   "@quizFailedLimitReached": {
     "description": "Title for the results screen when the error limit is reached"
+  },
+  "close": "閉じる",
+  "@close": {
+    "description": "Close button text"
+  },
+  "congratulations": "🎉 おめでとうございます！ 🎉",
+  "@congratulations": {
+    "description": "Congratulations message in winner dialog"
   }
 }

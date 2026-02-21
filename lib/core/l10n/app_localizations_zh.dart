@@ -982,207 +982,6 @@ class AppLocalizationsZh extends AppLocalizations {
       '回答格式：\n1. 评分：[X/10] - 简要说明评分理由\n2. 优点：提及回答的积极方面\n3. 改进领域：指出可以改进的方面\n4. 具体评论：提供详细和建设性的反馈\n5. 建议：提供具体的改进建议\n\n在评估中要有建设性、具体性和教育性。目标是帮助学生学习和改进。用第二人称称呼他们，使用专业友好的语调。';
 
   @override
-  String get raffleTitle => '抽奖';
-
-  @override
-  String get raffleTooltip => '打开抽奖屏幕';
-
-  @override
-  String get participantListTitle => '参与者列表';
-
-  @override
-  String get participantListHint => '输入用换行分隔的姓名';
-
-  @override
-  String get participantListPlaceholder => '在此输入参与者姓名...\n每行一个姓名';
-
-  @override
-  String get clearList => '清空列表';
-
-  @override
-  String get participants => '参与者';
-
-  @override
-  String get noParticipants => '没有参与者';
-
-  @override
-  String get addParticipantsHint => '添加参与者以开始抽奖';
-
-  @override
-  String get activeParticipants => '活跃参与者';
-
-  @override
-  String get alreadySelected => '已选中';
-
-  @override
-  String totalParticipants(int count) {
-    return '总参与者';
-  }
-
-  @override
-  String activeVsWinners(int active, int winners) {
-    return '$active名活跃，$winners名获奖者';
-  }
-
-  @override
-  String get startRaffle => '开始抽奖';
-
-  @override
-  String get raffling => '抽奖中...';
-
-  @override
-  String get selectingWinner => '选择获奖者...';
-
-  @override
-  String get allParticipantsSelected => '所有参与者已被选中';
-
-  @override
-  String get addParticipantsToStart => '添加参与者以开始抽奖';
-
-  @override
-  String participantsReadyCount(int count) {
-    return '$count名参与者准备抽奖';
-  }
-
-  @override
-  String get resetWinners => '重置获奖者';
-
-  @override
-  String get resetWinnersConfirmTitle => '重置获奖者？';
-
-  @override
-  String get resetWinnersConfirmMessage => '这将把所有获奖者重新放回活跃参与者列表。';
-
-  @override
-  String get resetRaffleTitle => '重置抽奖？';
-
-  @override
-  String get resetRaffleConfirmMessage => '这将重置所有获奖者和活跃参与者。';
-
-  @override
-  String get cancel => '取消';
-
-  @override
-  String get reset => '重置';
-
-  @override
-  String get viewWinners => '查看获奖者';
-
-  @override
-  String get congratulations => '🎉 恭喜！ 🎉';
-
-  @override
-  String positionLabel(int position) {
-    return '第$position名';
-  }
-
-  @override
-  String remainingParticipants(int count) {
-    return '剩余参与者：$count名';
-  }
-
-  @override
-  String get continueRaffle => '继续抽奖';
-
-  @override
-  String get finishRaffle => '结束抽奖';
-
-  @override
-  String get winnersTitle => '获奖者';
-
-  @override
-  String get shareResults => '分享结果';
-
-  @override
-  String get noWinnersYet => '暂无获奖者';
-
-  @override
-  String get performRaffleToSeeWinners => '进行抽奖以查看获奖者';
-
-  @override
-  String get goToRaffle => '前往抽奖';
-
-  @override
-  String get raffleCompleted => '抽奖完成！';
-
-  @override
-  String winnersSelectedCount(int count) {
-    return '已选出$count名获奖者';
-  }
-
-  @override
-  String get newRaffle => '新抽奖';
-
-  @override
-  String get shareResultsTitle => '抽奖结果';
-
-  @override
-  String get raffleResultsLabel => '抽奖结果：';
-
-  @override
-  String get close => '关闭';
-
-  @override
-  String get share => '复制';
-
-  @override
-  String get shareNotImplemented => '分享功能尚未实现';
-
-  @override
-  String get firstPlace => '第一名';
-
-  @override
-  String get secondPlace => '第二名';
-
-  @override
-  String get thirdPlace => '第三名';
-
-  @override
-  String nthPlace(int position) {
-    return '第$position名';
-  }
-
-  @override
-  String placeLabel(String position) {
-    return '名次';
-  }
-
-  @override
-  String get raffleResultsHeader => '抽奖结果 - null名获奖者';
-
-  @override
-  String totalWinners(int count) {
-    return '总获奖者：$count名';
-  }
-
-  @override
-  String get noWinnersToShare => '没有获奖者可分享';
-
-  @override
-  String get shareSuccess => '结果复制成功';
-
-  @override
-  String get selectLogo => '选择标志';
-
-  @override
-  String get logoUrl => '标志网址';
-
-  @override
-  String get logoUrlHint => '输入图片的网址，作为抽奖的自定义标志使用';
-
-  @override
-  String get invalidLogoUrl => '无效的图片网址。必须是以.jpg、.png、.gif等结尾的有效网址。';
-
-  @override
-  String get logoPreview => '预览';
-
-  @override
-  String get removeLogo => '移除标志';
-
-  @override
-  String get logoTooLargeWarning => '图像太大无法保存。仅在此会话期间使用。';
-
-  @override
   String get aiModeTopicTitle => '主题模式';
 
   @override
@@ -1275,9 +1074,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get aiHelpWithQuestion => '帮我理解这道题';
-
-  @override
-  String get sorteosLabel => 'Raffles';
 
   @override
   String get edit => '编辑';
@@ -1374,4 +1170,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get clipboardNoImage => '剪贴板中未找到图片';
+
+  @override
+  String get close => '关闭';
+
+  @override
+  String get congratulations => '🎉 恭喜！ 🎉';
 }

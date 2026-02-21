@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [1.7.0]
+
+- refactor: Removed all Raffle Mode functionality (screens, blocs, models, and routes) as it has been migrated to a separate repository.
 - feat: Added initial window size (1024x800) and minimum window size (500x500) for desktop platforms to ensure proper visibility and resizing.
 - ui: Improved adaptability of quiz completion buttons "Try Again" and "Retry Errors" on mobile devices to prevent text overflow.
 - feat: Added "Paste from clipboard" image attachment support in manual question creation and AI generation dialogs using the `pasteboard` package.

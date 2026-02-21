@@ -357,10 +357,6 @@
   "@finishQuizConfirmation": {
     "description": "Missatge de confirmació per acabar el quiz"
   },
-  "cancel": "Cancel·lar",
-  "@cancel": {
-    "description": "Text del botó cancel·lar"
-  },
   "resolveUnansweredQuestions": "Resoldre preguntes",
   "@resolveUnansweredQuestions": {
     "description": "Text del botó per resoldre preguntes sense resposta"
@@ -1375,298 +1371,6 @@
   "@aiEvaluationPromptResponseFormat": {
     "description": "Instruccions de format de resposta per a l'avaluació"
   },
-  "raffleTitle": "Sorteig",
-  "@raffleTitle": {
-    "description": "Títol de la pantalla de sorteig"
-  },
-  "raffleTooltip": "Començar sorteig",
-  "@raffleTooltip": {
-    "description": "Consell de l'icona de sorteig a la barra d'aplicacions"
-  },
-  "participantListTitle": "Llista de Participants",
-  "@participantListTitle": {
-    "description": "Títol de la secció de llista de participants"
-  },
-  "participantListHint": "Introdueix noms separats per salt de línia",
-  "@participantListHint": {
-    "description": "Text de consell per al camp d'entrada de participants"
-  },
-  "participantListPlaceholder": "Introdueix els noms dels participants aquí...\nUn nom per línia",
-  "@participantListPlaceholder": {
-    "description": "Text de marcador de posició per al camp d'entrada de participants"
-  },
-  "clearList": "Netejar Llista",
-  "@clearList": {
-    "description": "Etiqueta del botó per netejar la llista de participants"
-  },
-  "participants": "Participants",
-  "@participants": {
-    "description": "Etiqueta general per als participants"
-  },
-  "noParticipants": "No hi ha participants",
-  "@noParticipants": {
-    "description": "Missatge mostrat quan no hi ha participants"
-  },
-  "addParticipantsHint": "Afegeix participants per començar el sorteig",
-  "@addParticipantsHint": {
-    "description": "Consell per afegir participants"
-  },
-  "activeParticipants": "Participants Actius",
-  "@activeParticipants": {
-    "description": "Comptador de participants actius"
-  },
-  "alreadySelected": "Ja Seleccionats",
-  "@alreadySelected": {
-    "description": "Descripció per als participants ja seleccionats"
-  },
-  "totalParticipants": "Total de Participants",
-  "@totalParticipants": {
-    "description": "Comptador total de participants"
-  },
-  "activeVsWinners": "{active} actius, {winners} guanyadors",
-  "@activeVsWinners": {
-    "description": "Mostra el nombre de participants actius vs guanyadors",
-    "placeholders": {
-      "active": {
-        "type": "int",
-        "example": "5"
-      },
-      "winners": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "startRaffle": "Començar Sorteig",
-  "@startRaffle": {
-    "description": "Etiqueta del botó per començar el sorteig"
-  },
-  "raffling": "Sortejant...",
-  "@raffling": {
-    "description": "Text mostrat durant el procés de sorteig"
-  },
-  "selectingWinner": "Seleccionant guanyador...",
-  "@selectingWinner": {
-    "description": "Text mostrat durant la selecció del guanyador"
-  },
-  "allParticipantsSelected": "Tots els participants han estat seleccionats",
-  "@allParticipantsSelected": {
-    "description": "Missatge mostrat quan tots els participants han estat seleccionats"
-  },
-  "addParticipantsToStart": "Afegeix participants per començar el sorteig",
-  "@addParticipantsToStart": {
-    "description": "Missatge mostrat quan no hi ha participants per al sorteig"
-  },
-  "participantsReadyCount": "{count} participants preparats per al sorteig",
-  "@participantsReadyCount": {
-    "description": "Comptador de participants preparats per al sorteig",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "5"
-      }
-    }
-  },
-  "resetWinners": "Reiniciar Guanyadors",
-  "@resetWinners": {
-    "description": "Etiqueta del botó per reiniciar els guanyadors"
-  },
-  "resetWinnersConfirmTitle": "Reiniciar guanyadors?",
-  "@resetWinnersConfirmTitle": {
-    "description": "Títol del diàleg de confirmació per reiniciar els guanyadors"
-  },
-  "resetWinnersConfirmMessage": "Això retornarà tots els guanyadors a la llista de participants actius.",
-  "@resetWinnersConfirmMessage": {
-    "description": "Missatge de confirmació per reiniciar els guanyadors"
-  },
-  "resetRaffleTitle": "Reiniciar sorteig?",
-  "@resetRaffleTitle": {
-    "description": "Títol del diàleg de confirmació per reiniciar el sorteig"
-  },
-  "resetRaffleConfirmMessage": "Això reiniciarà tots els guanyadors i participants actius.",
-  "@resetRaffleConfirmMessage": {
-    "description": "Missatge de confirmació per reiniciar el sorteig"
-  },
-  "reset": "Reiniciar",
-  "@reset": {
-    "description": "Etiqueta del botó de reinici"
-  },
-  "viewWinners": "Veure Guanyadors",
-  "@viewWinners": {
-    "description": "Etiqueta del botó per veure els guanyadors"
-  },
-  "congratulations": "🎉 Felicitats! 🎉",
-  "@congratulations": {
-    "description": "Missatge de felicitació per al guanyador"
-  },
-  "positionLabel": "Posició {position}",
-  "@positionLabel": {
-    "description": "Etiqueta de la posició del guanyador",
-    "placeholders": {
-      "position": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "remainingParticipants": "Participants restants: {count}",
-  "@remainingParticipants": {
-    "description": "Comptador de participants restants",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "continueRaffle": "Continuar Sorteig",
-  "@continueRaffle": {
-    "description": "Etiqueta del botó per continuar el sorteig"
-  },
-  "finishRaffle": "Finalitzar Sorteig",
-  "@finishRaffle": {
-    "description": "Etiqueta del botó per finalitzar el sorteig"
-  },
-  "winnersTitle": "Guanyadors",
-  "@winnersTitle": {
-    "description": "Títol de la pantalla de guanyadors"
-  },
-  "shareResults": "Compartir Resultats",
-  "@shareResults": {
-    "description": "Etiqueta del botó per compartir els resultats"
-  },
-  "noWinnersYet": "Encara no hi ha guanyadors",
-  "@noWinnersYet": {
-    "description": "Missatge mostrat quan no hi ha guanyadors"
-  },
-  "performRaffleToSeeWinners": "Realitza un sorteig per veure els guanyadors",
-  "@performRaffleToSeeWinners": {
-    "description": "Missatge que anima a realitzar un sorteig"
-  },
-  "goToRaffle": "Anar al Sorteig",
-  "@goToRaffle": {
-    "description": "Etiqueta del botó per anar al sorteig"
-  },
-  "raffleCompleted": "Sorteig completat!",
-  "@raffleCompleted": {
-    "description": "Missatge mostrat quan el sorteig està completat"
-  },
-  "winnersSelectedCount": "{count} guanyadors seleccionats",
-  "@winnersSelectedCount": {
-    "description": "Comptador de guanyadors seleccionats",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "newRaffle": "Nou Sorteig",
-  "@newRaffle": {
-    "description": "Etiqueta del botó per començar un nou sorteig"
-  },
-  "shareResultsTitle": "Resultats del Sorteig",
-  "@shareResultsTitle": {
-    "description": "Títol del diàleg per compartir els resultats"
-  },
-  "raffleResultsLabel": "Resultats del sorteig:",
-  "@raffleResultsLabel": {
-    "description": "Etiqueta dels resultats del sorteig"
-  },
-  "close": "Tancar",
-  "@close": {
-    "description": "Etiqueta del botó de tancar"
-  },
-  "share": "Copiar",
-  "@share": {
-    "description": "Etiqueta del botó de copiar"
-  },
-  "shareNotImplemented": "Compartir encara no està implementat",
-  "@shareNotImplemented": {
-    "description": "Missatge quan compartir no està implementat"
-  },
-  "firstPlace": "Primer Lloc",
-  "@firstPlace": {
-    "description": "Etiqueta del primer lloc"
-  },
-  "secondPlace": "Segon Lloc",
-  "@secondPlace": {
-    "description": "Etiqueta del segon lloc"
-  },
-  "thirdPlace": "Tercer Lloc",
-  "@thirdPlace": {
-    "description": "Etiqueta del tercer lloc"
-  },
-  "nthPlace": "Lloc {position}",
-  "@nthPlace": {
-    "description": "Etiqueta del lloc per a qualsevol número",
-    "placeholders": {
-      "position": {
-        "type": "int",
-        "example": "4"
-      }
-    }
-  },
-  "placeLabel": "Lloc",
-  "@placeLabel": {
-    "description": "Etiqueta general per al lloc"
-  },
-  "raffleResultsHeader": "Resultats del Sorteig - {count} guanyadors",
-  "@raffleResultsHeader": {
-    "description": "Capçalera dels resultats del sorteig amb el nombre de guanyadors",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "totalWinners": "Total de guanyadors: {count}",
-  "@totalWinners": {
-    "description": "Comptador total de guanyadors",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "5"
-      }
-    }
-  },
-  "noWinnersToShare": "No hi ha guanyadors per compartir",
-  "@noWinnersToShare": {
-    "description": "Missatge mostrat quan no hi ha guanyadors per compartir"
-  },
-  "shareSuccess": "Resultats copiats amb èxit",
-  "@shareSuccess": {
-    "description": "Missatge d'èxit mostrat després de copiar els resultats"
-  },
-  "selectLogo": "Seleccionar Logo",
-  "@selectLogo": {
-    "description": "Títol del diàleg per seleccionar el logo personalitzat"
-  },
-  "logoUrl": "URL del Logo",
-  "@logoUrl": {
-    "description": "Etiqueta per al camp d'entrada de la URL del logo"
-  },
-  "logoUrlHint": "Introdueix la URL d'una imatge per utilitzar com a logo personalitzat per al sorteig",
-  "@logoUrlHint": {
-    "description": "Text d'ajuda que explica el camp URL del logo"
-  },
-  "invalidLogoUrl": "URL d'imatge no vàlida. Ha de ser una URL vàlida que acabi en .jpg, .png, .gif, etc.",
-  "@invalidLogoUrl": {
-    "description": "Missatge d'error per a URL de logo no vàlida"
-  },
-  "logoPreview": "Vista Prèvia",
-  "@logoPreview": {
-    "description": "Títol de la secció de vista prèvia del logo"
-  },
-  "removeLogo": "Eliminar Logo",
-  "@removeLogo": {
-    "description": "Text del botó per eliminar el logo personalitzat"
-  },
-  "logoTooLargeWarning": "La imatge és massa gran per guardar-se. Només s'utilitzarà durant aquesta sessió.",
-  "@logoTooLargeWarning": {
-    "description": "Missatge d'advertència quan el logo és massa gran per a l'emmagatzematge persistent"
-  },
   "aiModeTopicTitle": "Mode Tema",
   "@aiModeTopicTitle": {
     "description": "Títol per al mode tema a l'assistent AI"
@@ -1801,10 +1505,6 @@
   "@aiEvaluation": {
     "description": "Label for AI evaluation section"
   },
-  "sorteosLabel": "Raffles",
-  "@sorteosLabel": {
-    "description": "Label for the raffles button"
-  },
   "edit": "Editar",
   "@edit": {
     "description": "Button label to edit a question"
@@ -1898,5 +1598,13 @@
   "appLanguageDescription": "Sobreescriure l'idioma de l'aplicació per a proves",
   "pasteFromClipboard": "Enganxar des del porta-retalls",
   "pasteImage": "Enganxar",
-  "clipboardNoImage": "No s'ha trobat cap imatge al porta-retalls"
+  "clipboardNoImage": "No s'ha trobat cap imatge al porta-retalls",
+  "close": "Tancar",
+  "@close": {
+    "description": "Close button text"
+  },
+  "congratulations": "🎉 Enhorabona! 🎉",
+  "@congratulations": {
+    "description": "Congratulations message in winner dialog"
+  }
 }
