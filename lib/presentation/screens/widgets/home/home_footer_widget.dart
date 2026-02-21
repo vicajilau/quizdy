@@ -107,6 +107,7 @@ class HomeFooterWidget extends StatelessWidget {
               ),
             ],
           ),
+          const SizedBox(height: 16),
         ],
       ),
     );
