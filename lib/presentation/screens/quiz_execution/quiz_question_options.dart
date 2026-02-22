@@ -96,14 +96,6 @@ class _QuizQuestionOptionsState extends State<QuizQuestionOptions> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // AI Chat Button (opens sidebar, visible in Study Mode when AI is available)
-        if (widget.isStudyMode)
-          AiStudioChatButton(
-            question: widget.state.currentQuestion,
-            onPressed: () => widget.onAskAi!(
-              prefillText: AppLocalizations.of(context)!.aiHelpWithQuestion,
-            ),
-            isAiAvailable: _isAiAvailable,
-          ),
 
         // Show correct answer count hint for multiple choice questions
         if (widget.showCorrectAnswerCount &&
@@ -206,6 +198,20 @@ class _QuizQuestionOptionsState extends State<QuizQuestionOptions> {
               },
             ),
           ),
+
+        if (widget.isStudyMode) ...[
+          const SizedBox(height: 16),
+          Align(
+            alignment: Alignment.centerRight,
+            child: AiStudioChatButton(
+              question: widget.state.currentQuestion,
+              onPressed: () => widget.onAskAi!(
+                prefillText: AppLocalizations.of(context)!.aiHelpWithQuestion,
+              ),
+              isAiAvailable: _isAiAvailable,
+            ),
+          ),
+        ],
 
         // Show explanation in Study Mode after answering and validation
         if (widget.isStudyMode &&

@@ -158,15 +158,6 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // AI Chat Button (opens sidebar, visible in Study Mode)
-          if (widget.isStudyMode)
-            AiStudioChatButton(
-              question: widget.question,
-              onPressed: () => widget.onAskAi!(
-                prefillText: AppLocalizations.of(context)!.aiHelpWithQuestion,
-              ),
-              isAiAvailable: widget.isAiAvailable,
-            ),
-
           Text(
             AppLocalizations.of(context)!.questionTypeEssay,
             style: TextStyle(
@@ -202,6 +193,20 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
               },
             ),
           ),
+
+          if (widget.isStudyMode) ...[
+            const SizedBox(height: 16),
+            Align(
+              alignment: Alignment.centerRight,
+              child: AiStudioChatButton(
+                question: widget.question,
+                onPressed: () => widget.onAskAi!(
+                  prefillText: AppLocalizations.of(context)!.aiHelpWithQuestion,
+                ),
+                isAiAvailable: widget.isAiAvailable,
+              ),
+            ),
+          ],
 
           // Show explanation in Study Mode after validation
           if (widget.isStudyMode &&
