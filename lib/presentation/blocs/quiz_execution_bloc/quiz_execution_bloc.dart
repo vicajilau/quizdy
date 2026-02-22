@@ -221,6 +221,19 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
       currentState.essayAnswers,
     );
 
+    // Re-evaluate wasLimitReached for the final result:
+    // Unanswered questions also count as failures for pass/fail.
+    bool finalLimitReached = wasLimitReached;
+    if (!finalLimitReached &&
+        currentState.quizConfig.enableMaxIncorrectAnswers &&
+        currentState.quizConfig.maxIncorrectAnswers != null) {
+      final totalFailures =
+          results.incorrectAnswers + results.unansweredAnswers;
+      if (totalFailures >= currentState.quizConfig.maxIncorrectAnswers!) {
+        finalLimitReached = true;
+      }
+    }
+
     final scorePercentage = QuizScoringHelper.calculateScore(
       results.correctAnswers,
       results.incorrectAnswers,
@@ -237,7 +250,7 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
         totalQuestions: currentState.totalQuestions,
         quizConfig: currentState.quizConfig,
         score: scorePercentage,
-        wasLimitReached: wasLimitReached,
+        wasLimitReached: finalLimitReached,
       ),
     );
   }

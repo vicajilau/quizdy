@@ -23,12 +23,16 @@ class QuizQuestionResultCard extends StatelessWidget {
   /// The score delta for this question (e.g., +1, -0.5, 0).
   final double scoreDelta;
 
+  /// Whether to show the score delta (e.g., +1, -0.5).
+  final bool showScore;
+
   /// Creates a [QuizQuestionResultCard] widget.
   const QuizQuestionResultCard({
     super.key,
     required this.result,
     required this.questionNumber,
     required this.scoreDelta,
+    this.showScore = true,
   });
 
   @override
@@ -95,21 +99,25 @@ class QuizQuestionResultCard extends StatelessWidget {
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                decoration: BoxDecoration(
-                  color: deltaColor.withValues(alpha: 0.1),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Text(
-                  deltaText,
-                  style: theme.textTheme.labelSmall?.copyWith(
-                    color: deltaColor,
-                    fontWeight: FontWeight.bold,
+              if (showScore)
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 4,
+                  ),
+                  decoration: BoxDecoration(
+                    color: deltaColor.withValues(alpha: 0.1),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Text(
+                    deltaText,
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      color: deltaColor,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(width: 12),
+              if (showScore) const SizedBox(width: 12),
               Icon(Icons.expand_more, color: theme.iconTheme.color),
             ],
           ),

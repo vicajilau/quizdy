@@ -394,7 +394,7 @@
   "@examPassedStatus": {
     "description": "Estado de examen cuando se supera"
   },
-  "quizFailedLimitReached": "Quiz detenido: Límite de errores alcanzado",
+  "quizFailedLimitReached": "Examen Finalizado: Se ha alcanzado el límite máximo de errores",
   "@quizFailedLimitReached": {
     "description": "Título para la pantalla de resultados cuando se alcanza el límite de errores"
   },

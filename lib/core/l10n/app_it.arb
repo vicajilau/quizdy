@@ -367,7 +367,7 @@
   },
   "examFailedStatus": "Esame NON SUPERATO",
   "examPassedStatus": "Esame SUPERATO",
-  "quizFailedLimitReached": "Quiz interrotto: Limite errori raggiunto",
+  "quizFailedLimitReached": "Esame Terminato: Il limite massimo di errori è stato raggiunto",
   "@quizFailedLimitReached": {
     "description": "Titolo per la schermata dei risultati quando il limite di errori viene raggiunto"
   },

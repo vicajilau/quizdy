@@ -312,7 +312,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get quizFailedLimitReached =>
-      'Quiz detenido: Límite de errores alcanzado';
+      'Examen Finalizado: Se ha alcanzado el límite máximo de errores';
 
   @override
   String get errorInvalidNumber => 'Por favor ingresa un número válido';

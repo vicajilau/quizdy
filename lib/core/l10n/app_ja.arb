@@ -1533,7 +1533,7 @@
   },
   "examFailedStatus": "試験不合格",
   "examPassedStatus": "試験合格",
-  "quizFailedLimitReached": "クイズ停止：エラー制限に達しました",
+  "quizFailedLimitReached": "試験終了：エラー制限に達しました",
   "@quizFailedLimitReached": {
     "description": "エラー制限に達したときの結果画面のタイトル"
   },

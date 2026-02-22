@@ -314,7 +314,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get quizFailedLimitReached =>
-      'Το κουίζ διακόπηκε: Συμπληρώθηκε το όριο σφαλμάτων';
+      'Η εξέταση ολοκληρώθηκε: Συμπληρώθηκε το μέγιστο όριο σφαλμάτων';
 
   @override
   String get errorInvalidNumber => 'Παρακαλώ εισάγετε έγκυρο αριθμό';

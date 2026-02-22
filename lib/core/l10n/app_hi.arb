@@ -1533,7 +1533,7 @@
   },
   "examFailedStatus": "परीक्षा अनुत्तीर्ण (Fail)",
   "examPassedStatus": "परीक्षा उत्तीर्ण (Pass)",
-  "quizFailedLimitReached": "प्रश्नोत्तरी बंद: त्रुटि सीमा पहुँच गई",
+  "quizFailedLimitReached": "परीक्षा समाप्त: अधिकतम त्रुटि सीमा समाप्त हो गई है",
   "@quizFailedLimitReached": {
     "description": "Title for the results screen when the error limit is reached"
   },

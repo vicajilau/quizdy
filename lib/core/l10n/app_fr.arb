@@ -373,7 +373,7 @@
   "@examPassedStatus": {
     "description": "Statut de l'examen réussi"
   },
-  "quizFailedLimitReached": "Quiz arrêté : Limite d'erreurs atteinte",
+  "quizFailedLimitReached": "Examen Terminé : Le nombre maximal d'erreurs a été atteint",
   "@quizFailedLimitReached": {
     "description": "Titre de l'écran de résultats lorsque la limite d'erreurs est atteinte"
   },

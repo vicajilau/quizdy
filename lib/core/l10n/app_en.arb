@@ -415,7 +415,7 @@
   "@examPassedStatus": {
     "description": "Status of a passed exam"
   },
-  "quizFailedLimitReached": "Quiz Stopped: Error Limit Reached",
+  "quizFailedLimitReached": "Exam Finished: Maximum error limit has been reached",
   "@quizFailedLimitReached": {
     "description": "Title for the results screen when the error limit is reached"
   },

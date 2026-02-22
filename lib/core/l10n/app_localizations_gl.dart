@@ -312,7 +312,8 @@ class AppLocalizationsGl extends AppLocalizations {
   String get examPassedStatus => 'Exame APTO';
 
   @override
-  String get quizFailedLimitReached => 'Quiz Detido: Límite de Erros Acadado';
+  String get quizFailedLimitReached =>
+      'Exame Finalizado: Superouse o límite máximo de erros permitidos';
 
   @override
   String get errorInvalidNumber => 'Por favor, introduce un número válido';

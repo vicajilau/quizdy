@@ -307,7 +307,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get quizFailedLimitReached =>
-      'تم إيقاف الاختبار: تم الوصول إلى حد الأخطاء';
+      'انتهى الاختبار: تم تجاوز الحد الأقصى للأخطاء المسموح بها';
 
   @override
   String get errorInvalidNumber => 'يرجى إدخال رقم صالح';

@@ -641,7 +641,7 @@ abstract class AppLocalizations {
   /// Title for the results screen when the error limit is reached
   ///
   /// In en, this message translates to:
-  /// **'Quiz Stopped: Error Limit Reached'**
+  /// **'Exam Finished: Maximum error limit has been reached'**
   String get quizFailedLimitReached;
 
   /// Error message for invalid number input

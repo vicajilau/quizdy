@@ -311,7 +311,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get examPassedStatus => 'Prüfung BESTANDEN';
 
   @override
-  String get quizFailedLimitReached => 'Quiz gestoppt: Fehlerlimit erreicht';
+  String get quizFailedLimitReached =>
+      'Prüfung Beendet: Das maximale Fehlerlimit wurde überschritten';
 
   @override
   String get errorInvalidNumber => 'Bitte geben Sie eine gültige Zahl ein';

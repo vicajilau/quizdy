@@ -443,7 +443,7 @@
   },
   "examFailedStatus": "Exame NON APTO",
   "examPassedStatus": "Exame APTO",
-  "quizFailedLimitReached": "Quiz Detido: Límite de Erros Acadado",
+  "quizFailedLimitReached": "Exame Finalizado: Superouse o límite máximo de erros permitidos",
   "@quizFailedLimitReached": {
     "description": "Mensaxe mostrada cando o quiz se detén por acadar o límite de erros"
   },

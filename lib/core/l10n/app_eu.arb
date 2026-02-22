@@ -443,7 +443,7 @@
   },
   "examFailedStatus": "Azterketa EZ GAI",
   "examPassedStatus": "Azterketa GAI",
-  "quizFailedLimitReached": "Egaldu da: Errore muga gainditu da",
+  "quizFailedLimitReached": "Azterketa Amaitua: Onartutako akatsen muga gainditu da",
   "@quizFailedLimitReached": {
     "description": "Errore muga iristeagatik quiz-a gelditzen denean erakusten den mezua"
   },

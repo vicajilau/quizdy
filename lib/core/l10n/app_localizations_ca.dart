@@ -311,7 +311,8 @@ class AppLocalizationsCa extends AppLocalizations {
   String get examPassedStatus => 'Examen APTE';
 
   @override
-  String get quizFailedLimitReached => 'Quiz Aturat: Límit d\'Errors Arribat';
+  String get quizFailedLimitReached =>
+      'Examen Finalitzat: S\'ha superat el límit màxim d\'errors permesos';
 
   @override
   String get errorInvalidNumber => 'Si us plau, introduïu un número vàlid';

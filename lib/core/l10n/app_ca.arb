@@ -545,7 +545,7 @@
   "@examPassedStatus": {
     "description": "Estat de l'examen quan s'ha superat"
   },
-  "quizFailedLimitReached": "Quiz Aturat: Límit d'Errors Arribat",
+  "quizFailedLimitReached": "Examen Finalitzat: S'ha superat el límit màxim d'errors permesos",
   "@quizFailedLimitReached": {
     "description": "Missatge mostrat quan el quiz s'atura per haver arribat al límit d'errors"
   },

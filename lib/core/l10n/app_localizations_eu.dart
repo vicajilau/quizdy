@@ -310,7 +310,8 @@ class AppLocalizationsEu extends AppLocalizations {
   String get examPassedStatus => 'Azterketa GAI';
 
   @override
-  String get quizFailedLimitReached => 'Egaldu da: Errore muga gainditu da';
+  String get quizFailedLimitReached =>
+      'Azterketa Amaitua: Onartutako akatsen muga gainditu da';
 
   @override
   String get errorInvalidNumber => 'Mesedez, sartu zenbaki baliozkoa';

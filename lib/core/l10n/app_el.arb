@@ -488,7 +488,7 @@
   },
   "examFailedStatus": "Η εξέταση ΑΠΕΤΥΧΕ",
   "examPassedStatus": "Η εξέταση ΠΕΤΥΧΕ",
-  "quizFailedLimitReached": "Το κουίζ διακόπηκε: Συμπληρώθηκε το όριο σφαλμάτων",
+  "quizFailedLimitReached": "Η εξέταση ολοκληρώθηκε: Συμπληρώθηκε το μέγιστο όριο σφαλμάτων",
   "@quizFailedLimitReached": {
     "description": "Title for the results screen when the error limit is reached"
   },

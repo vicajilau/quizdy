@@ -463,7 +463,7 @@
   },
   "examFailedStatus": "Prüfung NICHT BESTANDEN",
   "examPassedStatus": "Prüfung BESTANDEN",
-  "quizFailedLimitReached": "Quiz gestoppt: Fehlerlimit erreicht",
+  "quizFailedLimitReached": "Prüfung Beendet: Das maximale Fehlerlimit wurde überschritten",
   "@quizFailedLimitReached": {
     "description": "Titel für den Ergebnisbildschirm, wenn das Fehlerlimit erreicht ist"
   },

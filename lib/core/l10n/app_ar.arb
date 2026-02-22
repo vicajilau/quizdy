@@ -1590,7 +1590,7 @@
   },
   "examFailedStatus": "اختبار لم يجتز",
   "examPassedStatus": "اختبار اجتيز",
-  "quizFailedLimitReached": "تم إيقاف الاختبار: تم الوصول إلى حد الأخطاء",
+  "quizFailedLimitReached": "انتهى الاختبار: تم تجاوز الحد الأقصى للأخطاء المسموح بها",
   "@quizFailedLimitReached": {
     "description": "Title for the results screen when the error limit is reached"
   },

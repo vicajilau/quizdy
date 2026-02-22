@@ -221,6 +221,7 @@ class QuizCompletedView extends StatelessWidget {
                       result: result,
                       questionNumber: index + 1,
                       scoreDelta: scoreDelta,
+                      showScore: !state.quizConfig.enableMaxIncorrectAnswers,
                     ),
                   );
                 }),

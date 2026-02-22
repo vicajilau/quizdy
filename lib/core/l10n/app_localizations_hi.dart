@@ -308,7 +308,8 @@ class AppLocalizationsHi extends AppLocalizations {
   String get examPassedStatus => 'परीक्षा उत्तीर्ण (Pass)';
 
   @override
-  String get quizFailedLimitReached => 'प्रश्नोत्तरी बंद: त्रुटि सीमा पहुँच गई';
+  String get quizFailedLimitReached =>
+      'परीक्षा समाप्त: अधिकतम त्रुटि सीमा समाप्त हो गई है';
 
   @override
   String get errorInvalidNumber => 'कृपया वैध संख्या दर्ज करें';

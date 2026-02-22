@@ -1518,7 +1518,7 @@
   },
   "examFailedStatus": "考试不及格",
   "examPassedStatus": "考试及格",
-  "quizFailedLimitReached": "测验停止：已达到错误限制",
+  "quizFailedLimitReached": "考试结束：已达到最大错误限制",
   "@quizFailedLimitReached": {
     "description": "Title for the results screen when the error limit is reached"
   },
