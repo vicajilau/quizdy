@@ -71,56 +71,113 @@ class QuizCompletedView extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                      // Circular Score
+                      // Status Display (Pass/Fail vs Score)
                       Stack(
                         alignment: Alignment.center,
                         children: [
-                          SizedBox(
-                            width: 140,
-                            height: 140,
-                            child: CircularProgressIndicator(
-                              value: state.score / 100,
-                              strokeWidth: 12,
-                              backgroundColor: theme.dividerColor.withValues(
-                                alpha: 0.1,
-                              ),
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                (state.score >= 70 && !state.wasLimitReached)
-                                    ? successColor
-                                    : alertColor,
-                              ),
-                              strokeCap: StrokeCap.round,
-                            ),
-                          ),
-                          Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                '${state.score % 1 == 0 ? state.score.toStringAsFixed(0) : state.score.toStringAsFixed(1)}%',
-                                style: theme.textTheme.headlineMedium?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  color:
-                                      (state.score >= 70 &&
-                                          !state.wasLimitReached)
+                          if (!state.quizConfig.enableMaxIncorrectAnswers)
+                            SizedBox(
+                              width: 140,
+                              height: 140,
+                              child: CircularProgressIndicator(
+                                value: state.score / 100,
+                                strokeWidth: 12,
+                                backgroundColor: theme.dividerColor.withValues(
+                                  alpha: 0.1,
+                                ),
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  (state.score >= 70 && !state.wasLimitReached)
                                       ? successColor
                                       : alertColor,
                                 ),
+                                strokeCap: StrokeCap.round,
                               ),
-                              Text(
-                                '${state.correctAnswers}/${state.totalQuestions}',
-                                style: theme.textTheme.bodyMedium?.copyWith(
-                                  color: secondaryTextColor,
+                            ),
+                          if (state.quizConfig.enableMaxIncorrectAnswers)
+                            Container(
+                              width: 140,
+                              height: 140,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: state.wasLimitReached
+                                      ? alertColor
+                                      : successColor,
+                                  width: 4,
                                 ),
+                                color:
+                                    (state.wasLimitReached
+                                            ? alertColor
+                                            : successColor)
+                                        .withValues(alpha: 0.1),
                               ),
-                            ],
-                          ),
+                              child: Icon(
+                                state.wasLimitReached
+                                    ? Icons.cancel
+                                    : Icons.check_circle,
+                                color: state.wasLimitReached
+                                    ? alertColor
+                                    : successColor,
+                                size: 64,
+                              ),
+                            ),
+                          if (!state.quizConfig.enableMaxIncorrectAnswers)
+                            Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  '${state.score % 1 == 0 ? state.score.toStringAsFixed(0) : state.score.toStringAsFixed(1)}%',
+                                  style: theme.textTheme.headlineMedium
+                                      ?.copyWith(
+                                        fontWeight: FontWeight.bold,
+                                        color:
+                                            (state.score >= 70 &&
+                                                !state.wasLimitReached)
+                                            ? successColor
+                                            : alertColor,
+                                      ),
+                                ),
+                                Text(
+                                  '${state.correctAnswers}/${state.totalQuestions}',
+                                  style: theme.textTheme.bodyMedium?.copyWith(
+                                    color: secondaryTextColor,
+                                  ),
+                                ),
+                              ],
+                            ),
                         ],
                       ),
                       const SizedBox(height: 24),
+                      if (state.quizConfig.enableMaxIncorrectAnswers)
+                        Text(
+                          state.wasLimitReached
+                              ? AppLocalizations.of(context)!.examFailedStatus
+                              : AppLocalizations.of(context)!.examPassedStatus,
+                          style: theme.textTheme.headlineMedium?.copyWith(
+                            fontWeight: FontWeight.w900,
+                            letterSpacing: 2,
+                            color: state.wasLimitReached
+                                ? alertColor
+                                : successColor,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      if (state.quizConfig.enableMaxIncorrectAnswers)
+                        const SizedBox(height: 12),
                       Text(
-                        (state.score >= 70 && !state.wasLimitReached)
-                            ? AppLocalizations.of(context)!.congratulations
-                            : AppLocalizations.of(context)!.keepPracticing,
+                        state.quizConfig.enableMaxIncorrectAnswers
+                            ? (state.wasLimitReached
+                                  ? AppLocalizations.of(context)!.keepPracticing
+                                  : AppLocalizations.of(
+                                      context,
+                                    )!.congratulations)
+                            : ((state.score >= 70 && !state.wasLimitReached)
+                                  ? AppLocalizations.of(
+                                      context,
+                                    )!.congratulations
+                                  : AppLocalizations.of(
+                                      context,
+                                    )!.keepPracticing),
                         style: theme.textTheme.titleLarge?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
@@ -151,8 +208,7 @@ class QuizCompletedView extends StatelessWidget {
                   double scoreDelta = 0.0;
                   if (result.isCorrect) {
                     scoreDelta = 1.0;
-                  } else if (result.userAnswers.isNotEmpty ||
-                      (result.essayAnswer.isNotEmpty == true)) {
+                  } else if (result.isAnswered) {
                     // Answered but incorrect
                     if (state.quizConfig.subtractPoints) {
                       scoreDelta = -state.quizConfig.penaltyAmount;

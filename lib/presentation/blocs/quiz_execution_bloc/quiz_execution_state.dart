@@ -140,7 +140,15 @@ class QuizExecutionCompleted extends QuizExecutionState {
       final question = entry.value;
       final userAnswer = userAnswers[index] ?? [];
       final essayAnswer = essayAnswers[index] ?? '';
-      final isCorrect = QuizScoringHelper.isAnswerCorrect(question, userAnswer, essayAnswer);
+      final isCorrect = QuizScoringHelper.isAnswerCorrect(
+        question,
+        userAnswer,
+        essayAnswer,
+      );
+
+      final isAnswered =
+          (userAnswers.containsKey(index) && userAnswers[index]!.isNotEmpty) ||
+          essayAnswers[index]?.trim().isNotEmpty == true;
 
       return QuestionResult(
         question: question,
@@ -148,10 +156,10 @@ class QuizExecutionCompleted extends QuizExecutionState {
         essayAnswer: essayAnswer,
         correctAnswers: question.correctAnswers,
         isCorrect: isCorrect,
+        isAnswered: isAnswered,
       );
     }).toList();
   }
-
 }
 
 /// Class to represent individual question results
@@ -161,6 +169,7 @@ class QuestionResult {
   final String essayAnswer;
   final List<int> correctAnswers;
   final bool isCorrect;
+  final bool isAnswered;
 
   QuestionResult({
     required this.question,
@@ -168,5 +177,6 @@ class QuestionResult {
     required this.essayAnswer,
     required this.correctAnswers,
     required this.isCorrect,
+    required this.isAnswered,
   });
 }

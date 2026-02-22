@@ -537,6 +537,14 @@
   "@maxIncorrectAnswersLimitLabel": {
     "description": "Etiqueta per al camp d'entrada del nombre d'errors"
   },
+  "examFailedStatus": "Examen NO APTE",
+  "@examFailedStatus": {
+    "description": "Estat de l'examen quan no s'ha superat"
+  },
+  "examPassedStatus": "Examen APTE",
+  "@examPassedStatus": {
+    "description": "Estat de l'examen quan s'ha superat"
+  },
   "quizFailedLimitReached": "Quiz Aturat: Límit d'Errors Arribat",
   "@quizFailedLimitReached": {
     "description": "Missatge mostrat quan el quiz s'atura per haver arribat al límit d'errors"

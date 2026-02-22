@@ -292,6 +292,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get maxIncorrectAnswersLimitLabel => '允许的最大错误数';
 
   @override
+  String get examFailedStatus => '考试不及格';
+
+  @override
+  String get examPassedStatus => '考试及格';
+
+  @override
   String get quizFailedLimitReached => '测验停止：已达到错误限制';
 
   @override

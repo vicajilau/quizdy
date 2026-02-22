@@ -304,8 +304,13 @@ class AppLocalizationsEu extends AppLocalizations {
   String get maxIncorrectAnswersLimitLabel => 'Gehienezko errore kopurua';
 
   @override
-  String get quizFailedLimitReached =>
-      'Quiz-a Geldituta: Errore Muga Gaindituta';
+  String get examFailedStatus => 'Azterketa EZ GAI';
+
+  @override
+  String get examPassedStatus => 'Azterketa GAI';
+
+  @override
+  String get quizFailedLimitReached => 'Egaldu da: Errore muga gainditu da';
 
   @override
   String get errorInvalidNumber => 'Mesedez, sartu zenbaki baliozkoa';

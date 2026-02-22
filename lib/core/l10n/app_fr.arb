@@ -365,6 +365,14 @@
   "@maxIncorrectAnswersLimitLabel": {
     "description": "Libellé pour le champ de saisie du maximum de réponses incorrectes"
   },
+  "examFailedStatus": "Examen NON ADMIS",
+  "@examFailedStatus": {
+    "description": "Statut de l'examen échoué"
+  },
+  "examPassedStatus": "Examen ADMIS",
+  "@examPassedStatus": {
+    "description": "Statut de l'examen réussi"
+  },
   "quizFailedLimitReached": "Quiz arrêté : Limite d'erreurs atteinte",
   "@quizFailedLimitReached": {
     "description": "Titre de l'écran de résultats lorsque la limite d'erreurs est atteinte"

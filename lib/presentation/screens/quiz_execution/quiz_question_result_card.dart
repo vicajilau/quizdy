@@ -41,7 +41,10 @@ class QuizQuestionResultCard extends StatelessWidget {
     Color deltaColor;
     String deltaText;
 
-    if (scoreDelta > 0) {
+    if (!result.isAnswered) {
+      deltaColor = neutralColor;
+      deltaText = '0';
+    } else if (scoreDelta > 0) {
       deltaColor = successColor;
       deltaText =
           '+${scoreDelta % 1 == 0 ? scoreDelta.toStringAsFixed(0) : (scoreDelta * 10 % 1 == 0 ? scoreDelta.toStringAsFixed(1) : scoreDelta.toStringAsFixed(2))}';
@@ -57,6 +60,13 @@ class QuizQuestionResultCard extends StatelessWidget {
       deltaText = '0';
     }
 
+    final statusColor = !result.isAnswered
+        ? neutralColor
+        : (result.isCorrect ? successColor : errorColor);
+    final statusIcon = !result.isAnswered
+        ? Icons.remove
+        : (result.isCorrect ? Icons.check : Icons.close);
+
     return Card(
       elevation: 0,
       shape: RoundedRectangleBorder(
@@ -71,16 +81,10 @@ class QuizQuestionResultCard extends StatelessWidget {
             width: 32,
             height: 32,
             decoration: BoxDecoration(
-              color: (result.isCorrect ? successColor : errorColor).withValues(
-                alpha: 0.1,
-              ),
+              color: statusColor.withValues(alpha: 0.1),
               shape: BoxShape.circle,
             ),
-            child: Icon(
-              result.isCorrect ? Icons.check : Icons.close,
-              color: result.isCorrect ? successColor : errorColor,
-              size: 20,
-            ),
+            child: Icon(statusIcon, color: statusColor, size: 20),
           ),
           title: Text(
             AppLocalizations.of(context)!.questionNumber(questionNumber),

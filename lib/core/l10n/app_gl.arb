@@ -441,6 +441,8 @@
   "@maxIncorrectAnswersLimitLabel": {
     "description": "Etiqueta para o campo de entrada do número de erros"
   },
+  "examFailedStatus": "Exame NON APTO",
+  "examPassedStatus": "Exame APTO",
   "quizFailedLimitReached": "Quiz Detido: Límite de Erros Acadado",
   "@quizFailedLimitReached": {
     "description": "Mensaxe mostrada cando o quiz se detén por acadar o límite de erros"

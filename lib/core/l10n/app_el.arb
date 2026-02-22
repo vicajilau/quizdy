@@ -486,6 +486,8 @@
   "@maxIncorrectAnswersLimitLabel": {
     "description": "Label for the input field of maximum incorrect answers"
   },
+  "examFailedStatus": "Η εξέταση ΑΠΕΤΥΧΕ",
+  "examPassedStatus": "Η εξέταση ΠΕΤΥΧΕ",
   "quizFailedLimitReached": "Το κουίζ διακόπηκε: Συμπληρώθηκε το όριο σφαλμάτων",
   "@quizFailedLimitReached": {
     "description": "Title for the results screen when the error limit is reached"

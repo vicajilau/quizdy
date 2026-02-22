@@ -407,6 +407,14 @@
   "@maxIncorrectAnswersLimitLabel": {
     "description": "Label for the input field of maximum incorrect answers"
   },
+  "examFailedStatus": "Exam FAILED (Fail)",
+  "@examFailedStatus": {
+    "description": "Status of a failed exam"
+  },
+  "examPassedStatus": "Exam PASSED (Pass)",
+  "@examPassedStatus": {
+    "description": "Status of a passed exam"
+  },
   "quizFailedLimitReached": "Quiz Stopped: Error Limit Reached",
   "@quizFailedLimitReached": {
     "description": "Title for the results screen when the error limit is reached"

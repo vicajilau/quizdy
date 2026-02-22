@@ -1516,6 +1516,8 @@
   "@maxIncorrectAnswersLimitLabel": {
     "description": "Label for the input field of maximum incorrect answers"
   },
+  "examFailedStatus": "考试不及格",
+  "examPassedStatus": "考试及格",
   "quizFailedLimitReached": "测验停止：已达到错误限制",
   "@quizFailedLimitReached": {
     "description": "Title for the results screen when the error limit is reached"

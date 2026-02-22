@@ -305,6 +305,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get maxIncorrectAnswersLimitLabel => 'Máximo de errores permitidos';
 
   @override
+  String get examFailedStatus => 'Examen NO APTO';
+
+  @override
+  String get examPassedStatus => 'Examen APTO';
+
+  @override
   String get quizFailedLimitReached =>
       'Quiz detenido: Límite de errores alcanzado';
 

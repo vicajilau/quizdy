@@ -365,6 +365,8 @@
   "@maxIncorrectAnswersLimitLabel": {
     "description": "Rótulo para o campo de entrada do máximo de respostas incorretas"
   },
+  "examFailedStatus": "Exame NÃO APTO",
+  "examPassedStatus": "Exame APTO",
   "quizFailedLimitReached": "Quiz interrompido: Limite de erros atingido",
   "@quizFailedLimitReached": {
     "description": "Título para o ecrã de resultados quando o limite de erros é atingido"
