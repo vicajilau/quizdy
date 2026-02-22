@@ -492,5 +492,14 @@
   "congratulations": "🎉 Συγχαρητήρια! 🎉",
   "@congratulations": {
     "description": "Congratulations message in winner dialog"
-  }
+  },
+  "examConfigurationTitle": "Διαμόρφωση Εξέτασης",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
+  "validationMin1Error": "Ελάχιστο 1 λεπτό",
+  "remainingTimeWithDays": "{days}ημ {hours}:{minutes}:{seconds}",
+  "remainingTimeWithWeeks": "{weeks}ε {days}ημ {hours}:{minutes}:{seconds}",
+  "validationMax30DaysError": "Μέγιστο 30 ημέρες",
+  "validationMin0GenericError": "Minimum 0"
 }

@@ -716,6 +716,12 @@ abstract class AppLocalizations {
   /// **'Save'**
   String get save;
 
+  /// Title for the advanced settings / exam configuration section
+  ///
+  /// In en, this message translates to:
+  /// **'Exam Configuration'**
+  String get examConfigurationTitle;
+
   /// Title for exam time limit section
   ///
   /// In en, this message translates to:
@@ -2287,6 +2293,47 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'🎉 Congratulations! 🎉'**
   String get congratulations;
+
+  /// Validation message indicating the time limit must be at least 1 minute.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimum 1 minute'**
+  String get validationMin1Error;
+
+  /// Format for remaining time display when it exceeds 24 hours (days hours:minutes:seconds)
+  ///
+  /// In en, this message translates to:
+  /// **'{days}d {hours}:{minutes}:{seconds}'**
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  );
+
+  /// Format for remaining time display when it exceeds 7 days (weeks days hours:minutes:seconds)
+  ///
+  /// In en, this message translates to:
+  /// **'{weeks}w {days}d {hours}:{minutes}:{seconds}'**
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  );
+
+  /// Validation message indicating the time limit cannot exceed 30 days.
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum 30 days'**
+  String get validationMax30DaysError;
+
+  /// Error message when a field requires a minimum value of 0 without specifying units.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimum 0'**
+  String get validationMin0GenericError;
 }
 
 class _AppLocalizationsDelegate

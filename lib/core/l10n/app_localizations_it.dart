@@ -354,6 +354,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get save => 'Salva';
 
   @override
+  String get examConfigurationTitle => 'Configurazione dell\'esame';
+
+  @override
   String get examTimeLimitTitle => 'Limite di tempo esame';
 
   @override
@@ -1256,4 +1259,34 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get congratulations => '🎉 Congratulazioni! 🎉';
+
+  @override
+  String get validationMin1Error => 'Minimo 1 minuto';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '${days}g $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '${weeks}s ${days}g $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => 'Massimo 30 giorni';
+
+  @override
+  String get validationMin0GenericError => 'Minimo 0';
 }

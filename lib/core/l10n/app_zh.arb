@@ -1534,5 +1534,10 @@
   "congratulations": "🎉 恭喜！ 🎉",
   "@congratulations": {
     "description": "Congratulations message in winner dialog"
-  }
+  },
+  "examConfigurationTitle": "考试配置",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
+  "validationMin0GenericError": "至少 0"
 }

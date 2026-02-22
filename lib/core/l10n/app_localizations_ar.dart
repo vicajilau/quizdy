@@ -346,6 +346,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get save => 'حفظ';
 
   @override
+  String get examConfigurationTitle => 'إعدادات الامتحان';
+
+  @override
   String get examTimeLimitTitle => 'حد وقت الامتحان';
 
   @override
@@ -1239,4 +1242,34 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get congratulations => '🎉 تهانينا! 🎉';
+
+  @override
+  String get validationMin1Error => 'دقيقة واحدة كحد أدنى';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$daysي $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$weeksأ $daysي $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => 'كحد أقصى 30 يومًا';
+
+  @override
+  String get validationMin0GenericError => 'بحد أدنى 0';
 }

@@ -357,6 +357,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get save => 'Αποθήκευση';
 
   @override
+  String get examConfigurationTitle => 'Διαμόρφωση Εξέτασης';
+
+  @override
   String get examTimeLimitTitle => 'Χρονικό Όριο Εξέτασης';
 
   @override
@@ -1269,4 +1272,34 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get congratulations => '🎉 Συγχαρητήρια! 🎉';
+
+  @override
+  String get validationMin1Error => 'Ελάχιστο 1 λεπτό';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$daysημ $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$weeksε $daysημ $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => 'Μέγιστο 30 ημέρες';
+
+  @override
+  String get validationMin0GenericError => 'Minimum 0';
 }

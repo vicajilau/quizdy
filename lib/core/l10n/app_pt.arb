@@ -1573,5 +1573,10 @@
   "congratulations": "🎉 Parabéns! 🎉",
   "@congratulations": {
     "description": "Congratulations message in winner dialog"
-  }
+  },
+  "examConfigurationTitle": "Configuração do exame",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
+  "validationMin0GenericError": "Mínimo 0"
 }

@@ -337,6 +337,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get save => '保存';
 
   @override
+  String get examConfigurationTitle => '考试配置';
+
+  @override
   String get examTimeLimitTitle => '考试时间限制';
 
   @override
@@ -1194,4 +1197,34 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get congratulations => '🎉 恭喜！ 🎉';
+
+  @override
+  String get validationMin1Error => 'Minimum 1 minute';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '${days}d $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '${weeks}w ${days}d $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => 'Maximum 30 days';
+
+  @override
+  String get validationMin0GenericError => '至少 0';
 }

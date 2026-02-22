@@ -337,6 +337,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get save => '保存';
 
   @override
+  String get examConfigurationTitle => '試験の設定';
+
+  @override
   String get examTimeLimitTitle => '試験時間制限';
 
   @override
@@ -1201,4 +1204,34 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get congratulations => '🎉 おめでとうございます！ 🎉';
+
+  @override
+  String get validationMin1Error => '最小 1 分';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$days日 $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$weeks週 $days日 $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => '最大30日';
+
+  @override
+  String get validationMin0GenericError => '最小 0';
 }

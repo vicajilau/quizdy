@@ -203,7 +203,14 @@ class _ExamTimerWidgetState extends State<ExamTimerWidget>
       return const SizedBox.shrink();
     }
 
-    final hours = _remainingTime!.inHours.toString().padLeft(2, '0');
+    final totalDays = _remainingTime!.inDays;
+    final weeks = totalDays ~/ 7;
+    final days = totalDays % 7;
+
+    final hours =
+        (totalDays > 0 ? _remainingTime!.inHours % 24 : _remainingTime!.inHours)
+            .toString()
+            .padLeft(2, '0');
     final minutes = (_remainingTime!.inMinutes % 60).toString().padLeft(2, '0');
     final seconds = (_remainingTime!.inSeconds % 60).toString().padLeft(2, '0');
 
@@ -215,6 +222,25 @@ class _ExamTimerWidgetState extends State<ExamTimerWidget>
     final backgroundColor = isLowTime
         ? extension.timerLowBackgroundColor
         : extension.timerBackgroundColor;
+
+    String timeText;
+    if (weeks > 0) {
+      timeText = AppLocalizations.of(context)!.remainingTimeWithWeeks(
+        weeks.toString(),
+        days.toString(),
+        hours,
+        minutes,
+        seconds,
+      );
+    } else if (totalDays > 0) {
+      timeText = AppLocalizations.of(
+        context,
+      )!.remainingTimeWithDays(days.toString(), hours, minutes, seconds);
+    } else {
+      timeText = AppLocalizations.of(
+        context,
+      )!.remainingTime(hours, minutes, seconds);
+    }
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -233,9 +259,7 @@ class _ExamTimerWidgetState extends State<ExamTimerWidget>
           ),
           const SizedBox(width: 8),
           Text(
-            AppLocalizations.of(
-              context,
-            )!.remainingTime(hours, minutes, seconds),
+            timeText,
             style: TextStyle(
               fontFamily: 'Inter',
               fontWeight: FontWeight.w600,

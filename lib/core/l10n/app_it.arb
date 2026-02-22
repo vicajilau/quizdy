@@ -1573,5 +1573,14 @@
   "congratulations": "🎉 Congratulazioni! 🎉",
   "@congratulations": {
     "description": "Congratulations message in winner dialog"
-  }
+  },
+  "examConfigurationTitle": "Configurazione dell'esame",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
+  "validationMin1Error": "Minimo 1 minuto",
+  "remainingTimeWithDays": "{days}g {hours}:{minutes}:{seconds}",
+  "remainingTimeWithWeeks": "{weeks}s {days}g {hours}:{minutes}:{seconds}",
+  "validationMax30DaysError": "Massimo 30 giorni",
+  "validationMin0GenericError": "Minimo 0"
 }

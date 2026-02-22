@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
 import 'package:quiz_app/core/theme/app_theme.dart';
 import 'package:quiz_app/domain/models/quiz/question_order.dart';
@@ -34,6 +35,7 @@ class AdvancedSettingsSection extends StatefulWidget {
   final ValueChanged<int> onMaxIncorrectAnswersLimitChanged;
   final VoidCallback onIncrementMaxIncorrect;
   final VoidCallback onDecrementMaxIncorrect;
+  final ValueChanged<bool>? onMaxIncorrectErrorChanged;
 
   final QuestionOrder questionOrder;
   final ValueChanged<QuestionOrder> onQuestionOrderChanged;
@@ -45,6 +47,7 @@ class AdvancedSettingsSection extends StatefulWidget {
   final ValueChanged<bool> onExamTimeEnabledChanged;
   final int examTimeMinutes;
   final ValueChanged<int> onExamTimeMinutesChanged;
+  final ValueChanged<bool>? onExamTimeErrorChanged;
 
   const AdvancedSettingsSection({
     super.key,
@@ -72,6 +75,7 @@ class AdvancedSettingsSection extends StatefulWidget {
     required this.onMaxIncorrectAnswersLimitChanged,
     required this.onIncrementMaxIncorrect,
     required this.onDecrementMaxIncorrect,
+    this.onMaxIncorrectErrorChanged,
     required this.questionOrder,
     required this.onQuestionOrderChanged,
     required this.randomizeAnswers,
@@ -82,6 +86,7 @@ class AdvancedSettingsSection extends StatefulWidget {
     required this.onExamTimeEnabledChanged,
     required this.examTimeMinutes,
     required this.onExamTimeMinutesChanged,
+    this.onExamTimeErrorChanged,
   });
 
   @override
@@ -90,6 +95,21 @@ class AdvancedSettingsSection extends StatefulWidget {
 }
 
 class _AdvancedSettingsSectionState extends State<AdvancedSettingsSection> {
+  bool _hasExamTimeError = false;
+
+  void _updateExamTimeError(bool hasError) {
+    if (_hasExamTimeError != hasError) {
+      _hasExamTimeError = hasError;
+      if (widget.onExamTimeErrorChanged != null) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted) {
+            widget.onExamTimeErrorChanged!(hasError);
+          }
+        });
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnimatedSize(
@@ -110,7 +130,9 @@ class _AdvancedSettingsSectionState extends State<AdvancedSettingsSection> {
               );
             },
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 20),
+          Divider(color: widget.borderColor, height: 1, thickness: 1),
+          const SizedBox(height: 20),
           _buildToggleRow(
             title: AppLocalizations.of(context)!.randomizeAnswersTitle,
             subtitle: widget.randomizeAnswers
@@ -119,7 +141,9 @@ class _AdvancedSettingsSectionState extends State<AdvancedSettingsSection> {
             value: widget.randomizeAnswers,
             onChanged: widget.onRandomizeAnswersChanged,
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 20),
+          Divider(color: widget.borderColor, height: 1, thickness: 1),
+          const SizedBox(height: 20),
           _buildToggleRow(
             title: AppLocalizations.of(context)!.showCorrectAnswerCountTitle,
             subtitle: widget.showCorrectAnswerCount
@@ -132,13 +156,10 @@ class _AdvancedSettingsSectionState extends State<AdvancedSettingsSection> {
             value: widget.showCorrectAnswerCount,
             onChanged: widget.onShowCorrectAnswerCountChanged,
           ),
-
           if (!widget.isStudyMode) ...[
-            const SizedBox(height: 24),
-            _buildSectionHeader(
-              AppLocalizations.of(context)!.examTimeLimitTitle,
-            ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 20),
+            Divider(color: widget.borderColor, height: 1, thickness: 1),
+            const SizedBox(height: 20),
             _buildToggleRow(
               title: AppLocalizations.of(context)!.enableTimeLimit,
               subtitle: AppLocalizations.of(context)!.examTimeLimitDescription,
@@ -149,14 +170,9 @@ class _AdvancedSettingsSectionState extends State<AdvancedSettingsSection> {
               const SizedBox(height: 12),
               _buildTimeLimitInput(),
             ],
-          ],
-
-          if (!widget.isStudyMode) ...[
-            const SizedBox(height: 24),
-            _buildSectionHeader(
-              AppLocalizations.of(context)!.scoringAndLimitsTitle,
-            ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 20),
+            Divider(color: widget.borderColor, height: 1, thickness: 1),
+            const SizedBox(height: 20),
             SubtractPointsToggle(
               isDark: widget.isDark,
               textColor: widget.textColor,
@@ -166,7 +182,7 @@ class _AdvancedSettingsSectionState extends State<AdvancedSettingsSection> {
               onSubtractPointsChanged: widget.onSubtractPointsChanged,
             ),
             if (widget.subtractPoints) ...[
-              const SizedBox(height: 12),
+              const SizedBox(height: 20),
               PenaltyAmountInput(
                 textColor: widget.textColor,
                 subTextColor: widget.subTextColor,
@@ -180,7 +196,9 @@ class _AdvancedSettingsSectionState extends State<AdvancedSettingsSection> {
                 onDecrementPenalty: widget.onDecrementPenalty,
               ),
             ],
-            const SizedBox(height: 16),
+            const SizedBox(height: 20),
+            Divider(color: widget.borderColor, height: 1, thickness: 1),
+            const SizedBox(height: 20),
             MaxIncorrectToggle(
               isDark: widget.isDark,
               textColor: widget.textColor,
@@ -191,7 +209,7 @@ class _AdvancedSettingsSectionState extends State<AdvancedSettingsSection> {
                   widget.onEnableMaxIncorrectAnswersChanged,
             ),
             if (widget.enableMaxIncorrectAnswers) ...[
-              const SizedBox(height: 12),
+              const SizedBox(height: 20),
               MaxIncorrectLimitInput(
                 isDark: widget.isDark,
                 textColor: widget.textColor,
@@ -207,22 +225,11 @@ class _AdvancedSettingsSectionState extends State<AdvancedSettingsSection> {
                     widget.onMaxIncorrectAnswersLimitChanged,
                 onIncrementMaxIncorrect: widget.onIncrementMaxIncorrect,
                 onDecrementMaxIncorrect: widget.onDecrementMaxIncorrect,
+                onMaxIncorrectErrorChanged: widget.onMaxIncorrectErrorChanged,
               ),
             ],
           ],
         ],
-      ),
-    );
-  }
-
-  Widget _buildSectionHeader(String title) {
-    return Text(
-      title,
-      style: TextStyle(
-        fontFamily: 'Inter',
-        fontSize: 16,
-        fontWeight: FontWeight.w600,
-        color: widget.textColor,
       ),
     );
   }
@@ -233,90 +240,124 @@ class _AdvancedSettingsSectionState extends State<AdvancedSettingsSection> {
     required bool value,
     required ValueChanged<bool> onChanged,
   }) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      decoration: BoxDecoration(
-        color: widget.controlBgColor,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: widget.borderColor, width: 1),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: TextStyle(
-                    fontFamily: 'Inter',
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                    color: widget.textColor,
-                  ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                  color: widget.textColor,
                 ),
-                const SizedBox(height: 2),
-                Text(
-                  subtitle,
-                  style: TextStyle(
-                    fontFamily: 'Inter',
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                    color: widget.subTextColor,
-                  ),
+              ),
+              const SizedBox(height: 2),
+              Text(
+                subtitle,
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                  color: widget.subTextColor,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-          Switch(
-            value: value,
-            onChanged: onChanged,
-            activeThumbColor: Colors.white,
-            activeTrackColor: widget.primaryColor,
-            inactiveThumbColor: Colors.white,
-            inactiveTrackColor: widget.isDark
-                ? AppTheme.zinc600
-                : AppTheme.zinc300,
-            trackOutlineColor: WidgetStateProperty.all(Colors.transparent),
-          ),
-        ],
-      ),
+        ),
+        Switch(
+          value: value,
+          onChanged: onChanged,
+          activeThumbColor: Colors.white,
+          activeTrackColor: widget.primaryColor,
+          inactiveThumbColor: Colors.white,
+          inactiveTrackColor: widget.isDark
+              ? AppTheme.zinc600
+              : AppTheme.zinc300,
+          trackOutlineColor: WidgetStateProperty.all(Colors.transparent),
+        ),
+      ],
     );
   }
 
   Widget _buildTimeLimitInput() {
-    return TextFormField(
-      initialValue: widget.examTimeMinutes.toString(),
-      decoration: InputDecoration(
-        labelText: AppLocalizations.of(context)!.timeLimitMinutes,
-        labelStyle: TextStyle(fontFamily: 'Inter', color: widget.subTextColor),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: widget.borderColor),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          AppLocalizations.of(context)!.timeLimitMinutes,
+          style: TextStyle(
+            fontFamily: 'Inter',
+            fontSize: 12,
+            fontWeight: FontWeight.w400,
+            color: widget.subTextColor,
+          ),
         ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: widget.borderColor),
+        const SizedBox(height: 8),
+        TextFormField(
+          initialValue: widget.examTimeMinutes.toString(),
+          decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: BorderSide(color: widget.borderColor),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: BorderSide(color: widget.borderColor),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: BorderSide(color: widget.primaryColor),
+            ),
+            suffixText: AppLocalizations.of(context)!.minutesAbbreviation,
+            suffixStyle: TextStyle(color: widget.subTextColor),
+            filled: true,
+            fillColor: widget.controlBgColor,
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 12,
+            ),
+          ),
+          style: TextStyle(fontFamily: 'Inter', color: widget.textColor),
+          keyboardType: TextInputType.number,
+          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+          onChanged: (value) {
+            final newMinutes = int.tryParse(value);
+            if (newMinutes != null && newMinutes > 0 && newMinutes <= 43200) {
+              widget.onExamTimeMinutesChanged(newMinutes);
+            }
+          },
+          validator: (value) {
+            bool hasError = false;
+            String? errorText;
+
+            if (value == null || value.isEmpty) {
+              hasError = true;
+              errorText = AppLocalizations.of(context)!.validationMin1Error;
+            } else {
+              final newMinutes = int.tryParse(value);
+              if (newMinutes == null || newMinutes < 1) {
+                hasError = true;
+                errorText = AppLocalizations.of(context)!.validationMin1Error;
+              } else if (newMinutes > 43200) {
+                hasError = true;
+                errorText = AppLocalizations.of(
+                  context,
+                )!.validationMax30DaysError;
+              }
+            }
+
+            _updateExamTimeError(hasError);
+            return errorText;
+          },
+          autovalidateMode: AutovalidateMode.always,
         ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: widget.primaryColor),
-        ),
-        suffixText: AppLocalizations.of(context)!.minutesAbbreviation,
-        suffixStyle: TextStyle(color: widget.subTextColor),
-        filled: true,
-        fillColor: widget.controlBgColor,
-      ),
-      style: TextStyle(fontFamily: 'Inter', color: widget.textColor),
-      keyboardType: TextInputType.number,
-      onChanged: (value) {
-        final newMinutes = int.tryParse(value);
-        if (newMinutes != null && newMinutes > 0) {
-          widget.onExamTimeMinutesChanged(newMinutes);
-        }
-      },
+      ],
     );
   }
 }

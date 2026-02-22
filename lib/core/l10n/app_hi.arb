@@ -1537,5 +1537,14 @@
   "congratulations": "🎉 बधाई हो! 🎉",
   "@congratulations": {
     "description": "Congratulations message in winner dialog"
-  }
+  },
+  "examConfigurationTitle": "परीक्षा कॉन्फ़िगरेशन",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
+  "validationMin1Error": "न्यूनतम 1 मिनट",
+  "remainingTimeWithDays": "{days}दिन {hours}:{minutes}:{seconds}",
+  "remainingTimeWithWeeks": "{weeks}सप्ताह {days}दिन {hours}:{minutes}:{seconds}",
+  "validationMax30DaysError": "अधिकतम 30 दिन",
+  "validationMin0GenericError": "न्यूनतम 0"
 }

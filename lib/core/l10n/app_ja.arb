@@ -5,23 +5,23 @@
   "stopAndOpenButton": "停止して開く",
   "titleAppBar": "クイズ - 試験シミュレーター",
   "@titleAppBar": {
-    "description": "Title of the application displayed in the AppBar."
+    "description": "アプリケーションのタイトルバーに表示されます。"
   },
   "create": "作成",
   "@create": {
-    "description": "Label for the Create Quiz file button in the AppBar."
+    "description": "AppBarでQuizファイルを作成するためのボタンのラベル。"
   },
   "preview": "プレビュー",
   "@preview": {
-    "description": "Label for the LaTeX preview section in question dialogs."
+    "description": "問題ダイアログ内のLaTeXプレビューセクションのラベル。"
   },
   "load": "読み込み",
   "@load": {
-    "description": "Label for the Load Quiz file button in the AppBar."
+    "description": "AppBarでQuizファイルを読み込むためのボタンのラベル。"
   },
   "fileLoaded": "ファイルを読み込みました：{filePath}",
   "@fileLoaded": {
-    "description": "Message displayed when a file is successfully loaded.",
+    "description": "ファイルを読み込むときに表示されるメッセージ。",
     "placeholders": {
       "filePath": {
         "type": "String",
@@ -31,7 +31,7 @@
   },
   "fileSaved": "ファイルを保存しました：{filePath}",
   "@fileSaved": {
-    "description": "Message displayed when a file is successfully saved.",
+    "description": "ファイルを保存するときに表示されるメッセージ。",
     "placeholders": {
       "filePath": {
         "type": "String",
@@ -41,35 +41,35 @@
   },
   "errorOpeningFile": "ファイルを開く際にエラーが発生しました",
   "@errorOpeningFile": {
-    "description": "Generic error message when opening a file fails."
+    "description": "ファイルを開くときに表示されるエラーメッセージ。"
   },
   "replaceFileTitle": "新しいQuizを読み込む",
   "@replaceFileTitle": {
-    "description": "Title of the confirmation dialog to replace the current file."
+    "description": "ファイルを置き換えるための確認ダイアログのタイトル。"
   },
   "replaceFileMessage": "Quizはすでに読み込まれています。新しいファイルに置き換えますか？",
   "@replaceFileMessage": {
-    "description": "Message of the confirmation dialog to replace the current file."
+    "description": "ファイルを置き換えるための確認ダイアログのメッセージ。"
   },
   "replaceButton": "読み込む",
   "@replaceButton": {
-    "description": "Button to confirm replacing the file."
+    "description": "ファイルを置き換えるための確認ダイアログのボタンのラベル。"
   },
   "dropFileHere": "ここをクリックするか、.quizファイルを画面にドラッグしてください",
   "@dropFileHere": {
-    "description": "Text displayed inside the drop area for dragging files."
+    "description": "ファイルを置き換えるための確認ダイアログのメッセージ。"
   },
   "clickOrDragFile": "クリックしてロードするか、.quizファイルを画面にドラッグしてください",
   "@clickOrDragFile": {
-    "description": "ロードエリアの下に表示されるテキスト"
+    "description": "ファイルを置き換えるための確認ダイアログのメッセージ。"
   },
   "errorInvalidFile": "エラー：無効なファイルです。.quizファイルである必要があります。",
   "@errorInvalidFile": {
-    "description": "Message displayed when the dropped file is not a .quiz file."
+    "description": "ファイルを置き換えるための確認ダイアログのメッセージ。"
   },
   "errorLoadingFile": "クイズファイルの読み込みエラー：{error}",
   "@errorLoadingFile": {
-    "description": "Message displayed when there is an error while loading a Quiz file.",
+    "description": "ファイルを読み込むときに表示されるエラーメッセージ。",
     "placeholders": {
       "error": {
         "type": "String",
@@ -79,7 +79,7 @@
   },
   "errorExportingFile": "ファイルのエクスポートエラー：{error}",
   "@errorExportingFile": {
-    "description": "Message displayed when there is an error while exporting a file.",
+    "description": "ファイルをエクスポートするときに表示されるエラーメッセージ。",
     "placeholders": {
       "error": {
         "type": "String",
@@ -89,19 +89,19 @@
   },
   "cancelButton": "キャンセル",
   "@cancelButton": {
-    "description": "Cancel button."
+    "description": "キャンセルボタン。"
   },
   "saveButton": "保存",
   "@saveButton": {
-    "description": "Save button."
+    "description": "保存ボタン。"
   },
   "confirmDeleteTitle": "削除の確認",
   "@confirmDeleteTitle": {
-    "description": "Title for the confirmation dialog when deleting a process."
+    "description": "プロセスを削除するための確認ダイアログのタイトル。"
   },
   "confirmDeleteMessage": "本当に`{processName}`プロセスを削除しますか？",
   "@confirmDeleteMessage": {
-    "description": "Message in the confirmation dialog for deletion.",
+    "description": "プロセスを削除するための確認ダイアログのメッセージ。",
     "placeholders": {
       "processName": {
         "type": "String",
@@ -111,115 +111,115 @@
   },
   "deleteButton": "削除",
   "@deleteButton": {
-    "description": "Button text for confirming deletion."
+    "description": "削除を確認するためのボタン。"
   },
   "confirmExitTitle": "終了の確認",
   "@confirmExitTitle": {
-    "description": "Title for the confirmation dialog when exiting."
+    "description": "終了するための確認ダイアログのタイトル。"
   },
   "confirmExitMessage": "保存されていない変更があります。変更を破棄して終了しますか？",
   "@confirmExitMessage": {
-    "description": "Message in the confirmation dialog for exiting."
+    "description": "終了するための確認ダイアログのメッセージ。"
   },
   "exitButton": "保存せずに終了",
   "@exitButton": {
-    "description": "Exit button text."
+    "description": "終了するための確認ダイアログのボタンのラベル。"
   },
   "saveDialogTitle": "出力ファイルを選択してください：",
   "@saveDialogTitle": {
-    "description": "Title for the save dialog."
+    "description": "保存ダイアログのタイトル。"
   },
   "createQuizFileTitle": "クイズファイルを作成",
   "@createQuizFileTitle": {
-    "description": "Title for create quiz file dialog."
+    "description": "クイズファイルを作成するためのダイアログのタイトル。"
   },
   "editQuizFileTitle": "クイズファイルを編集",
   "@editQuizFileTitle": {
-    "description": "Title for edit quiz file dialog."
+    "description": "クイズファイルを編集するためのダイアログのタイトル。"
   },
   "fileNameLabel": "ファイル名",
   "@fileNameLabel": {
-    "description": "Label for file name input."
+    "description": "ファイル名入力のラベル。"
   },
   "fileDescriptionLabel": "ファイルの説明",
   "@fileDescriptionLabel": {
-    "description": "Label for file description input."
+    "description": "ファイル説明入力のラベル。"
   },
   "createButton": "作成",
   "@createButton": {
-    "description": "Create button text."
+    "description": "作成ボタン。"
   },
   "fileNameRequiredError": "ファイル名は必須です。",
   "@fileNameRequiredError": {
-    "description": "Error message when file name is empty."
+    "description": "ファイル名が空のときに表示されるエラーメッセージ。"
   },
   "fileDescriptionRequiredError": "ファイルの説明は必須です。",
   "@fileDescriptionRequiredError": {
-    "description": "Error message when file description is empty."
+    "description": "ファイル説明が空のときに表示されるエラーメッセージ。"
   },
   "versionLabel": "バージョン",
   "@versionLabel": {
-    "description": "Label for quiz version field"
+    "description": "バージョン入力のラベル。"
   },
   "authorLabel": "作成者",
   "@authorLabel": {
-    "description": "Label for quiz author field"
+    "description": "作成者入力のラベル。"
   },
   "authorRequiredError": "作成者は必須です。",
   "@authorRequiredError": {
-    "description": "Error message when author field is empty"
+    "description": "作成者入力が空のときに表示されるエラーメッセージ。"
   },
   "requiredFieldsError": "すべての必須フィールドを入力してください。",
   "@requiredFieldsError": {
-    "description": "Error message when required fields are missing"
+    "description": "必須フィールドが空のときに表示されるエラーメッセージ。"
   },
   "requestFileNameTitle": "クイズファイル名を入力",
   "@requestFileNameTitle": {
-    "description": "Title for request file name dialog."
+    "description": "ファイル名入力のダイアログのタイトル。"
   },
   "fileNameHint": "ファイル名",
   "@fileNameHint": {
-    "description": "Hint text for file name input."
+    "description": "ファイル名入力のヒントテキスト。"
   },
   "emptyFileNameMessage": "ファイル名を空にすることはできません。",
   "@emptyFileNameMessage": {
-    "description": "Error message when file name is empty."
+    "description": "ファイル名が空のときに表示されるエラーメッセージ。"
   },
   "acceptButton": "承認",
   "@acceptButton": {
-    "description": "Accept button text."
+    "description": "承認ボタン。"
   },
   "saveTooltip": "ファイルを保存",
   "@saveTooltip": {
-    "description": "Tooltip for save button."
+    "description": "保存ボタンのツールチップ。"
   },
   "saveDisabledTooltip": "保存する変更がありません",
   "@saveDisabledTooltip": {
-    "description": "Tooltip for disabled save button."
+    "description": "保存ボタンが無効のときに表示されるツールチップ。"
   },
   "executeTooltip": "試験を実行",
   "@executeTooltip": {
-    "description": "Tooltip for execute button."
+    "description": "実行ボタンのツールチップ。"
   },
   "addTooltip": "新しい問題を追加",
   "@addTooltip": {
-    "description": "Tooltip for add button."
+    "description": "追加ボタンのツールチップ。"
   },
   "backSemanticLabel": "戻るボタン",
   "@backSemanticLabel": {
-    "description": "Semantic label for back button."
+    "description": "戻るボタンのセマンティックラベル。"
   },
   "createFileTooltip": "新しいクイズファイルを作成",
   "@createFileTooltip": {
-    "description": "Tooltip for create file button."
+    "description": "ファイル作成ボタンのツールチップ。"
   },
   "loadFileTooltip": "既存のクイズファイルを読み込み",
   "@loadFileTooltip": {
-    "description": "Tooltip for load file button."
+    "description": "ファイル読み込みボタンのツールチップ。"
   },
   "questionNumber": "問題 {number}",
   "@questionNumber": {
-    "description": "Question number label in quiz execution",
+    "description": "問題番号ラベル。",
     "placeholders": {
       "number": {
         "type": "int",
@@ -229,7 +229,7 @@
   },
   "questionOfTotal": "{total} 問中 {current} 問目",
   "@questionOfTotal": {
-    "description": "現在の問題番号と全問題数を表示するラベル",
+    "description": "現在の問題番号と全問題数を表示するラベル。",
     "placeholders": {
       "current": {
         "type": "int",
@@ -243,51 +243,51 @@
   },
   "previous": "前へ",
   "@previous": {
-    "description": "Previous button text in quiz navigation"
+    "description": "前へボタン。"
   },
   "skip": "スキップ",
   "@skip": {
-    "description": "Skip button text in quiz navigation"
+    "description": "スキップボタン。"
   },
   "questionsOverview": "Questions Map",
   "@questionsOverview": {
-    "description": "Title for the questions overview bottom sheet"
+    "description": "問題マップのタイトル。"
   },
   "next": "次へ",
   "@next": {
-    "description": "Next button text in quiz navigation"
+    "description": "次へボタン。"
   },
   "finish": "完了",
   "@finish": {
-    "description": "Finish button text in quiz navigation"
+    "description": "完了ボタン。"
   },
   "finishQuiz": "クイズを完了",
   "@finishQuiz": {
-    "description": "Title of finish quiz dialog"
+    "description": "クイズ完了ダイアログのタイトル。"
   },
   "finishQuizConfirmation": "本当にクイズを完了しますか？その後、回答を変更することはできません。",
   "@finishQuizConfirmation": {
-    "description": "Confirmation message for finishing quiz"
+    "description": "クイズ完了ダイアログのメッセージ。"
   },
   "abandonQuiz": "クイズを放棄",
   "@abandonQuiz": {
-    "description": "Title of abandon quiz dialog"
+    "description": "クイズ放棄ダイアログのタイトル。"
   },
   "abandonQuizConfirmation": "本当にクイズを放棄しますか？すべての進捗が失われます。",
   "@abandonQuizConfirmation": {
-    "description": "Confirmation message for abandoning quiz"
+    "description": "クイズ放棄ダイアログのメッセージ。"
   },
   "abandon": "放棄",
   "@abandon": {
-    "description": "Abandon button text"
+    "description": "放棄ボタン。"
   },
   "quizCompleted": "クイズ完了！",
   "@quizCompleted": {
-    "description": "Quiz completed message"
+    "description": "クイズ完了メッセージ。"
   },
   "score": "スコア：{score}%",
   "@score": {
-    "description": "Score display",
+    "description": "スコア表示。",
     "placeholders": {
       "score": {
         "type": "String",
@@ -297,7 +297,7 @@
   },
   "correctAnswers": "{total}問中{correct}問正解",
   "@correctAnswers": {
-    "description": "Correct answers count",
+    "description": "正解数表示。",
     "placeholders": {
       "correct": {
         "type": "int",
@@ -311,19 +311,19 @@
   },
   "retry": "再試行",
   "@retry": {
-    "description": "Retry button text"
+    "description": "再試行ボタン。"
   },
   "goBack": "完了",
   "@goBack": {
-    "description": "Go back button text"
+    "description": "戻るボタン。"
   },
   "retryFailedQuestions": "不正解を再試行",
   "@retryFailedQuestions": {
-    "description": "Button text to retry only the questions that were answered incorrectly"
+    "description": "不正解を再試行ボタン。"
   },
   "question": "問題：{question}",
   "@question": {
-    "description": "Question text in results",
+    "description": "結果表示の問題テキスト。",
     "placeholders": {
       "question": {
         "type": "String",
@@ -333,15 +333,15 @@
   },
   "selectQuestionCountTitle": "問題数を選択",
   "@selectQuestionCountTitle": {
-    "description": "Title for the dialog to select number of questions for the quiz"
+    "description": "問題数選択ダイアログのタイトル。"
   },
   "selectQuestionCountMessage": "このクイズで何問に回答しますか？",
   "@selectQuestionCountMessage": {
-    "description": "Message explaining the question count selection"
+    "description": "問題数選択ダイアログのメッセージ。"
   },
   "allQuestions": "すべての問題（{count}問）",
   "@allQuestions": {
-    "description": "Option to select all available questions",
+    "description": "すべての問題選択オプション。",
     "placeholders": {
       "count": {
         "type": "int",
@@ -351,95 +351,95 @@
   },
   "resolveUnansweredQuestions": "未回答の問題を解く",
   "@resolveUnansweredQuestions": {
-    "description": "Button text to resolve unanswered questions"
+    "description": "未回答の問題を解くボタン。"
   },
   "startQuiz": "クイズ開始",
   "@startQuiz": {
-    "description": "Button text to start the quiz"
+    "description": "クイズ開始ボタン。"
   },
   "customNumberLabel": "またはカスタム数を入力：",
   "@customNumberLabel": {
-    "description": "Label for custom number input section"
+    "description": "カスタム数入力セクションのラベル。"
   },
   "numberInputLabel": "問題数",
   "@numberInputLabel": {
-    "description": "Label for the number input field"
+    "description": "問題数入力フィールドのラベル。"
   },
   "errorInvalidNumber": "有効な数字を入力してください",
   "@errorInvalidNumber": {
-    "description": "Error message for invalid number input"
+    "description": "有効な数字を入力してください。"
   },
   "errorNumberMustBePositive": "数字は0より大きい必要があります",
   "@errorNumberMustBePositive": {
-    "description": "Error message when number is zero or negative"
+    "description": "数字は0より大きい必要があります。"
   },
   "questionOrderConfigTitle": "問題順序の設定",
   "@questionOrderConfigTitle": {
-    "description": "Title for the question order configuration dialog"
+    "description": "問題順序設定ダイアログのタイトル。"
   },
   "questionOrderConfigDescription": "試験中に問題を表示する順序を選択してください：",
   "@questionOrderConfigDescription": {
-    "description": "Description text for the question order configuration dialog"
+    "description": "問題順序設定ダイアログの説明。"
   },
   "questionOrderAscending": "昇順",
   "@questionOrderAscending": {
-    "description": "Label for ascending question order option"
+    "description": "昇順問題順序設定オプション。"
   },
   "questionOrderAscendingDesc": "問題は1から最後まで順番に表示されます",
   "@questionOrderAscendingDesc": {
-    "description": "Description for ascending question order option"
+    "description": "昇順問題順序設定オプションの説明。"
   },
   "questionOrderDescending": "降順",
   "@questionOrderDescending": {
-    "description": "Label for descending question order option"
+    "description": "降順問題順序設定オプション。"
   },
   "questionOrderDescendingDesc": "問題は最後から1まで表示されます",
   "@questionOrderDescendingDesc": {
-    "description": "Description for descending question order option"
+    "description": "降順問題順序設定オプションの説明。"
   },
   "questionOrderRandom": "ランダム",
   "@questionOrderRandom": {
-    "description": "Label for random question order option"
+    "description": "ランダム問題順序設定オプション。"
   },
   "questionOrderRandomDesc": "問題はランダム順で表示されます",
   "@questionOrderRandomDesc": {
-    "description": "Description for random question order option"
+    "description": "ランダム問題順序設定オプションの説明。"
   },
   "questionOrderConfigTooltip": "問題順序の設定",
   "@questionOrderConfigTooltip": {
-    "description": "Tooltip for the question order configuration button"
+    "description": "問題順序設定ダイアログのツールチップ。"
   },
   "save": "保存",
   "@save": {
-    "description": "Label for the save button"
+    "description": "保存ボタン。"
   },
   "examTimeLimitTitle": "試験時間制限",
   "@examTimeLimitTitle": {
-    "description": "Title for exam time limit section"
+    "description": "試験時間制限セクションのタイトル。"
   },
   "examTimeLimitDescription": "試験の時間制限を設定します。有効にすると、クイズ中にカウントダウンタイマーが表示されます。",
   "@examTimeLimitDescription": {
-    "description": "Description for exam time limit feature"
+    "description": "試験時間制限セクションの説明。"
   },
   "enableTimeLimit": "時間制限を有効にする",
   "@enableTimeLimit": {
-    "description": "Label for enable exam time limit switch"
+    "description": "時間制限を有効にするスイッチ。"
   },
   "timeLimitMinutes": "時間制限（分）",
   "@timeLimitMinutes": {
-    "description": "Label for exam time minutes input"
+    "description": "時間制限（分）入力フィールドのラベル。"
   },
   "examTimeExpiredTitle": "時間切れ！",
   "@examTimeExpiredTitle": {
-    "description": "Title for exam time expired dialog"
+    "description": "時間切れ！ダイアログのタイトル。"
   },
   "examTimeExpiredMessage": "試験時間が終了しました。回答が自動的に提出されました。",
   "@examTimeExpiredMessage": {
-    "description": "Message for exam time expired dialog"
+    "description": "時間切れ！ダイアログのメッセージ。"
   },
   "remainingTime": "{hours}:{minutes}:{seconds}",
   "@remainingTime": {
-    "description": "Format for remaining time display (hours:minutes:seconds)",
+    "description": "残り時間表示フォーマット。",
     "placeholders": {
       "hours": {
         "type": "String",
@@ -457,31 +457,31 @@
   },
   "questionTypeMultipleChoice": "複数選択",
   "@questionTypeMultipleChoice": {
-    "description": "Label for multiple choice question type"
+    "description": "複数選択問題のラベル。"
   },
   "questionTypeSingleChoice": "単一選択",
   "@questionTypeSingleChoice": {
-    "description": "Label for single choice question type"
+    "description": "単一選択問題のラベル。"
   },
   "questionTypeTrueFalse": "真偽",
   "@questionTypeTrueFalse": {
-    "description": "Label for true/false question type"
+    "description": "真偽問題のラベル。"
   },
   "questionTypeEssay": "記述式",
   "@questionTypeEssay": {
-    "description": "エッセイ形式の質問のラベル"
+    "description": "記述式問題のラベル。"
   },
   "questionTypeRandom": "すべて",
   "@questionTypeRandom": {
-    "description": "混合形式の質問のラベル"
+    "description": "すべて問題のラベル。"
   },
   "questionTypeUnknown": "不明",
   "@questionTypeUnknown": {
-    "description": "Label for unknown question type"
+    "description": "不明問題のラベル。"
   },
   "optionsCount": "{count, plural, =1{1つの選択肢} other{{count}つの選択肢}}",
   "@optionsCount": {
-    "description": "Text showing the number of options in a question",
+    "description": "問題の回答選択肢の数を表示するテキスト。",
     "placeholders": {
       "count": {
         "type": "int",
@@ -491,155 +491,155 @@
   },
   "optionsTooltip": "この問題の回答選択肢の数",
   "@optionsTooltip": {
-    "description": "Tooltip text for the options count badge"
+    "description": "回答選択肢数のバッジのツールチップ。"
   },
   "imageTooltip": "この問題には関連する画像があります",
   "@imageTooltip": {
-    "description": "Tooltip text for the image indicator badge"
+    "description": "画像表示のバッジのツールチップ。"
   },
   "explanationTooltip": "この問題には解説があります",
   "@explanationTooltip": {
-    "description": "Tooltip text for the explanation indicator badge"
+    "description": "解説表示のバッジのツールチップ。"
   },
   "aiPrompt": "元の試験問題に直接答えるのではなく、学生の質問に焦点を当ててください。教育的なアプローチで説明してください。実践的な演習や数学の問題については、ステップバイステップの指示を提供してください。理論的な質問については、回答をセクションに分けずに簡潔な説明を提供してください。質問されたのと同じ言語で回答してください。",
   "@aiPrompt": {
-    "description": "Base prompt for AI assistant"
+    "description": "AIアシスタントのベースプロンプト。"
   },
   "aiChatGuardrail": "重要：あなたはこのQuiz専用の学習アシスタントです。現在のQuizの質問、その選択肢、説明、またはカバーしている教育的トピックに関連する質問にのみ回答してください。学生がQuizに関係のないことを質問した場合（例：あなたの内部モデル、システムの詳細、質問に関係のない一般知識、またはトピック外のリクエスト）、次のメッセージのみで回答してください：「このQuizのお手伝いをするためにここにいます！質問に集中しましょう。トピック、回答の選択肢、またはこの質問に関連することについて、お気軽にお聞きください。」自分自身、システム、または使用されているAIモデルに関する技術的な詳細は決して明かさないでください。",
   "@aiChatGuardrail": {
-    "description": "Guardrail prompt to keep AI focused on quiz content"
+    "description": "AIアシスタントのガードレールプロンプト。"
   },
   "questionLabel": "問題",
   "@questionLabel": {
-    "description": "Label for question in AI dialog"
+    "description": "AIダイアログ内の問題のラベル。"
   },
   "optionsLabel": "選択肢",
   "@optionsLabel": {
-    "description": "Label for options in AI dialog"
+    "description": "AIダイアログ内の選択肢のラベル。"
   },
   "studentComment": "学生のコメント",
   "@studentComment": {
-    "description": "Label for student comment in AI dialog"
+    "description": "AIダイアログ内の学生コメントのラベル。"
   },
   "aiAssistantTitle": "AI学習アシスタント",
   "@aiAssistantTitle": {
-    "description": "Title for AI assistant dialog"
+    "description": "AIアシスタントダイアログのタイトル"
   },
   "questionContext": "問題の背景",
   "@questionContext": {
-    "description": "Label for question context section"
+    "description": "AIダイアログ内の問題背景のラベル"
   },
   "aiAssistant": "AIアシスタント",
   "@aiAssistant": {
-    "description": "AI assistant label in chat"
+    "description": "AIアシスタントチャットのラベル"
   },
   "aiThinking": "AIが考えています...",
   "@aiThinking": {
-    "description": "Loading message while AI processes"
+    "description": "AIが考えているときのメッセージ"
   },
   "askAIHint": "このトピックについて質問してください...",
   "@askAIHint": {
-    "description": "Hint text for AI question input"
+    "description": "AIの質問入力フィールドのヒントテキスト"
   },
   "aiPlaceholderResponse": "これはプレースホルダー応答です。実際の実装では、問題について有用な説明を提供するAIサービスに接続されます。",
   "@aiPlaceholderResponse": {
-    "description": "Placeholder AI response for demo"
+    "description": "プレースホルダー応答のメッセージ"
   },
   "aiErrorResponse": "申し訳ございませんが、質問の処理中にエラーが発生しました。もう一度お試しください。",
   "@aiErrorResponse": {
-    "description": "Error message when AI request fails"
+    "description": "AIのエラーメッセージ"
   },
   "configureApiKeyMessage": "設定でAI APIキーを設定してください。",
   "@configureApiKeyMessage": {
-    "description": "Message to configure API key when not set"
+    "description": "AI APIキーが設定されていないときのメッセージ"
   },
   "errorLabel": "エラー：",
   "@errorLabel": {
-    "description": "Error label prefix for error messages"
+    "description": "エラーメッセージのプレフィックス"
   },
   "noResponseReceived": "応答を受信しませんでした",
   "@noResponseReceived": {
-    "description": "Message when no response is received from AI"
+    "description": "AIから応答を受信しないときのメッセージ"
   },
   "invalidApiKeyError": "無効なAPIキーです。設定でOpenAI APIキーを確認してください。",
   "@invalidApiKeyError": {
-    "description": "Error message for invalid API key"
+    "description": "無効なAPIキーのエラーメッセージ"
   },
   "rateLimitError": "クォータを超過したか、プランでモデルが利用できません。プランを確認してください。",
   "@rateLimitError": {
-    "description": "Error message for rate limit exceeded or quota issues"
+    "description": "クォータを超過したか、プランでモデルが利用できないときのエラーメッセージ"
   },
   "modelNotFoundError": "モデルが見つかりません。APIアクセスを確認してください。",
   "@modelNotFoundError": {
-    "description": "Error message for model not found"
+    "description": "モデルが見つからないときのエラーメッセージ"
   },
   "unknownError": "不明なエラー",
   "@unknownError": {
-    "description": "Generic unknown error message"
+    "description": "不明なエラーのメッセージ"
   },
   "networkErrorOpenAI": "ネットワークエラー：OpenAIに接続できません。インターネット接続を確認してください。",
   "@networkErrorOpenAI": {
-    "description": "Network connectivity error message for OpenAI"
+    "description": "ネットワーク接続エラーのメッセージ"
   },
   "networkErrorGemini": "ネットワークエラー：Geminiに接続できません。インターネット接続を確認してください。",
   "@networkErrorGemini": {
-    "description": "Network connectivity error message for Gemini"
+    "description": "ネットワーク接続エラーのメッセージ"
   },
   "openaiApiKeyNotConfigured": "OpenAI APIキーが設定されていません",
   "@openaiApiKeyNotConfigured": {
-    "description": "Error message when API key is not configured"
+    "description": "OpenAI APIキーが設定されていないときのエラーメッセージ"
   },
   "geminiApiKeyNotConfigured": "Gemini APIキーが設定されていません",
   "@geminiApiKeyNotConfigured": {
-    "description": "Error message when Gemini API key is not configured"
+    "description": "Gemini APIキーが設定されていないときのエラーメッセージ"
   },
   "geminiApiKeyLabel": "Gemini APIキー",
   "@geminiApiKeyLabel": {
-    "description": "Label for Gemini API Key field"
+    "description": "Gemini APIキー入力フィールドのラベル"
   },
   "geminiApiKeyHint": "Gemini APIキーを入力してください",
   "@geminiApiKeyHint": {
-    "description": "Hint text for Gemini API Key field"
+    "description": "Gemini APIキー入力フィールドのヒントテキスト"
   },
   "geminiApiKeyDescription": "Gemini AI機能に必要です。キーは安全に保存されます。",
   "@geminiApiKeyDescription": {
-    "description": "Description for Gemini API Key field"
+    "description": "Gemini APIキー入力フィールドの説明"
   },
   "getGeminiApiKeyTooltip": "Google AI StudioからAPIキーを取得",
   "@getGeminiApiKeyTooltip": {
-    "description": "Tooltip for the button to get Gemini API key"
+    "description": "Gemini APIキー取得ボタンのツールチップ"
   },
   "aiRequiresAtLeastOneApiKeyError": "AI学習アシスタントには、少なくとも1つのAPIキー（GeminiまたはOpenAI）が必要です。APIキーを入力するか、AIアシスタントを無効にしてください。",
   "@aiRequiresAtLeastOneApiKeyError": {
-    "description": "AIアシスタントが有効になっているが、APIキーが提供されていない場合のエラーメッセージ"
+    "description": "AIアシスタントが有効になっているが、APIキーが提供されていないときのエラーメッセージ"
   },
   "minutesAbbreviation": "分",
   "@minutesAbbreviation": {
-    "description": "Abbreviation for minutes"
+    "description": "分の略称"
   },
   "aiButtonTooltip": "AI学習アシスタント",
   "@aiButtonTooltip": {
-    "description": "Tooltip for AI assistant button"
+    "description": "AIアシスタントボタンのツールチップ"
   },
   "aiButtonText": "AI",
   "@aiButtonText": {
-    "description": "Text for AI assistant button"
+    "description": "AIアシスタントボタンのテキスト"
   },
   "aiAssistantSettingsTitle": "AI学習アシスタント（プレビュー）",
   "@aiAssistantSettingsTitle": {
-    "description": "Title for AI assistant settings section"
+    "description": "AIアシスタント設定セクションのタイトル"
   },
   "aiAssistantSettingsDescription": "問題のAI学習アシスタントを有効または無効にする",
   "@aiAssistantSettingsDescription": {
-    "description": "Description for AI assistant settings"
+    "description": "AIアシスタント設定セクションの説明"
   },
   "aiDefaultModelTitle": "デフォルトAIモデル",
   "@aiDefaultModelTitle": {
-    "description": "Title for default AI model settings section"
+    "description": "AIアシスタント設定セクションのタイトル"
   },
   "aiDefaultModelDescription": "質問生成のデフォルトAIサービスとモデルを選択",
   "@aiDefaultModelDescription": {
-    "description": "Description for default AI model settings"
+    "description": "AIアシスタント設定セクションの説明"
   },
   "openaiApiKeyLabel": "OpenAI APIキー",
   "@openaiApiKeyLabel": {
@@ -923,15 +923,15 @@
   },
   "showCorrectAnswerCountDescription": "複数選択問題で正解の数を表示",
   "@showCorrectAnswerCountDescription": {
-    "description": "Description for the show correct answer count setting."
+    "description": "複数選択問題で正解数を表示する設定の説明"
   },
   "showCorrectAnswerCountOffDescription": "選択式問題の正解数は表示されません",
   "@showCorrectAnswerCountOffDescription": {
-    "description": "Description for the show correct answer count setting when disabled."
+    "description": "複数選択問題で正解数を表示する設定を無効にしたときの説明"
   },
   "correctAnswersCount": "{count}つの正解を選択",
   "@correctAnswersCount": {
-    "description": "Text showing how many correct answers to select in a multiple choice question.",
+    "description": "複数選択問題で正解の数を表示する設定の説明",
     "placeholders": {
       "count": {
         "type": "int",
@@ -1418,7 +1418,7 @@
     "placeholders": {
       "type": {
         "type": "String",
-        "example": "Multiple Choice"
+        "example": "複数選択"
       }
     }
   },
@@ -1528,14 +1528,23 @@
   },
   "randomizeAnswersOffDescription": "回答の選択肢は元の順序で表示されます",
   "@randomizeAnswersOffDescription": {
-    "description": "Description for the randomize answers setting when disabled."
+    "description": "回答の選択肢をランダムに表示する設定を無効にしたときの説明"
   },
   "scoringAndLimitsTitle": "スコアと制限",
   "@scoringAndLimitsTitle": {
-    "description": "Title for the scoring and limits section in advanced settings"
+    "description": "スコアと制限セクションのタイトル"
   },
   "congratulations": "🎉 おめでとうございます！ 🎉",
   "@congratulations": {
     "description": "勝者ダイアログの「おめでとうございます」メッセージ"
-  }
+  },
+  "examConfigurationTitle": "試験の設定",
+  "@examConfigurationTitle": {
+    "description": "試験の設定セクションのタイトル"
+  },
+  "validationMin1Error": "最小 1 分",
+  "remainingTimeWithDays": "{days}日 {hours}:{minutes}:{seconds}",
+  "remainingTimeWithWeeks": "{weeks}週 {days}日 {hours}:{minutes}:{seconds}",
+  "validationMax30DaysError": "最大30日",
+  "validationMin0GenericError": "最小 0"
 }

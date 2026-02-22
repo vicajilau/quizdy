@@ -354,6 +354,9 @@ class AppLocalizationsEu extends AppLocalizations {
   String get save => 'Gorde';
 
   @override
+  String get examConfigurationTitle => 'Azterketaren konfigurazioa';
+
+  @override
   String get examTimeLimitTitle => 'Azterketaren Denbora Muga';
 
   @override
@@ -1261,4 +1264,34 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get congratulations => '🎉 Zorionak! 🎉';
+
+  @override
+  String get validationMin1Error => 'Gutxienez minutu 1';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '${days}e $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '${weeks}a ${days}e $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => 'Gehienez 30 egun';
+
+  @override
+  String get validationMin0GenericError => 'Gutxienez 0';
 }

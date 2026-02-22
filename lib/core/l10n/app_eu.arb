@@ -929,9 +929,9 @@
   "@showCorrectAnswerCountTitle": {
     "description": "Erantzun zuzen kopurua erakusteko konfigurazioaren izenburua."
   },
-  "showCorrectAnswerCountDescription": "Aukera anitzeko galderetako erantzun zuzen kopurua erakutsi",
+  "showCorrectAnswerCountDescription": "Erantzun zuzenen kopurua erakutsi aukera anitzeko galderetan",
   "@showCorrectAnswerCountDescription": {
-    "description": "Erantzun zuzen kopurua erakusteko konfigurazioaren deskribapena."
+    "description": "Description for the show correct answer count setting."
   },
   "correctAnswersCount": "Hautatu {count} erantzun zuzen",
   "@correctAnswersCount": {
@@ -1519,10 +1519,6 @@
   "@close": {
     "description": "Close button text"
   },
-  "showCorrectAnswerCountDescription": "Erantzun zuzenen kopurua erakutsi aukera anitzeko galderetan",
-  "@showCorrectAnswerCountDescription": {
-    "description": "Description for the show correct answer count setting."
-  },
   "showCorrectAnswerCountOffDescription": "Aukera anitzeko galderetan ez da erantzun zuzenen kopurua erakutsiko",
   "@showCorrectAnswerCountOffDescription": {
     "description": "Description for the show correct answer count setting when disabled."
@@ -1538,5 +1534,14 @@
   "congratulations": "🎉 Zorionak! 🎉",
   "@congratulations": {
     "description": "Congratulations message in winner dialog"
-  }
+  },
+  "examConfigurationTitle": "Azterketaren konfigurazioa",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
+  "validationMin1Error": "Gutxienez minutu 1",
+  "remainingTimeWithDays": "{days}e {hours}:{minutes}:{seconds}",
+  "remainingTimeWithWeeks": "{weeks}a {days}e {hours}:{minutes}:{seconds}",
+  "validationMax30DaysError": "Gehienez 30 egun",
+  "validationMin0GenericError": "Gutxienez 0"
 }

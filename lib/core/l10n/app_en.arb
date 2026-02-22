@@ -467,6 +467,10 @@
   "@save": {
     "description": "Label for the save button"
   },
+  "examConfigurationTitle": "Exam Configuration",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
   "examTimeLimitTitle": "Exam Time Limit",
   "@examTimeLimitTitle": {
     "description": "Title for exam time limit section"
@@ -1711,5 +1715,65 @@
   "congratulations": "🎉 Congratulations! 🎉",
   "@congratulations": {
     "description": "Congratulations message in winner dialog"
+  },
+  "validationMin1Error": "Minimum 1 minute",
+  "@validationMin1Error": {
+    "description": "Validation message indicating the time limit must be at least 1 minute."
+  },
+  "remainingTimeWithDays": "{days}d {hours}:{minutes}:{seconds}",
+  "@remainingTimeWithDays": {
+    "description": "Format for remaining time display when it exceeds 24 hours (days hours:minutes:seconds)",
+    "placeholders": {
+      "days": {
+        "type": "String",
+        "example": "2"
+      },
+      "hours": {
+        "type": "String",
+        "example": "03"
+      },
+      "minutes": {
+        "type": "String",
+        "example": "45"
+      },
+      "seconds": {
+        "type": "String",
+        "example": "30"
+      }
+    }
+  },
+  "remainingTimeWithWeeks": "{weeks}w {days}d {hours}:{minutes}:{seconds}",
+  "@remainingTimeWithWeeks": {
+    "description": "Format for remaining time display when it exceeds 7 days (weeks days hours:minutes:seconds)",
+    "placeholders": {
+      "weeks": {
+        "type": "String",
+        "example": "1"
+      },
+      "days": {
+        "type": "String",
+        "example": "2"
+      },
+      "hours": {
+        "type": "String",
+        "example": "03"
+      },
+      "minutes": {
+        "type": "String",
+        "example": "45"
+      },
+      "seconds": {
+        "type": "String",
+        "example": "30"
+      }
+    }
+  },
+  "validationMax30DaysError": "Maximum 30 days",
+  "@validationMax30DaysError": {
+    "description": "Validation message indicating the time limit cannot exceed 30 days."
+  },
+  "validationMin0GenericError": "Minimum 0",
+  "@validationMin0GenericError": {
+    "description": "Error message when a field requires a minimum value of 0 without specifying units."
   }
 }
