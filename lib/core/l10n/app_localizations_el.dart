@@ -1238,6 +1238,14 @@ class AppLocalizationsEl extends AppLocalizations {
   String get subtractPointsLabel => 'Αφαίρεση πόντων για λάθος απάντηση';
 
   @override
+  String get subtractPointsDescription =>
+      'Αφαίρεση πόντων για κάθε λάθος απάντηση.';
+
+  @override
+  String get subtractPointsOffDescription =>
+      'Οι λάθος απαντήσεις δεν αφαιρούν πόντους.';
+
+  @override
   String get penaltyAmountLabel => 'Ποσό ποινής';
 
   @override

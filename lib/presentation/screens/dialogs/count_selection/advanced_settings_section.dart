@@ -178,9 +178,9 @@ class _AdvancedSettingsSectionState extends State<AdvancedSettingsSection> {
             SubtractPointsToggle(
               isDark: widget.isDark,
               textColor: widget.textColor,
+              subTextColor: widget.subTextColor,
               primaryColor: widget.primaryColor,
               subtractPoints: widget.subtractPoints,
-              penaltyAmount: widget.penaltyAmount,
               onSubtractPointsChanged: widget.onSubtractPointsChanged,
             ),
             if (widget.subtractPoints) ...[
@@ -191,6 +191,7 @@ class _AdvancedSettingsSectionState extends State<AdvancedSettingsSection> {
                 primaryColor: widget.primaryColor,
                 controlBgColor: widget.controlBgColor,
                 controlIconColor: widget.controlIconColor,
+                penaltyAmount: widget.penaltyAmount,
                 penaltyController: widget.penaltyController,
                 penaltyFocusNode: widget.penaltyFocusNode,
                 onPenaltyAmountChanged: widget.onPenaltyAmountChanged,

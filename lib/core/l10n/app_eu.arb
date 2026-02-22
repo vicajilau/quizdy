@@ -1498,8 +1498,13 @@
     }
   },
   "subtractPointsLabel": "Kendu puntuak erantzun okerrengatik",
+  "subtractPointsDescription": "Kendu puntuak erantzun oker bakoitzeko.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "Erantzun okerrek ez dute punturik kentzen.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "Penalizazio kopurua",
   "@penaltyAmountLabel": {

@@ -1208,6 +1208,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get subtractPointsLabel => 'خصم نقاط للإجابة الخاطئة';
 
   @override
+  String get subtractPointsDescription => 'خصم نقاط عن كل إجابة خاطئة.';
+
+  @override
+  String get subtractPointsOffDescription => 'الإجابات الخاطئة لا تخصم نقاطا.';
+
+  @override
   String get penaltyAmountLabel => 'مبلغ الغرامة';
 
   @override

@@ -1470,8 +1470,13 @@
     }
   },
   "subtractPointsLabel": "答错扣分",
+  "subtractPointsDescription": "每答错一题扣除分数。",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "回答错误不会扣分。",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "扣分金额",
   "@penaltyAmountLabel": {

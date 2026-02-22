@@ -1230,6 +1230,14 @@ class AppLocalizationsEu extends AppLocalizations {
   String get subtractPointsLabel => 'Kendu puntuak erantzun okerrengatik';
 
   @override
+  String get subtractPointsDescription =>
+      'Kendu puntuak erantzun oker bakoitzeko.';
+
+  @override
+  String get subtractPointsOffDescription =>
+      'Erantzun okerrek ez dute punturik kentzen.';
+
+  @override
   String get penaltyAmountLabel => 'Penalizazio kopurua';
 
   @override

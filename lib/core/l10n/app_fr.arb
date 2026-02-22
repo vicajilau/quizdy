@@ -1545,8 +1545,13 @@
     }
   },
   "subtractPointsLabel": "Retirer des points pour une mauvaise réponse",
+  "subtractPointsDescription": "Soustrait des points pour chaque réponse incorrecte.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "Les mauvaises réponses ne déduisent pas de points.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "Montant de la pénalité",
   "@penaltyAmountLabel": {

@@ -1502,8 +1502,13 @@
     }
   },
   "subtractPointsLabel": "Restar puntos por resposta incorrecta",
+  "subtractPointsDescription": "Resta puntos por cada resposta incorrecta.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "As respostas incorrectas no restan puntos.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "Cantidade de penalización",
   "@penaltyAmountLabel": {

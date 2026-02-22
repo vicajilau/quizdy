@@ -1572,8 +1572,13 @@
     "description": "Etiqueta para la opción de seleccionar todas las preguntas"
   },
   "subtractPointsLabel": "Restar puntos por respuesta incorrecta",
+  "subtractPointsDescription": "Resta puntos por cada respuesta incorrecta.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "Las respuestas incorrectas no restan puntos.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "Cantidad de penalización",
   "@penaltyAmountLabel": {

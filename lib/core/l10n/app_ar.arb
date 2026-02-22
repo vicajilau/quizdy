@@ -1542,8 +1542,13 @@
     }
   },
   "subtractPointsLabel": "خصم نقاط للإجابة الخاطئة",
+  "subtractPointsDescription": "خصم نقاط عن كل إجابة خاطئة.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "الإجابات الخاطئة لا تخصم نقاطا.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "مبلغ الغرامة",
   "@penaltyAmountLabel": {

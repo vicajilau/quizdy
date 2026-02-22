@@ -1238,6 +1238,14 @@ class AppLocalizationsFr extends AppLocalizations {
       'Retirer des points pour une mauvaise réponse';
 
   @override
+  String get subtractPointsDescription =>
+      'Soustrait des points pour chaque réponse incorrecte.';
+
+  @override
+  String get subtractPointsOffDescription =>
+      'Les mauvaises réponses ne déduisent pas de points.';
+
+  @override
   String get penaltyAmountLabel => 'Montant de la pénalité';
 
   @override

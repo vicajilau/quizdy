@@ -1485,8 +1485,13 @@
     }
   },
   "subtractPointsLabel": "गलत उत्तर के लिए अंक घटाएं",
+  "subtractPointsDescription": "प्रत्येक गलत उत्तर के लिए अंक घटाएं।",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "गलत उत्तर अंक नहीं घटाते हैं।",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "दंड राशि",
   "@penaltyAmountLabel": {

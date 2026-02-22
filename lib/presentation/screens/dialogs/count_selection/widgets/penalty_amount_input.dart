@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
+import 'package:quiz_app/core/theme/app_theme.dart';
 import 'package:quiz_app/presentation/screens/dialogs/count_selection/count_control_button.dart';
 
 class PenaltyAmountInput extends StatelessWidget {
@@ -10,6 +11,7 @@ class PenaltyAmountInput extends StatelessWidget {
   final Color primaryColor;
   final Color controlBgColor;
   final Color controlIconColor;
+  final double penaltyAmount;
   final TextEditingController penaltyController;
   final FocusNode penaltyFocusNode;
   final ValueChanged<double> onPenaltyAmountChanged;
@@ -23,6 +25,7 @@ class PenaltyAmountInput extends StatelessWidget {
     required this.primaryColor,
     required this.controlBgColor,
     required this.controlIconColor,
+    required this.penaltyAmount,
     required this.penaltyController,
     required this.penaltyFocusNode,
     required this.onPenaltyAmountChanged,
@@ -35,14 +38,30 @@ class PenaltyAmountInput extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          AppLocalizations.of(context)!.penaltyAmountLabel,
-          style: TextStyle(
-            fontFamily: 'Inter',
-            fontSize: 14,
-            fontWeight: FontWeight.w500,
-            color: subTextColor,
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              AppLocalizations.of(context)!.penaltyAmountLabel,
+              style: TextStyle(
+                fontFamily: 'Inter',
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                color: subTextColor,
+              ),
+            ),
+            Text(
+              AppLocalizations.of(
+                context,
+              )!.penaltyPointsLabel(penaltyAmount.toStringAsFixed(2)),
+              style: const TextStyle(
+                fontFamily: 'Inter',
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+                color: AppTheme.errorColor,
+              ),
+            ),
+          ],
         ),
         const SizedBox(height: 12),
         Row(

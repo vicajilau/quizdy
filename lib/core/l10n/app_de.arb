@@ -1598,8 +1598,13 @@
     }
   },
   "subtractPointsLabel": "Punkte für falsche Antwort abziehen",
+  "subtractPointsDescription": "Punkte für jede falsche Antwort abziehen.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "Falsche Antworten führen nicht zu Punktabzug.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "Strafbetrag",
   "@penaltyAmountLabel": {

@@ -1657,8 +1657,13 @@
     "description": "Label for the option to select all questions"
   },
   "subtractPointsLabel": "Subtract points for wrong answer",
+  "subtractPointsDescription": "Subtract points for each incorrect answer.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "Incorrect answers do not deduct points.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "Penalty amount",
   "@penaltyAmountLabel": {

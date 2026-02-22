@@ -1217,6 +1217,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get subtractPointsLabel => 'गलत उत्तर के लिए अंक घटाएं';
 
   @override
+  String get subtractPointsDescription =>
+      'प्रत्येक गलत उत्तर के लिए अंक घटाएं।';
+
+  @override
+  String get subtractPointsOffDescription => 'गलत उत्तर अंक नहीं घटाते हैं।';
+
+  @override
   String get penaltyAmountLabel => 'दंड राशि';
 
   @override

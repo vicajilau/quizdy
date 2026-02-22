@@ -5,18 +5,18 @@ import 'package:quiz_app/core/theme/app_theme.dart';
 class SubtractPointsToggle extends StatelessWidget {
   final bool isDark;
   final Color textColor;
+  final Color subTextColor;
   final Color primaryColor;
   final bool subtractPoints;
-  final double penaltyAmount;
   final ValueChanged<bool> onSubtractPointsChanged;
 
   const SubtractPointsToggle({
     super.key,
     required this.isDark,
     required this.textColor,
+    required this.subTextColor,
     required this.primaryColor,
     required this.subtractPoints,
-    required this.penaltyAmount,
     required this.onSubtractPointsChanged,
   });
 
@@ -44,20 +44,20 @@ class SubtractPointsToggle extends StatelessWidget {
                     color: textColor,
                   ),
                 ),
-                if (subtractPoints) ...[
-                  const SizedBox(height: 2),
-                  Text(
-                    AppLocalizations.of(
-                      context,
-                    )!.penaltyPointsLabel(penaltyAmount.toStringAsFixed(2)),
-                    style: const TextStyle(
-                      fontFamily: 'Inter',
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: AppTheme.errorColor,
-                    ),
+                const SizedBox(height: 2),
+                Text(
+                  subtractPoints
+                      ? AppLocalizations.of(context)!.subtractPointsDescription
+                      : AppLocalizations.of(
+                          context,
+                        )!.subtractPointsOffDescription,
+                  style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    color: subTextColor,
                   ),
-                ],
+                ),
               ],
             ),
           ),

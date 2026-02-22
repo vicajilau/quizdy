@@ -1169,6 +1169,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get subtractPointsLabel => '不正解でポイントを減点';
 
   @override
+  String get subtractPointsDescription => '不正解ごとにポイントを減点します。';
+
+  @override
+  String get subtractPointsOffDescription => '不正解でも減点されません。';
+
+  @override
   String get penaltyAmountLabel => 'ペナルティ額';
 
   @override

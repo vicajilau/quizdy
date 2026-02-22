@@ -2228,6 +2228,18 @@ abstract class AppLocalizations {
   /// **'Subtract points for wrong answer'**
   String get subtractPointsLabel;
 
+  /// No description provided for @subtractPointsDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Subtract points for each incorrect answer.'**
+  String get subtractPointsDescription;
+
+  /// Description shown when subtract points for incorrect answers is disabled
+  ///
+  /// In en, this message translates to:
+  /// **'Incorrect answers do not deduct points.'**
+  String get subtractPointsOffDescription;
+
   /// Label for the input field to set the penalty amount
   ///
   /// In en, this message translates to:

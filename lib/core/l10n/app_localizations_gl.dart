@@ -1233,6 +1233,14 @@ class AppLocalizationsGl extends AppLocalizations {
   String get subtractPointsLabel => 'Restar puntos por resposta incorrecta';
 
   @override
+  String get subtractPointsDescription =>
+      'Resta puntos por cada resposta incorrecta.';
+
+  @override
+  String get subtractPointsOffDescription =>
+      'As respostas incorrectas no restan puntos.';
+
+  @override
   String get penaltyAmountLabel => 'Cantidade de penalización';
 
   @override

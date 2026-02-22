@@ -1162,6 +1162,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get subtractPointsLabel => '答错扣分';
 
   @override
+  String get subtractPointsDescription => '每答错一题扣除分数。';
+
+  @override
+  String get subtractPointsOffDescription => '回答错误不会扣分。';
+
+  @override
   String get penaltyAmountLabel => '扣分金额';
 
   @override

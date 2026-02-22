@@ -440,8 +440,13 @@
     }
   },
   "subtractPointsLabel": "Αφαίρεση πόντων για λάθος απάντηση",
+  "subtractPointsDescription": "Αφαίρεση πόντων για κάθε λάθος απάντηση.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "Οι λάθος απαντήσεις δεν αφαιρούν πόντους.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "Ποσό ποινής",
   "@penaltyAmountLabel": {

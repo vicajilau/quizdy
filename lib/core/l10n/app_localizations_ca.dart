@@ -1233,6 +1233,14 @@ class AppLocalizationsCa extends AppLocalizations {
   String get subtractPointsLabel => 'Restar punts per resposta incorrecta';
 
   @override
+  String get subtractPointsDescription =>
+      'Resta punts per cada resposta incorrecta.';
+
+  @override
+  String get subtractPointsOffDescription =>
+      'Les respostes incorrectes no resten punts.';
+
+  @override
   String get penaltyAmountLabel => 'Quantitat de penalització';
 
   @override

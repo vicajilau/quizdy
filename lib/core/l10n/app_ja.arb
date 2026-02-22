@@ -1485,8 +1485,13 @@
     }
   },
   "subtractPointsLabel": "不正解でポイントを減点",
+  "subtractPointsDescription": "不正解ごとにポイントを減点します。",
   "@subtractPointsLabel": {
     "description": "不正解でポイントを減点するチェックボックスのラベル"
+  },
+  "subtractPointsOffDescription": "不正解でも減点されません。",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "ペナルティ額",
   "@penaltyAmountLabel": {

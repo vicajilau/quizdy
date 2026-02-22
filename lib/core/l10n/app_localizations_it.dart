@@ -1225,6 +1225,14 @@ class AppLocalizationsIt extends AppLocalizations {
   String get subtractPointsLabel => 'Sottrai punti per risposta errata';
 
   @override
+  String get subtractPointsDescription =>
+      'Sottrae punti per ogni risposta errata.';
+
+  @override
+  String get subtractPointsOffDescription =>
+      'Le risposte errate non sottraggono punti.';
+
+  @override
   String get penaltyAmountLabel => 'Importo penalità';
 
   @override
