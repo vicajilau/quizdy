@@ -505,7 +505,7 @@
   "@examTimeLimitTitle": {
     "description": "Títol per la secció límit de temps de l'examen"
   },
-  "examTimeLimitDescription": "Establiu un límit de temps per l'examen. Quan s'activi, es mostrarà un temporitzador de compte enrere durant el quiz.",
+  "examTimeLimitDescription": "Estableix un límit de temps per a l'examen. Es mostrarà un cronòmetre durant el quiz.",
   "@examTimeLimitDescription": {
     "description": "Descripció per la funcionalitat límit de temps de l'examen"
   },

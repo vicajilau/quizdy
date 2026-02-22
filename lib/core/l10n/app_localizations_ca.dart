@@ -366,7 +366,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get examTimeLimitDescription =>
-      'Establiu un límit de temps per l\'examen. Quan s\'activi, es mostrarà un temporitzador de compte enrere durant el quiz.';
+      'Estableix un límit de temps per a l\'examen. Es mostrarà un cronòmetre durant el quiz.';
 
   @override
   String get examTimeLimitOffDescription =>

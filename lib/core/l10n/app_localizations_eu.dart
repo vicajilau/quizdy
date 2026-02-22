@@ -365,7 +365,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get examTimeLimitDescription =>
-      'Ezarri azterketarentzako denbora muga. Aktibatutakoan, denbora atzera-kontaketa erakutsiko da quiz-ean zehar.';
+      'Ezarri denbora-muga azterketarako. Atzerako kontagailua agertuko da galdetegian.';
 
   @override
   String get examTimeLimitOffDescription =>

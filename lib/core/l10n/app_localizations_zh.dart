@@ -346,7 +346,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get examTimeLimitTitle => '考试时间限制';
 
   @override
-  String get examTimeLimitDescription => '为考试设置时间限制。启用后，测验期间将显示倒计时器。';
+  String get examTimeLimitDescription => '为考试设置时间限制。测验期间将显示倒计时器。';
 
   @override
   String get examTimeLimitOffDescription => '本次考试没有时间限制。';

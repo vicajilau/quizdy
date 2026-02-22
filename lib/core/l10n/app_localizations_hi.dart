@@ -359,7 +359,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get examTimeLimitDescription =>
-      'परीक्षा के लिए समय सीमा निर्धारित करें। सक्षम होने पर, क्विज़ के दौरान काउंटडाउन टाइमर दिखेगा।';
+      'परीक्षा के लिए समय सीमा निर्धारित करें। क्विज़ के दौरान काउंटडाउन टाइमर दिखेगा।';
 
   @override
   String get examTimeLimitOffDescription =>

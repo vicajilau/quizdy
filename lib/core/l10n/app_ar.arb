@@ -513,7 +513,7 @@
   "@examTimeLimitTitle": {
     "description": "Title for exam time limit section"
   },
-  "examTimeLimitDescription": "تعيين حد زمني للامتحان. عند التفعيل، سيتم عرض عداد تنازلي أثناء الاختبار.",
+  "examTimeLimitDescription": "قم بتعيين حد زمني للاختبار. سيتم عرض مؤقت تنازلي أثناء الاختبار.",
   "@examTimeLimitDescription": {
     "description": "Description for exam time limit feature"
   },

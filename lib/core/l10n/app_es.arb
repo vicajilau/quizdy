@@ -438,7 +438,7 @@
   "@examTimeLimitTitle": {
     "description": "Título para la sección de límite de tiempo del examen"
   },
-  "examTimeLimitDescription": "Establece un límite de tiempo para el examen. Cuando esté habilitado, se mostrará un cronómetro durante el quiz.",
+  "examTimeLimitDescription": "Establece un límite de tiempo para el examen. Se mostrará un cronómetro durante el quiz.",
   "@examTimeLimitDescription": {
     "description": "Descripción para la funcionalidad de límite de tiempo del examen"
   },

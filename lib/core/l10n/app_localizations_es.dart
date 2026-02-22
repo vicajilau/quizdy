@@ -366,7 +366,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get examTimeLimitDescription =>
-      'Establece un límite de tiempo para el examen. Cuando esté habilitado, se mostrará un cronómetro durante el quiz.';
+      'Establece un límite de tiempo para el examen. Se mostrará un cronómetro durante el quiz.';
 
   @override
   String get examTimeLimitOffDescription =>

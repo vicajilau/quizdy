@@ -366,7 +366,7 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get examTimeLimitDescription =>
-      'Estabelece un límite de tempo para o exame. Cando se active, mostrarásee un temporizador de conta atrás durante o quiz.';
+      'Establece un límite de tempo para o exame. Mostrarase un cronómetro durante o quiz.';
 
   @override
   String get examTimeLimitOffDescription =>

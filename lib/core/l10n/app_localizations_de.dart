@@ -364,7 +364,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get examTimeLimitDescription =>
-      'Setzen Sie ein Zeitlimit für die Prüfung. Wenn aktiviert, wird während des Quiz ein Countdown-Timer angezeigt.';
+      'Legen Sie ein Zeitlimit für die Prüfung fest. Während des Quiz wird ein Countdown-Timer angezeigt.';
 
   @override
   String get examTimeLimitOffDescription =>

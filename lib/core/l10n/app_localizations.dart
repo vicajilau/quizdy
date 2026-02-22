@@ -737,7 +737,7 @@ abstract class AppLocalizations {
   /// Description for exam time limit feature
   ///
   /// In en, this message translates to:
-  /// **'Set a time limit for the exam. When enabled, a countdown timer will be displayed during the quiz.'**
+  /// **'Set a time limit for the exam. A countdown timer will be displayed during the quiz.'**
   String get examTimeLimitDescription;
 
   /// Description shown when time limit is disabled

@@ -409,7 +409,7 @@
   "@examTimeLimitTitle": {
     "description": "Title for exam time limit section"
   },
-  "examTimeLimitDescription": "为考试设置时间限制。启用后，测验期间将显示倒计时器。",
+  "examTimeLimitDescription": "为考试设置时间限制。测验期间将显示倒计时器。",
   "@examTimeLimitDescription": {
     "description": "Description for exam time limit feature"
   },

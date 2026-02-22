@@ -417,7 +417,7 @@
   "@examTimeLimitTitle": {
     "description": "試験時間制限セクションのタイトル。"
   },
-  "examTimeLimitDescription": "試験の時間制限を設定します。有効にすると、クイズ中にカウントダウンタイマーが表示されます。",
+  "examTimeLimitDescription": "試験の時間制限を設定します。クイズ中にカウントダウンタイマーが表示されます。",
   "@examTimeLimitDescription": {
     "description": "試験時間制限セクションの説明。"
   },

@@ -429,7 +429,7 @@
   "@examTimeLimitTitle": {
     "description": "Título para a seção limite de tempo do exame"
   },
-  "examTimeLimitDescription": "Defina um limite de tempo para o exame. Quando habilitado, um cronômetro regressivo será exibido durante o quiz.",
+  "examTimeLimitDescription": "Defina um limite de tempo para o exame. Um cronômetro regressivo será exibido durante o quiz.",
   "@examTimeLimitDescription": {
     "description": "Descrição para a funcionalidade limite de tempo do exame"
   },

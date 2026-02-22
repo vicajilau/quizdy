@@ -357,7 +357,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get examTimeLimitDescription =>
-      'تعيين حد زمني للامتحان. عند التفعيل، سيتم عرض عداد تنازلي أثناء الاختبار.';
+      'قم بتعيين حد زمني للاختبار. سيتم عرض مؤقت تنازلي أثناء الاختبار.';
 
   @override
   String get examTimeLimitOffDescription => 'لا يوجد حد زمني لهذا الاختبار.';

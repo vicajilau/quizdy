@@ -479,7 +479,7 @@
   "@examTimeLimitTitle": {
     "description": "Title for exam time limit section"
   },
-  "examTimeLimitDescription": "Set a time limit for the exam. When enabled, a countdown timer will be displayed during the quiz.",
+  "examTimeLimitDescription": "Set a time limit for the exam. A countdown timer will be displayed during the quiz.",
   "@examTimeLimitDescription": {
     "description": "Description for exam time limit feature"
   },

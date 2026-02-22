@@ -143,7 +143,7 @@
   "questionOrderConfigTooltip": "Διαμόρφωση σειράς ερωτήσεων",
   "save": "Αποθήκευση",
   "examTimeLimitTitle": "Χρονικό Όριο Εξέτασης",
-  "examTimeLimitDescription": "Ορίστε χρονικό όριο για την εξέταση. Όταν ενεργοποιηθεί, θα εμφανίζεται χρονόμετρο κατά τη διάρκεια του κουίζ.",
+  "examTimeLimitDescription": "Ορίστε χρονικό όριο για την εξέταση. Θα εμφανίζεται χρονόμετρο κατά τη διάρκεια του κουίζ.",
   "examTimeLimitOffDescription": "Δεν υπάρχει χρονικό όριο για αυτήν την εξέταση.",
   "@examTimeLimitOffDescription": {
     "description": "Description shown when time limit is disabled"

@@ -365,7 +365,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get examTimeLimitDescription =>
-      'Imposta un limite di tempo per l\'esame. Quando abilitato, verrà visualizzato un timer di conto alla rovescia durante il quiz.';
+      'Imposta un limite di tempo per l\'esame. Verrà visualizzato un timer di conto alla rovescia durante il quiz.';
 
   @override
   String get examTimeLimitOffDescription =>

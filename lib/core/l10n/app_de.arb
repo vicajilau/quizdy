@@ -525,7 +525,7 @@
   "@examTimeLimitTitle": {
     "description": "Titel für den Prüfungszeit-Limit-Bereich"
   },
-  "examTimeLimitDescription": "Setzen Sie ein Zeitlimit für die Prüfung. Wenn aktiviert, wird während des Quiz ein Countdown-Timer angezeigt.",
+  "examTimeLimitDescription": "Legen Sie ein Zeitlimit für die Prüfung fest. Während des Quiz wird ein Countdown-Timer angezeigt.",
   "@examTimeLimitDescription": {
     "description": "Beschreibung für die Prüfungszeit-Limit-Funktion"
   },

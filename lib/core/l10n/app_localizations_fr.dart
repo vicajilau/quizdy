@@ -368,7 +368,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get examTimeLimitDescription =>
-      'Définir une limite de temps pour l\'examen. Lorsqu\'elle est activée, un minuteur de compte à rebours sera affiché pendant le quiz.';
+      'Définissez une limite de temps pour l\'examen. Un compte à rebours sera affiché pendant le quiz.';
 
   @override
   String get examTimeLimitOffDescription =>

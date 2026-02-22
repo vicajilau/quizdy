@@ -429,7 +429,7 @@
   "@examTimeLimitTitle": {
     "description": "Titolo per la sezione limite di tempo esame"
   },
-  "examTimeLimitDescription": "Imposta un limite di tempo per l'esame. Quando abilitato, verrà visualizzato un timer di conto alla rovescia durante il quiz.",
+  "examTimeLimitDescription": "Imposta un limite di tempo per l'esame. Verrà visualizzato un timer di conto alla rovescia durante il quiz.",
   "@examTimeLimitDescription": {
     "description": "Descrizione per la funzionalità limite di tempo esame"
   },

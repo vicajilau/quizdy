@@ -409,7 +409,7 @@
   "@examTimeLimitTitle": {
     "description": "Título para a sección límite de tempo do exame"
   },
-  "examTimeLimitDescription": "Estabelece un límite de tempo para o exame. Cando se active, mostrarásee un temporizador de conta atrás durante o quiz.",
+  "examTimeLimitDescription": "Establece un límite de tempo para o exame. Mostrarase un cronómetro durante o quiz.",
   "@examTimeLimitDescription": {
     "description": "Descrición para a funcionalidade límite de tempo do exame"
   },

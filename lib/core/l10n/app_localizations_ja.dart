@@ -347,7 +347,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get examTimeLimitDescription =>
-      '試験の時間制限を設定します。有効にすると、クイズ中にカウントダウンタイマーが表示されます。';
+      '試験の時間制限を設定します。クイズ中にカウントダウンタイマーが表示されます。';
 
   @override
   String get examTimeLimitOffDescription => 'この試験には時間制限がありません。';

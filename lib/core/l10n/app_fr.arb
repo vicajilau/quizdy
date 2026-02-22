@@ -429,7 +429,7 @@
   "@examTimeLimitTitle": {
     "description": "Titre pour la section limite de temps d'examen"
   },
-  "examTimeLimitDescription": "Définir une limite de temps pour l'examen. Lorsqu'elle est activée, un minuteur de compte à rebours sera affiché pendant le quiz.",
+  "examTimeLimitDescription": "Définissez une limite de temps pour l'examen. Un compte à rebours sera affiché pendant le quiz.",
   "@examTimeLimitDescription": {
     "description": "Description pour la fonctionnalité de limite de temps d'examen"
   },

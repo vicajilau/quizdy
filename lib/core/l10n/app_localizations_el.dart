@@ -368,7 +368,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get examTimeLimitDescription =>
-      'Ορίστε χρονικό όριο για την εξέταση. Όταν ενεργοποιηθεί, θα εμφανίζεται χρονόμετρο κατά τη διάρκεια του κουίζ.';
+      'Ορίστε χρονικό όριο για την εξέταση. Θα εμφανίζεται χρονόμετρο κατά τη διάρκεια του κουίζ.';
 
   @override
   String get examTimeLimitOffDescription =>

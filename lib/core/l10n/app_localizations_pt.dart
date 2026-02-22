@@ -366,7 +366,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get examTimeLimitDescription =>
-      'Defina um limite de tempo para o exame. Quando habilitado, um cronômetro regressivo será exibido durante o quiz.';
+      'Defina um limite de tempo para o exame. Um cronômetro regressivo será exibido durante o quiz.';
 
   @override
   String get examTimeLimitOffDescription =>

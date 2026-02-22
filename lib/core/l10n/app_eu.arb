@@ -409,7 +409,7 @@
   "@examTimeLimitTitle": {
     "description": "Azterketaren denbora muga atalaren izenburua"
   },
-  "examTimeLimitDescription": "Ezarri azterketarentzako denbora muga. Aktibatutakoan, denbora atzera-kontaketa erakutsiko da quiz-ean zehar.",
+  "examTimeLimitDescription": "Ezarri denbora-muga azterketarako. Atzerako kontagailua agertuko da galdetegian.",
   "@examTimeLimitDescription": {
     "description": "Azterketaren denbora muga funtzionalitatearen deskribapena"
   },
