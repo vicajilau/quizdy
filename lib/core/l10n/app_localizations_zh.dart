@@ -459,30 +459,33 @@ class AppLocalizationsZh extends AppLocalizations {
   String get aiErrorResponse => '抱歉，处理您的问题时出现错误。请重试。';
 
   @override
-  String get evaluatingResponses => 'Evaluating responses...';
+  String get evaluatingResponses => '正在评估回答...';
 
   @override
   String pendingEvaluationsCount(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count development questions pending AI evaluation',
-      one: '1 development question pending AI evaluation',
+      other: '$count个简答题等待 AI 评估',
+      one: '1个简答题等待 AI 评估',
     );
     return '$_temp0';
   }
 
   @override
-  String get pendingStatus => 'Pending';
+  String get pendingStatus => '待处理';
 
   @override
-  String get notEvaluatedStatus => 'Not evaluated';
+  String get notEvaluatedStatus => '未评估';
 
   @override
   String get configureApiKeyMessage => '请在设置中配置您的AI API密钥。';
 
   @override
   String get errorLabel => '错误：';
+
+  @override
+  String get retryButton => '重试评估';
 
   @override
   String get noResponseReceived => '未收到响应';

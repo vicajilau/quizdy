@@ -179,6 +179,7 @@ class QuizExecutionCompleted extends QuizExecutionState {
         question,
         userAnswer,
         essayAnswer,
+        aiEvaluation: aiEvaluation,
       );
 
       final isAnswered =

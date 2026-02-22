@@ -1611,5 +1611,31 @@
   "@validationMax30DaysError": {
     "description": "Validation message indicating the time limit cannot exceed 30 days."
   },
-  "errorStatus": "错误"
+  "errorStatus": "错误",
+  "evaluatingResponses": "正在评估回答...",
+  "@evaluatingResponses": {
+    "description": "当 AI 评估待处理时，在结果屏幕中显示的文本"
+  },
+  "pendingEvaluationsCount": "{count, plural, =1{1个简答题等待 AI 评估} other{{count}个简答题等待 AI 评估}}",
+  "@pendingEvaluationsCount": {
+    "description": "显示待处理 AI 评估数量的副标题",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "pendingStatus": "待处理",
+  "@pendingStatus": {
+    "description": "待处理 AI 评估的状态标签"
+  },
+  "notEvaluatedStatus": "未评估",
+  "@notEvaluatedStatus": {
+    "description": "未由 AI 评估的简答题的状态标签"
+  },
+  "retryButton": "重试评估",
+  "@retryButton": {
+    "description": "重试 AI 评估的按钮文本"
+  }
 }

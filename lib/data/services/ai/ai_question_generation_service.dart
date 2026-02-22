@@ -503,6 +503,12 @@ ${localizations.aiEvaluationPromptGeneralInstructions}
 
 ${localizations.aiEvaluationPromptResponseFormat}
 
+CRITICAL: You MUST respond ONLY with a valid JSON object in this exact format:
+{
+  "score": <integer from 0 to 100>,
+  "feedback": "<your detailed evaluation following the RESPONSE FORMAT rules above, formatted as a string>"
+}
+Do not include markdown blocks, explanations outside the JSON, or any other text.
 IMPORTANT: Respond strictly in the same language as the student's answer.
 ''';
 

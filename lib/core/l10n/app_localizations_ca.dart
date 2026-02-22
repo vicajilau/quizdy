@@ -485,24 +485,26 @@ class AppLocalizationsCa extends AppLocalizations {
       'Ho sento, hi ha hagut un error en processar la vostra pregunta. Torneu-ho a provar.';
 
   @override
-  String get evaluatingResponses => 'Evaluating responses...';
+  String get evaluatingResponses => 'Avaluant respostes...';
 
   @override
   String pendingEvaluationsCount(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count development questions pending AI evaluation',
-      one: '1 development question pending AI evaluation',
+      other:
+          '$count preguntes de desenvolupament pendents d\'avaluació per part de la IA',
+      one:
+          '1 pregunta de desenvolupament pendent d\'avaluació per part de la IA',
     );
     return '$_temp0';
   }
 
   @override
-  String get pendingStatus => 'Pending';
+  String get pendingStatus => 'Pendent';
 
   @override
-  String get notEvaluatedStatus => 'Not evaluated';
+  String get notEvaluatedStatus => 'No avaluada';
 
   @override
   String get configureApiKeyMessage =>
@@ -510,6 +512,9 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get errorLabel => 'Error:';
+
+  @override
+  String get retryButton => 'Reintentar avaluació';
 
   @override
   String get noResponseReceived => 'Cap resposta rebuda';

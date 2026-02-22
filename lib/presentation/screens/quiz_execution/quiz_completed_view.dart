@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
+import 'package:quiz_app/domain/models/quiz/question_type.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
@@ -322,7 +323,23 @@ class _QuizCompletedViewState extends State<QuizCompletedView> {
                   final result = entry.value;
 
                   double scoreDelta = 0.0;
-                  if (result.isCorrect) {
+                  if (result.question.type == QuestionType.essay) {
+                    final eval = widget.state.aiEvaluations[index];
+                    if (eval != null &&
+                        eval.isCompleted &&
+                        eval.score != null) {
+                      scoreDelta = eval.score! / 100.0; // Partial points
+                      if (eval.score! < 50 &&
+                          widget.state.quizConfig.subtractPoints) {
+                        scoreDelta -= widget.state.quizConfig.penaltyAmount;
+                      }
+                    } else if (eval?.isPending == true ||
+                        eval?.isNotEvaluated == true ||
+                        eval == null) {
+                      scoreDelta =
+                          1.0; // Standard optimistic points until evaluated
+                    }
+                  } else if (result.isCorrect) {
                     scoreDelta = 1.0;
                   } else if (result.isAnswered) {
                     // Answered but incorrect

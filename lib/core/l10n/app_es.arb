@@ -597,9 +597,31 @@
     "description": "Mensaje de error cuando falla la petición a IA"
   },
   "evaluatingResponses": "Evaluando respuestas...",
+  "@evaluatingResponses": {
+    "description": "Texto mostrado en la pantalla de resultados cuando las evaluaciones de IA están pendientes"
+  },
   "pendingEvaluationsCount": "{count, plural, =1{1 pregunta de desarrollo pendiente de evaluación por IA} other{{count} preguntas de desarrollo pendientes de evaluación por IA}}",
+  "@pendingEvaluationsCount": {
+    "description": "Subtítulo que muestra el número de evaluaciones de IA pendientes",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
   "pendingStatus": "Pendiente",
+  "@pendingStatus": {
+    "description": "Etiqueta de estado para una evaluación de IA pendiente"
+  },
   "notEvaluatedStatus": "Sin evaluar",
+  "@notEvaluatedStatus": {
+    "description": "Etiqueta de estado para una pregunta de ensayo que no fue evaluada por IA"
+  },
+  "retryButton": "Reintentar Evaluación",
+  "@retryButton": {
+    "description": "Texto del botón para reintentar una evaluación de IA"
+  },
   "configureApiKeyMessage": "Por favor, configura tu clave API de IA en Ajustes.",
   "@configureApiKeyMessage": {
     "description": "Mensaje para configurar clave API cuando no está establecida"

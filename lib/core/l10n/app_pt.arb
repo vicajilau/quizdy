@@ -1650,5 +1650,32 @@
   "@validationMax30DaysError": {
     "description": "Validation message indicating the time limit cannot exceed 30 days."
   },
-  "errorStatus": "Erro"
+  "errorStatus": "Erro",
+  "evaluatingResponses": "Avaliando respostas...",
+  "@evaluatingResponses": {
+    "description": "Texto exibido na tela de resultados quando as avaliações de IA estão pendentes"
+  },
+  "pendingEvaluationsCount": "{count, plural, =1{1 pergunta de desenvolvimento aguardando avaliação de IA} other{{count} perguntas de desenvolvimento aguardando avaliação de IA}}",
+  "@pendingEvaluationsCount": {
+    "description": "Subtítulo mostrando o número de avaliações de IA pendentes",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "pendingStatus": "Pendente",
+  "@pendingStatus": {
+    "description": "Rótulo de status para uma avaliação de IA pendente"
+  },
+  "notEvaluatedStatus": "Não avaliado",
+  "@notEvaluatedStatus": {
+    "description": "Rótulo de status para uma pergunta de ensaio que não foi avaliada por IA"
+  },
+  "retryButton": "Repetir avaliação",
+  "@retryButton": {
+    "description": "Texto do botão para repetir uma avaliação de IA"
+  }
 }
+```

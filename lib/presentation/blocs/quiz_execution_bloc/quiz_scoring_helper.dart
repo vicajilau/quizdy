@@ -1,3 +1,4 @@
+import 'package:quiz_app/domain/models/quiz/essay_ai_evaluation.dart';
 import 'package:quiz_app/domain/models/quiz/question.dart';
 import 'package:quiz_app/domain/models/quiz/question_type.dart';
 import 'package:quiz_app/domain/models/quiz/quiz_config.dart';
@@ -10,10 +11,18 @@ class QuizScoringHelper {
   static bool isAnswerCorrect(
     Question question,
     List<int> userAnswers,
-    String essayAnswer,
-  ) {
+    String essayAnswer, {
+    EssayAiEvaluation? aiEvaluation,
+  }) {
     if (question.type == QuestionType.essay) {
-      return essayAnswer.trim().isNotEmpty;
+      if (essayAnswer.trim().isEmpty) return false;
+      if (aiEvaluation == null ||
+          aiEvaluation.isNotEvaluated ||
+          aiEvaluation.isPending) {
+        return true; // Assume correct if not evaluated or pending
+      }
+      if (aiEvaluation.hasError) return false;
+      return (aiEvaluation.score ?? 0) >= 50; // Threshold for pass/fail
     }
 
     final correctAnswers = question.correctAnswers;
@@ -28,9 +37,10 @@ class QuizScoringHelper {
     List<Question> questions,
     Map<int, List<int>> userAnswers,
     Map<int, String> essayAnswers,
-    QuizConfig quizConfig,
-  ) {
-    int correctCount = 0;
+    QuizConfig quizConfig, {
+    Map<int, EssayAiEvaluation>? aiEvaluations,
+  }) {
+    double correctPoints = 0.0;
     int incorrectCount = 0;
     int unansweredCount = 0;
 
@@ -47,10 +57,24 @@ class QuizScoringHelper {
       }
 
       if (isAnswered) {
-        if (isAnswerCorrect(question, userAnswer, essayAnswer)) {
-          correctCount++;
+        if (question.type == QuestionType.essay) {
+          final eval = aiEvaluations?[i];
+          if (eval != null && eval.isCompleted && eval.score != null) {
+            correctPoints += eval.score! / 100.0;
+            // For penalty purposes, an essay is only incorrect if it explicitly failed (score < 50)
+            if (eval.score! < 50) {
+              incorrectCount++;
+            }
+          } else {
+            // Un-evaluated/pending essays count as fully correct temporarily
+            correctPoints += 1.0;
+          }
         } else {
-          incorrectCount++;
+          if (isAnswerCorrect(question, userAnswer, essayAnswer)) {
+            correctPoints += 1.0;
+          } else {
+            incorrectCount++;
+          }
         }
       } else {
         unansweredCount++;
@@ -61,20 +85,25 @@ class QuizScoringHelper {
     for (int i = 0; i < questions.length; i++) {
       final userAnswer = userAnswers[i] ?? [];
       final essayAnswer = essayAnswers[i] ?? '';
-      if (!isAnswerCorrect(questions[i], userAnswer, essayAnswer)) {
+      if (!isAnswerCorrect(
+        questions[i],
+        userAnswer,
+        essayAnswer,
+        aiEvaluation: aiEvaluations?[i],
+      )) {
         failedQuestions.add(questions[i]);
       }
     }
 
     final double score = calculateScore(
-      correctCount,
+      correctPoints,
       incorrectCount,
       questions.length,
       quizConfig,
     );
 
     return QuizResults(
-      correctAnswers: correctCount,
+      correctPoints: correctPoints,
       incorrectAnswers: incorrectCount,
       unansweredAnswers: unansweredCount,
       failedQuestions: failedQuestions,
@@ -84,7 +113,7 @@ class QuizScoringHelper {
 
   /// Calculates the final score percentage based on quiz results and config.
   static double calculateScore(
-    int correctAnswers,
+    double correctPoints,
     int incorrectAnswers,
     int totalQuestions,
     QuizConfig quizConfig,
@@ -94,7 +123,7 @@ class QuizScoringHelper {
         ? quizConfig.penaltyAmount
         : 0.0;
 
-    final double netScore = correctAnswers - (incorrectAnswers * penalty);
+    final double netScore = correctPoints - (incorrectAnswers * penalty);
     final double total = totalQuestions.toDouble();
     return total > 0 ? (netScore / total) * 100 : 0.0;
   }
@@ -102,14 +131,14 @@ class QuizScoringHelper {
 
 /// Holds the results of a quiz scoring calculation.
 class QuizResults {
-  final int correctAnswers;
+  final double correctPoints;
   final int incorrectAnswers;
   final int unansweredAnswers;
   final List<Question> failedQuestions;
   final double score;
 
   QuizResults({
-    required this.correctAnswers,
+    required this.correctPoints,
     required this.incorrectAnswers,
     required this.unansweredAnswers,
     required this.failedQuestions,

@@ -59,6 +59,13 @@ class EssayAiEvaluationReceived extends QuizExecutionEvent {
   EssayAiEvaluationReceived(this.questionIndex, this.evaluation);
 }
 
+class EssayAiEvaluationRetryRequested extends QuizExecutionEvent {
+  final int questionIndex;
+  final AppLocalizations localizations;
+
+  EssayAiEvaluationRetryRequested(this.questionIndex, this.localizations);
+}
+
 /// Event triggered when the user wants to jump to a specific question index.
 class JumpToQuestionRequested extends QuizExecutionEvent {
   final int index;

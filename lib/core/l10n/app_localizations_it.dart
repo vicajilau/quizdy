@@ -483,24 +483,24 @@ class AppLocalizationsIt extends AppLocalizations {
       'Scusa, si è verificato un errore nell\'elaborazione della tua domanda. Riprova.';
 
   @override
-  String get evaluatingResponses => 'Evaluating responses...';
+  String get evaluatingResponses => 'Valutazione delle risposte...';
 
   @override
   String pendingEvaluationsCount(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count development questions pending AI evaluation',
-      one: '1 development question pending AI evaluation',
+      other: '$count domande di sviluppo in attesa di valutazione IA',
+      one: '1 domanda di sviluppo in attesa di valutazione IA',
     );
     return '$_temp0';
   }
 
   @override
-  String get pendingStatus => 'Pending';
+  String get pendingStatus => 'In attesa';
 
   @override
-  String get notEvaluatedStatus => 'Not evaluated';
+  String get notEvaluatedStatus => 'Non valutato';
 
   @override
   String get configureApiKeyMessage =>
@@ -508,6 +508,9 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get errorLabel => 'Errore:';
+
+  @override
+  String get retryButton => 'Riprova valutazione';
 
   @override
   String get noResponseReceived => 'Nessuna risposta ricevuta';

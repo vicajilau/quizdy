@@ -477,24 +477,25 @@ class AppLocalizationsHi extends AppLocalizations {
       'क्षमा करें, आपके प्रश्न को प्रोसेस करने में त्रुटि हुई। कृपया पुनः प्रयास करें।';
 
   @override
-  String get evaluatingResponses => 'Evaluating responses...';
+  String get evaluatingResponses =>
+      'प्रतिक्रियाओं का मूल्यांकन किया जा रहा है...';
 
   @override
   String pendingEvaluationsCount(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count development questions pending AI evaluation',
-      one: '1 development question pending AI evaluation',
+      other: '$count निबंध प्रश्न AI मूल्यांकन के लिए लंबित हैं',
+      one: '1 निबंध प्रश्न AI मूल्यांकन के लिए लंबित है',
     );
     return '$_temp0';
   }
 
   @override
-  String get pendingStatus => 'Pending';
+  String get pendingStatus => 'लंबित';
 
   @override
-  String get notEvaluatedStatus => 'Not evaluated';
+  String get notEvaluatedStatus => 'मूल्यांकन नहीं किया गया';
 
   @override
   String get configureApiKeyMessage =>
@@ -502,6 +503,9 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get errorLabel => 'त्रुटि:';
+
+  @override
+  String get retryButton => 'मूल्यांकन पुन: प्रयास करें';
 
   @override
   String get noResponseReceived => 'कोई प्रतिक्रिया प्राप्त नहीं हुई';

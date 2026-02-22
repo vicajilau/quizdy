@@ -54,10 +54,7 @@ void main() {
         home: Center(
           child: SizedBox(
             width: 200,
-            child: LaTeXText(
-              longLatexText,
-              style: TextStyle(fontSize: 20),
-            ),
+            child: LaTeXText(longLatexText, style: TextStyle(fontSize: 20)),
           ),
         ),
       ),

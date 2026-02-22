@@ -32,8 +32,7 @@ class AiEvaluateButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: ElevatedButton.icon(
-        onPressed:
-            isEvaluating || selectedService == null ? null : onEvaluate,
+        onPressed: isEvaluating || selectedService == null ? null : onEvaluate,
         icon: isEvaluating
             ? const SizedBox(
                 width: 16,
@@ -55,23 +54,17 @@ class AiEvaluateButton extends StatelessWidget {
                 '(${selectedService!.serviceName})',
                 style: TextStyle(
                   fontSize: 10,
-                  color: Theme.of(context)
-                      .colorScheme
-                      .onPrimaryContainer
-                      .withValues(alpha: 0.7),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onPrimaryContainer.withValues(alpha: 0.7),
                 ),
               ),
           ],
         ),
         style: ElevatedButton.styleFrom(
-          backgroundColor:
-              Theme.of(context).colorScheme.primaryContainer,
-          foregroundColor:
-              Theme.of(context).colorScheme.onPrimaryContainer,
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 8,
-          ),
+          backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+          foregroundColor: Theme.of(context).colorScheme.onPrimaryContainer,
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         ),
       ),
     );

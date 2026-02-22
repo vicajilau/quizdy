@@ -667,6 +667,10 @@
   "@errorLabel": {
     "description": "Error label prefix for error messages"
   },
+  "retryButton": "Retry Evaluation",
+  "@retryButton": {
+    "description": "Button text to retry an AI evaluation"
+  },
   "noResponseReceived": "No response received",
   "@noResponseReceived": {
     "description": "Message when no response is received from AI"

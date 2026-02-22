@@ -461,30 +461,33 @@ class AppLocalizationsJa extends AppLocalizations {
   String get aiErrorResponse => '申し訳ございませんが、質問の処理中にエラーが発生しました。もう一度お試しください。';
 
   @override
-  String get evaluatingResponses => 'Evaluating responses...';
+  String get evaluatingResponses => '回答を評価中...';
 
   @override
   String pendingEvaluationsCount(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count development questions pending AI evaluation',
-      one: '1 development question pending AI evaluation',
+      other: '$countつの記述問題がAI評価待ちです',
+      one: '1つの記述問題がAI評価待ちです',
     );
     return '$_temp0';
   }
 
   @override
-  String get pendingStatus => 'Pending';
+  String get pendingStatus => '保留中';
 
   @override
-  String get notEvaluatedStatus => 'Not evaluated';
+  String get notEvaluatedStatus => '未評価';
 
   @override
   String get configureApiKeyMessage => '設定でAI APIキーを設定してください。';
 
   @override
   String get errorLabel => 'エラー：';
+
+  @override
+  String get retryButton => '評価を再試行';
 
   @override
   String get noResponseReceived => '応答を受信しませんでした';

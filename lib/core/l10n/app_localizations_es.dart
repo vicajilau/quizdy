@@ -511,6 +511,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get errorLabel => 'Error:';
 
   @override
+  String get retryButton => 'Reintentar Evaluación';
+
+  @override
   String get noResponseReceived => 'No se recibió respuesta';
 
   @override

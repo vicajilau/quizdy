@@ -1562,5 +1562,31 @@
   "remainingTimeWithWeeks": "{weeks}सप्ताह {days}दिन {hours}:{minutes}:{seconds}",
   "validationMax30DaysError": "अधिकतम 30 दिन",
   "validationMin0GenericError": "न्यूनतम 0",
-  "errorStatus": "Error"
+  "errorStatus": "Error",
+  "evaluatingResponses": "प्रतिक्रियाओं का मूल्यांकन किया जा रहा है...",
+  "@evaluatingResponses": {
+    "description": "एआई मूल्यांकन लंबित होने पर परिणाम स्क्रीन में दिखाया गया टेक्स्ट"
+  },
+  "pendingEvaluationsCount": "{count, plural, =1{1 निबंध प्रश्न AI मूल्यांकन के लिए लंबित है} other{{count} निबंध प्रश्न AI मूल्यांकन के लिए लंबित हैं}}",
+  "@pendingEvaluationsCount": {
+    "description": "लंबित एआई मूल्यांकनों की संख्या दिखाने वाला उपशीर्षक",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "pendingStatus": "लंबित",
+  "@pendingStatus": {
+    "description": "लंबित एआई मूल्यांकन के लिए स्थिति लेबल"
+  },
+  "notEvaluatedStatus": "मूल्यांकन नहीं किया गया",
+  "@notEvaluatedStatus": {
+    "description": "एक निबंध प्रश्न के लिए स्थिति लेबल जिसका एआई द्वारा मूल्यांकन नहीं किया गया था"
+  },
+  "retryButton": "मूल्यांकन पुन: प्रयास करें",
+  "@retryButton": {
+    "description": "एआई मूल्यांकन पुन: प्रयास करने के लिए बटन टेक्स्ट"
+  }
 }

@@ -19,10 +19,7 @@ class QuestionTypeIndicator extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         _buildIcon(context),
-        if (showText) ...[
-          const SizedBox(width: 6),
-          _buildText(context),
-        ],
+        if (showText) ...[const SizedBox(width: 6), _buildText(context)],
       ],
     );
   }

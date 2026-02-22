@@ -1,6 +1,8 @@
+import 'dart:convert';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quiz_app/domain/models/quiz/question.dart';
 import 'package:quiz_app/domain/models/quiz/question_type.dart';
+import 'package:quiz_app/core/l10n/app_localizations.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_scoring_helper.dart';
@@ -143,83 +145,12 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
 
     // Handle essay AI evaluation requested
     on<EssayAiEvaluationRequested>((event, emit) async {
-      final currentState = state;
-      final questionIndex = event.questionIndex;
-
-      // Get question and answer
-      Question? question;
-      String? answer;
-
-      if (currentState is QuizExecutionInProgress) {
-        if (questionIndex >= 0 &&
-            questionIndex < currentState.questions.length) {
-          question = currentState.questions[questionIndex];
-          answer = currentState.essayAnswers[questionIndex];
-        }
-      } else if (currentState is QuizExecutionCompleted) {
-        if (questionIndex >= 0 &&
-            questionIndex < currentState.questions.length) {
-          question = currentState.questions[questionIndex];
-          answer = currentState.essayAnswers[questionIndex];
-        }
-      }
-
-      if (question == null || answer == null || answer.trim().isEmpty) {
-        add(
-          EssayAiEvaluationReceived(
-            questionIndex,
-            EssayAiEvaluation.notEvaluated(),
-          ),
-        );
-        return;
-      }
-
-      try {
-        final availableServices = await AIServiceSelector.instance
-            .getAvailableServices();
-        if (availableServices.isEmpty) {
-          add(
-            EssayAiEvaluationReceived(
-              questionIndex,
-              EssayAiEvaluation.error(
-                event.localizations.aiAssistantRequiresApiKeyError,
-              ),
-            ),
-          );
-          return;
-        }
-
-        final service = availableServices.first;
-        final prompt = AiQuestionGenerationService.buildEvaluationPrompt(
-          question.text,
-          answer,
-          question.explanation,
-          event.localizations,
-        );
-
-        final evaluation = await service.getChatResponse(
-          prompt,
-          event.localizations,
-        );
-
-        add(
-          EssayAiEvaluationReceived(
-            questionIndex,
-            EssayAiEvaluation(evaluation: evaluation),
-          ),
-        );
-      } catch (e) {
-        add(
-          EssayAiEvaluationReceived(
-            questionIndex,
-            EssayAiEvaluation.error(
-              event.localizations.aiEvaluationError(
-                e.toString().cleanErrorMessage(),
-              ),
-            ),
-          ),
-        );
-      }
+      await _triggerAiEvaluation(
+        event.questionIndex,
+        event.localizations,
+        state,
+        emit,
+      );
     });
 
     // Handle essay AI evaluation received
@@ -241,6 +172,31 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
       } else if (currentState is QuizExecutionCompleted) {
         emit(currentState.copyWith(aiEvaluations: newAiEvaluations));
       }
+    });
+
+    // Handle retry for specific AI evaluation
+    on<EssayAiEvaluationRetryRequested>((event, emit) async {
+      final currentState = state;
+      final newAiEvaluations = Map<int, EssayAiEvaluation>.from(
+        currentState is QuizExecutionInProgress
+            ? currentState.aiEvaluations
+            : (currentState as QuizExecutionCompleted).aiEvaluations,
+      );
+
+      newAiEvaluations[event.questionIndex] = EssayAiEvaluation.pending();
+
+      if (currentState is QuizExecutionInProgress) {
+        emit(currentState.copyWith(aiEvaluations: newAiEvaluations));
+      } else if (currentState is QuizExecutionCompleted) {
+        emit(currentState.copyWith(aiEvaluations: newAiEvaluations));
+      }
+
+      await _triggerAiEvaluation(
+        event.questionIndex,
+        event.localizations,
+        state,
+        emit,
+      );
     });
 
     // Handle next question
@@ -352,12 +308,114 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
         userAnswers: currentState.userAnswers,
         essayAnswers: currentState.essayAnswers,
         aiEvaluations: aiEvaluations,
-        correctAnswers: results.correctAnswers,
+        correctAnswers: results.correctPoints.toInt(),
         totalQuestions: currentState.questions.length,
         score: results.score,
         quizConfig: currentState.quizConfig,
         wasLimitReached: currentState.wasLimitReached,
       ),
     );
+  }
+
+  Future<void> _triggerAiEvaluation(
+    int questionIndex,
+    AppLocalizations localizations,
+    QuizExecutionState currentState,
+    Emitter<QuizExecutionState> emit,
+  ) async {
+    // Extract question and answer from the current state securely
+    Question? question;
+    String? answer;
+
+    if (currentState is QuizExecutionInProgress) {
+      if (questionIndex >= 0 && questionIndex < currentState.questions.length) {
+        question = currentState.questions[questionIndex];
+        answer = currentState.essayAnswers[questionIndex];
+      }
+    } else if (currentState is QuizExecutionCompleted) {
+      if (questionIndex >= 0 && questionIndex < currentState.questions.length) {
+        question = currentState.questions[questionIndex];
+        answer = currentState.essayAnswers[questionIndex];
+      }
+    }
+
+    if (question == null || answer == null || answer.trim().isEmpty) {
+      add(
+        EssayAiEvaluationReceived(
+          questionIndex,
+          EssayAiEvaluation.notEvaluated(),
+        ),
+      );
+      return;
+    }
+
+    try {
+      final availableServices = await AIServiceSelector.instance
+          .getAvailableServices();
+      if (availableServices.isEmpty) {
+        add(
+          EssayAiEvaluationReceived(
+            questionIndex,
+            EssayAiEvaluation.error(
+              localizations.aiAssistantRequiresApiKeyError,
+            ),
+          ),
+        );
+        return;
+      }
+
+      final service = availableServices.first;
+      final prompt = AiQuestionGenerationService.buildEvaluationPrompt(
+        question.text,
+        answer,
+        question.explanation,
+        localizations,
+      );
+
+      final evaluationResponse = await service.getChatResponse(
+        prompt,
+        localizations,
+      );
+
+      String feedback = evaluationResponse;
+      int? parsedScore;
+
+      try {
+        // Attempt to parse the structured JSON response
+        String cleanContent = evaluationResponse.trim();
+        final startIndex = cleanContent.indexOf('{');
+        final endIndex = cleanContent.lastIndexOf('}');
+
+        if (startIndex != -1 && endIndex != -1) {
+          cleanContent = cleanContent.substring(startIndex, endIndex + 1);
+          final json = jsonDecode(cleanContent) as Map<String, dynamic>;
+
+          if (json.containsKey('score')) {
+            parsedScore = (json['score'] as num?)?.toInt();
+          }
+          if (json.containsKey('feedback')) {
+            feedback = json['feedback'].toString();
+          }
+        }
+      } catch (e) {
+        // Fallback if the AI fails to return proper JSON, we'll keep the full response as feedback.
+      }
+
+      add(
+        EssayAiEvaluationReceived(
+          questionIndex,
+          EssayAiEvaluation(evaluation: feedback, score: parsedScore),
+        ),
+      );
+    } catch (e) {
+      add(
+        EssayAiEvaluationReceived(
+          questionIndex,
+          EssayAiEvaluation.error(
+            localizations.aiEvaluationError(e.toString().cleanErrorMessage()),
+          ),
+        ),
+      );
+    }
   }
 }

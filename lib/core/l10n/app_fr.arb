@@ -1604,5 +1604,31 @@
   "remainingTimeWithWeeks": "{weeks}s {days}j {hours}:{minutes}:{seconds}",
   "validationMax30DaysError": "Maximum 30 jours",
   "validationMin0GenericError": "Minimum 0",
-  "errorStatus": "Erreur"
+  "errorStatus": "Erreur",
+  "evaluatingResponses": "Évaluation des réponses...",
+  "@evaluatingResponses": {
+    "description": "Texte affiché dans l'écran des résultats lorsque les évaluations de l'IA sont en attente"
+  },
+  "pendingEvaluationsCount": "{count, plural, =1{1 question de développement en attente d'évaluation par l'IA} other{{count} questions de développement en attente d'évaluation par l'IA}}",
+  "@pendingEvaluationsCount": {
+    "description": "Sous-titre indiquant le nombre d'évaluations d'IA en attente",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "pendingStatus": "En attente",
+  "@pendingStatus": {
+    "description": "Étiquette d'état pour une évaluation d'IA en attente"
+  },
+  "notEvaluatedStatus": "Non évalué",
+  "@notEvaluatedStatus": {
+    "description": "Étiquette d'état pour une question d'essai qui n'a pas été évaluée par l'IA"
+  },
+  "retryButton": "Réessayer l'évaluation",
+  "@retryButton": {
+    "description": "Texte du bouton pour réessayer une évaluation d'IA"
+  }
 }

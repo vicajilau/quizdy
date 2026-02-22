@@ -1559,5 +1559,31 @@
   "remainingTimeWithWeeks": "{weeks}a {days}e {hours}:{minutes}:{seconds}",
   "validationMax30DaysError": "Gehienez 30 egun",
   "validationMin0GenericError": "Gutxienez 0",
-  "errorStatus": "Error"
+  "errorStatus": "Error",
+  "evaluatingResponses": "Erantzunak baloratzen...",
+  "@evaluatingResponses": {
+    "description": "Emaitzen pantailan bistaratzen den testua IAren ebaluazioak zain daudenean"
+  },
+  "pendingEvaluationsCount": "{count, plural, =1{Garapen-galdera bat IA ebaluazioaren zain} other{{count} garapen-galdera IA ebaluazioaren zain}}",
+  "@pendingEvaluationsCount": {
+    "description": "Zain dauden IA ebaluazioen kopurua erakusten duen azpititulua",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "pendingStatus": "Zain",
+  "@pendingStatus": {
+    "description": "Zain dagoen IA ebaluazio baten egoera-etiketa"
+  },
+  "notEvaluatedStatus": "Ebaluatu gabea",
+  "@notEvaluatedStatus": {
+    "description": "IAk ebaluatu ez duen saiakera-galdera baten egoera-etiketa"
+  },
+  "retryButton": "Ebaluazioa berriro saiatu",
+  "@retryButton": {
+    "description": "IA ebaluazioa berriro saiatzeko botoiaren testua"
+  }
 }

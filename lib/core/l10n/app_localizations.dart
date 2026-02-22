@@ -968,6 +968,12 @@ abstract class AppLocalizations {
   /// **'Error:'**
   String get errorLabel;
 
+  /// Button text to retry an AI evaluation
+  ///
+  /// In en, this message translates to:
+  /// **'Retry Evaluation'**
+  String get retryButton;
+
   /// Message when no response is received from AI
   ///
   /// In en, this message translates to:

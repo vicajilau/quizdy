@@ -302,7 +302,8 @@ class _AiGenerateQuestionsDialogState extends State<AiGenerateQuestionsDialog> {
   }
 
   Future<void> _pasteFromClipboard() async {
-    final attachment = await ClipboardImageHelper.getClipboardImageAsAttachment();
+    final attachment =
+        await ClipboardImageHelper.getClipboardImageAsAttachment();
     if (!mounted) return;
     if (attachment != null) {
       setState(() {
@@ -423,5 +424,4 @@ class _AiGenerateQuestionsDialogState extends State<AiGenerateQuestionsDialog> {
       );
     }
   }
-
 }

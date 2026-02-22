@@ -506,6 +506,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get errorLabel => 'Error:';
 
   @override
+  String get retryButton => 'Retry Evaluation';
+
+  @override
   String get noResponseReceived => 'No response received';
 
   @override

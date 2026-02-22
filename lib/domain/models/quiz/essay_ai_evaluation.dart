@@ -18,11 +18,13 @@ class EssayAiEvaluation {
   final String? evaluation;
   final String? errorMessage;
   final EssayAiEvaluationStatus status;
+  final int? score;
 
   EssayAiEvaluation({
     this.evaluation,
     this.errorMessage,
     this.status = EssayAiEvaluationStatus.completed,
+    this.score,
   });
 
   /// Factory for a pending evaluation.
