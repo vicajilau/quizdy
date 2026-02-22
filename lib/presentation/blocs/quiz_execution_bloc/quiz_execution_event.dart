@@ -1,5 +1,7 @@
 import 'package:quiz_app/domain/models/quiz/question.dart';
 import 'package:quiz_app/domain/models/quiz/quiz_config.dart';
+import 'package:quiz_app/domain/models/quiz/essay_ai_evaluation.dart';
+import 'package:quiz_app/core/l10n/app_localizations.dart';
 
 /// Abstract class representing the base event for quiz execution operations.
 abstract class QuizExecutionEvent {}
@@ -37,10 +39,25 @@ class NextQuestionRequested extends QuizExecutionEvent {}
 class PreviousQuestionRequested extends QuizExecutionEvent {}
 
 /// Event triggered when the user submits the quiz.
-class QuizSubmitted extends QuizExecutionEvent {}
+class QuizSubmitted extends QuizExecutionEvent {
+  final bool isAiAvailable;
 
-/// Event triggered when the user wants to restart the quiz.
-class QuizRestarted extends QuizExecutionEvent {}
+  QuizSubmitted({this.isAiAvailable = false});
+}
+
+/// Event to request an AI evaluation for an essay question.
+class EssayAiEvaluationRequested extends QuizExecutionEvent {
+  final int questionIndex;
+  final AppLocalizations localizations;
+
+  EssayAiEvaluationRequested(this.questionIndex, this.localizations);
+}
+
+class EssayAiEvaluationReceived extends QuizExecutionEvent {
+  final int questionIndex;
+  final EssayAiEvaluation evaluation;
+  EssayAiEvaluationReceived(this.questionIndex, this.evaluation);
+}
 
 /// Event triggered when the user wants to jump to a specific question index.
 class JumpToQuestionRequested extends QuizExecutionEvent {
@@ -49,18 +66,8 @@ class JumpToQuestionRequested extends QuizExecutionEvent {
   JumpToQuestionRequested(this.index);
 }
 
-/// Event triggered when an AI evaluation for an essay is received.
-class EssayAiEvaluationReceived extends QuizExecutionEvent {
-  final int questionIndex;
-  final String? evaluation;
-  final String? errorMessage;
+/// Event triggered when the user wants to restart the quiz.
+class QuizRestarted extends QuizExecutionEvent {}
 
-  EssayAiEvaluationReceived({
-    required this.questionIndex,
-    this.evaluation,
-    this.errorMessage,
-  });
-}
-
-/// Event triggered when an AI evaluation for an essay starts.
-class EssayAiEvaluationStarted extends QuizExecutionEvent {}
+/// Event triggered when the user wants to retry only failed questions.
+class RetryFailedQuestionsRequested extends QuizExecutionEvent {}

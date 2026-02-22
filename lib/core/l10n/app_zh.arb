@@ -1610,5 +1610,6 @@
   "validationMax30DaysError": "最多30天",
   "@validationMax30DaysError": {
     "description": "Validation message indicating the time limit cannot exceed 30 days."
-  }
+  },
+  "errorStatus": "错误"
 }

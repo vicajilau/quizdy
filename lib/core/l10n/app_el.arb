@@ -516,5 +516,6 @@
   "remainingTimeWithDays": "{days}ημ {hours}:{minutes}:{seconds}",
   "remainingTimeWithWeeks": "{weeks}ε {days}ημ {hours}:{minutes}:{seconds}",
   "validationMax30DaysError": "Μέγιστο 30 ημέρες",
-  "validationMin0GenericError": "Minimum 0"
+  "validationMin0GenericError": "Minimum 0",
+  "errorStatus": "Error"
 }

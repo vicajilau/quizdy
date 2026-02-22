@@ -487,6 +487,26 @@ class AppLocalizationsFr extends AppLocalizations {
       'Désolé, il y a eu une erreur lors du traitement de votre question. Veuillez réessayer.';
 
   @override
+  String get evaluatingResponses => 'Evaluating responses...';
+
+  @override
+  String pendingEvaluationsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count development questions pending AI evaluation',
+      one: '1 development question pending AI evaluation',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get pendingStatus => 'Pending';
+
+  @override
+  String get notEvaluatedStatus => 'Not evaluated';
+
+  @override
   String get configureApiKeyMessage =>
       'Veuillez configurer votre clé API IA dans les Paramètres.';
 
@@ -1326,4 +1346,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get validationMin0GenericError => 'Minimum 0';
+
+  @override
+  String get errorStatus => 'Erreur';
 }

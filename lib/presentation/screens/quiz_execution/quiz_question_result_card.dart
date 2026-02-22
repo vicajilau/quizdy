@@ -5,6 +5,7 @@ import 'package:quiz_app/presentation/screens/quiz_execution/widgets/quiz_questi
 import 'package:quiz_app/presentation/screens/quiz_execution/widgets/quiz_question_options_result.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
 import 'package:quiz_app/domain/models/quiz/question_type.dart';
+import 'package:quiz_app/domain/models/quiz/essay_ai_evaluation.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
 import 'package:quiz_app/presentation/widgets/latex_text.dart';
 
@@ -26,6 +27,9 @@ class QuizQuestionResultCard extends StatelessWidget {
   /// Whether to show the score delta (e.g., +1, -0.5).
   final bool showScore;
 
+  /// The AI evaluation for this question, if it's an essay question.
+  final EssayAiEvaluation? aiEvaluation;
+
   /// Creates a [QuizQuestionResultCard] widget.
   const QuizQuestionResultCard({
     super.key,
@@ -33,6 +37,7 @@ class QuizQuestionResultCard extends StatelessWidget {
     required this.questionNumber,
     required this.scoreDelta,
     this.showScore = true,
+    this.aiEvaluation,
   });
 
   @override
@@ -71,6 +76,9 @@ class QuizQuestionResultCard extends StatelessWidget {
         ? Icons.remove
         : (result.isCorrect ? Icons.check : Icons.close);
 
+    final bool isPending = aiEvaluation?.isPending == true;
+    final bool isError = aiEvaluation?.hasError == true;
+
     return Card(
       elevation: 0,
       shape: RoundedRectangleBorder(
@@ -81,15 +89,46 @@ class QuizQuestionResultCard extends StatelessWidget {
       child: Theme(
         data: theme.copyWith(dividerColor: Colors.transparent),
         child: ExpansionTile(
-          leading: Container(
-            width: 32,
-            height: 32,
-            decoration: BoxDecoration(
-              color: statusColor.withValues(alpha: 0.1),
-              shape: BoxShape.circle,
-            ),
-            child: Icon(statusIcon, color: statusColor, size: 20),
-          ),
+          leading: isPending
+              ? Container(
+                  width: 32,
+                  height: 32,
+                  decoration: BoxDecoration(
+                    color: Colors.orange.withValues(alpha: 0.1),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Center(
+                    child: SizedBox(
+                      width: 14,
+                      height: 14,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          Colors.orange,
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              : isError
+              ? Container(
+                  width: 32,
+                  height: 32,
+                  decoration: BoxDecoration(
+                    color: errorColor.withValues(alpha: 0.1),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(Icons.error_outline, color: errorColor, size: 20),
+                )
+              : Container(
+                  width: 32,
+                  height: 32,
+                  decoration: BoxDecoration(
+                    color: statusColor.withValues(alpha: 0.1),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(statusIcon, color: statusColor, size: 20),
+                ),
           title: Text(
             AppLocalizations.of(context)!.questionNumber(questionNumber),
             style: theme.textTheme.titleSmall?.copyWith(
@@ -99,7 +138,29 @@ class QuizQuestionResultCard extends StatelessWidget {
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              if (showScore)
+              if (isPending || isError)
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 4,
+                  ),
+                  decoration: BoxDecoration(
+                    color: isPending
+                        ? Colors.orange.withValues(alpha: 0.1)
+                        : errorColor.withValues(alpha: 0.1),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Text(
+                    isPending
+                        ? AppLocalizations.of(context)!.pendingStatus
+                        : AppLocalizations.of(context)!.errorStatus,
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      color: isPending ? Colors.orange : errorColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                )
+              else if (showScore)
                 Container(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 8,

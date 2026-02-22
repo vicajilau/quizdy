@@ -1603,5 +1603,6 @@
   "remainingTimeWithDays": "{days}j {hours}:{minutes}:{seconds}",
   "remainingTimeWithWeeks": "{weeks}s {days}j {hours}:{minutes}:{seconds}",
   "validationMax30DaysError": "Maximum 30 jours",
-  "validationMin0GenericError": "Minimum 0"
+  "validationMin0GenericError": "Minimum 0",
+  "errorStatus": "Erreur"
 }

@@ -11,11 +11,13 @@ import 'package:quiz_app/presentation/screens/dialogs/submit_quiz_dialog.dart';
 class QuizNavigationButtons extends StatelessWidget {
   final QuizExecutionInProgress state;
   final bool isStudyMode;
+  final bool isAiAvailable;
 
   const QuizNavigationButtons({
     super.key,
     required this.state,
     this.isStudyMode = false,
+    this.isAiAvailable = false,
   });
 
   @override
@@ -85,6 +87,7 @@ class QuizNavigationButtons extends StatelessWidget {
                           SubmitQuizDialog.show(
                             context,
                             context.read<QuizExecutionBloc>(),
+                            isAiAvailable: isAiAvailable,
                           );
                         } else {
                           context.read<QuizExecutionBloc>().add(
@@ -98,6 +101,7 @@ class QuizNavigationButtons extends StatelessWidget {
                                 SubmitQuizDialog.show(
                                   context,
                                   context.read<QuizExecutionBloc>(),
+                                  isAiAvailable: isAiAvailable,
                                 );
                               } else {
                                 context.read<QuizExecutionBloc>().add(

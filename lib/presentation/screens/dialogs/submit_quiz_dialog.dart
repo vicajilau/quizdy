@@ -9,7 +9,11 @@ import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_s
 import 'package:quiz_app/presentation/screens/quiz_execution/questions_overview_bottom_sheet.dart';
 
 class SubmitQuizDialog {
-  static void show(BuildContext context, QuizExecutionBloc bloc) {
+  static void show(
+    BuildContext context,
+    QuizExecutionBloc bloc, {
+    bool isAiAvailable = false,
+  }) {
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -174,7 +178,9 @@ class SubmitQuizDialog {
                           child: ElevatedButton.icon(
                             onPressed: () {
                               context.pop();
-                              bloc.add(QuizSubmitted());
+                              bloc.add(
+                                QuizSubmitted(isAiAvailable: isAiAvailable),
+                              );
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: AppTheme.primaryColor,

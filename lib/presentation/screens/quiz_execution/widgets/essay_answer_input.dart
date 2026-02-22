@@ -5,6 +5,7 @@ import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_b
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
 import 'package:quiz_app/domain/models/quiz/question.dart';
+import 'package:quiz_app/domain/models/quiz/essay_ai_evaluation.dart';
 import 'package:quiz_app/data/services/ai/ai_service.dart';
 import 'package:quiz_app/data/services/ai/ai_service_selector.dart';
 import 'package:quiz_app/data/services/ai/ai_question_generation_service.dart';
@@ -130,8 +131,6 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
       _isEvaluating = true;
     });
 
-    context.read<QuizExecutionBloc>().add(EssayAiEvaluationStarted());
-
     try {
       final localizations = AppLocalizations.of(context)!;
       final studentAnswer = widget.currentAnswer;
@@ -152,8 +151,8 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
       if (mounted) {
         context.read<QuizExecutionBloc>().add(
           EssayAiEvaluationReceived(
-            questionIndex: widget.questionIndex,
-            evaluation: evaluation,
+            widget.questionIndex,
+            EssayAiEvaluation(evaluation: evaluation),
           ),
         );
       }
@@ -161,10 +160,12 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
       if (mounted) {
         context.read<QuizExecutionBloc>().add(
           EssayAiEvaluationReceived(
-            questionIndex: widget.questionIndex,
-            errorMessage: AppLocalizations.of(
-              context,
-            )!.aiEvaluationError(e.toString().cleanErrorMessage()),
+            widget.questionIndex,
+            EssayAiEvaluation.error(
+              AppLocalizations.of(
+                context,
+              )!.aiEvaluationError(e.toString().cleanErrorMessage()),
+            ),
           ),
         );
       }

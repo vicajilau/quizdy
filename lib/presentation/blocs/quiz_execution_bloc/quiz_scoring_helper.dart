@@ -28,6 +28,7 @@ class QuizScoringHelper {
     List<Question> questions,
     Map<int, List<int>> userAnswers,
     Map<int, String> essayAnswers,
+    QuizConfig quizConfig,
   ) {
     int correctCount = 0;
     int incorrectCount = 0;
@@ -56,10 +57,28 @@ class QuizScoringHelper {
       }
     }
 
+    final List<Question> failedQuestions = [];
+    for (int i = 0; i < questions.length; i++) {
+      final userAnswer = userAnswers[i] ?? [];
+      final essayAnswer = essayAnswers[i] ?? '';
+      if (!isAnswerCorrect(questions[i], userAnswer, essayAnswer)) {
+        failedQuestions.add(questions[i]);
+      }
+    }
+
+    final double score = calculateScore(
+      correctCount,
+      incorrectCount,
+      questions.length,
+      quizConfig,
+    );
+
     return QuizResults(
       correctAnswers: correctCount,
       incorrectAnswers: incorrectCount,
       unansweredAnswers: unansweredCount,
+      failedQuestions: failedQuestions,
+      score: score,
     );
   }
 
@@ -86,10 +105,14 @@ class QuizResults {
   final int correctAnswers;
   final int incorrectAnswers;
   final int unansweredAnswers;
+  final List<Question> failedQuestions;
+  final double score;
 
   QuizResults({
     required this.correctAnswers,
     required this.incorrectAnswers,
     required this.unansweredAnswers,
+    required this.failedQuestions,
+    required this.score,
   });
 }

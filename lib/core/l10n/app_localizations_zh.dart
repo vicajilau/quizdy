@@ -459,6 +459,26 @@ class AppLocalizationsZh extends AppLocalizations {
   String get aiErrorResponse => '抱歉，处理您的问题时出现错误。请重试。';
 
   @override
+  String get evaluatingResponses => 'Evaluating responses...';
+
+  @override
+  String pendingEvaluationsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count development questions pending AI evaluation',
+      one: '1 development question pending AI evaluation',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get pendingStatus => 'Pending';
+
+  @override
+  String get notEvaluatedStatus => 'Not evaluated';
+
+  @override
   String get configureApiKeyMessage => '请在设置中配置您的AI API密钥。';
 
   @override
@@ -1245,4 +1265,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get validationMin0GenericError => '至少 0';
+
+  @override
+  String get errorStatus => '错误';
 }

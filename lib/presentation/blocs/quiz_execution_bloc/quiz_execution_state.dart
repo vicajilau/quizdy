@@ -1,10 +1,21 @@
 import 'package:quiz_app/domain/models/quiz/question.dart';
 import 'package:quiz_app/domain/models/quiz/question_type.dart';
 import 'package:quiz_app/domain/models/quiz/quiz_config.dart';
+import 'package:quiz_app/domain/models/quiz/essay_ai_evaluation.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_scoring_helper.dart';
 
 /// Abstract class representing the base state for quiz execution.
-abstract class QuizExecutionState {}
+abstract class QuizExecutionState {
+  Map<int, EssayAiEvaluation> get aiEvaluations => {};
+
+  /// Get the number of pending AI evaluations
+  int get pendingAiEvaluationsCount =>
+      aiEvaluations.values.where((e) => e.isPending).length;
+
+  /// Whether any AI evaluation is currently pending
+  bool get hasPendingAiEvaluations =>
+      aiEvaluations.values.any((e) => e.isPending);
+}
 
 /// Initial state when no quiz execution is in progress.
 class QuizExecutionInitial extends QuizExecutionState {}
@@ -22,9 +33,10 @@ class QuizExecutionInProgress extends QuizExecutionState {
   final bool isStudyMode;
   final QuizConfig quizConfig;
   final int incorrectAnswersCount;
-  final Map<int, EssayAiEvaluation>
-  aiEvaluations; // questionIndex -> evaluation data
+  @override
+  final Map<int, EssayAiEvaluation> aiEvaluations; // questionIndex -> evaluation data
   final bool isAiEvaluating;
+  final bool wasLimitReached;
 
   QuizExecutionInProgress({
     required this.questions,
@@ -33,6 +45,7 @@ class QuizExecutionInProgress extends QuizExecutionState {
     required this.quizConfig,
     this.incorrectAnswersCount = 0,
     this.isAiEvaluating = false,
+    this.wasLimitReached = false,
     Map<int, String>? essayAnswers,
     Set<int>? validatedQuestions,
     Map<int, EssayAiEvaluation>? aiEvaluations,
@@ -108,6 +121,7 @@ class QuizExecutionInProgress extends QuizExecutionState {
     int? incorrectAnswersCount,
     Map<int, EssayAiEvaluation>? aiEvaluations,
     bool? isAiEvaluating,
+    bool? wasLimitReached,
   }) {
     return QuizExecutionInProgress(
       questions: questions ?? this.questions,
@@ -120,6 +134,7 @@ class QuizExecutionInProgress extends QuizExecutionState {
           incorrectAnswersCount ?? this.incorrectAnswersCount,
       aiEvaluations: aiEvaluations ?? this.aiEvaluations,
       isAiEvaluating: isAiEvaluating ?? this.isAiEvaluating,
+      wasLimitReached: wasLimitReached ?? this.wasLimitReached,
     );
   }
 }
@@ -129,6 +144,7 @@ class QuizExecutionCompleted extends QuizExecutionState {
   final List<Question> questions;
   final Map<int, List<int>> userAnswers;
   final Map<int, String> essayAnswers;
+  @override
   final Map<int, EssayAiEvaluation> aiEvaluations;
   final int correctAnswers;
   final int totalQuestions;
@@ -180,6 +196,39 @@ class QuizExecutionCompleted extends QuizExecutionState {
       );
     }).toList();
   }
+
+  @override
+  int get pendingAiEvaluationsCount =>
+      aiEvaluations.values.where((e) => e.isPending).length;
+
+  @override
+  bool get hasPendingAiEvaluations =>
+      aiEvaluations.values.any((e) => e.isPending);
+
+  /// Copy with method for state updates
+  QuizExecutionCompleted copyWith({
+    List<Question>? questions,
+    Map<int, List<int>>? userAnswers,
+    Map<int, String>? essayAnswers,
+    Map<int, EssayAiEvaluation>? aiEvaluations,
+    int? correctAnswers,
+    int? totalQuestions,
+    double? score,
+    QuizConfig? quizConfig,
+    bool? wasLimitReached,
+  }) {
+    return QuizExecutionCompleted(
+      questions: questions ?? this.questions,
+      userAnswers: userAnswers ?? this.userAnswers,
+      essayAnswers: essayAnswers ?? this.essayAnswers,
+      aiEvaluations: aiEvaluations ?? this.aiEvaluations,
+      correctAnswers: correctAnswers ?? this.correctAnswers,
+      totalQuestions: totalQuestions ?? this.totalQuestions,
+      score: score ?? this.score,
+      quizConfig: quizConfig ?? this.quizConfig,
+      wasLimitReached: wasLimitReached ?? this.wasLimitReached,
+    );
+  }
 }
 
 /// Class to represent individual question results
@@ -201,14 +250,4 @@ class QuestionResult {
     required this.isAnswered,
     this.aiEvaluation,
   });
-}
-
-/// Helper class to store AI evaluation data for essay questions.
-class EssayAiEvaluation {
-  final String? evaluation;
-  final String? errorMessage;
-
-  EssayAiEvaluation({this.evaluation, this.errorMessage});
-
-  bool get hasError => errorMessage != null;
 }

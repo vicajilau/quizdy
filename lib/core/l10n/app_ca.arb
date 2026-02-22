@@ -1660,5 +1660,6 @@
   "remainingTimeWithDays": "{days}d {hours}:{minutes}:{seconds}",
   "remainingTimeWithWeeks": "{weeks}s {days}d {hours}:{minutes}:{seconds}",
   "validationMax30DaysError": "Màxim 30 dies",
-  "validationMin0GenericError": "Mínim 0"
+  "validationMin0GenericError": "Mínim 0",
+  "errorStatus": "Error"
 }

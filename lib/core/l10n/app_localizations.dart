@@ -932,6 +932,30 @@ abstract class AppLocalizations {
   /// **'Sorry, there was an error processing your question. Please try again.'**
   String get aiErrorResponse;
 
+  /// Text shown in the results screen when AI evaluations are pending
+  ///
+  /// In en, this message translates to:
+  /// **'Evaluating responses...'**
+  String get evaluatingResponses;
+
+  /// Subtitle showing the number of pending AI evaluations
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 development question pending AI evaluation} other{{count} development questions pending AI evaluation}}'**
+  String pendingEvaluationsCount(int count);
+
+  /// Status label for a pending AI evaluation
+  ///
+  /// In en, this message translates to:
+  /// **'Pending'**
+  String get pendingStatus;
+
+  /// Status label for an essay question that was not evaluated by AI
+  ///
+  /// In en, this message translates to:
+  /// **'Not evaluated'**
+  String get notEvaluatedStatus;
+
   /// Message to configure API key when not set
   ///
   /// In en, this message translates to:
@@ -2370,6 +2394,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Minimum 0'**
   String get validationMin0GenericError;
+
+  /// Status label for a failed AI evaluation
+  ///
+  /// In en, this message translates to:
+  /// **'Error'**
+  String get errorStatus;
 }
 
 class _AppLocalizationsDelegate

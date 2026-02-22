@@ -1558,5 +1558,6 @@
   "remainingTimeWithDays": "{days}e {hours}:{minutes}:{seconds}",
   "remainingTimeWithWeeks": "{weeks}a {days}e {hours}:{minutes}:{seconds}",
   "validationMax30DaysError": "Gehienez 30 egun",
-  "validationMin0GenericError": "Gutxienez 0"
+  "validationMin0GenericError": "Gutxienez 0",
+  "errorStatus": "Error"
 }

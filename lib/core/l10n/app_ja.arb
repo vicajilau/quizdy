@@ -1561,5 +1561,6 @@
   "remainingTimeWithDays": "{days}日 {hours}:{minutes}:{seconds}",
   "remainingTimeWithWeeks": "{weeks}週 {days}日 {hours}:{minutes}:{seconds}",
   "validationMax30DaysError": "最大30日",
-  "validationMin0GenericError": "最小 0"
+  "validationMin0GenericError": "最小 0",
+  "errorStatus": "エラー"
 }

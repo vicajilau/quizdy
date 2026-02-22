@@ -485,6 +485,26 @@ class AppLocalizationsCa extends AppLocalizations {
       'Ho sento, hi ha hagut un error en processar la vostra pregunta. Torneu-ho a provar.';
 
   @override
+  String get evaluatingResponses => 'Evaluating responses...';
+
+  @override
+  String pendingEvaluationsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count development questions pending AI evaluation',
+      one: '1 development question pending AI evaluation',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get pendingStatus => 'Pending';
+
+  @override
+  String get notEvaluatedStatus => 'Not evaluated';
+
+  @override
   String get configureApiKeyMessage =>
       'Si us plau, configureu la vostra Clau API IA a la Configuració.';
 
@@ -1320,4 +1340,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get validationMin0GenericError => 'Mínim 0';
+
+  @override
+  String get errorStatus => 'Error';
 }

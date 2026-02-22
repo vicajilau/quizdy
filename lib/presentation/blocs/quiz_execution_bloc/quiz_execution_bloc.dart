@@ -1,8 +1,13 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quiz_app/domain/models/quiz/question.dart';
 import 'package:quiz_app/domain/models/quiz/question_type.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_scoring_helper.dart';
+import 'package:quiz_app/domain/models/quiz/essay_ai_evaluation.dart';
+import 'package:quiz_app/data/services/ai/ai_service_selector.dart';
+import 'package:quiz_app/data/services/ai/ai_question_generation_service.dart';
+import 'package:quiz_app/core/extensions/string_extensions.dart';
 
 /// BLoC for managing quiz execution state and logic.
 class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
@@ -70,6 +75,7 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
           currentState.questions,
           newUserAnswers,
           currentState.essayAnswers,
+          currentState.quizConfig,
         ).incorrectAnswers;
 
         final newState = currentState.copyWith(
@@ -98,6 +104,7 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
           currentState.questions,
           currentState.userAnswers,
           newEssayAnswers,
+          currentState.quizConfig,
         ).incorrectAnswers;
 
         final newState = currentState.copyWith(
@@ -134,32 +141,105 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
       }
     });
 
-    // Handle essay AI evaluation started
-    on<EssayAiEvaluationStarted>((event, emit) {
-      if (state is QuizExecutionInProgress) {
-        emit((state as QuizExecutionInProgress).copyWith(isAiEvaluating: true));
+    // Handle essay AI evaluation requested
+    on<EssayAiEvaluationRequested>((event, emit) async {
+      final currentState = state;
+      final questionIndex = event.questionIndex;
+
+      // Get question and answer
+      Question? question;
+      String? answer;
+
+      if (currentState is QuizExecutionInProgress) {
+        if (questionIndex >= 0 &&
+            questionIndex < currentState.questions.length) {
+          question = currentState.questions[questionIndex];
+          answer = currentState.essayAnswers[questionIndex];
+        }
+      } else if (currentState is QuizExecutionCompleted) {
+        if (questionIndex >= 0 &&
+            questionIndex < currentState.questions.length) {
+          question = currentState.questions[questionIndex];
+          answer = currentState.essayAnswers[questionIndex];
+        }
+      }
+
+      if (question == null || answer == null || answer.trim().isEmpty) {
+        add(
+          EssayAiEvaluationReceived(
+            questionIndex,
+            EssayAiEvaluation.notEvaluated(),
+          ),
+        );
+        return;
+      }
+
+      try {
+        final availableServices = await AIServiceSelector.instance
+            .getAvailableServices();
+        if (availableServices.isEmpty) {
+          add(
+            EssayAiEvaluationReceived(
+              questionIndex,
+              EssayAiEvaluation.error(
+                event.localizations.aiAssistantRequiresApiKeyError,
+              ),
+            ),
+          );
+          return;
+        }
+
+        final service = availableServices.first;
+        final prompt = AiQuestionGenerationService.buildEvaluationPrompt(
+          question.text,
+          answer,
+          question.explanation,
+          event.localizations,
+        );
+
+        final evaluation = await service.getChatResponse(
+          prompt,
+          event.localizations,
+        );
+
+        add(
+          EssayAiEvaluationReceived(
+            questionIndex,
+            EssayAiEvaluation(evaluation: evaluation),
+          ),
+        );
+      } catch (e) {
+        add(
+          EssayAiEvaluationReceived(
+            questionIndex,
+            EssayAiEvaluation.error(
+              event.localizations.aiEvaluationError(
+                e.toString().cleanErrorMessage(),
+              ),
+            ),
+          ),
+        );
       }
     });
 
     // Handle essay AI evaluation received
     on<EssayAiEvaluationReceived>((event, emit) {
-      if (state is QuizExecutionInProgress) {
-        final currentState = state as QuizExecutionInProgress;
-        final newAiEvaluations = Map<int, EssayAiEvaluation>.from(
-          currentState.aiEvaluations,
-        );
+      final currentState = state;
+      final newAiEvaluations = Map<int, EssayAiEvaluation>.from(
+        currentState.aiEvaluations,
+      );
 
-        newAiEvaluations[event.questionIndex] = EssayAiEvaluation(
-          evaluation: event.evaluation,
-          errorMessage: event.errorMessage,
-        );
+      newAiEvaluations[event.questionIndex] = event.evaluation;
 
+      if (currentState is QuizExecutionInProgress) {
         emit(
           currentState.copyWith(
             aiEvaluations: newAiEvaluations,
             isAiEvaluating: false,
           ),
         );
+      } else if (currentState is QuizExecutionCompleted) {
+        emit(currentState.copyWith(aiEvaluations: newAiEvaluations));
       }
     });
 
@@ -167,23 +247,10 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
     on<NextQuestionRequested>((event, emit) {
       if (state is QuizExecutionInProgress) {
         final currentState = state as QuizExecutionInProgress;
+        final nextIndex = currentState.currentQuestionIndex + 1;
 
-        // Check for max incorrect answers limit (Deferred Check)
-        if (!currentState.isStudyMode &&
-            currentState.quizConfig.enableMaxIncorrectAnswers &&
-            currentState.quizConfig.maxIncorrectAnswers != null &&
-            currentState.incorrectAnswersCount >=
-                currentState.quizConfig.maxIncorrectAnswers!) {
-          _emitQuizCompleted(emit, currentState, wasLimitReached: true);
-          return;
-        }
-
-        if (!currentState.isLastQuestion) {
-          emit(
-            currentState.copyWith(
-              currentQuestionIndex: currentState.currentQuestionIndex + 1,
-            ),
-          );
+        if (nextIndex < currentState.questions.length) {
+          emit(currentState.copyWith(currentQuestionIndex: nextIndex));
         }
       }
     });
@@ -192,12 +259,10 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
     on<PreviousQuestionRequested>((event, emit) {
       if (state is QuizExecutionInProgress) {
         final currentState = state as QuizExecutionInProgress;
-        if (!currentState.isFirstQuestion) {
-          emit(
-            currentState.copyWith(
-              currentQuestionIndex: currentState.currentQuestionIndex - 1,
-            ),
-          );
+        final prevIndex = currentState.currentQuestionIndex - 1;
+
+        if (prevIndex >= 0) {
+          emit(currentState.copyWith(currentQuestionIndex: prevIndex));
         }
       }
     });
@@ -206,82 +271,92 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
     on<QuizSubmitted>((event, emit) {
       if (state is QuizExecutionInProgress) {
         final currentState = state as QuizExecutionInProgress;
-
-        // Check for max incorrect answers limit (Deferred Check)
-        if (!currentState.isStudyMode &&
-            currentState.quizConfig.enableMaxIncorrectAnswers &&
-            currentState.quizConfig.maxIncorrectAnswers != null &&
-            currentState.incorrectAnswersCount >=
-                currentState.quizConfig.maxIncorrectAnswers!) {
-          _emitQuizCompleted(emit, currentState, wasLimitReached: true);
-        } else {
-          _emitQuizCompleted(emit, currentState);
-        }
+        _emitQuizCompleted(
+          emit,
+          currentState,
+          isAiAvailable: event.isAiAvailable,
+        );
       }
     });
 
     // Handle quiz restart
     on<QuizRestarted>((event, emit) {
       if (state is QuizExecutionCompleted) {
-        final completedState = state as QuizExecutionCompleted;
+        final currentState = state as QuizExecutionCompleted;
         emit(
           QuizExecutionInProgress(
-            questions: completedState.questions,
+            questions: currentState.questions,
             currentQuestionIndex: 0,
             userAnswers: {},
-            essayAnswers: {},
-            validatedQuestions: {},
-            aiEvaluations: {},
-            quizConfig: completedState.quizConfig,
+            quizConfig: currentState.quizConfig,
           ),
         );
       }
     });
+
+    // Handle retry failed questions
+    on<RetryFailedQuestionsRequested>((event, emit) {
+      if (state is QuizExecutionCompleted) {
+        final currentState = state as QuizExecutionCompleted;
+        final results = QuizScoringHelper.calculateResults(
+          currentState.questions,
+          currentState.userAnswers,
+          currentState.essayAnswers,
+          currentState.quizConfig,
+        );
+
+        if (results.failedQuestions.isNotEmpty) {
+          emit(
+            QuizExecutionInProgress(
+              questions: results.failedQuestions,
+              currentQuestionIndex: 0,
+              userAnswers: {},
+              quizConfig: currentState.quizConfig,
+            ),
+          );
+        }
+      }
+    });
   }
 
-  /// Helper to emit completion state
   void _emitQuizCompleted(
     Emitter<QuizExecutionState> emit,
     QuizExecutionInProgress currentState, {
-    bool wasLimitReached = false,
+    bool isAiAvailable = false,
   }) {
     final results = QuizScoringHelper.calculateResults(
       currentState.questions,
       currentState.userAnswers,
       currentState.essayAnswers,
-    );
-
-    // Re-evaluate wasLimitReached for the final result:
-    // Unanswered questions also count as failures for pass/fail.
-    bool finalLimitReached = wasLimitReached;
-    if (!finalLimitReached &&
-        currentState.quizConfig.enableMaxIncorrectAnswers &&
-        currentState.quizConfig.maxIncorrectAnswers != null) {
-      final totalFailures =
-          results.incorrectAnswers + results.unansweredAnswers;
-      if (totalFailures >= currentState.quizConfig.maxIncorrectAnswers!) {
-        finalLimitReached = true;
-      }
-    }
-
-    final scorePercentage = QuizScoringHelper.calculateScore(
-      results.correctAnswers,
-      results.incorrectAnswers,
-      currentState.totalQuestions,
       currentState.quizConfig,
     );
+
+    // Initialize AI evaluations map for essay questions
+    final aiEvaluations = <int, EssayAiEvaluation>{};
+    for (int i = 0; i < currentState.questions.length; i++) {
+      if (currentState.questions[i].type == QuestionType.essay) {
+        final answer = currentState.essayAnswers[i];
+        if (answer != null && answer.trim().isNotEmpty) {
+          if (isAiAvailable) {
+            aiEvaluations[i] = EssayAiEvaluation.pending();
+          } else {
+            aiEvaluations[i] = EssayAiEvaluation.notEvaluated();
+          }
+        }
+      }
+    }
 
     emit(
       QuizExecutionCompleted(
         questions: currentState.questions,
         userAnswers: currentState.userAnswers,
         essayAnswers: currentState.essayAnswers,
+        aiEvaluations: aiEvaluations,
         correctAnswers: results.correctAnswers,
-        totalQuestions: currentState.totalQuestions,
+        totalQuestions: currentState.questions.length,
+        score: results.score,
         quizConfig: currentState.quizConfig,
-        score: scorePercentage,
-        wasLimitReached: finalLimitReached,
-        aiEvaluations: currentState.aiEvaluations,
+        wasLimitReached: currentState.wasLimitReached,
       ),
     );
   }

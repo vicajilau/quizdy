@@ -8,10 +8,40 @@ import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_s
 import 'package:quiz_app/presentation/screens/quiz_execution/quiz_question_result_card.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/widgets/quiz_completed_buttons.dart';
 
-class QuizCompletedView extends StatelessWidget {
+class QuizCompletedView extends StatefulWidget {
   const QuizCompletedView({super.key, required this.state});
 
   final QuizExecutionCompleted state;
+
+  @override
+  State<QuizCompletedView> createState() => _QuizCompletedViewState();
+}
+
+class _QuizCompletedViewState extends State<QuizCompletedView> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        _triggerEvaluations();
+      }
+    });
+  }
+
+  void _triggerEvaluations() {
+    if (widget.state.hasPendingAiEvaluations) {
+      final bloc = context.read<QuizExecutionBloc>();
+      final pendingIndices = widget.state.aiEvaluations.entries
+          .where((e) => e.value.isPending)
+          .map((e) => e.key)
+          .toList();
+
+      final localizations = AppLocalizations.of(context)!;
+      for (final index in pendingIndices) {
+        bloc.add(EssayAiEvaluationRequested(index, localizations));
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +59,50 @@ class QuizCompletedView extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                state.wasLimitReached
-                    ? AppLocalizations.of(context)!.quizFailedLimitReached
-                    : AppLocalizations.of(context)!.quizCompleted,
-                style: theme.textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.bold,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      widget.state.wasLimitReached
+                          ? AppLocalizations.of(context)!.quizFailedLimitReached
+                          : (widget.state.hasPendingAiEvaluations
+                                ? AppLocalizations.of(
+                                    context,
+                                  )!.evaluatingResponses
+                                : AppLocalizations.of(context)!.quizCompleted),
+                      style: theme.textTheme.headlineSmall?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    if (widget.state.hasPendingAiEvaluations) ...[
+                      const SizedBox(height: 4),
+                      Text(
+                        AppLocalizations.of(context)!.pendingEvaluationsCount(
+                          widget.state.pendingAiEvaluationsCount,
+                        ),
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: secondaryTextColor,
+                        ),
+                      ),
+                    ],
+                  ],
                 ),
               ),
+              if (widget.state.hasPendingAiEvaluations)
+                Padding(
+                  padding: const EdgeInsets.only(right: 16.0),
+                  child: SizedBox(
+                    width: 20,
+                    height: 20,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        theme.primaryColor,
+                      ),
+                    ),
+                  ),
+                ),
               Container(
                 decoration: BoxDecoration(
                   color: theme.cardColor,
@@ -72,73 +138,96 @@ class QuizCompletedView extends StatelessWidget {
                   child: Column(
                     children: [
                       // Status Display (Pass/Fail vs Score)
+                      // Status Display (Pass/Fail vs Score)
                       Stack(
                         alignment: Alignment.center,
                         children: [
-                          if (!state.quizConfig.enableMaxIncorrectAnswers)
+                          if (widget.state.hasPendingAiEvaluations)
+                            SizedBox(
+                              width: 120,
+                              height: 120,
+                              child: CircularProgressIndicator(
+                                strokeWidth: 12,
+                                backgroundColor: const Color(0xFF3F3F46),
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  theme.primaryColor,
+                                ),
+                                strokeCap: StrokeCap.round,
+                              ),
+                            )
+                          else if (!widget
+                              .state
+                              .quizConfig
+                              .enableMaxIncorrectAnswers)
                             SizedBox(
                               width: 140,
                               height: 140,
                               child: CircularProgressIndicator(
-                                value: state.score / 100,
+                                value: widget.state.score / 100,
                                 strokeWidth: 12,
                                 backgroundColor: theme.dividerColor.withValues(
                                   alpha: 0.1,
                                 ),
                                 valueColor: AlwaysStoppedAnimation<Color>(
-                                  (state.score >= 70 && !state.wasLimitReached)
+                                  (widget.state.score >= 70 &&
+                                          !widget.state.wasLimitReached)
                                       ? successColor
                                       : alertColor,
                                 ),
                                 strokeCap: StrokeCap.round,
                               ),
                             ),
-                          if (state.quizConfig.enableMaxIncorrectAnswers)
+                          if (!widget.state.hasPendingAiEvaluations &&
+                              widget.state.quizConfig.enableMaxIncorrectAnswers)
                             Container(
                               width: 140,
                               height: 140,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 border: Border.all(
-                                  color: state.wasLimitReached
+                                  color: widget.state.wasLimitReached
                                       ? alertColor
                                       : successColor,
                                   width: 4,
                                 ),
                                 color:
-                                    (state.wasLimitReached
+                                    (widget.state.wasLimitReached
                                             ? alertColor
                                             : successColor)
                                         .withValues(alpha: 0.1),
                               ),
                               child: Icon(
-                                state.wasLimitReached
+                                widget.state.wasLimitReached
                                     ? Icons.cancel
                                     : Icons.check_circle,
-                                color: state.wasLimitReached
+                                color: widget.state.wasLimitReached
                                     ? alertColor
                                     : successColor,
                                 size: 64,
                               ),
                             ),
-                          if (!state.quizConfig.enableMaxIncorrectAnswers)
+                          if (!widget.state.hasPendingAiEvaluations &&
+                              !widget
+                                  .state
+                                  .quizConfig
+                                  .enableMaxIncorrectAnswers)
                             Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Text(
-                                  '${state.score % 1 == 0 ? state.score.toStringAsFixed(0) : state.score.toStringAsFixed(1)}%',
+                                  '${widget.state.score % 1 == 0 ? widget.state.score.toStringAsFixed(0) : widget.state.score.toStringAsFixed(1)}%',
                                   style: theme.textTheme.headlineMedium
                                       ?.copyWith(
                                         fontWeight: FontWeight.bold,
                                         color:
-                                            (state.score >= 70 &&
-                                                !state.wasLimitReached)
+                                            (widget.state.score >= 70 &&
+                                                !widget.state.wasLimitReached)
                                             ? successColor
                                             : alertColor,
                                       ),
                                 ),
                                 Text(
-                                  '${state.correctAnswers}/${state.totalQuestions}',
+                                  '${widget.state.correctAnswers}/${widget.state.totalQuestions}',
                                   style: theme.textTheme.bodyMedium?.copyWith(
                                     color: secondaryTextColor,
                                   ),
@@ -148,52 +237,79 @@ class QuizCompletedView extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 24),
-                      if (state.quizConfig.enableMaxIncorrectAnswers)
+                      if (widget.state.hasPendingAiEvaluations) ...[
                         Text(
-                          state.wasLimitReached
-                              ? AppLocalizations.of(context)!.examFailedStatus
-                              : AppLocalizations.of(context)!.examPassedStatus,
-                          style: theme.textTheme.headlineMedium?.copyWith(
-                            fontWeight: FontWeight.w900,
-                            letterSpacing: 2,
-                            color: state.wasLimitReached
-                                ? alertColor
-                                : successColor,
+                          AppLocalizations.of(context)!.evaluatingResponses,
+                          style: theme.textTheme.headlineSmall?.copyWith(
+                            fontWeight: FontWeight.bold,
                           ),
                           textAlign: TextAlign.center,
                         ),
-                      if (state.quizConfig.enableMaxIncorrectAnswers)
                         const SizedBox(height: 12),
-                      Text(
-                        state.quizConfig.enableMaxIncorrectAnswers
-                            ? (state.wasLimitReached
-                                  ? AppLocalizations.of(context)!.keepPracticing
-                                  : AppLocalizations.of(
-                                      context,
-                                    )!.congratulations)
-                            : ((state.score >= 70 && !state.wasLimitReached)
-                                  ? AppLocalizations.of(
-                                      context,
-                                    )!.congratulations
-                                  : AppLocalizations.of(
-                                      context,
-                                    )!.keepPracticing),
-                        style: theme.textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.bold,
+                        Text(
+                          AppLocalizations.of(context)!.pendingEvaluationsCount(
+                            widget.state.pendingAiEvaluationsCount,
+                          ),
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            color: secondaryTextColor,
+                          ),
+                          textAlign: TextAlign.center,
                         ),
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        AppLocalizations.of(context)!.correctAnswers(
-                          state.correctAnswers,
-                          state.totalQuestions,
+                      ] else ...[
+                        if (widget.state.quizConfig.enableMaxIncorrectAnswers)
+                          Text(
+                            widget.state.wasLimitReached
+                                ? AppLocalizations.of(context)!.examFailedStatus
+                                : AppLocalizations.of(
+                                    context,
+                                  )!.examPassedStatus,
+                            style: theme.textTheme.headlineMedium?.copyWith(
+                              fontWeight: FontWeight.w900,
+                              letterSpacing: 2,
+                              color: widget.state.wasLimitReached
+                                  ? alertColor
+                                  : successColor,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        if (widget.state.quizConfig.enableMaxIncorrectAnswers)
+                          const SizedBox(height: 12),
+                        Text(
+                          widget.state.quizConfig.enableMaxIncorrectAnswers
+                              ? (widget.state.wasLimitReached
+                                    ? AppLocalizations.of(
+                                        context,
+                                      )!.keepPracticing
+                                    : AppLocalizations.of(
+                                        context,
+                                      )!.congratulations)
+                              : ((widget.state.score >= 70 &&
+                                        !widget.state.wasLimitReached)
+                                    ? AppLocalizations.of(
+                                        context,
+                                      )!.congratulations
+                                    : AppLocalizations.of(
+                                        context,
+                                      )!.keepPracticing),
+                          style: theme.textTheme.titleLarge?.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
                         ),
-                        textAlign: TextAlign.center,
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          color: secondaryTextColor,
+                      ],
+                      if (!widget.state.hasPendingAiEvaluations) ...[
+                        const SizedBox(height: 8),
+                        Text(
+                          AppLocalizations.of(context)!.correctAnswers(
+                            widget.state.correctAnswers,
+                            widget.state.totalQuestions,
+                          ),
+                          textAlign: TextAlign.center,
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            color: secondaryTextColor,
+                          ),
                         ),
-                      ),
+                      ],
                     ],
                   ),
                 ),
@@ -201,7 +317,7 @@ class QuizCompletedView extends StatelessWidget {
                 const SizedBox(height: 32),
 
                 // Question results
-                ...state.questionResults.asMap().entries.map((entry) {
+                ...widget.state.questionResults.asMap().entries.map((entry) {
                   final index = entry.key;
                   final result = entry.value;
 
@@ -210,8 +326,8 @@ class QuizCompletedView extends StatelessWidget {
                     scoreDelta = 1.0;
                   } else if (result.isAnswered) {
                     // Answered but incorrect
-                    if (state.quizConfig.subtractPoints) {
-                      scoreDelta = -state.quizConfig.penaltyAmount;
+                    if (widget.state.quizConfig.subtractPoints) {
+                      scoreDelta = -widget.state.quizConfig.penaltyAmount;
                     }
                   }
 
@@ -221,7 +337,9 @@ class QuizCompletedView extends StatelessWidget {
                       result: result,
                       questionNumber: index + 1,
                       scoreDelta: scoreDelta,
-                      showScore: !state.quizConfig.enableMaxIncorrectAnswers,
+                      showScore:
+                          !widget.state.quizConfig.enableMaxIncorrectAnswers,
+                      aiEvaluation: widget.state.aiEvaluations[index],
                     ),
                   );
                 }),
@@ -284,13 +402,13 @@ class QuizCompletedView extends StatelessWidget {
 
   /// Check if there are any incorrect answers
   bool _hasIncorrectAnswers() {
-    return state.questionResults.any((result) => !result.isCorrect);
+    return widget.state.questionResults.any((result) => !result.isCorrect);
   }
 
   /// Start a new quiz with only the failed questions
   void _startFailedQuestionsQuiz(BuildContext context) {
     // Get only the questions that were answered incorrectly
-    final failedQuestions = state.questionResults
+    final failedQuestions = widget.state.questionResults
         .where((result) => !result.isCorrect)
         .map((result) => result.question)
         .toList();
@@ -299,7 +417,10 @@ class QuizCompletedView extends StatelessWidget {
       // Start a new quiz with only the failed questions
       final bloc = BlocProvider.of<QuizExecutionBloc>(context);
       bloc.add(
-        QuizExecutionStarted(failedQuestions, quizConfig: state.quizConfig),
+        QuizExecutionStarted(
+          failedQuestions,
+          quizConfig: widget.state.quizConfig,
+        ),
       );
     }
   }

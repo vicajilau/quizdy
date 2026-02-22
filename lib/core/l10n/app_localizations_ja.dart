@@ -461,6 +461,26 @@ class AppLocalizationsJa extends AppLocalizations {
   String get aiErrorResponse => '申し訳ございませんが、質問の処理中にエラーが発生しました。もう一度お試しください。';
 
   @override
+  String get evaluatingResponses => 'Evaluating responses...';
+
+  @override
+  String pendingEvaluationsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count development questions pending AI evaluation',
+      one: '1 development question pending AI evaluation',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get pendingStatus => 'Pending';
+
+  @override
+  String get notEvaluatedStatus => 'Not evaluated';
+
+  @override
   String get configureApiKeyMessage => '設定でAI APIキーを設定してください。';
 
   @override
@@ -1253,4 +1273,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get validationMin0GenericError => '最小 0';
+
+  @override
+  String get errorStatus => 'エラー';
 }

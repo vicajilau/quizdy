@@ -5,6 +5,7 @@ import 'package:quiz_app/data/services/ai/ai_question_generation_service.dart';
 import 'package:quiz_app/data/services/ai/ai_service.dart';
 import 'package:quiz_app/data/services/ai/ai_service_selector.dart';
 import 'package:quiz_app/data/services/configuration_service.dart';
+import 'package:quiz_app/domain/models/quiz/essay_ai_evaluation.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/widgets/ai_evaluate_button.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/widgets/ai_evaluation_result.dart';
@@ -164,42 +165,92 @@ class _QuizQuestionEssayResultState extends State<QuizQuestionEssayResult> {
                   : FontStyle.italic,
             ),
           ),
-          // AI Evaluation Button for essay questions
-          if (_isAIEnabled &&
-              _hasAPIKey &&
-              widget.result.essayAnswer.trim().isNotEmpty) ...[
+
+          // Show AI evaluation if available in result or local state
+          if (_isAIEnabled && _hasAPIKey) ...[
             const SizedBox(height: 12),
-            AiServiceSelector(
-              availableServices: _availableServices,
-              selectedService: _selectedService,
-              onServiceChanged: (newService) {
-                setState(() {
-                  _selectedService = newService;
-                  _aiEvaluation = null;
-                });
-              },
-            ),
-            if (_errorMessage != null || _aiEvaluation == null)
-              AiEvaluateButton(
-                isEvaluating: _isEvaluating,
-                selectedService: _selectedService,
-                availableServicesCount: _availableServices.length,
-                onEvaluate: _evaluateEssayWithAI,
-              ),
-          ],
-          // Show AI evaluation if available
-          if ((_aiEvaluation != null || _errorMessage != null) &&
-              !_isEvaluating) ...[
-            const SizedBox(height: 12),
-            AiEvaluationResult(
-              aiEvaluation: _aiEvaluation,
-              errorMessage: _errorMessage,
-              selectedService: _selectedService,
-              showServiceBadge: true,
-            ),
+            _buildAiEvaluationContent(),
           ],
         ],
       ),
     );
+  }
+
+  Widget _buildAiEvaluationContent() {
+    final aiEvaluation = widget.result.aiEvaluation;
+    final status = aiEvaluation?.status ?? EssayAiEvaluationStatus.notEvaluated;
+
+    // 1. Handle Pending State
+    if (status == EssayAiEvaluationStatus.pending || _isEvaluating) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Row(
+          children: [
+            const SizedBox(
+              width: 16,
+              height: 16,
+              child: CircularProgressIndicator(strokeWidth: 2),
+            ),
+            const SizedBox(width: 8),
+            Text(
+              AppLocalizations.of(context)!.aiThinking,
+              style: TextStyle(
+                fontSize: 14,
+                fontStyle: FontStyle.italic,
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    // 2. Handle Completed State (from AI evaluation in result)
+    if (aiEvaluation != null &&
+        (aiEvaluation.isCompleted || aiEvaluation.hasError)) {
+      return AiEvaluationResult(
+        aiEvaluation: aiEvaluation.evaluation,
+        errorMessage: aiEvaluation.errorMessage,
+        selectedService: _selectedService,
+        showServiceBadge: true,
+      );
+    }
+
+    // 3. Handle Local Evaluation (manual trigger)
+    if (_aiEvaluation != null || _errorMessage != null) {
+      return AiEvaluationResult(
+        aiEvaluation: _aiEvaluation,
+        errorMessage: _errorMessage,
+        selectedService: _selectedService,
+        showServiceBadge: true,
+      );
+    }
+
+    // 4. Handle Not Evaluated / Action required
+    if (widget.result.essayAnswer.trim().isNotEmpty) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AiServiceSelector(
+            availableServices: _availableServices,
+            selectedService: _selectedService,
+            onServiceChanged: (newService) {
+              setState(() {
+                _selectedService = newService;
+                _aiEvaluation = null;
+              });
+            },
+          ),
+          AiEvaluateButton(
+            isEvaluating: _isEvaluating,
+            selectedService: _selectedService,
+            availableServicesCount: _availableServices.length,
+            onEvaluate: _evaluateEssayWithAI,
+          ),
+        ],
+      );
+    }
+
+    return const SizedBox.shrink();
   }
 }

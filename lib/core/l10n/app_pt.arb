@@ -1649,5 +1649,6 @@
   "validationMax30DaysError": "Máximo 30 dias",
   "@validationMax30DaysError": {
     "description": "Validation message indicating the time limit cannot exceed 30 days."
-  }
+  },
+  "errorStatus": "Erro"
 }

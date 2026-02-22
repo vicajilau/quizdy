@@ -474,6 +474,26 @@ class AppLocalizationsAr extends AppLocalizations {
       'عذراً، حدث خطأ في معالجة سؤالك. يرجى المحاولة مرة أخرى.';
 
   @override
+  String get evaluatingResponses => 'Evaluating responses...';
+
+  @override
+  String pendingEvaluationsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count development questions pending AI evaluation',
+      one: '1 development question pending AI evaluation',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get pendingStatus => 'Pending';
+
+  @override
+  String get notEvaluatedStatus => 'Not evaluated';
+
+  @override
   String get configureApiKeyMessage =>
       'يرجى تكوين مفتاح API للذكاء الاصطناعي في الإعدادات.';
 
@@ -1294,4 +1314,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get validationMin0GenericError => 'بحد أدنى 0';
+
+  @override
+  String get errorStatus => 'خطأ';
 }

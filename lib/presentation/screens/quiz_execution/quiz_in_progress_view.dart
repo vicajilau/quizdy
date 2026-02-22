@@ -95,7 +95,10 @@ class _QuizInProgressViewState extends State<QuizInProgressView>
     }
     if (prefillText != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        _chatPanelKey.currentState?.prefillQuestion(prefillText, autoSend: true);
+        _chatPanelKey.currentState?.prefillQuestion(
+          prefillText,
+          autoSend: true,
+        );
       });
     }
   }
@@ -265,6 +268,7 @@ class _QuizInProgressViewState extends State<QuizInProgressView>
                   child: QuizNavigationButtons(
                     state: widget.state,
                     isStudyMode: isStudyMode,
+                    isAiAvailable: _isAiAvailable,
                   ),
                 ),
               ),

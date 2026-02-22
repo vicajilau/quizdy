@@ -1618,5 +1618,6 @@
   "remainingTimeWithDays": "{days}ي {hours}:{minutes}:{seconds}",
   "remainingTimeWithWeeks": "{weeks}أ {days}ي {hours}:{minutes}:{seconds}",
   "validationMax30DaysError": "كحد أقصى 30 يومًا",
-  "validationMin0GenericError": "بحد أدنى 0"
+  "validationMin0GenericError": "بحد أدنى 0",
+  "errorStatus": "خطأ"
 }

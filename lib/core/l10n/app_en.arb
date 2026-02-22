@@ -637,6 +637,28 @@
   "@aiErrorResponse": {
     "description": "Error message when AI request fails"
   },
+  "evaluatingResponses": "Evaluating responses...",
+  "@evaluatingResponses": {
+    "description": "Text shown in the results screen when AI evaluations are pending"
+  },
+  "pendingEvaluationsCount": "{count, plural, =1{1 development question pending AI evaluation} other{{count} development questions pending AI evaluation}}",
+  "@pendingEvaluationsCount": {
+    "description": "Subtitle showing the number of pending AI evaluations",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "pendingStatus": "Pending",
+  "@pendingStatus": {
+    "description": "Status label for a pending AI evaluation"
+  },
+  "notEvaluatedStatus": "Not evaluated",
+  "@notEvaluatedStatus": {
+    "description": "Status label for an essay question that was not evaluated by AI"
+  },
   "configureApiKeyMessage": "Please configure your AI API Key in Settings.",
   "@configureApiKeyMessage": {
     "description": "Message to configure API key when not set"
@@ -1796,5 +1818,9 @@
   "validationMin0GenericError": "Minimum 0",
   "@validationMin0GenericError": {
     "description": "Error message when a field requires a minimum value of 0 without specifying units."
+  },
+  "errorStatus": "Error",
+  "@errorStatus": {
+    "description": "Status label for a failed AI evaluation"
   }
 }

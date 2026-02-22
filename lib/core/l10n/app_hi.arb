@@ -1561,5 +1561,6 @@
   "remainingTimeWithDays": "{days}दिन {hours}:{minutes}:{seconds}",
   "remainingTimeWithWeeks": "{weeks}सप्ताह {days}दिन {hours}:{minutes}:{seconds}",
   "validationMax30DaysError": "अधिकतम 30 दिन",
-  "validationMin0GenericError": "न्यूनतम 0"
+  "validationMin0GenericError": "न्यूनतम 0",
+  "errorStatus": "Error"
 }

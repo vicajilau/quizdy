@@ -482,6 +482,26 @@ class AppLocalizationsEu extends AppLocalizations {
       'Barkatu, errore bat izan da zure galdera prozesatzean. Saiatu berriro.';
 
   @override
+  String get evaluatingResponses => 'Evaluating responses...';
+
+  @override
+  String pendingEvaluationsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count development questions pending AI evaluation',
+      one: '1 development question pending AI evaluation',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get pendingStatus => 'Pending';
+
+  @override
+  String get notEvaluatedStatus => 'Not evaluated';
+
+  @override
   String get configureApiKeyMessage =>
       'Mesedez, konfigura ezazu zure AI API Gakoa Ezarpenetan.';
 
@@ -1318,4 +1338,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get validationMin0GenericError => 'Gutxienez 0';
+
+  @override
+  String get errorStatus => 'Error';
 }
