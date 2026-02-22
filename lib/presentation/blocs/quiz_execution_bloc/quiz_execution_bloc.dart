@@ -134,6 +134,35 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
       }
     });
 
+    // Handle essay AI evaluation started
+    on<EssayAiEvaluationStarted>((event, emit) {
+      if (state is QuizExecutionInProgress) {
+        emit((state as QuizExecutionInProgress).copyWith(isAiEvaluating: true));
+      }
+    });
+
+    // Handle essay AI evaluation received
+    on<EssayAiEvaluationReceived>((event, emit) {
+      if (state is QuizExecutionInProgress) {
+        final currentState = state as QuizExecutionInProgress;
+        final newAiEvaluations = Map<int, EssayAiEvaluation>.from(
+          currentState.aiEvaluations,
+        );
+
+        newAiEvaluations[event.questionIndex] = EssayAiEvaluation(
+          evaluation: event.evaluation,
+          errorMessage: event.errorMessage,
+        );
+
+        emit(
+          currentState.copyWith(
+            aiEvaluations: newAiEvaluations,
+            isAiEvaluating: false,
+          ),
+        );
+      }
+    });
+
     // Handle next question
     on<NextQuestionRequested>((event, emit) {
       if (state is QuizExecutionInProgress) {
@@ -202,6 +231,7 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
             userAnswers: {},
             essayAnswers: {},
             validatedQuestions: {},
+            aiEvaluations: {},
             quizConfig: completedState.quizConfig,
           ),
         );
@@ -251,6 +281,7 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
         quizConfig: currentState.quizConfig,
         score: scorePercentage,
         wasLimitReached: finalLimitReached,
+        aiEvaluations: currentState.aiEvaluations,
       ),
     );
   }

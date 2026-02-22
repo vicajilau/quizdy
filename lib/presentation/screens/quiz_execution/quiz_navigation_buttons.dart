@@ -23,7 +23,10 @@ class QuizNavigationButtons extends StatelessWidget {
     final colors = context.appColors;
 
     final isCheckPhase = isStudyMode && !state.isCurrentQuestionValidated;
-    final canProceed = isCheckPhase ? state.hasCurrentQuestionAnswered : true;
+    final isEvaluating = state.isAiEvaluating;
+    final canProceed = isCheckPhase
+        ? (state.hasCurrentQuestionAnswered && !isEvaluating)
+        : !isEvaluating;
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -36,11 +39,13 @@ class QuizNavigationButtons extends StatelessWidget {
               child: SizedBox(
                 height: 52,
                 child: OutlinedButton.icon(
-                  onPressed: () {
-                    context.read<QuizExecutionBloc>().add(
-                      PreviousQuestionRequested(),
-                    );
-                  },
+                  onPressed: isEvaluating
+                      ? null
+                      : () {
+                          context.read<QuizExecutionBloc>().add(
+                            PreviousQuestionRequested(),
+                          );
+                        },
                   icon: Icon(Icons.chevron_left, color: colors.subtitle),
                   label: Text(
                     AppLocalizations.of(context)!.previous,

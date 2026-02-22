@@ -22,6 +22,9 @@ class QuizExecutionInProgress extends QuizExecutionState {
   final bool isStudyMode;
   final QuizConfig quizConfig;
   final int incorrectAnswersCount;
+  final Map<int, EssayAiEvaluation>
+  aiEvaluations; // questionIndex -> evaluation data
+  final bool isAiEvaluating;
 
   QuizExecutionInProgress({
     required this.questions,
@@ -29,11 +32,14 @@ class QuizExecutionInProgress extends QuizExecutionState {
     required this.userAnswers,
     required this.quizConfig,
     this.incorrectAnswersCount = 0,
+    this.isAiEvaluating = false,
     Map<int, String>? essayAnswers,
     Set<int>? validatedQuestions,
+    Map<int, EssayAiEvaluation>? aiEvaluations,
   }) : totalQuestions = questions.length,
        essayAnswers = essayAnswers ?? {},
        validatedQuestions = validatedQuestions ?? {},
+       aiEvaluations = aiEvaluations ?? {},
        isStudyMode = quizConfig.isStudyMode;
 
   /// Get the current question
@@ -52,6 +58,10 @@ class QuizExecutionInProgress extends QuizExecutionState {
   /// Check if current question has been validated (checked)
   bool get isCurrentQuestionValidated =>
       validatedQuestions.contains(currentQuestionIndex);
+
+  /// Check if an AI evaluation already exists for the current question
+  EssayAiEvaluation? get currentAiEvaluation =>
+      aiEvaluations[currentQuestionIndex];
 
   /// Check if an option is selected for current question
   bool isOptionSelected(int optionIndex) {
@@ -96,6 +106,8 @@ class QuizExecutionInProgress extends QuizExecutionState {
     Set<int>? validatedQuestions,
     QuizConfig? quizConfig,
     int? incorrectAnswersCount,
+    Map<int, EssayAiEvaluation>? aiEvaluations,
+    bool? isAiEvaluating,
   }) {
     return QuizExecutionInProgress(
       questions: questions ?? this.questions,
@@ -106,6 +118,8 @@ class QuizExecutionInProgress extends QuizExecutionState {
       quizConfig: quizConfig ?? this.quizConfig,
       incorrectAnswersCount:
           incorrectAnswersCount ?? this.incorrectAnswersCount,
+      aiEvaluations: aiEvaluations ?? this.aiEvaluations,
+      isAiEvaluating: isAiEvaluating ?? this.isAiEvaluating,
     );
   }
 }
@@ -115,6 +129,7 @@ class QuizExecutionCompleted extends QuizExecutionState {
   final List<Question> questions;
   final Map<int, List<int>> userAnswers;
   final Map<int, String> essayAnswers;
+  final Map<int, EssayAiEvaluation> aiEvaluations;
   final int correctAnswers;
   final int totalQuestions;
   final double score; // percentage
@@ -131,7 +146,9 @@ class QuizExecutionCompleted extends QuizExecutionState {
     required this.quizConfig,
     required this.score,
     this.wasLimitReached = false,
-  }) : isStudyMode = quizConfig.isStudyMode;
+    Map<int, EssayAiEvaluation>? aiEvaluations,
+  }) : isStudyMode = quizConfig.isStudyMode,
+       aiEvaluations = aiEvaluations ?? {};
 
   /// Get details for each question
   List<QuestionResult> get questionResults {
@@ -140,6 +157,8 @@ class QuizExecutionCompleted extends QuizExecutionState {
       final question = entry.value;
       final userAnswer = userAnswers[index] ?? [];
       final essayAnswer = essayAnswers[index] ?? '';
+      final aiEvaluation = aiEvaluations[index];
+
       final isCorrect = QuizScoringHelper.isAnswerCorrect(
         question,
         userAnswer,
@@ -157,6 +176,7 @@ class QuizExecutionCompleted extends QuizExecutionState {
         correctAnswers: question.correctAnswers,
         isCorrect: isCorrect,
         isAnswered: isAnswered,
+        aiEvaluation: aiEvaluation,
       );
     }).toList();
   }
@@ -170,6 +190,7 @@ class QuestionResult {
   final List<int> correctAnswers;
   final bool isCorrect;
   final bool isAnswered;
+  final EssayAiEvaluation? aiEvaluation;
 
   QuestionResult({
     required this.question,
@@ -178,5 +199,16 @@ class QuestionResult {
     required this.correctAnswers,
     required this.isCorrect,
     required this.isAnswered,
+    this.aiEvaluation,
   });
+}
+
+/// Helper class to store AI evaluation data for essay questions.
+class EssayAiEvaluation {
+  final String? evaluation;
+  final String? errorMessage;
+
+  EssayAiEvaluation({this.evaluation, this.errorMessage});
+
+  bool get hasError => errorMessage != null;
 }

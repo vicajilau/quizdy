@@ -10,9 +10,7 @@ import 'package:quiz_app/data/services/ai/ai_service_selector.dart';
 import 'package:quiz_app/data/services/ai/ai_question_generation_service.dart';
 import 'package:quiz_app/core/extensions/string_extensions.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/widgets/ai_studio_chat_button.dart';
-import 'package:quiz_app/presentation/screens/quiz_execution/widgets/ai_evaluate_button.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/widgets/ai_evaluation_result.dart';
-import 'package:quiz_app/presentation/screens/quiz_execution/widgets/ai_service_selector.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/widgets/quiz_question_explanation.dart';
 
 /// A widget that handles essay-type questions.
@@ -61,10 +59,8 @@ class EssayAnswerInput extends StatefulWidget {
 class _EssayAnswerInputState extends State<EssayAnswerInput> {
   late TextEditingController _essayController;
   bool _isEvaluating = false;
-  String? _aiEvaluation;
   List<AIService> _availableServices = [];
   AIService? _selectedService;
-  String? _errorMessage;
 
   @override
   void initState() {
@@ -86,13 +82,34 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
   @override
   void didUpdateWidget(EssayAnswerInput oldWidget) {
     super.didUpdateWidget(oldWidget);
+
+    final currentAiEvaluation = widget.state.currentAiEvaluation;
+
+    // Auto-trigger AI evaluation when question is validated in Study Mode
+    if (widget.isStudyMode &&
+        widget.isAiAvailable &&
+        widget.state.isCurrentQuestionValidated &&
+        !oldWidget.state.isCurrentQuestionValidated &&
+        currentAiEvaluation == null &&
+        !_isEvaluating) {
+      // Small delay to ensure services are loaded if they haven't yet
+      if (_selectedService == null) {
+        _loadAvailableServices().then((_) {
+          if (_selectedService != null) {
+            _evaluateEssayWithAI();
+          }
+        });
+      } else {
+        _evaluateEssayWithAI();
+      }
+    }
+
     if (widget.currentAnswer != _essayController.text) {
       // Only update if external change (e.g. navigation) to avoid cursor jump issues
       // But usually we want to keep what user is typing.
       // The parent ensures this widget is rebuilt when question index changes.
       if (oldWidget.questionIndex != widget.questionIndex) {
         _essayController.text = widget.currentAnswer;
-        _aiEvaluation = null; // Clear evaluation on question change
       }
     }
   }
@@ -104,12 +121,16 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
   }
 
   Future<void> _evaluateEssayWithAI() async {
-    if (_isEvaluating || _selectedService == null) return;
+    if (_isEvaluating ||
+        (_availableServices.isEmpty && _selectedService == null)) {
+      return;
+    }
 
     setState(() {
-      _errorMessage = null;
       _isEvaluating = true;
     });
+
+    context.read<QuizExecutionBloc>().add(EssayAiEvaluationStarted());
 
     try {
       final localizations = AppLocalizations.of(context)!;
@@ -129,17 +150,23 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
       );
 
       if (mounted) {
-        setState(() {
-          _aiEvaluation = evaluation;
-        });
+        context.read<QuizExecutionBloc>().add(
+          EssayAiEvaluationReceived(
+            questionIndex: widget.questionIndex,
+            evaluation: evaluation,
+          ),
+        );
       }
     } catch (e) {
       if (mounted) {
-        setState(() {
-          _errorMessage = AppLocalizations.of(
-            context,
-          )!.aiEvaluationError(e.toString().cleanErrorMessage());
-        });
+        context.read<QuizExecutionBloc>().add(
+          EssayAiEvaluationReceived(
+            questionIndex: widget.questionIndex,
+            errorMessage: AppLocalizations.of(
+              context,
+            )!.aiEvaluationError(e.toString().cleanErrorMessage()),
+          ),
+        );
       }
     } finally {
       if (mounted) {
@@ -152,6 +179,8 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
 
   @override
   Widget build(BuildContext context) {
+    final aiEvaluationData = widget.state.currentAiEvaluation;
+
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -224,31 +253,32 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
                   // AI Evaluation Section
                   if (widget.isAiAvailable) ...[
                     const SizedBox(height: 16),
-                    AiServiceSelector(
-                      availableServices: _availableServices,
-                      selectedService: _selectedService,
-                      onServiceChanged: (newService) {
-                        setState(() {
-                          _selectedService = newService;
-                          _aiEvaluation = null;
-                        });
-                      },
-                    ),
-                    if (_errorMessage != null || _aiEvaluation == null)
-                      AiEvaluateButton(
-                        isEvaluating: _isEvaluating,
-                        selectedService: _selectedService,
-                        availableServicesCount: _availableServices.length,
-                        onEvaluate: _evaluateEssayWithAI,
-                      ),
-                    if ((_aiEvaluation != null || _errorMessage != null) &&
-                        !_isEvaluating) ...[
-                      const SizedBox(height: 16),
+                    if (_isEvaluating)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 24),
+                        child: Center(
+                          child: Column(
+                            children: [
+                              const CircularProgressIndicator(),
+                              const SizedBox(height: 16),
+                              Text(
+                                AppLocalizations.of(context)!.aiThinking,
+                                style: TextStyle(
+                                  color: Theme.of(context).primaryColor,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    else if (aiEvaluationData != null)
                       AiEvaluationResult(
-                        aiEvaluation: _aiEvaluation,
-                        errorMessage: _errorMessage,
+                        aiEvaluation: aiEvaluationData.evaluation,
+                        errorMessage: aiEvaluationData.errorMessage,
+                        selectedService: _selectedService,
+                        showServiceBadge: _availableServices.length > 1,
                       ),
-                    ],
                   ],
                 ],
               ),
