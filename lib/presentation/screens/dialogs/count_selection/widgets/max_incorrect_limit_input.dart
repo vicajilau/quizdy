@@ -57,6 +57,8 @@ class _MaxIncorrectLimitInputState extends State<MaxIncorrectLimitInput> {
 
   @override
   Widget build(BuildContext context) {
+    final errorColor = Theme.of(context).colorScheme.error;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -77,7 +79,10 @@ class _MaxIncorrectLimitInputState extends State<MaxIncorrectLimitInput> {
             color: widget.controlBgColor,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: widget.borderColor.withValues(alpha: 0.5),
+              color: _hasError
+                  ? errorColor
+                  : widget.borderColor.withValues(alpha: 0.5),
+              width: _hasError ? 1.5 : 1.0,
             ),
           ),
           child: Row(
@@ -110,6 +115,7 @@ class _MaxIncorrectLimitInputState extends State<MaxIncorrectLimitInput> {
                         isDense: true,
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.zero,
+                        errorStyle: TextStyle(height: 0, fontSize: 0),
                       ),
                       onChanged: (value) {
                         final val = int.tryParse(value);
@@ -119,25 +125,18 @@ class _MaxIncorrectLimitInputState extends State<MaxIncorrectLimitInput> {
                       },
                       validator: (value) {
                         bool hasError = false;
-                        String? errorText;
 
                         if (value == null || value.isEmpty) {
                           hasError = true;
-                          errorText = AppLocalizations.of(
-                            context,
-                          )!.validationMin0GenericError;
                         } else {
                           final newVal = int.tryParse(value);
                           if (newVal == null || newVal < 0) {
                             hasError = true;
-                            errorText = AppLocalizations.of(
-                              context,
-                            )!.validationMin0GenericError;
                           }
                         }
 
                         _updateError(hasError);
-                        return errorText;
+                        return hasError ? '' : null;
                       },
                       autovalidateMode: AutovalidateMode.always,
                     ),
@@ -155,6 +154,20 @@ class _MaxIncorrectLimitInputState extends State<MaxIncorrectLimitInput> {
             ],
           ),
         ),
+        if (_hasError) ...[
+          const SizedBox(height: 8),
+          Padding(
+            padding: const EdgeInsets.only(left: 12),
+            child: Text(
+              AppLocalizations.of(context)!.validationMin0GenericError,
+              style: TextStyle(
+                fontFamily: 'Inter',
+                fontSize: 12,
+                color: errorColor,
+              ),
+            ),
+          ),
+        ],
       ],
     );
   }
