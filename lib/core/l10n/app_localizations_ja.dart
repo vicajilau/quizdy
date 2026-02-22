@@ -1086,7 +1086,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get examModeLabel => '試験モード';
 
   @override
-  String get examModeDescription => '標準時間、最後に結果表示';
+  String get examModeDescription => 'AIアシスタンスなし。時間制限や不正解による減点が適用される場合があります。';
 
   @override
   String get checkAnswer => '確認';

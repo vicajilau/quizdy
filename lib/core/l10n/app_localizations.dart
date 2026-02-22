@@ -2069,7 +2069,7 @@ abstract class AppLocalizations {
   /// Description for exam mode
   ///
   /// In en, this message translates to:
-  /// **'Standard timer and results at the end'**
+  /// **'No AI assistance. Time limits and penalties for incorrect answers may apply.'**
   String get examModeDescription;
 
   /// Button label to check the answer in study mode

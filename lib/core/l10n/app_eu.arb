@@ -1390,7 +1390,7 @@
   "studyModeLabel": "Ikasteko Modua",
   "studyModeDescription": "Berehalako feedbacka eta denborarik gabe",
   "examModeLabel": "Azterketa Modua",
-  "examModeDescription": "Denbora estandarra eta emaitzak amaieran",
+  "examModeDescription": "AI laguntzarik gabe. Denbora-mugak eta erantzun okerrengatiko zigorrak aplika daitezke.",
   "checkAnswer": "Egiaztatu",
   "quizModeTitle": "Galdetegi Modua",
   "skip": "Saltatu",

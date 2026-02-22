@@ -1412,7 +1412,7 @@
   "studyModeLabel": "Modo estudo",
   "studyModeDescription": "Retroalimentación instantánea e sen tempo",
   "examModeLabel": "Modo exame",
-  "examModeDescription": "Tempo estándar e resultados ao final",
+  "examModeDescription": "Sen asistencia de IA. Poden aplicarse límites de tempo e penalizacións por respostas incorrectas.",
   "checkAnswer": "Comprobar",
   "quizModeTitle": "Modo cuestionario",
   "skip": "Saltar",

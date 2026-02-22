@@ -1145,7 +1145,8 @@ class AppLocalizationsEu extends AppLocalizations {
   String get examModeLabel => 'Azterketa Modua';
 
   @override
-  String get examModeDescription => 'Denbora estandarra eta emaitzak amaieran';
+  String get examModeDescription =>
+      'AI laguntzarik gabe. Denbora-mugak eta erantzun okerrengatiko zigorrak aplika daitezke.';
 
   @override
   String get checkAnswer => 'Egiaztatu';

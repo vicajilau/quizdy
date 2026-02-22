@@ -1403,7 +1403,7 @@
   "@examModeLabel": {
     "description": "Label for exam mode option"
   },
-  "examModeDescription": "Timer standard e risultati alla fine",
+  "examModeDescription": "Nessuna assistenza AI. Potrebbero essere applicati limiti di tempo e penalità per le risposte errate.",
   "@examModeDescription": {
     "description": "Description for exam mode"
   },

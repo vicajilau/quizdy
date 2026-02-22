@@ -1151,7 +1151,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get examModeLabel => 'Mode Examen';
 
   @override
-  String get examModeDescription => 'Minuterie standard et résultats à la fin';
+  String get examModeDescription =>
+      'Pas d\'assistance par IA. Des limites de temps et des pénalités pour les réponses incorrectes peuvent s\'appliquer.';
 
   @override
   String get checkAnswer => 'Vérifier';

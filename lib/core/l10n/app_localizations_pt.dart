@@ -1146,7 +1146,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get examModeLabel => 'Modo exame';
 
   @override
-  String get examModeDescription => 'Cronômetro padrão e resultados no final';
+  String get examModeDescription =>
+      'Sem assistência de IA. Podem aplicar-se limites de tempo e penalidades por respostas incorretas.';
 
   @override
   String get checkAnswer => 'Verificar';

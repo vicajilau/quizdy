@@ -1407,7 +1407,7 @@
   "@examModeLabel": {
     "description": "Label for exam mode option"
   },
-  "examModeDescription": "Minuterie standard et résultats à la fin",
+  "examModeDescription": "Pas d'assistance par IA. Des limites de temps et des pénalités pour les réponses incorrectes peuvent s'appliquer.",
   "@examModeDescription": {
     "description": "Description for exam mode"
   },

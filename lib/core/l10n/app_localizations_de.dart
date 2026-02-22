@@ -1149,7 +1149,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get examModeLabel => 'Prüfungsmodus';
 
   @override
-  String get examModeDescription => 'Standard-Timer und Ergebnisse am Ende';
+  String get examModeDescription =>
+      'Keine KI-Unterstützung. Zeitlimits und Punktabzüge für falsche Antworten können anfallen.';
 
   @override
   String get checkAnswer => 'Überprüfen';

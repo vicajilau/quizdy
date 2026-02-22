@@ -1153,7 +1153,8 @@ class AppLocalizationsEl extends AppLocalizations {
   String get examModeLabel => 'Λειτουργία Εξέτασης';
 
   @override
-  String get examModeDescription => 'Τυπικός χρόνος και αποτελέσματα στο τέλος';
+  String get examModeDescription =>
+      'Χωρίς βοήθεια AI. Ενδέχεται να ισχύουν χρονικά όρια και ποινές για λανθασμένες απαντήσεις.';
 
   @override
   String get checkAnswer => 'Έλεγχος';

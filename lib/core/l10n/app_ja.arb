@@ -1382,7 +1382,7 @@
   "studyModeLabel": "学習モード",
   "studyModeDescription": "即時フィードバック、タイマーなし",
   "examModeLabel": "試験モード",
-  "examModeDescription": "標準時間、最後に結果表示",
+  "examModeDescription": "AIアシスタンスなし。時間制限や不正解による減点が適用される場合があります。",
   "checkAnswer": "確認",
   "quizModeTitle": "クイズモード",
   "askAiAssistant": "AIアシスタントに聞く",

@@ -1124,7 +1124,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get examModeLabel => 'وضع الاختبار';
 
   @override
-  String get examModeDescription => 'توقيت قياسي ونتائج في النهاية';
+  String get examModeDescription =>
+      'بدون مساعدة الذكاء الاصطناعي. قد يتم تطبيق حدود زمنية وعقوبات على الإجابات غير الصحيحة.';
 
   @override
   String get checkAnswer => 'تحقق';

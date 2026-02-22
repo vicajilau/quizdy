@@ -1132,7 +1132,8 @@ class AppLocalizationsHi extends AppLocalizations {
   String get examModeLabel => 'परीक्षा मोड';
 
   @override
-  String get examModeDescription => 'मानक समय और अंत में परिणाम';
+  String get examModeDescription =>
+      'कोई AI सहायता नहीं। समय सीमा और गलत उत्तरों के लिए जुर्माना लागू हो सकता है।';
 
   @override
   String get checkAnswer => 'जांचें';

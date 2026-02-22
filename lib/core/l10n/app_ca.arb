@@ -1499,7 +1499,7 @@
   "@examModeLabel": {
     "description": "Label for exam mode option"
   },
-  "examModeDescription": "Temporitzador estàndard i resultats al final",
+  "examModeDescription": "Sense assistència d'IA. Es poden aplicar límits de temps i penalitzacions per respostes incorrectes.",
   "@examModeDescription": {
     "description": "Description for exam mode"
   },

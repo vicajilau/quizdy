@@ -1148,7 +1148,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get examModeDescription =>
-      'Temporitzador estàndard i resultats al final';
+      'Sense assistència d\'IA. Es poden aplicar límits de temps i penalitzacions per respostes incorrectes.';
 
   @override
   String get checkAnswer => 'Comprovar';

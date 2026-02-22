@@ -1499,7 +1499,7 @@
   "@examModeLabel": {
     "description": "Label for exam mode option"
   },
-  "examModeDescription": "Standard-Timer und Ergebnisse am Ende",
+  "examModeDescription": "Keine KI-Unterstützung. Zeitlimits und Punktabzüge für falsche Antworten können anfallen.",
   "@examModeDescription": {
     "description": "Description for exam mode"
   },

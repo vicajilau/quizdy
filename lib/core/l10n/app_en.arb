@@ -1555,7 +1555,7 @@
   "@examModeLabel": {
     "description": "Label for exam mode option"
   },
-  "examModeDescription": "Standard timer and results at the end",
+  "examModeDescription": "No AI assistance. Time limits and penalties for incorrect answers may apply.",
   "@examModeDescription": {
     "description": "Description for exam mode"
   },

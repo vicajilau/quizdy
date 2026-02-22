@@ -1478,7 +1478,7 @@
   "studyModeLabel": "وضع الدراسة",
   "studyModeDescription": "ردود فعل فورية وبلا توقيت",
   "examModeLabel": "وضع الاختبار",
-  "examModeDescription": "توقيت قياسي ونتائج في النهاية",
+  "examModeDescription": "بدون مساعدة الذكاء الاصطناعي. قد يتم تطبيق حدود زمنية وعقوبات على الإجابات غير الصحيحة.",
   "checkAnswer": "تحقق",
   "quizModeTitle": "وضع الاختبار",
   "askAiAssistant": "اسأل مساعد الذكاء الاصطناعي",

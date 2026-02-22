@@ -1362,7 +1362,7 @@
   "studyModeLabel": "学习模式",
   "studyModeDescription": "即时反馈，无计时",
   "examModeLabel": "考试模式",
-  "examModeDescription": "标准计时，最后显示结果",
+  "examModeDescription": "无 AI 辅助。可能适用时间限制和答错扣分。",
   "checkAnswer": "检查",
   "quizModeTitle": "测验模式",
   "skip": "跳过",

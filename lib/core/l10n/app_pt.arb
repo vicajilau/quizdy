@@ -1391,7 +1391,7 @@
   "@examModeLabel": {
     "description": "Label for exam mode option"
   },
-  "examModeDescription": "Cronômetro padrão e resultados no final",
+  "examModeDescription": "Sem assistência de IA. Podem aplicar-se limites de tempo e penalidades por respostas incorretas.",
   "@examModeDescription": {
     "description": "Description for exam mode"
   },

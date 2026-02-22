@@ -1148,7 +1148,8 @@ class AppLocalizationsGl extends AppLocalizations {
   String get examModeLabel => 'Modo exame';
 
   @override
-  String get examModeDescription => 'Tempo estándar e resultados ao final';
+  String get examModeDescription =>
+      'Sen asistencia de IA. Poden aplicarse límites de tempo e penalizacións por respostas incorrectas.';
 
   @override
   String get checkAnswer => 'Comprobar';

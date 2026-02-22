@@ -1136,7 +1136,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get examModeLabel => 'Exam Mode';
 
   @override
-  String get examModeDescription => 'Standard timer and results at the end';
+  String get examModeDescription =>
+      'No AI assistance. Time limits and penalties for incorrect answers may apply.';
 
   @override
   String get checkAnswer => 'Check Answer';

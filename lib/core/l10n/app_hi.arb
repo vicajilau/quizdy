@@ -1382,7 +1382,7 @@
   "studyModeLabel": "अध्ययन मोड",
   "studyModeDescription": "तत्काल प्रतिक्रिया और कोई टाइमर नहीं",
   "examModeLabel": "परीक्षा मोड",
-  "examModeDescription": "मानक समय और अंत में परिणाम",
+  "examModeDescription": "कोई AI सहायता नहीं। समय सीमा और गलत उत्तरों के लिए जुर्माना लागू हो सकता है।",
   "checkAnswer": "जांचें",
   "quizModeTitle": "क्विज़ मोड",
   "askAiAssistant": "AI सहायक से पूछें",

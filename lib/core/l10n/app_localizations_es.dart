@@ -1145,7 +1145,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get examModeDescription =>
-      'Temporizador estándar y resultados al final';
+      'Sin asistencia de IA. Pueden aplicar límites de tiempo y penalizaciones por respuestas incorrectas.';
 
   @override
   String get checkAnswer => 'Comprobar';

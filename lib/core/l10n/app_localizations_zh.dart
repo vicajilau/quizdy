@@ -1079,7 +1079,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get examModeLabel => '考试模式';
 
   @override
-  String get examModeDescription => '标准计时，最后显示结果';
+  String get examModeDescription => '无 AI 辅助。可能适用时间限制和答错扣分。';
 
   @override
   String get checkAnswer => '检查';

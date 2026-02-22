@@ -1514,7 +1514,7 @@
   "@examModeLabel": {
     "description": "Label for exam mode option"
   },
-  "examModeDescription": "Temporizador estándar y resultados al final",
+  "examModeDescription": "Sin asistencia de IA. Pueden aplicar límites de tiempo y penalizaciones por respuestas incorrectas.",
   "@examModeDescription": {
     "description": "Description for exam mode"
   },
