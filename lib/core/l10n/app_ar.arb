@@ -517,6 +517,10 @@
   "@examTimeLimitDescription": {
     "description": "Description for exam time limit feature"
   },
+  "examTimeLimitOffDescription": "لا يوجد حد زمني لهذا الاختبار.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
+  },
   "enableTimeLimit": "تفعيل الحد الزمني",
   "@enableTimeLimit": {
     "description": "Label for enable exam time limit switch"
@@ -1567,9 +1571,13 @@
   "@maxIncorrectAnswersLabel": {
     "description": "Label for the toggle to limit incorrect answers"
   },
-  "maxIncorrectAnswersDescription": "سيتوقف الاختبار فورًا إذا وصلت إلى هذا الحد.",
+  "maxIncorrectAnswersDescription": "امتحان نجاح/رسوب. لا توجد درجة رقمية، إما أن تنجح أو ترسب.",
   "@maxIncorrectAnswersDescription": {
     "description": "Description for the limit incorrect answers feature"
+  },
+  "maxIncorrectAnswersOffDescription": "للامتحان درجة رقمية من 0 إلى 100.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
   },
   "maxIncorrectAnswersLimitLabel": "الحد الأقصى للأخطاء المسموح بها",
   "@maxIncorrectAnswersLimitLabel": {

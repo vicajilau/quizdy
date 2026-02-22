@@ -353,9 +353,13 @@
   "@maxIncorrectAnswersLabel": {
     "description": "Rótulo para a alternância de limitar respostas incorretas"
   },
-  "maxIncorrectAnswersDescription": "O quiz terminará imediatamente se atingir este limite.",
+  "maxIncorrectAnswersDescription": "Exame de Apto/Não Apto. Não há nota numérica, você é aprovado ou reprovado.",
   "@maxIncorrectAnswersDescription": {
     "description": "Descrição para a funcionalidade de limitar respostas incorretas"
+  },
+  "maxIncorrectAnswersOffDescription": "O exame tem uma nota numérica de 0 a 100.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
   },
   "maxIncorrectAnswersLimitLabel": "Máximo de erros permitidos",
   "@maxIncorrectAnswersLimitLabel": {
@@ -428,6 +432,10 @@
   "examTimeLimitDescription": "Defina um limite de tempo para o exame. Quando habilitado, um cronômetro regressivo será exibido durante o quiz.",
   "@examTimeLimitDescription": {
     "description": "Descrição para a funcionalidade limite de tempo do exame"
+  },
+  "examTimeLimitOffDescription": "Não há limite de tempo para este exame.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
   },
   "enableTimeLimit": "Habilitar limite de tempo",
   "@enableTimeLimit": {

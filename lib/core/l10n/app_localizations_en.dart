@@ -292,7 +292,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get maxIncorrectAnswersDescription =>
-      'The quiz will end immediately if you reach this limit.';
+      'Pass/Fail Exam. No numeric grade; you either pass or fail.';
+
+  @override
+  String get maxIncorrectAnswersOffDescription =>
+      'The exam has a numeric grade from 0 to 100.';
 
   @override
   String get maxIncorrectAnswersLimitLabel => 'Maximum allowed errors';
@@ -357,6 +361,10 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get examTimeLimitDescription =>
       'Set a time limit for the exam. When enabled, a countdown timer will be displayed during the quiz.';
+
+  @override
+  String get examTimeLimitOffDescription =>
+      'There is no time limit for this exam.';
 
   @override
   String get enableTimeLimit => 'Enable time limit';

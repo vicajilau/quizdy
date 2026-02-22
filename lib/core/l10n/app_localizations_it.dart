@@ -295,7 +295,11 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get maxIncorrectAnswersDescription =>
-      'Il quiz terminerà immediatamente se raggiungi questo limite.';
+      'Esame Idoneo/Non Idoneo. Non c\'è voto numerico, sei promosso o bocciato.';
+
+  @override
+  String get maxIncorrectAnswersOffDescription =>
+      'L\'esame ha un voto numerico da 0 a 100.';
 
   @override
   String get maxIncorrectAnswersLimitLabel => 'Massimo errori consentiti';
@@ -362,6 +366,10 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get examTimeLimitDescription =>
       'Imposta un limite di tempo per l\'esame. Quando abilitato, verrà visualizzato un timer di conto alla rovescia durante il quiz.';
+
+  @override
+  String get examTimeLimitOffDescription =>
+      'Non c\'è limite de tempo per questo esame.';
 
   @override
   String get enableTimeLimit => 'Abilita limite di tempo';

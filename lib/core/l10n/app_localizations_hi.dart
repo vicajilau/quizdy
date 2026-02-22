@@ -292,7 +292,11 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get maxIncorrectAnswersDescription =>
-      'यदि आप इस सीमा तक पहुँच जाते हैं तो क्विज़ तुरंत समाप्त हो जाएगी।';
+      'उत्तीर्ण/अनुत्तीर्ण परीक्षा। कोई संख्यात्मक ग्रेड नहीं है।';
+
+  @override
+  String get maxIncorrectAnswersOffDescription =>
+      'परीक्षा में 0 से 100 तक संख्यात्मक ग्रेड होता है।';
 
   @override
   String get maxIncorrectAnswersLimitLabel => 'अधिकतम अनुमत त्रुटियां';
@@ -356,6 +360,10 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get examTimeLimitDescription =>
       'परीक्षा के लिए समय सीमा निर्धारित करें। सक्षम होने पर, क्विज़ के दौरान काउंटडाउन टाइमर दिखेगा।';
+
+  @override
+  String get examTimeLimitOffDescription =>
+      'इस परीक्षा के लिए कोई समय सीमा नहीं है।';
 
   @override
   String get enableTimeLimit => 'समय सीमा सक्षम करें';

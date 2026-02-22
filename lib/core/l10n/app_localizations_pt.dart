@@ -295,7 +295,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get maxIncorrectAnswersDescription =>
-      'O quiz terminará imediatamente se atingir este limite.';
+      'Exame de Apto/Não Apto. Não há nota numérica, você é aprovado ou reprovado.';
+
+  @override
+  String get maxIncorrectAnswersOffDescription =>
+      'O exame tem uma nota numérica de 0 a 100.';
 
   @override
   String get maxIncorrectAnswersLimitLabel => 'Máximo de erros permitidos';
@@ -363,6 +367,10 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get examTimeLimitDescription =>
       'Defina um limite de tempo para o exame. Quando habilitado, um cronômetro regressivo será exibido durante o quiz.';
+
+  @override
+  String get examTimeLimitOffDescription =>
+      'Não há limite de tempo para este exame.';
 
   @override
   String get enableTimeLimit => 'Habilitar limite de tempo';

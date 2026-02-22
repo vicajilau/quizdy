@@ -283,7 +283,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get maxIncorrectAnswersLabel => '限制错误答案';
 
   @override
-  String get maxIncorrectAnswersDescription => '如果达到此限制，测验将立即结束。';
+  String get maxIncorrectAnswersDescription => '及格/不及格考试。没有具体分数，只有及格或不及格。';
+
+  @override
+  String get maxIncorrectAnswersOffDescription => '考试将有 0 到 100 的数值评分。';
 
   @override
   String get maxIncorrectAnswersLimitLabel => '允许的最大错误数';
@@ -344,6 +347,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get examTimeLimitDescription => '为考试设置时间限制。启用后，测验期间将显示倒计时器。';
+
+  @override
+  String get examTimeLimitOffDescription => '本次考试没有时间限制。';
 
   @override
   String get enableTimeLimit => '启用时间限制';

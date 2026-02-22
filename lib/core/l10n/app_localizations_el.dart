@@ -296,7 +296,11 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get maxIncorrectAnswersDescription =>
-      'Το κουίζ θα τερματιστεί αμέσως εάν φτάσετε σε αυτό το όριο.';
+      'Εξέταση Επιτυχίας/Αποτυχίας. Δεν υπάρχει αριθμητική βαθμολογία.';
+
+  @override
+  String get maxIncorrectAnswersOffDescription =>
+      'Η εξέταση έχει αριθμητική βαθμολογία από 0 έως 100.';
 
   @override
   String get maxIncorrectAnswersLimitLabel =>
@@ -365,6 +369,10 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get examTimeLimitDescription =>
       'Ορίστε χρονικό όριο για την εξέταση. Όταν ενεργοποιηθεί, θα εμφανίζεται χρονόμετρο κατά τη διάρκεια του κουίζ.';
+
+  @override
+  String get examTimeLimitOffDescription =>
+      'Δεν υπάρχει χρονικό όριο για αυτήν την εξέταση.';
 
   @override
   String get enableTimeLimit => 'Ενεργοποίηση χρονικού ορίου';

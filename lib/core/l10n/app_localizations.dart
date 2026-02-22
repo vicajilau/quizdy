@@ -611,8 +611,14 @@ abstract class AppLocalizations {
   /// Description for the limit incorrect answers feature
   ///
   /// In en, this message translates to:
-  /// **'The quiz will end immediately if you reach this limit.'**
+  /// **'Pass/Fail Exam. No numeric grade; you either pass or fail.'**
   String get maxIncorrectAnswersDescription;
+
+  /// Description shown when max incorrect answers is disabled
+  ///
+  /// In en, this message translates to:
+  /// **'The exam has a numeric grade from 0 to 100.'**
+  String get maxIncorrectAnswersOffDescription;
 
   /// Label for the input field of maximum incorrect answers
   ///
@@ -733,6 +739,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Set a time limit for the exam. When enabled, a countdown timer will be displayed during the quiz.'**
   String get examTimeLimitDescription;
+
+  /// Description shown when time limit is disabled
+  ///
+  /// In en, this message translates to:
+  /// **'There is no time limit for this exam.'**
+  String get examTimeLimitOffDescription;
 
   /// Label for enable exam time limit switch
   ///

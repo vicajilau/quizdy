@@ -46,7 +46,13 @@ class MaxIncorrectToggle extends StatelessWidget {
                 ),
                 const SizedBox(height: 2),
                 Text(
-                  AppLocalizations.of(context)!.maxIncorrectAnswersDescription,
+                  enableMaxIncorrectAnswers
+                      ? AppLocalizations.of(
+                          context,
+                        )!.maxIncorrectAnswersDescription
+                      : AppLocalizations.of(
+                          context,
+                        )!.maxIncorrectAnswersOffDescription,
                   style: TextStyle(
                     fontFamily: 'Inter',
                     fontSize: 12,

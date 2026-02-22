@@ -353,9 +353,13 @@
   "@maxIncorrectAnswersLabel": {
     "description": "Etichetta per l'interruttore di limitazione delle risposte errate"
   },
-  "maxIncorrectAnswersDescription": "Il quiz terminerà immediatamente se raggiungi questo limite.",
+  "maxIncorrectAnswersDescription": "Esame Idoneo/Non Idoneo. Non c'è voto numerico, sei promosso o bocciato.",
   "@maxIncorrectAnswersDescription": {
     "description": "Descrizione per la funzionalità di limitazione delle risposte errate"
+  },
+  "maxIncorrectAnswersOffDescription": "L'esame ha un voto numerico da 0 a 100.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
   },
   "maxIncorrectAnswersLimitLabel": "Massimo errori consentiti",
   "@maxIncorrectAnswersLimitLabel": {
@@ -428,6 +432,10 @@
   "examTimeLimitDescription": "Imposta un limite di tempo per l'esame. Quando abilitato, verrà visualizzato un timer di conto alla rovescia durante il quiz.",
   "@examTimeLimitDescription": {
     "description": "Descrizione per la funzionalità limite di tempo esame"
+  },
+  "examTimeLimitOffDescription": "Non c'è limite de tempo per questo esame.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
   },
   "enableTimeLimit": "Abilita limite di tempo",
   "@enableTimeLimit": {

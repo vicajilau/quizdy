@@ -295,7 +295,11 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get maxIncorrectAnswersDescription =>
-      'Estableix un límit de respostes incorrectes per a l\'examen. Si s\'arriba a aquest límit, el quiz s\'aturarà immediatament.';
+      'Examen d\'Apte/No Apte. No hi ha nota numèrica, aproves o suspens.';
+
+  @override
+  String get maxIncorrectAnswersOffDescription =>
+      'L\'examen té una nota numèrica del 0 al 100.';
 
   @override
   String get maxIncorrectAnswersLimitLabel => 'Nombre màxim d\'errors';
@@ -363,6 +367,10 @@ class AppLocalizationsCa extends AppLocalizations {
   @override
   String get examTimeLimitDescription =>
       'Establiu un límit de temps per l\'examen. Quan s\'activi, es mostrarà un temporitzador de compte enrere durant el quiz.';
+
+  @override
+  String get examTimeLimitOffDescription =>
+      'No hi ha límit de temps per a aquest examen.';
 
   @override
   String get enableTimeLimit => 'Activar límit de temps';

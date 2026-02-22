@@ -290,7 +290,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get maxIncorrectAnswersDescription =>
-      'سيتوقف الاختبار فورًا إذا وصلت إلى هذا الحد.';
+      'امتحان نجاح/رسوب. لا توجد درجة رقمية، إما أن تنجح أو ترسب.';
+
+  @override
+  String get maxIncorrectAnswersOffDescription =>
+      'للامتحان درجة رقمية من 0 إلى 100.';
 
   @override
   String get maxIncorrectAnswersLimitLabel => 'الحد الأقصى للأخطاء المسموح بها';
@@ -354,6 +358,9 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get examTimeLimitDescription =>
       'تعيين حد زمني للامتحان. عند التفعيل، سيتم عرض عداد تنازلي أثناء الاختبار.';
+
+  @override
+  String get examTimeLimitOffDescription => 'لا يوجد حد زمني لهذا الاختبار.';
 
   @override
   String get enableTimeLimit => 'تفعيل الحد الزمني';

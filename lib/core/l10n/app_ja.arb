@@ -421,6 +421,10 @@
   "@examTimeLimitDescription": {
     "description": "試験時間制限セクションの説明。"
   },
+  "examTimeLimitOffDescription": "この試験には時間制限がありません。",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
+  },
   "enableTimeLimit": "時間制限を有効にする",
   "@enableTimeLimit": {
     "description": "時間制限を有効にするスイッチ。"
@@ -1510,9 +1514,13 @@
   "@maxIncorrectAnswersLabel": {
     "description": "不正解数を制限するトグルのラベル"
   },
-  "maxIncorrectAnswersDescription": "制限に達するとクイズは直ちに終了します。",
+  "maxIncorrectAnswersDescription": "合否試験。数字による成績はなく、合格か不合格かのみです。",
   "@maxIncorrectAnswersDescription": {
     "description": "不正解数制限機能の説明"
+  },
+  "maxIncorrectAnswersOffDescription": "試験には0から100までの数字による成績があります。",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
   },
   "maxIncorrectAnswersLimitLabel": "最大許容エラー数",
   "@maxIncorrectAnswersLimitLabel": {

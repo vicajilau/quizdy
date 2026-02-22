@@ -413,6 +413,10 @@
   "@examTimeLimitDescription": {
     "description": "Descrición para a funcionalidade límite de tempo do exame"
   },
+  "examTimeLimitOffDescription": "Non hai límite de tempo para este exame.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
+  },
   "enableTimeLimit": "Activar límite de tempo",
   "@enableTimeLimit": {
     "description": "Etiqueta para o conmutador de activación do límite de tempo do exame"
@@ -425,9 +429,13 @@
   "@maxIncorrectAnswersLabel": {
     "description": "Etiqueta para a configuración do límite de erros"
   },
-  "maxIncorrectAnswersDescription": "Establece un límite de respostas incorrectas para o exame. Se se chega a este límite, o quiz deterase inmediatamente.",
+  "maxIncorrectAnswersDescription": "Exame de Apto/Non Apto. Non hai nota numérica, aprobas ou suspendes.",
   "@maxIncorrectAnswersDescription": {
     "description": "Descrición da funcionalidade do límite de erros"
+  },
+  "maxIncorrectAnswersOffDescription": "O exame ten unha nota numérica do 0 ao 100.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
   },
   "maxIncorrectAnswersLimitLabel": "Número máximo de erros",
   "@maxIncorrectAnswersLimitLabel": {

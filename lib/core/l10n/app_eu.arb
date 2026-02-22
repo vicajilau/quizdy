@@ -413,6 +413,10 @@
   "@examTimeLimitDescription": {
     "description": "Azterketaren denbora muga funtzionalitatearen deskribapena"
   },
+  "examTimeLimitOffDescription": "Azterketa honetarako ez dago denbora mugarik.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
+  },
   "enableTimeLimit": "Denbora muga gaitu",
   "@enableTimeLimit": {
     "description": "Azterketaren denbora muga aktibatzeko etxearen etiketa"
@@ -425,9 +429,13 @@
   "@maxIncorrectAnswersLabel": {
     "description": "Errore muga konfiguratzeko etiketa"
   },
-  "maxIncorrectAnswersDescription": "Azterketarako erantzun okerren muga ezarri. Muga horretara iritsiz gero, quiz-a berehala geldituko da.",
+  "maxIncorrectAnswersDescription": "Gai/Ez gai azterketa. Ez dago zenbakizko notarik, gainditu edo huts egin.",
   "@maxIncorrectAnswersDescription": {
     "description": "Errore muga funtzionalitatearen deskribapena"
+  },
+  "maxIncorrectAnswersOffDescription": "Azterketak 0 eta 100 arteko zenbakizko nota du.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
   },
   "maxIncorrectAnswersLimitLabel": "Gehienezko errore kopurua",
   "@maxIncorrectAnswersLimitLabel": {

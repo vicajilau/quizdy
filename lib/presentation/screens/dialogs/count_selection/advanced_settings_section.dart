@@ -162,7 +162,9 @@ class _AdvancedSettingsSectionState extends State<AdvancedSettingsSection> {
             const SizedBox(height: 20),
             _buildToggleRow(
               title: AppLocalizations.of(context)!.enableTimeLimit,
-              subtitle: AppLocalizations.of(context)!.examTimeLimitDescription,
+              subtitle: widget.examTimeEnabled
+                  ? AppLocalizations.of(context)!.examTimeLimitDescription
+                  : AppLocalizations.of(context)!.examTimeLimitOffDescription,
               value: widget.examTimeEnabled,
               onChanged: widget.onExamTimeEnabledChanged,
             ),

@@ -295,7 +295,11 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get maxIncorrectAnswersDescription =>
-      'Das Quiz wird sofort beendet, wenn Sie dieses Limit erreichen.';
+      'Bestanden/Nicht bestanden Prüfung. Es gibt keine numerische Note.';
+
+  @override
+  String get maxIncorrectAnswersOffDescription =>
+      'Die Prüfung hat eine numerische Note von 0 bis 100.';
 
   @override
   String get maxIncorrectAnswersLimitLabel => 'Maximal zulässige Fehler';
@@ -361,6 +365,10 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get examTimeLimitDescription =>
       'Setzen Sie ein Zeitlimit für die Prüfung. Wenn aktiviert, wird während des Quiz ein Countdown-Timer angezeigt.';
+
+  @override
+  String get examTimeLimitOffDescription =>
+      'Für diese Prüfung gibt es kein Zeitlimit.';
 
   @override
   String get enableTimeLimit => 'Zeitlimit aktivieren';

@@ -283,7 +283,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get maxIncorrectAnswersLabel => '不正解数を制限する';
 
   @override
-  String get maxIncorrectAnswersDescription => '制限に達するとクイズは直ちに終了します。';
+  String get maxIncorrectAnswersDescription => '合否試験。数字による成績はなく、合格か不合格かのみです。';
+
+  @override
+  String get maxIncorrectAnswersOffDescription => '試験には0から100までの数字による成績があります。';
 
   @override
   String get maxIncorrectAnswersLimitLabel => '最大許容エラー数';
@@ -345,6 +348,9 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get examTimeLimitDescription =>
       '試験の時間制限を設定します。有効にすると、クイズ中にカウントダウンタイマーが表示されます。';
+
+  @override
+  String get examTimeLimitOffDescription => 'この試験には時間制限がありません。';
 
   @override
   String get enableTimeLimit => '時間制限を有効にする';

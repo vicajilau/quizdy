@@ -144,6 +144,10 @@
   "save": "Αποθήκευση",
   "examTimeLimitTitle": "Χρονικό Όριο Εξέτασης",
   "examTimeLimitDescription": "Ορίστε χρονικό όριο για την εξέταση. Όταν ενεργοποιηθεί, θα εμφανίζεται χρονόμετρο κατά τη διάρκεια του κουίζ.",
+  "examTimeLimitOffDescription": "Δεν υπάρχει χρονικό όριο για αυτήν την εξέταση.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
+  },
   "enableTimeLimit": "Ενεργοποίηση χρονικού ορίου",
   "timeLimitMinutes": "Χρονικό όριο (λεπτά)",
   "examTimeExpiredTitle": "Τέλος Χρόνου!",
@@ -465,9 +469,13 @@
   "@maxIncorrectAnswersLabel": {
     "description": "Label for the toggle to limit incorrect answers"
   },
-  "maxIncorrectAnswersDescription": "Το κουίζ θα τερματιστεί αμέσως εάν φτάσετε σε αυτό το όριο.",
+  "maxIncorrectAnswersDescription": "Εξέταση Επιτυχίας/Αποτυχίας. Δεν υπάρχει αριθμητική βαθμολογία.",
   "@maxIncorrectAnswersDescription": {
     "description": "Description for the limit incorrect answers feature"
+  },
+  "maxIncorrectAnswersOffDescription": "Η εξέταση έχει αριθμητική βαθμολογία από 0 έως 100.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
   },
   "maxIncorrectAnswersLimitLabel": "Μέγιστος αριθμός επιτρεπόμενων σφαλμάτων",
   "@maxIncorrectAnswersLimitLabel": {

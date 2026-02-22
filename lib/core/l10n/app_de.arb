@@ -449,9 +449,13 @@
   "@maxIncorrectAnswersLabel": {
     "description": "Bezeichnung für den Schalter zum Begrenzen falscher Antworten"
   },
-  "maxIncorrectAnswersDescription": "Das Quiz wird sofort beendet, wenn Sie dieses Limit erreichen.",
+  "maxIncorrectAnswersDescription": "Bestanden/Nicht bestanden Prüfung. Es gibt keine numerische Note.",
   "@maxIncorrectAnswersDescription": {
     "description": "Beschreibung für die Funktion zum Begrenzen falscher Antworten"
+  },
+  "maxIncorrectAnswersOffDescription": "Die Prüfung hat eine numerische Note von 0 bis 100.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
   },
   "maxIncorrectAnswersLimitLabel": "Maximal zulässige Fehler",
   "@maxIncorrectAnswersLimitLabel": {
@@ -524,6 +528,10 @@
   "examTimeLimitDescription": "Setzen Sie ein Zeitlimit für die Prüfung. Wenn aktiviert, wird während des Quiz ein Countdown-Timer angezeigt.",
   "@examTimeLimitDescription": {
     "description": "Beschreibung für die Prüfungszeit-Limit-Funktion"
+  },
+  "examTimeLimitOffDescription": "Für diese Prüfung gibt es kein Zeitlimit.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
   },
   "enableTimeLimit": "Zeitlimit aktivieren",
   "@enableTimeLimit": {

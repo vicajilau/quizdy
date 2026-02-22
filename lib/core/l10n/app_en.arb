@@ -395,9 +395,13 @@
   "@maxIncorrectAnswersLabel": {
     "description": "Label for the toggle to limit incorrect answers"
   },
-  "maxIncorrectAnswersDescription": "The quiz will end immediately if you reach this limit.",
+  "maxIncorrectAnswersDescription": "Pass/Fail Exam. No numeric grade; you either pass or fail.",
   "@maxIncorrectAnswersDescription": {
     "description": "Description for the limit incorrect answers feature"
+  },
+  "maxIncorrectAnswersOffDescription": "The exam has a numeric grade from 0 to 100.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
   },
   "maxIncorrectAnswersLimitLabel": "Maximum allowed errors",
   "@maxIncorrectAnswersLimitLabel": {
@@ -478,6 +482,10 @@
   "examTimeLimitDescription": "Set a time limit for the exam. When enabled, a countdown timer will be displayed during the quiz.",
   "@examTimeLimitDescription": {
     "description": "Description for exam time limit feature"
+  },
+  "examTimeLimitOffDescription": "There is no time limit for this exam.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
   },
   "enableTimeLimit": "Enable time limit",
   "@enableTimeLimit": {

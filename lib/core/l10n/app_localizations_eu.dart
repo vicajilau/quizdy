@@ -294,7 +294,11 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get maxIncorrectAnswersDescription =>
-      'Azterketarako erantzun okerren muga ezarri. Muga horretara iritsiz gero, quiz-a berehala geldituko da.';
+      'Gai/Ez gai azterketa. Ez dago zenbakizko notarik, gainditu edo huts egin.';
+
+  @override
+  String get maxIncorrectAnswersOffDescription =>
+      'Azterketak 0 eta 100 arteko zenbakizko nota du.';
 
   @override
   String get maxIncorrectAnswersLimitLabel => 'Gehienezko errore kopurua';
@@ -362,6 +366,10 @@ class AppLocalizationsEu extends AppLocalizations {
   @override
   String get examTimeLimitDescription =>
       'Ezarri azterketarentzako denbora muga. Aktibatutakoan, denbora atzera-kontaketa erakutsiko da quiz-ean zehar.';
+
+  @override
+  String get examTimeLimitOffDescription =>
+      'Azterketa honetarako ez dago denbora mugarik.';
 
   @override
   String get enableTimeLimit => 'Denbora muga gaitu';

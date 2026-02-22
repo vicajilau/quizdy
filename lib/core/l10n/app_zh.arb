@@ -413,6 +413,10 @@
   "@examTimeLimitDescription": {
     "description": "Description for exam time limit feature"
   },
+  "examTimeLimitOffDescription": "本次考试没有时间限制。",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
+  },
   "enableTimeLimit": "启用时间限制",
   "@enableTimeLimit": {
     "description": "Label for enable exam time limit switch"
@@ -1495,9 +1499,13 @@
   "@maxIncorrectAnswersLabel": {
     "description": "Label for the toggle to limit incorrect answers"
   },
-  "maxIncorrectAnswersDescription": "如果达到此限制，测验将立即结束。",
+  "maxIncorrectAnswersDescription": "及格/不及格考试。没有具体分数，只有及格或不及格。",
   "@maxIncorrectAnswersDescription": {
     "description": "Description for the limit incorrect answers feature"
+  },
+  "maxIncorrectAnswersOffDescription": "考试将有 0 到 100 的数值评分。",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
   },
   "maxIncorrectAnswersLimitLabel": "允许的最大错误数",
   "@maxIncorrectAnswersLimitLabel": {

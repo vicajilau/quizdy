@@ -509,6 +509,10 @@
   "@examTimeLimitDescription": {
     "description": "Descripció per la funcionalitat límit de temps de l'examen"
   },
+  "examTimeLimitOffDescription": "No hi ha límit de temps per a aquest examen.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
+  },
   "enableTimeLimit": "Activar límit de temps",
   "@enableTimeLimit": {
     "description": "Etiqueta pel commutador d'activació del límit de temps de l'examen"
@@ -521,9 +525,13 @@
   "@maxIncorrectAnswersLabel": {
     "description": "Etiqueta per a la configuració del límit d'errors"
   },
-  "maxIncorrectAnswersDescription": "Estableix un límit de respostes incorrectes per a l'examen. Si s'arriba a aquest límit, el quiz s'aturarà immediatament.",
+  "maxIncorrectAnswersDescription": "Examen d'Apte/No Apte. No hi ha nota numèrica, aproves o suspens.",
   "@maxIncorrectAnswersDescription": {
     "description": "Descripció de la funcionalitat del límit d'errors"
+  },
+  "maxIncorrectAnswersOffDescription": "L'examen té una nota numèrica del 0 al 100.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
   },
   "maxIncorrectAnswersLimitLabel": "Nombre màxim d'errors",
   "@maxIncorrectAnswersLimitLabel": {
