@@ -1399,7 +1399,7 @@
   "@studyModeLabel": {
     "description": "Label for study mode option"
   },
-  "studyModeDescription": "Feedback instantané et pas de minuterie",
+  "studyModeDescription": "Assistance par IA disponible. Retour instantané après chaque réponse, sans limite de temps ni pénalité.",
   "@studyModeDescription": {
     "description": "Description for study mode"
   },

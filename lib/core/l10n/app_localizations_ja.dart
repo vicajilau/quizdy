@@ -1080,7 +1080,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String get studyModeLabel => '学習モード';
 
   @override
-  String get studyModeDescription => '即時フィードバック、タイマーなし';
+  String get studyModeDescription =>
+      'AIアシスタンス利用可能。回答直後のインスタント・フィードバック、時間制限や減点はありません。';
 
   @override
   String get examModeLabel => '試験モード';

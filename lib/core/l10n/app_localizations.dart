@@ -2057,7 +2057,7 @@ abstract class AppLocalizations {
   /// Description for study mode
   ///
   /// In en, this message translates to:
-  /// **'Instant feedback and no timer'**
+  /// **'AI assistance available. Instant feedback after each answer with no time limits or penalties.'**
   String get studyModeDescription;
 
   /// Label for exam mode option

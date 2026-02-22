@@ -1380,7 +1380,7 @@
     "description": "Error message when file picker fails"
   },
   "studyModeLabel": "अध्ययन मोड",
-  "studyModeDescription": "तत्काल प्रतिक्रिया और कोई टाइमर नहीं",
+  "studyModeDescription": "AI सहायता उपलब्ध है। समय सीमा या दंड के बिना प्रत्येक उत्तर के बाद त्वरित प्रतिक्रिया।",
   "examModeLabel": "परीक्षा मोड",
   "examModeDescription": "कोई AI सहायता नहीं। समय सीमा और गलत उत्तरों के लिए जुर्माना लागू हो सकता है।",
   "checkAnswer": "जांचें",

@@ -1476,7 +1476,7 @@
     "description": "Error message when file picker fails"
   },
   "studyModeLabel": "وضع الدراسة",
-  "studyModeDescription": "ردود فعل فورية وبلا توقيت",
+  "studyModeDescription": "مساعدة الذكاء الاصطناعي متاحة. تعليقات فورية بعد كل إجابة بدون حدود زمنية أو عقوبات.",
   "examModeLabel": "وضع الاختبار",
   "examModeDescription": "بدون مساعدة الذكاء الاصطناعي. قد يتم تطبيق حدود زمنية وعقوبات على الإجابات غير الصحيحة.",
   "checkAnswer": "تحقق",

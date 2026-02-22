@@ -1140,7 +1140,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get studyModeLabel => 'Modo estudo';
 
   @override
-  String get studyModeDescription => 'Feedback instantâneo e sem cronômetro';
+  String get studyModeDescription =>
+      'Assistência de IA disponível. Feedback instantâneo após cada resposta, sem limites de tempo ou penalidades.';
 
   @override
   String get examModeLabel => 'Modo exame';

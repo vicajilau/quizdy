@@ -1147,7 +1147,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get studyModeDescription =>
-      'Άμεση ανατροφοδότηση και χωρίς χρονόμετρο';
+      'Διαθέσιμη βοήθεια AI. Άμεση ανατροφοδότηση μετά από κάθε απάντηση, χωρίς χρονικά όρια ή ποινές.';
 
   @override
   String get examModeLabel => 'Λειτουργία Εξέτασης';

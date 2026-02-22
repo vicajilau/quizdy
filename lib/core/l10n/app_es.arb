@@ -1506,7 +1506,7 @@
   "@studyModeLabel": {
     "description": "Label for study mode option"
   },
-  "studyModeDescription": "Feedback instantáneo y sin temporizador",
+  "studyModeDescription": "Asistencia de IA disponible. Feedback instantáneo tras cada respuesta, sin límites de tiempo ni penalizaciones.",
   "@studyModeDescription": {
     "description": "Description for study mode"
   },

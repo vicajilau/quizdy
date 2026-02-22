@@ -1410,7 +1410,7 @@
     "description": "Error message when file picker fails"
   },
   "studyModeLabel": "Modo estudo",
-  "studyModeDescription": "Retroalimentación instantánea e sen tempo",
+  "studyModeDescription": "Asistencia de IA dispoñible. Feedback instantáneo tras cada resposta, sen límites de tiempo nin penalizacións.",
   "examModeLabel": "Modo exame",
   "examModeDescription": "Sen asistencia de IA. Poden aplicarse límites de tempo e penalizacións por respostas incorrectas.",
   "checkAnswer": "Comprobar",

@@ -1491,7 +1491,7 @@
   "@studyModeLabel": {
     "description": "Label for study mode option"
   },
-  "studyModeDescription": "Sofortiges Feedback und kein Timer",
+  "studyModeDescription": "KI-Unterstützung verfügbar. Sofortiges Feedback nach jeder Antwort, ohne Zeitlimits oder Punktabzüge.",
   "@studyModeDescription": {
     "description": "Description for study mode"
   },

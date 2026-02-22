@@ -1141,7 +1141,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get studyModeDescription =>
-      'Feedback instantani i sense temporitzador';
+      'Assistència d\'IA disponible. Feedback instantani després de cada resposta, sense límits de temps ni penalitzacions.';
 
   @override
   String get examModeLabel => 'Mode examen';

@@ -1118,7 +1118,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get studyModeLabel => 'وضع الدراسة';
 
   @override
-  String get studyModeDescription => 'ردود فعل فورية وبلا توقيت';
+  String get studyModeDescription =>
+      'مساعدة الذكاء الاصطناعي متاحة. تعليقات فورية بعد كل إجابة بدون حدود زمنية أو عقوبات.';
 
   @override
   String get examModeLabel => 'وضع الاختبار';

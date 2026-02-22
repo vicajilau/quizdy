@@ -1139,7 +1139,8 @@ class AppLocalizationsEu extends AppLocalizations {
   String get studyModeLabel => 'Ikasteko Modua';
 
   @override
-  String get studyModeDescription => 'Berehalako feedbacka eta denborarik gabe';
+  String get studyModeDescription =>
+      'AI laguntza eskuragarri. Erantzun bakoitzaren ondoren feedbacka berehala, denbora-mugarik eta zigorrrik gabe.';
 
   @override
   String get examModeLabel => 'Azterketa Modua';

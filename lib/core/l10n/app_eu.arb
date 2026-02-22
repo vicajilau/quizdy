@@ -1388,7 +1388,7 @@
     "description": "Error message when file picker fails"
   },
   "studyModeLabel": "Ikasteko Modua",
-  "studyModeDescription": "Berehalako feedbacka eta denborarik gabe",
+  "studyModeDescription": "AI laguntza eskuragarri. Erantzun bakoitzaren ondoren feedbacka berehala, denbora-mugarik eta zigorrrik gabe.",
   "examModeLabel": "Azterketa Modua",
   "examModeDescription": "AI laguntzarik gabe. Denbora-mugak eta erantzun okerrengatiko zigorrak aplika daitezke.",
   "checkAnswer": "Egiaztatu",

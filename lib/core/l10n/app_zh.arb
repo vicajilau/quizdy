@@ -1360,7 +1360,7 @@
     "description": "Error message when file picker fails"
   },
   "studyModeLabel": "学习模式",
-  "studyModeDescription": "即时反馈，无计时",
+  "studyModeDescription": "提供 AI 辅助。每题回答后提供即时反馈，无时间限制或扣分。",
   "examModeLabel": "考试模式",
   "examModeDescription": "无 AI 辅助。可能适用时间限制和答错扣分。",
   "checkAnswer": "检查",

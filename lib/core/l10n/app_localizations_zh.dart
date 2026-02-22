@@ -1073,7 +1073,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get studyModeLabel => '学习模式';
 
   @override
-  String get studyModeDescription => '即时反馈，无计时';
+  String get studyModeDescription => '提供 AI 辅助。每题回答后提供即时反馈，无时间限制或扣分。';
 
   @override
   String get examModeLabel => '考试模式';

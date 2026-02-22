@@ -1491,7 +1491,7 @@
   "@studyModeLabel": {
     "description": "Label for study mode option"
   },
-  "studyModeDescription": "Feedback instantani i sense temporitzador",
+  "studyModeDescription": "Assistència d'IA disponible. Feedback instantani després de cada resposta, sense límits de temps ni penalitzacions.",
   "@studyModeDescription": {
     "description": "Description for study mode"
   },

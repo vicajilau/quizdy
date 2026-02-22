@@ -1126,7 +1126,8 @@ class AppLocalizationsHi extends AppLocalizations {
   String get studyModeLabel => 'अध्ययन मोड';
 
   @override
-  String get studyModeDescription => 'तत्काल प्रतिक्रिया और कोई टाइमर नहीं';
+  String get studyModeDescription =>
+      'AI सहायता उपलब्ध है। समय सीमा या दंड के बिना प्रत्येक उत्तर के बाद त्वरित प्रतिक्रिया।';
 
   @override
   String get examModeLabel => 'परीक्षा मोड';

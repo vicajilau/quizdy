@@ -1142,7 +1142,7 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get studyModeDescription =>
-      'Retroalimentación instantánea e sen tempo';
+      'Asistencia de IA dispoñible. Feedback instantáneo tras cada resposta, sen límites de tiempo nin penalizacións.';
 
   @override
   String get examModeLabel => 'Modo exame';
