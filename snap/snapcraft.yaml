@@ -23,6 +23,7 @@ parts:
     flutter-target: lib/main.dart
     build-packages:
       - lld
+      - llvm
     build-environment:
       - PUB_CACHE: "$SNAPCRAFT_PART_BUILD/.pub-cache"
 
