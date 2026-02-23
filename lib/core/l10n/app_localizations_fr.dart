@@ -306,8 +306,14 @@ class AppLocalizationsFr extends AppLocalizations {
       'Nombre d\'erreurs maximum autorisé';
 
   @override
+  String get examFailedStatus => 'Examen NON ADMIS';
+
+  @override
+  String get examPassedStatus => 'Examen ADMIS';
+
+  @override
   String get quizFailedLimitReached =>
-      'Quiz arrêté : Limite d\'erreurs atteinte';
+      'Examen Terminé : Le nombre maximal d\'erreurs a été atteint';
 
   @override
   String get errorInvalidNumber => 'Veuillez entrer un nombre valide';

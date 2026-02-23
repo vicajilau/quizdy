@@ -134,6 +134,35 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
       }
     });
 
+    // Handle essay AI evaluation started
+    on<EssayAiEvaluationStarted>((event, emit) {
+      if (state is QuizExecutionInProgress) {
+        emit((state as QuizExecutionInProgress).copyWith(isAiEvaluating: true));
+      }
+    });
+
+    // Handle essay AI evaluation received
+    on<EssayAiEvaluationReceived>((event, emit) {
+      if (state is QuizExecutionInProgress) {
+        final currentState = state as QuizExecutionInProgress;
+        final newAiEvaluations = Map<int, EssayAiEvaluation>.from(
+          currentState.aiEvaluations,
+        );
+
+        newAiEvaluations[event.questionIndex] = EssayAiEvaluation(
+          evaluation: event.evaluation,
+          errorMessage: event.errorMessage,
+        );
+
+        emit(
+          currentState.copyWith(
+            aiEvaluations: newAiEvaluations,
+            isAiEvaluating: false,
+          ),
+        );
+      }
+    });
+
     // Handle next question
     on<NextQuestionRequested>((event, emit) {
       if (state is QuizExecutionInProgress) {
@@ -202,6 +231,7 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
             userAnswers: {},
             essayAnswers: {},
             validatedQuestions: {},
+            aiEvaluations: {},
             quizConfig: completedState.quizConfig,
           ),
         );
@@ -221,6 +251,19 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
       currentState.essayAnswers,
     );
 
+    // Re-evaluate wasLimitReached for the final result:
+    // Unanswered questions also count as failures for pass/fail.
+    bool finalLimitReached = wasLimitReached;
+    if (!finalLimitReached &&
+        currentState.quizConfig.enableMaxIncorrectAnswers &&
+        currentState.quizConfig.maxIncorrectAnswers != null) {
+      final totalFailures =
+          results.incorrectAnswers + results.unansweredAnswers;
+      if (totalFailures >= currentState.quizConfig.maxIncorrectAnswers!) {
+        finalLimitReached = true;
+      }
+    }
+
     final scorePercentage = QuizScoringHelper.calculateScore(
       results.correctAnswers,
       results.incorrectAnswers,
@@ -237,7 +280,8 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
         totalQuestions: currentState.totalQuestions,
         quizConfig: currentState.quizConfig,
         score: scorePercentage,
-        wasLimitReached: wasLimitReached,
+        wasLimitReached: finalLimitReached,
+        aiEvaluations: currentState.aiEvaluations,
       ),
     );
   }

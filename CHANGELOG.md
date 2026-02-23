@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [1.7.0]
-
+- feat: Automated AI evaluation for essay questions in Study Mode with automated trigger, persistence across navigation, and navigation locking during processing.
 - ui: Fixed error state styling for the "Maximum allowed errors" input field to match other inputs.
 - feat: Restructured settings by moving quiz-related options into the quiz start section.
 - refactor: Refactored AI Assistant UI to use `AiAssistantTheme` extension and implemented Shift + Enter shortcuts for better multi-line input handling.

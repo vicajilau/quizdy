@@ -300,7 +300,14 @@ class AppLocalizationsAr extends AppLocalizations {
   String get maxIncorrectAnswersLimitLabel => 'الحد الأقصى للأخطاء المسموح بها';
 
   @override
-  String get quizFailedLimitReached => 'توقف الاختبار: تم الوصول إلى حد الخطأ';
+  String get examFailedStatus => 'اختبار لم يجتز';
+
+  @override
+  String get examPassedStatus => 'اختبار اجتيز';
+
+  @override
+  String get quizFailedLimitReached =>
+      'انتهى الاختبار: تم تجاوز الحد الأقصى للأخطاء المسموح بها';
 
   @override
   String get errorInvalidNumber => 'يرجى إدخال رقم صالح';

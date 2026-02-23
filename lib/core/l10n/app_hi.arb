@@ -1531,7 +1531,9 @@
   "@maxIncorrectAnswersLimitLabel": {
     "description": "Label for the input field of maximum incorrect answers"
   },
-  "quizFailedLimitReached": "क्विज़ रुका: त्रुटि सीमा पूरी हो गई",
+  "examFailedStatus": "परीक्षा अनुत्तीर्ण (Fail)",
+  "examPassedStatus": "परीक्षा उत्तीर्ण (Pass)",
+  "quizFailedLimitReached": "परीक्षा समाप्त: अधिकतम त्रुटि सीमा समाप्त हो गई है",
   "@quizFailedLimitReached": {
     "description": "Title for the results screen when the error limit is reached"
   },

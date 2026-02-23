@@ -461,7 +461,9 @@
   "@maxIncorrectAnswersLimitLabel": {
     "description": "Bezeichnung für das Eingabefeld der maximalen falschen Antworten"
   },
-  "quizFailedLimitReached": "Quiz gestoppt: Fehlerlimit erreicht",
+  "examFailedStatus": "Prüfung NICHT BESTANDEN",
+  "examPassedStatus": "Prüfung BESTANDEN",
+  "quizFailedLimitReached": "Prüfung Beendet: Das maximale Fehlerlimit wurde überschritten",
   "@quizFailedLimitReached": {
     "description": "Titel für den Ergebnisbildschirm, wenn das Fehlerlimit erreicht ist"
   },

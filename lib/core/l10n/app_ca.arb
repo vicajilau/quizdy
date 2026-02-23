@@ -537,7 +537,15 @@
   "@maxIncorrectAnswersLimitLabel": {
     "description": "Etiqueta per al camp d'entrada del nombre d'errors"
   },
-  "quizFailedLimitReached": "Quiz Aturat: Límit d'Errors Arribat",
+  "examFailedStatus": "Examen NO APTE",
+  "@examFailedStatus": {
+    "description": "Estat de l'examen quan no s'ha superat"
+  },
+  "examPassedStatus": "Examen APTE",
+  "@examPassedStatus": {
+    "description": "Estat de l'examen quan s'ha superat"
+  },
+  "quizFailedLimitReached": "Examen Finalitzat: S'ha superat el límit màxim d'errors permesos",
   "@quizFailedLimitReached": {
     "description": "Missatge mostrat quan el quiz s'atura per haver arribat al límit d'errors"
   },

@@ -365,7 +365,9 @@
   "@maxIncorrectAnswersLimitLabel": {
     "description": "Etichetta per il campo di input del massimo di risposte errate"
   },
-  "quizFailedLimitReached": "Quiz interrotto: Limite errori raggiunto",
+  "examFailedStatus": "Esame NON SUPERATO",
+  "examPassedStatus": "Esame SUPERATO",
+  "quizFailedLimitReached": "Esame Terminato: Il limite massimo di errori è stato raggiunto",
   "@quizFailedLimitReached": {
     "description": "Titolo per la schermata dei risultati quando il limite di errori viene raggiunto"
   },

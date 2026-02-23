@@ -292,7 +292,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get maxIncorrectAnswersLimitLabel => '最大許容エラー数';
 
   @override
-  String get quizFailedLimitReached => 'クイズ停止：エラー制限に達しました';
+  String get examFailedStatus => '試験不合格';
+
+  @override
+  String get examPassedStatus => '試験合格';
+
+  @override
+  String get quizFailedLimitReached => '試験終了：エラー制限に達しました';
 
   @override
   String get errorInvalidNumber => '有効な数字を入力してください';

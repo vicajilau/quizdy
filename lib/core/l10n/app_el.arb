@@ -486,7 +486,9 @@
   "@maxIncorrectAnswersLimitLabel": {
     "description": "Label for the input field of maximum incorrect answers"
   },
-  "quizFailedLimitReached": "Το κουίζ διακόπηκε: Συμπληρώθηκε το όριο σφαλμάτων",
+  "examFailedStatus": "Η εξέταση ΑΠΕΤΥΧΕ",
+  "examPassedStatus": "Η εξέταση ΠΕΤΥΧΕ",
+  "quizFailedLimitReached": "Η εξέταση ολοκληρώθηκε: Συμπληρώθηκε το μέγιστο όριο σφαλμάτων",
   "@quizFailedLimitReached": {
     "description": "Title for the results screen when the error limit is reached"
   },

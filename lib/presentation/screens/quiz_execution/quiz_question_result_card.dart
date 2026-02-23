@@ -23,12 +23,16 @@ class QuizQuestionResultCard extends StatelessWidget {
   /// The score delta for this question (e.g., +1, -0.5, 0).
   final double scoreDelta;
 
+  /// Whether to show the score delta (e.g., +1, -0.5).
+  final bool showScore;
+
   /// Creates a [QuizQuestionResultCard] widget.
   const QuizQuestionResultCard({
     super.key,
     required this.result,
     required this.questionNumber,
     required this.scoreDelta,
+    this.showScore = true,
   });
 
   @override
@@ -41,7 +45,10 @@ class QuizQuestionResultCard extends StatelessWidget {
     Color deltaColor;
     String deltaText;
 
-    if (scoreDelta > 0) {
+    if (!result.isAnswered) {
+      deltaColor = neutralColor;
+      deltaText = '0';
+    } else if (scoreDelta > 0) {
       deltaColor = successColor;
       deltaText =
           '+${scoreDelta % 1 == 0 ? scoreDelta.toStringAsFixed(0) : (scoreDelta * 10 % 1 == 0 ? scoreDelta.toStringAsFixed(1) : scoreDelta.toStringAsFixed(2))}';
@@ -57,6 +64,13 @@ class QuizQuestionResultCard extends StatelessWidget {
       deltaText = '0';
     }
 
+    final statusColor = !result.isAnswered
+        ? neutralColor
+        : (result.isCorrect ? successColor : errorColor);
+    final statusIcon = !result.isAnswered
+        ? Icons.remove
+        : (result.isCorrect ? Icons.check : Icons.close);
+
     return Card(
       elevation: 0,
       shape: RoundedRectangleBorder(
@@ -71,16 +85,10 @@ class QuizQuestionResultCard extends StatelessWidget {
             width: 32,
             height: 32,
             decoration: BoxDecoration(
-              color: (result.isCorrect ? successColor : errorColor).withValues(
-                alpha: 0.1,
-              ),
+              color: statusColor.withValues(alpha: 0.1),
               shape: BoxShape.circle,
             ),
-            child: Icon(
-              result.isCorrect ? Icons.check : Icons.close,
-              color: result.isCorrect ? successColor : errorColor,
-              size: 20,
-            ),
+            child: Icon(statusIcon, color: statusColor, size: 20),
           ),
           title: Text(
             AppLocalizations.of(context)!.questionNumber(questionNumber),
@@ -91,21 +99,25 @@ class QuizQuestionResultCard extends StatelessWidget {
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                decoration: BoxDecoration(
-                  color: deltaColor.withValues(alpha: 0.1),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Text(
-                  deltaText,
-                  style: theme.textTheme.labelSmall?.copyWith(
-                    color: deltaColor,
-                    fontWeight: FontWeight.bold,
+              if (showScore)
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 4,
+                  ),
+                  decoration: BoxDecoration(
+                    color: deltaColor.withValues(alpha: 0.1),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Text(
+                    deltaText,
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      color: deltaColor,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(width: 12),
+              if (showScore) const SizedBox(width: 12),
               Icon(Icons.expand_more, color: theme.iconTheme.color),
             ],
           ),

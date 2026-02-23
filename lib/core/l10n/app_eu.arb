@@ -441,7 +441,9 @@
   "@maxIncorrectAnswersLimitLabel": {
     "description": "Errore kopurua sartzeko eremuaren etiketa"
   },
-  "quizFailedLimitReached": "Quiz-a Geldituta: Errore Muga Gaindituta",
+  "examFailedStatus": "Azterketa EZ GAI",
+  "examPassedStatus": "Azterketa GAI",
+  "quizFailedLimitReached": "Azterketa Amaitua: Onartutako akatsen muga gainditu da",
   "@quizFailedLimitReached": {
     "description": "Errore muga iristeagatik quiz-a gelditzen denean erakusten den mezua"
   },

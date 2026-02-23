@@ -1588,7 +1588,9 @@
   "@maxIncorrectAnswersLimitLabel": {
     "description": "Label for the input field of maximum incorrect answers"
   },
-  "quizFailedLimitReached": "توقف الاختبار: تم الوصول إلى حد الخطأ",
+  "examFailedStatus": "اختبار لم يجتز",
+  "examPassedStatus": "اختبار اجتيز",
+  "quizFailedLimitReached": "انتهى الاختبار: تم تجاوز الحد الأقصى للأخطاء المسموح بها",
   "@quizFailedLimitReached": {
     "description": "Title for the results screen when the error limit is reached"
   },

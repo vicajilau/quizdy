@@ -302,7 +302,14 @@ class AppLocalizationsEn extends AppLocalizations {
   String get maxIncorrectAnswersLimitLabel => 'Maximum allowed errors';
 
   @override
-  String get quizFailedLimitReached => 'Quiz Stopped: Error Limit Reached';
+  String get examFailedStatus => 'Exam FAILED (Fail)';
+
+  @override
+  String get examPassedStatus => 'Exam PASSED (Pass)';
+
+  @override
+  String get quizFailedLimitReached =>
+      'Exam Finished: Maximum error limit has been reached';
 
   @override
   String get errorInvalidNumber => 'Please enter a valid number';

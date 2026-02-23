@@ -307,8 +307,14 @@ class AppLocalizationsEl extends AppLocalizations {
       'Μέγιστος αριθμός επιτρεπόμενων σφαλμάτων';
 
   @override
+  String get examFailedStatus => 'Η εξέταση ΑΠΕΤΥΧΕ';
+
+  @override
+  String get examPassedStatus => 'Η εξέταση ΠΕΤΥΧΕ';
+
+  @override
   String get quizFailedLimitReached =>
-      'Το κουίζ διακόπηκε: Συμπληρώθηκε το όριο σφαλμάτων';
+      'Η εξέταση ολοκληρώθηκε: Συμπληρώθηκε το μέγιστο όριο σφαλμάτων';
 
   @override
   String get errorInvalidNumber => 'Παρακαλώ εισάγετε έγκυρο αριθμό';

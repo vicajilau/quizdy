@@ -48,3 +48,19 @@ class JumpToQuestionRequested extends QuizExecutionEvent {
 
   JumpToQuestionRequested(this.index);
 }
+
+/// Event triggered when an AI evaluation for an essay is received.
+class EssayAiEvaluationReceived extends QuizExecutionEvent {
+  final int questionIndex;
+  final String? evaluation;
+  final String? errorMessage;
+
+  EssayAiEvaluationReceived({
+    required this.questionIndex,
+    this.evaluation,
+    this.errorMessage,
+  });
+}
+
+/// Event triggered when an AI evaluation for an essay starts.
+class EssayAiEvaluationStarted extends QuizExecutionEvent {}

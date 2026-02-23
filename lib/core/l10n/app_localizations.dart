@@ -626,10 +626,22 @@ abstract class AppLocalizations {
   /// **'Maximum allowed errors'**
   String get maxIncorrectAnswersLimitLabel;
 
+  /// Status of a failed exam
+  ///
+  /// In en, this message translates to:
+  /// **'Exam FAILED (Fail)'**
+  String get examFailedStatus;
+
+  /// Status of a passed exam
+  ///
+  /// In en, this message translates to:
+  /// **'Exam PASSED (Pass)'**
+  String get examPassedStatus;
+
   /// Title for the results screen when the error limit is reached
   ///
   /// In en, this message translates to:
-  /// **'Quiz Stopped: Error Limit Reached'**
+  /// **'Exam Finished: Maximum error limit has been reached'**
   String get quizFailedLimitReached;
 
   /// Error message for invalid number input

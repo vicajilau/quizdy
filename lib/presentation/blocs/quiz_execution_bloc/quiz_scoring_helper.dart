@@ -31,6 +31,7 @@ class QuizScoringHelper {
   ) {
     int correctCount = 0;
     int incorrectCount = 0;
+    int unansweredCount = 0;
 
     for (int i = 0; i < questions.length; i++) {
       final question = questions[i];
@@ -50,10 +51,16 @@ class QuizScoringHelper {
         } else {
           incorrectCount++;
         }
+      } else {
+        unansweredCount++;
       }
     }
 
-    return QuizResults(correctCount, incorrectCount);
+    return QuizResults(
+      correctAnswers: correctCount,
+      incorrectAnswers: incorrectCount,
+      unansweredAnswers: unansweredCount,
+    );
   }
 
   /// Calculates the final score percentage based on quiz results and config.
@@ -65,8 +72,8 @@ class QuizScoringHelper {
   ) {
     final double penalty =
         (quizConfig.subtractPoints && !quizConfig.isStudyMode)
-            ? quizConfig.penaltyAmount
-            : 0.0;
+        ? quizConfig.penaltyAmount
+        : 0.0;
 
     final double netScore = correctAnswers - (incorrectAnswers * penalty);
     final double total = totalQuestions.toDouble();
@@ -78,6 +85,11 @@ class QuizScoringHelper {
 class QuizResults {
   final int correctAnswers;
   final int incorrectAnswers;
+  final int unansweredAnswers;
 
-  QuizResults(this.correctAnswers, this.incorrectAnswers);
+  QuizResults({
+    required this.correctAnswers,
+    required this.incorrectAnswers,
+    required this.unansweredAnswers,
+  });
 }
