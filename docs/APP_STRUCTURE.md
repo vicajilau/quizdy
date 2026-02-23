@@ -1,8 +1,8 @@
-# Quiz App - Application Structure
+# QuizLab AI - Application Structure
 
 ## Overview
 
-This document provides a comprehensive overview of the Quiz App's architecture, data models, and project structure. The app follows Clean Architecture principles with clear separation of concerns across multiple layers.
+This document provides a comprehensive overview of the QuizLab AI's architecture, data models, and project structure. The app follows Clean Architecture principles with clear separation of concerns across multiple layers.
 
 ## App Architecture
 

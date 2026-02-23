@@ -19,7 +19,7 @@
     <key>provisioningProfiles</key>
     <dict>
         <key>es.victorcarreras.quiz-app</key>
-        <string>Quiz App MacStore</string>
+        <string>QuizLab AI MacStore</string>
     </dict>
 </dict>
 </plist>

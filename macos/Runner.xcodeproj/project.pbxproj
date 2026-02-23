@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -489,7 +489,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "es.victorcarreras.quiz-app";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "Quiz App MacStore";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "QuizLab AI MacStore";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Profile;
@@ -626,7 +626,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "es.victorcarreras.quiz-app";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "Quiz App MacStore";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "QuizLab AI MacStore";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -651,7 +651,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "es.victorcarreras.quiz-app";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "Quiz App MacStore";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "QuizLab AI MacStore";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

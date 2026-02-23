@@ -11,7 +11,7 @@ QuizLab AI is an open-source cross-platform application designed to provide an i
 
 ### Local Data Storage
 
-Quiz App stores data locally on your device, including:
+QuizLab AI stores data locally on your device, including:
 
 - **Quiz Data**: Questions, answers, and quiz configurations you create or import
 - **User Preferences**: App settings, language preferences, and UI customizations
@@ -65,14 +65,14 @@ When you choose to use AI-powered question generation features, you may connect 
 
 ## International Users
 
-Since Quiz App operates entirely on your device:
+Since QuizLab AI operates entirely on your device:
 - No data crosses international borders through our systems
 - AI service usage follows the data handling policies of OpenAI and Google respectively
 - The app supports 13 languages with full localization
 
 ## Children's Privacy
 
-Quiz App does not collect any personal information from users of any age. The app can be safely used by children under parental guidance, as:
+QuizLab AI does not collect any personal information from users of any age. The app can be safely used by children under parental guidance, as:
 - No personal data is collected
 - No online accounts are required
 - All data remains on the device
@@ -87,7 +87,7 @@ QuizLab AI is released under the BSD 3-Clause License, which means:
 
 ## Changes to This Privacy Policy
 
-Since Quiz App is open source:
+Since QuizLab AI is open source:
 - Privacy policy changes will be reflected in the project repository
 - Updates will be documented in the project's changelog
 - You can track all changes through the Git history
@@ -100,7 +100,7 @@ Since Quiz App is open source:
 
 ## Contact Information
 
-For privacy-related questions about Quiz App:
+For privacy-related questions about QuizLab AI:
 
 - **GitHub Issues**: [https://github.com/vicajilau/quizlab_ai/issues](https://github.com/vicajilau/quizlab_ai/issues)
 - **Project Repository**: [https://github.com/vicajilau/quizlab_ai](https://github.com/vicajilau/quizlab_ai)
@@ -115,7 +115,7 @@ For questions about AI service data handling, please contact the respective serv
 - No crash reports are automatically sent (though you may choose to report issues via GitHub)
 
 ### Permissions
-Quiz App may request the following permissions:
+QuizLab AI may request the following permissions:
 - **Storage**: To save and load quiz files
 - **Network**: Only when using optional AI features with your explicit API keys
 

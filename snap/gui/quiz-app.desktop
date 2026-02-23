@@ -1,6 +1,6 @@
 [Desktop Entry]
 Version=1.0
-Name=Quiz App
+Name=QuizLab AI
 Comment=An interactive and engaging quiz experience
 Exec=quiz-app %f
 Icon=quiz-app.png
