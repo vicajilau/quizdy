@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     
     <application
-        android:label="Quiz App"
+        android:label="QuizLab AI"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity

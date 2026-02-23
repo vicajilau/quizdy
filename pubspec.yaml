@@ -1,5 +1,5 @@
 name: quiz_app
-description: "Quiz App - An interactive quiz application built with Flutter."
+description: "QuizLab AI - An interactive quiz application built with Flutter."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
@@ -162,7 +162,7 @@ flutter_launcher_icons:
   min_sdk_android: 21
 
 msix_config:
-  display_name: Quizz App
+  display_name: QuizLab AI
   identity_name: vicajilau.QuizzApp
   publisher: CN=B0585DC6-ACE7-4F2B-956B-CDC4AFBAFCCF
   publisher_display_name: vicajilau

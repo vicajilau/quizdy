@@ -14,7 +14,7 @@
 
 **🌟 Official Versions**
 
-Access Quiz App on your favorite platform:
+Access QuizLab AI on your favorite platform:
 
 - 🌐 **Web**: [vicajilau.github.io/quiz_app](https://vicajilau.github.io/quiz_app/)
   Enjoy the full experience from any browser.
