@@ -357,6 +357,14 @@ class _QuizCompletedViewState extends State<QuizCompletedView> {
                       showScore:
                           !widget.state.quizConfig.enableMaxIncorrectAnswers,
                       aiEvaluation: widget.state.aiEvaluations[index],
+                      onRetryEvaluation: () {
+                        context.read<QuizExecutionBloc>().add(
+                          EssayAiEvaluationRetryRequested(
+                            index,
+                            AppLocalizations.of(context)!,
+                          ),
+                        );
+                      },
                     ),
                   );
                 }),

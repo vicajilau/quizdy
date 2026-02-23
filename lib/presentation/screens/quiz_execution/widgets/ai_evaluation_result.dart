@@ -21,6 +21,9 @@ class AiEvaluationResult extends StatelessWidget {
   /// Whether to show the service name as a badge in the header.
   final bool showServiceBadge;
 
+  /// Callback when the retry evaluation button is pressed.
+  final VoidCallback? onRetry;
+
   /// Creates an [AiEvaluationResult].
   const AiEvaluationResult({
     super.key,
@@ -28,6 +31,7 @@ class AiEvaluationResult extends StatelessWidget {
     this.errorMessage,
     this.selectedService,
     this.showServiceBadge = false,
+    this.onRetry,
   });
 
   @override
@@ -102,6 +106,25 @@ class AiEvaluationResult extends StatelessWidget {
               color: Theme.of(context).colorScheme.onSurfaceVariant,
             ),
           ),
+          if (errorMessage != null && onRetry != null) ...[
+            const SizedBox(height: 12),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                ElevatedButton.icon(
+                  onPressed: onRetry,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Theme.of(context).colorScheme.surface,
+                    foregroundColor: AppTheme.errorColor,
+                    elevation: 0,
+                    side: const BorderSide(color: AppTheme.errorColor),
+                  ),
+                  icon: const Icon(Icons.refresh, size: 18),
+                  label: Text(AppLocalizations.of(context)!.retryButton),
+                ),
+              ],
+            ),
+          ],
         ],
       ),
     );

@@ -21,8 +21,15 @@ class QuizQuestionEssayResult extends StatefulWidget {
   /// The question result data.
   final QuestionResult result;
 
+  /// Callback when the retry evaluation button is pressed.
+  final VoidCallback? onRetryEvaluation;
+
   /// Creates a [QuizQuestionEssayResult] widget.
-  const QuizQuestionEssayResult({super.key, required this.result});
+  const QuizQuestionEssayResult({
+    super.key,
+    required this.result,
+    this.onRetryEvaluation,
+  });
 
   @override
   State<QuizQuestionEssayResult> createState() =>
@@ -213,6 +220,7 @@ class _QuizQuestionEssayResultState extends State<QuizQuestionEssayResult> {
         errorMessage: aiEvaluation.errorMessage,
         selectedService: _selectedService,
         showServiceBadge: true,
+        onRetry: widget.onRetryEvaluation,
       );
     }
 

@@ -30,6 +30,9 @@ class QuizQuestionResultCard extends StatelessWidget {
   /// The AI evaluation for this question, if it's an essay question.
   final EssayAiEvaluation? aiEvaluation;
 
+  /// Callback when the retry evaluation button is pressed.
+  final VoidCallback? onRetryEvaluation;
+
   /// Creates a [QuizQuestionResultCard] widget.
   const QuizQuestionResultCard({
     super.key,
@@ -38,6 +41,7 @@ class QuizQuestionResultCard extends StatelessWidget {
     required this.scoreDelta,
     this.showScore = true,
     this.aiEvaluation,
+    this.onRetryEvaluation,
   });
 
   @override
@@ -210,7 +214,10 @@ class QuizQuestionResultCard extends StatelessWidget {
 
                   // Handle essay questions differently
                   if (result.question.type == QuestionType.essay)
-                    QuizQuestionEssayResult(result: result)
+                    QuizQuestionEssayResult(
+                      result: result,
+                      onRetryEvaluation: onRetryEvaluation,
+                    )
                   else
                     QuizQuestionOptionsResult(result: result),
 
