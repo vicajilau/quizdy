@@ -257,7 +257,7 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String correctAnswers(int correct, int total) {
+  String correctAnswers(String correct, int total) {
     return '$correct von $total richtige Antworten';
   }
 

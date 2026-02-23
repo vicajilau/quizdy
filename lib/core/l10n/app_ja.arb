@@ -300,7 +300,7 @@
     "description": "正解数表示。",
     "placeholders": {
       "correct": {
-        "type": "int",
+        "type": "String",
         "example": "8"
       },
       "total": {

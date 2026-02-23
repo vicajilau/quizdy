@@ -292,7 +292,7 @@
     "description": "Correct answers count",
     "placeholders": {
       "correct": {
-        "type": "int",
+        "type": "String",
         "example": "8"
       },
       "total": {

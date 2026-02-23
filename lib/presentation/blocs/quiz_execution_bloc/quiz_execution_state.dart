@@ -146,7 +146,7 @@ class QuizExecutionCompleted extends QuizExecutionState {
   final Map<int, String> essayAnswers;
   @override
   final Map<int, EssayAiEvaluation> aiEvaluations;
-  final int correctAnswers;
+  final double correctAnswers;
   final int totalQuestions;
   final double score; // percentage
   final bool isStudyMode;
@@ -212,7 +212,7 @@ class QuizExecutionCompleted extends QuizExecutionState {
     Map<int, List<int>>? userAnswers,
     Map<int, String>? essayAnswers,
     Map<int, EssayAiEvaluation>? aiEvaluations,
-    int? correctAnswers,
+    double? correctAnswers,
     int? totalQuestions,
     double? score,
     QuizConfig? quizConfig,

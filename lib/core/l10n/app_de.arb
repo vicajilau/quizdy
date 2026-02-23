@@ -388,7 +388,7 @@
     "description": "Anzahl richtiger Antworten",
     "placeholders": {
       "correct": {
-        "type": "int",
+        "type": "String",
         "example": "8"
       },
       "total": {

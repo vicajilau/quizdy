@@ -184,7 +184,22 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
           ),
         );
       } else if (currentState is QuizExecutionCompleted) {
-        emit(currentState.copyWith(aiEvaluations: newAiEvaluations));
+        // Recalculate score with updated AI evaluations
+        final results = QuizScoringHelper.calculateResults(
+          currentState.questions,
+          currentState.userAnswers,
+          currentState.essayAnswers,
+          currentState.quizConfig,
+          aiEvaluations: newAiEvaluations,
+        );
+
+        emit(
+          currentState.copyWith(
+            aiEvaluations: newAiEvaluations,
+            correctAnswers: results.correctPoints,
+            score: results.score,
+          ),
+        );
       }
     });
 
@@ -224,7 +239,8 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
           _emitQuizCompleted(
             emit,
             currentState,
-            isAiAvailable: await ConfigurationService.instance.getIsAiAvailable(),
+            isAiAvailable: await ConfigurationService.instance
+                .getIsAiAvailable(),
           );
           return;
         }
@@ -334,7 +350,7 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
         userAnswers: currentState.userAnswers,
         essayAnswers: currentState.essayAnswers,
         aiEvaluations: aiEvaluations,
-        correctAnswers: results.correctPoints.toInt(),
+        correctAnswers: results.correctPoints,
         totalQuestions: currentState.questions.length,
         score: results.score,
         quizConfig: currentState.quizConfig,

@@ -552,7 +552,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'{correct} of {total} correct answers'**
-  String correctAnswers(int correct, int total);
+  String correctAnswers(String correct, int total);
 
   /// Retry button text
   ///

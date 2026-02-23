@@ -338,8 +338,8 @@
     "description": "Correct answers count",
     "placeholders": {
       "correct": {
-        "type": "int",
-        "example": "8"
+        "type": "String",
+        "example": "7.5"
       },
       "total": {
         "type": "int",

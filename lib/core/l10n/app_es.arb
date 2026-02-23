@@ -332,7 +332,7 @@
     "description": "Contador de respuestas correctas",
     "placeholders": {
       "correct": {
-        "type": "int",
+        "type": "String",
         "example": "8"
       },
       "total": {

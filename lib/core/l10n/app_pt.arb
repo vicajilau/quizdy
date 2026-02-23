@@ -296,7 +296,7 @@
     "description": "Contagem de respostas corretas",
     "placeholders": {
       "correct": {
-        "type": "int",
+        "type": "String",
         "example": "8"
       },
       "total": {

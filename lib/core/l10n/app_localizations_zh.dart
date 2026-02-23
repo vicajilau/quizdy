@@ -247,7 +247,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String correctAnswers(int correct, int total) {
+  String correctAnswers(String correct, int total) {
     return '$total个问题中答对$correct个';
   }
 

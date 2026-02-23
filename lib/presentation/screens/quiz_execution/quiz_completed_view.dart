@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
+import 'package:quiz_app/core/extensions/double_extensions.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
 import 'package:quiz_app/domain/models/quiz/question_type.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
@@ -88,32 +88,6 @@ class _QuizCompletedViewState extends State<QuizCompletedView> {
                       ),
                     ],
                   ],
-                ),
-              ),
-              if (widget.state.hasPendingAiEvaluations)
-                Padding(
-                  padding: const EdgeInsets.only(right: 16.0),
-                  child: SizedBox(
-                    width: 20,
-                    height: 20,
-                    child: CircularProgressIndicator(
-                      strokeWidth: 2,
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        theme.primaryColor,
-                      ),
-                    ),
-                  ),
-                ),
-              Container(
-                decoration: BoxDecoration(
-                  color: theme.cardColor,
-                  shape: BoxShape.circle,
-                  border: Border.all(color: theme.dividerColor),
-                ),
-                child: IconButton(
-                  onPressed: () => context.pop(),
-                  icon: const Icon(Icons.close),
-                  color: secondaryTextColor,
                 ),
               ),
             ],
@@ -228,7 +202,7 @@ class _QuizCompletedViewState extends State<QuizCompletedView> {
                                       ),
                                 ),
                                 Text(
-                                  '${widget.state.correctAnswers}/${widget.state.totalQuestions}',
+                                  '${widget.state.correctAnswers.toCleanString()}/${widget.state.totalQuestions}',
                                   style: theme.textTheme.bodyMedium?.copyWith(
                                     color: secondaryTextColor,
                                   ),
@@ -302,7 +276,7 @@ class _QuizCompletedViewState extends State<QuizCompletedView> {
                         const SizedBox(height: 8),
                         Text(
                           AppLocalizations.of(context)!.correctAnswers(
-                            widget.state.correctAnswers,
+                            widget.state.correctAnswers.toCleanString(),
                             widget.state.totalQuestions,
                           ),
                           textAlign: TextAlign.center,
@@ -402,7 +376,8 @@ class _QuizCompletedViewState extends State<QuizCompletedView> {
                 return Column(
                   spacing: 12,
                   children: [
-                    SizedBox(width: double.infinity, child: tryAgainBtn),
+                    if (widget.state.isStudyMode)
+                      SizedBox(width: double.infinity, child: tryAgainBtn),
                     SizedBox(width: double.infinity, child: retryBtn),
                     SizedBox(width: double.infinity, child: homeBtn),
                   ],
@@ -413,7 +388,8 @@ class _QuizCompletedViewState extends State<QuizCompletedView> {
               return Row(
                 spacing: 12,
                 children: [
-                  if (hasIncorrect) Expanded(child: tryAgainBtn),
+                  if (hasIncorrect && widget.state.isStudyMode)
+                    Expanded(child: tryAgainBtn),
                   if (hasIncorrect) Expanded(child: retryBtn),
                   Expanded(child: homeBtn),
                 ],

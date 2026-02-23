@@ -292,7 +292,7 @@
     "description": "Erantzun zuzenen kontaketa",
     "placeholders": {
       "correct": {
-        "type": "int",
+        "type": "String",
         "example": "8"
       },
       "total": {

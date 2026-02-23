@@ -296,7 +296,7 @@
     "description": "Compteur de réponses correctes",
     "placeholders": {
       "correct": {
-        "type": "int",
+        "type": "String",
         "example": "8"
       },
       "total": {

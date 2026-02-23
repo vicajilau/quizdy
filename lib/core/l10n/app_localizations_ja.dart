@@ -247,7 +247,7 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String correctAnswers(int correct, int total) {
+  String correctAnswers(String correct, int total) {
     return '$total問中$correct問正解';
   }
 
