@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.7.1] - 2026-02-23
+
+- fix: Use proportional essay AI scores and delegate evaluation to bloc for correct JSON parsing.
+
 ## [1.7.0] - 2026-02-23
 
 - feat: Automated AI evaluation for essay questions in Study Mode with automated trigger, persistence across navigation, and navigation locking during processing.
