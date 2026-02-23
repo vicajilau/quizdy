@@ -21,6 +21,8 @@ parts:
     plugin: flutter
     source: .
     flutter-target: lib/main.dart
+    build-packages:
+      - lld
     build-environment:
       - PUB_CACHE: "$SNAPCRAFT_PART_BUILD/.pub-cache"
 
