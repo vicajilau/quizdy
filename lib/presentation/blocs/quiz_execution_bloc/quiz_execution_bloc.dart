@@ -9,6 +9,8 @@ import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_scoring_hel
 import 'package:quiz_app/domain/models/quiz/essay_ai_evaluation.dart';
 import 'package:quiz_app/data/services/ai/ai_service_selector.dart';
 import 'package:quiz_app/data/services/ai/ai_question_generation_service.dart';
+import 'package:quiz_app/data/services/configuration_service.dart';
+import 'package:quiz_app/data/services/ai/ai_service.dart';
 import 'package:quiz_app/core/extensions/string_extensions.dart';
 
 /// BLoC for managing quiz execution state and logic.
@@ -80,9 +82,15 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
           currentState.quizConfig,
         ).incorrectAnswers;
 
+        final wasLimitReached =
+            currentState.quizConfig.enableMaxIncorrectAnswers &&
+            currentState.quizConfig.maxIncorrectAnswers != null &&
+            incorrectCount >= currentState.quizConfig.maxIncorrectAnswers!;
+
         final newState = currentState.copyWith(
           userAnswers: newUserAnswers,
           incorrectAnswersCount: incorrectCount,
+          wasLimitReached: wasLimitReached,
         );
 
         emit(newState);
@@ -109,9 +117,15 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
           currentState.quizConfig,
         ).incorrectAnswers;
 
+        final wasLimitReached =
+            currentState.quizConfig.enableMaxIncorrectAnswers &&
+            currentState.quizConfig.maxIncorrectAnswers != null &&
+            incorrectCount >= currentState.quizConfig.maxIncorrectAnswers!;
+
         final newState = currentState.copyWith(
           essayAnswers: newEssayAnswers,
           incorrectAnswersCount: incorrectCount,
+          wasLimitReached: wasLimitReached,
         );
 
         emit(newState);
@@ -200,9 +214,21 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
     });
 
     // Handle next question
-    on<NextQuestionRequested>((event, emit) {
+    on<NextQuestionRequested>((event, emit) async {
       if (state is QuizExecutionInProgress) {
         final currentState = state as QuizExecutionInProgress;
+
+        // In Exam Mode, check if the limit was reached before allowing navigation
+        if (!currentState.quizConfig.isStudyMode &&
+            currentState.wasLimitReached) {
+          _emitQuizCompleted(
+            emit,
+            currentState,
+            isAiAvailable: await ConfigurationService.instance.getIsAiAvailable(),
+          );
+          return;
+        }
+
         final nextIndex = currentState.currentQuestionIndex + 1;
 
         if (nextIndex < currentState.questions.length) {
@@ -364,7 +390,28 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
         return;
       }
 
-      final service = availableServices.first;
+      final savedServiceName = await ConfigurationService.instance
+          .getDefaultAIService();
+      final savedModel = await ConfigurationService.instance
+          .getDefaultAIModel();
+
+      AIService? service;
+      if (savedServiceName != null &&
+          availableServices.any((s) => s.serviceName == savedServiceName)) {
+        service = availableServices.firstWhere(
+          (s) => s.serviceName == savedServiceName,
+        );
+      } else {
+        service = availableServices.first;
+      }
+
+      String? model;
+      if (savedModel != null && service.availableModels.contains(savedModel)) {
+        model = savedModel;
+      } else {
+        model = service.defaultModel;
+      }
+
       final prompt = AiQuestionGenerationService.buildEvaluationPrompt(
         question.text,
         answer,
@@ -375,6 +422,7 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
       final evaluationResponse = await service.getChatResponse(
         prompt,
         localizations,
+        model: model,
       );
 
       String feedback = evaluationResponse;

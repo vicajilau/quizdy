@@ -116,7 +116,7 @@ class AiStudioChatSidePanelState extends State<AiStudioChatSidePanel> {
 
     try {
       final isAiEnabled = await ConfigurationService.instance
-          .getAIAssistantEnabled();
+          .getIsAiAvailable();
       if (!isAiEnabled) {
         setState(() {
           _messages.add(

@@ -44,8 +44,7 @@ class _QuestionListWidgetState extends State<QuestionListWidget> {
   }
 
   Future<void> _loadAISettings() async {
-    final aiEnabled = await ConfigurationService.instance
-        .getAIAssistantEnabled();
+    final aiEnabled = await ConfigurationService.instance.getIsAiAvailable();
     setState(() {
       _aiAssistantEnabled = aiEnabled;
     });

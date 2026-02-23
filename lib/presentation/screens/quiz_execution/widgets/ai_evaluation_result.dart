@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gpt_markdown/gpt_markdown.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/core/theme/app_theme.dart';
+import 'package:quiz_app/core/theme/extensions/ai_assistant_theme.dart';
 import 'package:quiz_app/data/services/ai/ai_service.dart';
 
 /// A container that displays the result of an AI essay evaluation.
@@ -36,16 +36,21 @@ class AiEvaluationResult extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final aiTheme = theme.extension<AiAssistantTheme>()!;
+
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(12.0),
       decoration: BoxDecoration(
         color: errorMessage == null
-            ? Theme.of(context).colorScheme.surfaceContainerHighest
-            : AppTheme.errorColor,
+            ? theme.colorScheme.surfaceContainerHighest
+            : aiTheme.errorBubbleBg,
         borderRadius: BorderRadius.circular(8.0),
         border: Border.all(
-          color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.2),
+          color: errorMessage == null
+              ? theme.colorScheme.outline.withValues(alpha: 0.2)
+              : aiTheme.errorBubbleBorderColor,
         ),
       ),
       child: Column(
@@ -59,14 +64,14 @@ class AiEvaluationResult extends StatelessWidget {
                   Icon(
                     Icons.psychology,
                     size: 20,
-                    color: Theme.of(context).colorScheme.primary,
+                    color: theme.colorScheme.primary,
                   ),
                   const SizedBox(width: 8),
                   Text(
                     AppLocalizations.of(context)!.aiEvaluation,
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      color: Theme.of(context).colorScheme.primary,
+                      color: theme.colorScheme.primary,
                     ),
                   ),
                   if (showServiceBadge && selectedService != null) ...[
@@ -77,14 +82,12 @@ class AiEvaluationResult extends StatelessWidget {
                         vertical: 2,
                       ),
                       decoration: BoxDecoration(
-                        color: Theme.of(
-                          context,
-                        ).colorScheme.primary.withValues(alpha: 0.1),
+                        color: theme.colorScheme.primary.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(
-                          color: Theme.of(
-                            context,
-                          ).colorScheme.primary.withValues(alpha: 0.3),
+                          color: theme.colorScheme.primary.withValues(
+                            alpha: 0.3,
+                          ),
                         ),
                       ),
                       child: Text(
@@ -92,7 +95,7 @@ class AiEvaluationResult extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 10,
                           fontWeight: FontWeight.w500,
-                          color: Theme.of(context).colorScheme.primary,
+                          color: theme.colorScheme.primary,
                         ),
                       ),
                     ),
@@ -103,7 +106,9 @@ class AiEvaluationResult extends StatelessWidget {
           GptMarkdown(
             aiEvaluation ?? errorMessage ?? '',
             style: TextStyle(
-              color: Theme.of(context).colorScheme.onSurfaceVariant,
+              color: errorMessage == null
+                  ? theme.colorScheme.onSurfaceVariant
+                  : theme.colorScheme.onErrorContainer,
             ),
           ),
           if (errorMessage != null && onRetry != null) ...[
@@ -114,10 +119,10 @@ class AiEvaluationResult extends StatelessWidget {
                 ElevatedButton.icon(
                   onPressed: onRetry,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Theme.of(context).colorScheme.surface,
-                    foregroundColor: AppTheme.errorColor,
+                    backgroundColor: theme.colorScheme.surface,
+                    foregroundColor: theme.colorScheme.error,
                     elevation: 0,
-                    side: const BorderSide(color: AppTheme.errorColor),
+                    side: BorderSide(color: theme.colorScheme.error),
                   ),
                   icon: const Icon(Icons.refresh, size: 18),
                   label: Text(AppLocalizations.of(context)!.retryButton),

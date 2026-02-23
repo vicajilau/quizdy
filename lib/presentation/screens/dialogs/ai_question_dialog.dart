@@ -113,7 +113,7 @@ class _AIQuestionDialogState extends State<AIQuestionDialog> {
     try {
       // Check if AI assistant is enabled
       final isAiEnabled = await ConfigurationService.instance
-          .getAIAssistantEnabled();
+          .getIsAiAvailable();
       if (!isAiEnabled) {
         setState(() {
           _messages.add(

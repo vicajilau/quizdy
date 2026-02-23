@@ -53,8 +53,7 @@ class _QuizQuestionEssayResultState extends State<QuizQuestionEssayResult> {
 
   /// Checks if AI services are enabled and available.
   Future<void> _checkAIAvailability() async {
-    final aiEnabled = await ConfigurationService.instance
-        .getAIAssistantEnabled();
+    final aiEnabled = await ConfigurationService.instance.getIsAiAvailable();
     final availableServices = await AIServiceSelector.instance
         .getAvailableServices();
 

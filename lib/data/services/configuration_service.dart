@@ -88,7 +88,7 @@ class ConfigurationService {
   }
 
   /// Gets whether AI assistant is enabled, defaults to true
-  Future<bool> getAIAssistantEnabled() async {
+  Future<bool> _getAIAssistantEnabled() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getBool(_aiAssistantEnabledKey) ?? true;
   }
@@ -328,7 +328,7 @@ class ConfigurationService {
 
   /// Checks if AI Assistant is available (enabled and has at least one API key)
   Future<bool> getIsAiAvailable() async {
-    final isEnabled = await getAIAssistantEnabled();
+    final isEnabled = await _getAIAssistantEnabled();
     final openAiKey = await getOpenAIApiKey();
     final geminiKey = await getGeminiApiKey();
 

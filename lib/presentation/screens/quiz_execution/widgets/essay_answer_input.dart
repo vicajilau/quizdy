@@ -13,6 +13,7 @@ import 'package:quiz_app/core/extensions/string_extensions.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/widgets/ai_studio_chat_button.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/widgets/ai_evaluation_result.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/widgets/quiz_question_explanation.dart';
+import 'package:quiz_app/data/services/configuration_service.dart';
 
 /// A widget that handles essay-type questions.
 ///
@@ -62,6 +63,7 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
   bool _isEvaluating = false;
   List<AIService> _availableServices = [];
   AIService? _selectedService;
+  String? _selectedModel;
 
   @override
   void initState() {
@@ -72,10 +74,34 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
 
   Future<void> _loadAvailableServices() async {
     final services = await AIServiceSelector.instance.getAvailableServices();
+    final savedServiceName = await ConfigurationService.instance
+        .getDefaultAIService();
+    final savedModel = await ConfigurationService.instance.getDefaultAIModel();
+
     if (mounted) {
       setState(() {
         _availableServices = services;
-        _selectedService = services.isNotEmpty ? services.first : null;
+
+        if (savedServiceName != null &&
+            services.any((s) => s.serviceName == savedServiceName)) {
+          _selectedService = services.firstWhere(
+            (s) => s.serviceName == savedServiceName,
+          );
+        } else if (services.isNotEmpty) {
+          _selectedService = services.first;
+        } else {
+          _selectedService = null;
+        }
+
+        if (savedModel != null &&
+            _selectedService != null &&
+            _selectedService!.availableModels.contains(savedModel)) {
+          _selectedModel = savedModel;
+        } else if (_selectedService != null) {
+          _selectedModel = _selectedService!.defaultModel;
+        } else {
+          _selectedModel = null;
+        }
       });
     }
   }
@@ -146,6 +172,7 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
       final evaluation = await _selectedService!.getChatResponse(
         prompt,
         localizations,
+        model: _selectedModel,
       );
 
       if (mounted) {
@@ -279,6 +306,9 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
                         errorMessage: aiEvaluationData.errorMessage,
                         selectedService: _selectedService,
                         showServiceBadge: _availableServices.length > 1,
+                        onRetry: () {
+                          _evaluateEssayWithAI();
+                        },
                       ),
                   ],
                 ],
