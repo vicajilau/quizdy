@@ -1,6 +1,6 @@
 {
-    "name": "Quiz App",
-    "short_name": "Quiz App",
+    "name": "QuizLab AI",
+    "short_name": "QuizLab AI",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#FFFFFF",
