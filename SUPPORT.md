@@ -11,7 +11,7 @@ If you need help, have a question, or want to report a bug, please use the GitHu
 ### Reporting Issues
 
 1.  **Search First**: Before opening a new issue, please search existing issues to see if your problem has already been reported or solved.
-2.  **Open a New Issue**: If you can't find a solution, feel free to [open a new issue](https://github.com/vicajilau/quiz_app/issues).
+2.  **Open a New Issue**: If you can't find a solution, feel free to [open a new issue](https://github.com/vicajilau/quizlab_ai/issues).
 3.  **Provide Details**: When reporting a bug, please include as much detail as possible:
     *   Steps to reproduce the issue.
     *   Expected behavior.

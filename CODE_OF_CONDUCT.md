@@ -1,6 +1,6 @@
 # Code of Conduct
 
-The Quiz App project expects contributors to act professionally
+The QuizLab AI project expects contributors to act professionally
 and respectfully. Contributors are expected to maintain the safety
 and dignity of the project's social environments (such as GitHub discussions and issues).
 
@@ -12,11 +12,11 @@ Specifically:
 * Focus on constructive feedback and collaborative problem-solving.
 
 Should you experience anything that makes you feel unwelcome in the
-Quiz App community, please contact the project maintainer at
-[your GitHub issues](https://github.com/vicajilau/quiz_app/issues)
+QuizLab AI community, please contact the project maintainer at
+[your GitHub issues](https://github.com/vicajilau/quizlab_ai/issues)
 or directly reach out to [@vicajilau](https://github.com/vicajilau).
 
-The Quiz App project will not tolerate harassment in the project's
+The QuizLab AI project will not tolerate harassment in the project's
 community, even outside of the project's public communication channels.
 
 ## Conflict Resolution
@@ -40,7 +40,7 @@ that the final solution is _better_ than all the conflicting proposals.
 
 ## Questions
 
-It's always ok to ask questions. The Quiz App project covers multiple
+It's always ok to ask questions. The QuizLab AI project covers multiple
 areas (Flutter development, localization, AI integration, etc.), and
 nobody will be an expert in all areas. Once you find the answer,
 consider documenting it in the project's documentation or README
@@ -60,4 +60,4 @@ Before contributing, please:
 4. Test your changes thoroughly
 5. Provide clear descriptions in your pull requests
 
-Thank you for helping make Quiz App a welcoming and collaborative project!
+Thank you for helping make QuizLab AI a welcoming and collaborative project!

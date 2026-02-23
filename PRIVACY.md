@@ -5,7 +5,7 @@
 
 ## Overview
 
-Quiz App is an open-source cross-platform application designed to provide an interactive quiz experience. This privacy policy explains how we handle information when you use our application.
+QuizLab AI is an open-source cross-platform application designed to provide an interactive quiz experience. This privacy policy explains how we handle information when you use our application.
 
 ## Information We Collect
 
@@ -47,8 +47,8 @@ When you choose to use AI-powered question generation features, you may connect 
 - No data is transmitted to our servers
 
 ### Open Source Transparency
-- Quiz App is open source under the MIT license
-- You can review the complete source code at: [https://github.com/vicajilau/quiz_app](https://github.com/vicajilau/quiz_app)
+- QuizLab AI is open source under the BSD 3-Clause license
+- You can review the complete source code at: [https://github.com/vicajilau/quizlab_ai](https://github.com/vicajilau/quizlab_ai)
 - The code is transparent about how data is handled
 
 ## Data Control
@@ -80,7 +80,7 @@ Quiz App does not collect any personal information from users of any age. The ap
 
 ## Open Source License
 
-Quiz App is released under the MIT License, which means:
+QuizLab AI is released under the BSD 3-Clause License, which means:
 - The source code is publicly available for review
 - You can modify and distribute the app according to the license terms
 - The transparency of open source development ensures privacy by design
@@ -102,8 +102,8 @@ Since Quiz App is open source:
 
 For privacy-related questions about Quiz App:
 
-- **GitHub Issues**: [https://github.com/vicajilau/quiz_app/issues](https://github.com/vicajilau/quiz_app/issues)
-- **Project Repository**: [https://github.com/vicajilau/quiz_app](https://github.com/vicajilau/quiz_app)
+- **GitHub Issues**: [https://github.com/vicajilau/quizlab_ai/issues](https://github.com/vicajilau/quizlab_ai/issues)
+- **Project Repository**: [https://github.com/vicajilau/quizlab_ai](https://github.com/vicajilau/quizlab_ai)
 
 For questions about AI service data handling, please contact the respective service providers directly.
 
@@ -126,6 +126,6 @@ Quiz App may request the following permissions:
 
 ---
 
-**Note**: This privacy policy applies to the open-source Quiz App project. If you're using a modified version of this app, please check with the specific distributor for their privacy practices.
+**Note**: This privacy policy applies to the open-source QuizLab AI project. If you're using a modified version of this app, please check with the specific distributor for their privacy practices.
 
-**MIT License**: This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+**BSD 3-Clause License**: This project is licensed under the BSD 3-Clause License - see the [LICENSE](LICENSE) file for details.
