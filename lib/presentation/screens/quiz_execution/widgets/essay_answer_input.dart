@@ -6,14 +6,9 @@ import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_e
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
 import 'package:quiz_app/domain/models/quiz/question.dart';
 import 'package:quiz_app/domain/models/quiz/essay_ai_evaluation.dart';
-import 'package:quiz_app/data/services/ai/ai_service.dart';
-import 'package:quiz_app/data/services/ai/ai_service_selector.dart';
-import 'package:quiz_app/data/services/ai/ai_question_generation_service.dart';
-import 'package:quiz_app/core/extensions/string_extensions.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/widgets/ai_studio_chat_button.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/widgets/ai_evaluation_result.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/widgets/quiz_question_explanation.dart';
-import 'package:quiz_app/data/services/configuration_service.dart';
 
 /// A widget that handles essay-type questions.
 ///
@@ -60,50 +55,11 @@ class EssayAnswerInput extends StatefulWidget {
 
 class _EssayAnswerInputState extends State<EssayAnswerInput> {
   late TextEditingController _essayController;
-  bool _isEvaluating = false;
-  List<AIService> _availableServices = [];
-  AIService? _selectedService;
-  String? _selectedModel;
 
   @override
   void initState() {
     super.initState();
     _essayController = TextEditingController(text: widget.currentAnswer);
-    _loadAvailableServices();
-  }
-
-  Future<void> _loadAvailableServices() async {
-    final services = await AIServiceSelector.instance.getAvailableServices();
-    final savedServiceName = await ConfigurationService.instance
-        .getDefaultAIService();
-    final savedModel = await ConfigurationService.instance.getDefaultAIModel();
-
-    if (mounted) {
-      setState(() {
-        _availableServices = services;
-
-        if (savedServiceName != null &&
-            services.any((s) => s.serviceName == savedServiceName)) {
-          _selectedService = services.firstWhere(
-            (s) => s.serviceName == savedServiceName,
-          );
-        } else if (services.isNotEmpty) {
-          _selectedService = services.first;
-        } else {
-          _selectedService = null;
-        }
-
-        if (savedModel != null &&
-            _selectedService != null &&
-            _selectedService!.availableModels.contains(savedModel)) {
-          _selectedModel = savedModel;
-        } else if (_selectedService != null) {
-          _selectedModel = _selectedService!.defaultModel;
-        } else {
-          _selectedModel = null;
-        }
-      });
-    }
   }
 
   @override
@@ -117,18 +73,8 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
         widget.isAiAvailable &&
         widget.state.isCurrentQuestionValidated &&
         !oldWidget.state.isCurrentQuestionValidated &&
-        currentAiEvaluation == null &&
-        !_isEvaluating) {
-      // Small delay to ensure services are loaded if they haven't yet
-      if (_selectedService == null) {
-        _loadAvailableServices().then((_) {
-          if (_selectedService != null) {
-            _evaluateEssayWithAI();
-          }
-        });
-      } else {
-        _evaluateEssayWithAI();
-      }
+        currentAiEvaluation == null) {
+      _requestAiEvaluation();
     }
 
     if (widget.currentAnswer != _essayController.text) {
@@ -147,62 +93,19 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
     super.dispose();
   }
 
-  Future<void> _evaluateEssayWithAI() async {
-    if (_isEvaluating ||
-        (_availableServices.isEmpty && _selectedService == null)) {
-      return;
-    }
-
-    setState(() {
-      _isEvaluating = true;
-    });
-
-    try {
-      final localizations = AppLocalizations.of(context)!;
-      final studentAnswer = widget.currentAnswer;
-
-      // Build the evaluation prompt
-      String prompt = AiQuestionGenerationService.buildEvaluationPrompt(
-        widget.question.text,
-        studentAnswer,
-        widget.question.explanation,
-        localizations,
-      );
-
-      final evaluation = await _selectedService!.getChatResponse(
-        prompt,
-        localizations,
-        model: _selectedModel,
-      );
-
-      if (mounted) {
-        context.read<QuizExecutionBloc>().add(
-          EssayAiEvaluationReceived(
-            widget.questionIndex,
-            EssayAiEvaluation(evaluation: evaluation),
-          ),
-        );
-      }
-    } catch (e) {
-      if (mounted) {
-        context.read<QuizExecutionBloc>().add(
-          EssayAiEvaluationReceived(
-            widget.questionIndex,
-            EssayAiEvaluation.error(
-              AppLocalizations.of(
-                context,
-              )!.aiEvaluationError(e.toString().cleanErrorMessage()),
-            ),
-          ),
-        );
-      }
-    } finally {
-      if (mounted) {
-        setState(() {
-          _isEvaluating = false;
-        });
-      }
-    }
+  void _requestAiEvaluation() {
+    final localizations = AppLocalizations.of(context)!;
+    final bloc = context.read<QuizExecutionBloc>();
+    // Set pending state immediately so UI shows loading
+    bloc.add(
+      EssayAiEvaluationReceived(
+        widget.questionIndex,
+        EssayAiEvaluation.pending(),
+      ),
+    );
+    bloc.add(
+      EssayAiEvaluationRequested(widget.questionIndex, localizations),
+    );
   }
 
   @override
@@ -281,7 +184,8 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
                   // AI Evaluation Section
                   if (widget.isAiAvailable) ...[
                     const SizedBox(height: 16),
-                    if (_isEvaluating)
+                    if (aiEvaluationData != null &&
+                        aiEvaluationData.isPending)
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 24),
                         child: Center(
@@ -300,14 +204,20 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
                           ),
                         ),
                       )
-                    else if (aiEvaluationData != null)
+                    else if (aiEvaluationData != null &&
+                        !aiEvaluationData.isPending)
                       AiEvaluationResult(
                         aiEvaluation: aiEvaluationData.evaluation,
                         errorMessage: aiEvaluationData.errorMessage,
-                        selectedService: _selectedService,
-                        showServiceBadge: _availableServices.length > 1,
                         onRetry: () {
-                          _evaluateEssayWithAI();
+                          final localizations =
+                              AppLocalizations.of(context)!;
+                          context.read<QuizExecutionBloc>().add(
+                            EssayAiEvaluationRetryRequested(
+                              widget.questionIndex,
+                              localizations,
+                            ),
+                          );
                         },
                       ),
                   ],

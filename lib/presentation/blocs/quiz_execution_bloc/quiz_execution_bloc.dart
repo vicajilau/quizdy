@@ -322,20 +322,18 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
     QuizExecutionInProgress currentState, {
     bool isAiAvailable = false,
   }) {
-    final results = QuizScoringHelper.calculateResults(
-      currentState.questions,
-      currentState.userAnswers,
-      currentState.essayAnswers,
-      currentState.quizConfig,
-    );
-
-    // Initialize AI evaluations map for essay questions
+    // Initialize AI evaluations map for essay questions,
+    // preserving any evaluations already completed during Study Mode
     final aiEvaluations = <int, EssayAiEvaluation>{};
     for (int i = 0; i < currentState.questions.length; i++) {
       if (currentState.questions[i].type == QuestionType.essay) {
         final answer = currentState.essayAnswers[i];
         if (answer != null && answer.trim().isNotEmpty) {
-          if (isAiAvailable) {
+          final existingEvaluation = currentState.aiEvaluations[i];
+          if (existingEvaluation != null && existingEvaluation.isCompleted) {
+            // Preserve already-completed evaluations from Study Mode
+            aiEvaluations[i] = existingEvaluation;
+          } else if (isAiAvailable) {
             aiEvaluations[i] = EssayAiEvaluation.pending();
           } else {
             aiEvaluations[i] = EssayAiEvaluation.notEvaluated();
@@ -343,6 +341,16 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
         }
       }
     }
+
+    // Calculate results using the AI evaluations so completed essays
+    // contribute their proportional score instead of a full point
+    final results = QuizScoringHelper.calculateResults(
+      currentState.questions,
+      currentState.userAnswers,
+      currentState.essayAnswers,
+      currentState.quizConfig,
+      aiEvaluations: aiEvaluations,
+    );
 
     emit(
       QuizExecutionCompleted(
@@ -456,6 +464,11 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
 
           if (json.containsKey('score')) {
             parsedScore = (json['score'] as num?)?.toInt();
+            // Normalize score to 0-100 scale: if the AI returned a value
+            // in the 0-10 range, convert it to 0-100.
+            if (parsedScore != null && parsedScore <= 10) {
+              parsedScore = parsedScore * 10;
+            }
           }
           if (json.containsKey('feedback')) {
             feedback = json['feedback'].toString();
