@@ -103,9 +103,7 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
         EssayAiEvaluation.pending(),
       ),
     );
-    bloc.add(
-      EssayAiEvaluationRequested(widget.questionIndex, localizations),
-    );
+    bloc.add(EssayAiEvaluationRequested(widget.questionIndex, localizations));
   }
 
   @override
@@ -148,6 +146,8 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
                 ),
                 contentPadding: const EdgeInsets.all(16),
               ),
+              readOnly:
+                  widget.isStudyMode && widget.state.isCurrentQuestionValidated,
               onChanged: (text) {
                 context.read<QuizExecutionBloc>().add(EssayAnswerChanged(text));
               },
@@ -184,8 +184,7 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
                   // AI Evaluation Section
                   if (widget.isAiAvailable) ...[
                     const SizedBox(height: 16),
-                    if (aiEvaluationData != null &&
-                        aiEvaluationData.isPending)
+                    if (aiEvaluationData != null && aiEvaluationData.isPending)
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 24),
                         child: Center(
@@ -210,8 +209,7 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
                         aiEvaluation: aiEvaluationData.evaluation,
                         errorMessage: aiEvaluationData.errorMessage,
                         onRetry: () {
-                          final localizations =
-                              AppLocalizations.of(context)!;
+                          final localizations = AppLocalizations.of(context)!;
                           context.read<QuizExecutionBloc>().add(
                             EssayAiEvaluationRetryRequested(
                               widget.questionIndex,

@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.7.1] - 2026-02-23
 
 - fix: Use proportional essay AI scores and delegate evaluation to bloc for correct JSON parsing.
+- fix: Disable/lock essay answer textarea after "Check answer" in Study Mode to prevent modifications during review.
 
 ## [1.7.0] - 2026-02-23
 
