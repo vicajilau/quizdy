@@ -419,7 +419,7 @@ class _QuestionCountSelectionDialogState
                     // All Questions Toggle Section
                     AnimatedSize(
                       duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeInOut,
+                      curve: Curves.linear,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
@@ -855,7 +855,7 @@ class _CollapsibleExamConfigState extends State<_CollapsibleExamConfig> {
         ),
         AnimatedSize(
           duration: const Duration(milliseconds: 300),
-          curve: Curves.easeInOut,
+          curve: Curves.linear,
           child: _isExpanded
               ? Container(
                   padding: const EdgeInsets.fromLTRB(16, 20, 16, 16),

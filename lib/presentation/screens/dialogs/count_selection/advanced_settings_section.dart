@@ -114,7 +114,7 @@ class _AdvancedSettingsSectionState extends State<AdvancedSettingsSection> {
   Widget build(BuildContext context) {
     return AnimatedSize(
       duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
+      curve: Curves.linear,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
