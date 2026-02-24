@@ -289,9 +289,9 @@ class _AiServiceModelSelectorState extends State<AiServiceModelSelector> {
           borderRadius: BorderRadius.circular(12),
           child: AnimatedCrossFade(
             duration: const Duration(milliseconds: 300),
-            sizeCurve: Curves.easeInOut,
-            firstCurve: Curves.easeInOut,
-            secondCurve: Curves.easeInOut,
+            sizeCurve: Curves.linear,
+            firstCurve: Curves.linear,
+            secondCurve: Curves.linear,
             crossFadeState: _isExpanded
                 ? CrossFadeState.showSecond
                 : CrossFadeState.showFirst,

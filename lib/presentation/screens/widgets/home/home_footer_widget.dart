@@ -43,7 +43,7 @@ class HomeFooterWidget extends StatelessWidget {
             onPressed: isLoading ? null : onGenerateAITap,
           ),
           SizedBox(
-            width: 675,
+            width: 620,
             child: Row(
               spacing: 12,
               children: [

@@ -356,7 +356,7 @@ class _QuestionPreviewCardState extends State<QuestionPreviewCard> {
           // Question Content
           AnimatedSize(
             duration: const Duration(milliseconds: 300),
-            curve: Curves.easeInOut,
+            curve: Curves.linear,
             child: _isExpanded
                 ? Padding(
                     padding: const EdgeInsets.all(24),

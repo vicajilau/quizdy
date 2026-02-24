@@ -52,7 +52,7 @@ class _QuizInProgressViewState extends State<QuizInProgressView>
         Tween<Offset>(begin: const Offset(1, 0), end: Offset.zero).animate(
           CurvedAnimation(
             parent: _mobileChatAnimController,
-            curve: Curves.easeInOut,
+            curve: Curves.linear,
           ),
         );
   }
@@ -290,7 +290,7 @@ class _QuizInProgressViewState extends State<QuizInProgressView>
                 Expanded(child: quizContent),
                 AnimatedContainer(
                   duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeInOut,
+                  curve: Curves.linear,
                   width: _isChatOpen ? 400 : 0,
                   clipBehavior: Clip.hardEdge,
                   decoration: const BoxDecoration(),

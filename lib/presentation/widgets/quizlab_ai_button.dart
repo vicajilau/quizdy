@@ -82,7 +82,7 @@ class QuizLabAIButton extends StatelessWidget {
   final IconData? icon;
   final Color? backgroundColor;
 
-  static const double _maxWidth = 675;
+  static const double _maxWidth = 620;
 
   const QuizLabAIButton({
     super.key,
