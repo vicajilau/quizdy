@@ -9,15 +9,25 @@ import 'package:quizlab_ai/core/service_locator.dart';
 import 'package:quizlab_ai/domain/use_cases/check_file_changes_use_case.dart';
 import 'package:quizlab_ai/presentation/blocs/file_bloc/file_bloc.dart';
 import 'package:quizlab_ai/presentation/screens/home_screen.dart';
+import 'package:quizlab_ai/presentation/screens/onboarding/onboarding_screen.dart';
+import 'package:quizlab_ai/data/services/configuration_service.dart';
 
 class AppRoutes {
   static const String home = '/';
+  static const String onboarding = '/onboarding';
   static const String fileLoadedScreen = '/file_loaded_screen';
   static const String quizFileExecutionScreen = '/quiz_file_execution_screen';
 }
 
-final GoRouter appRouter = GoRouter(
+GoRouter buildAppRouter({required bool showOnboarding}) => GoRouter(
+  initialLocation: showOnboarding ? AppRoutes.onboarding : AppRoutes.home,
   routes: [
+    GoRoute(
+      path: AppRoutes.onboarding,
+      builder: (context, state) => OnboardingScreen(
+        fromSettings: state.uri.queryParameters['from'] == 'settings',
+      ),
+    ),
     GoRoute(
       path: AppRoutes.home,
       builder: (context, state) => const HomeScreen(),
@@ -51,3 +61,13 @@ final GoRouter appRouter = GoRouter(
     return null; // Keep regular flow
   },
 );
+
+/// Legacy accessor kept for compatibility during migration.
+/// Prefer using [buildAppRouter] with the onboarding flag.
+late final GoRouter appRouter;
+
+/// Initializes the global [appRouter] by checking the onboarding status.
+Future<void> initAppRouter() async {
+  final completed = await ConfigurationService.instance.getOnboardingCompleted();
+  appRouter = buildAppRouter(showOnboarding: !completed);
+}

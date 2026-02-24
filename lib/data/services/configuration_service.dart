@@ -26,6 +26,8 @@ class ConfigurationService {
   static const String _aiGenerationQuestionTypesKey =
       'ai_generation_question_types';
 
+  static const String _onboardingCompletedKey = 'onboarding_completed';
+
   static const String _lastQuestionCountKey = 'last_question_count';
   static const String _lastQuizModeKey = 'last_quiz_mode';
   static const String _lastQuizEnableMaxIncorrectAnswersKey =
@@ -38,6 +40,18 @@ class ConfigurationService {
       _instance ??= ConfigurationService._();
 
   ConfigurationService._();
+
+  /// Gets whether onboarding has been completed
+  Future<bool> getOnboardingCompleted() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool(_onboardingCompletedKey) ?? false;
+  }
+
+  /// Marks onboarding as completed
+  Future<void> setOnboardingCompleted(bool completed) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_onboardingCompletedKey, completed);
+  }
 
   /// Saves the selected question order to SharedPreferences
   Future<void> saveQuestionOrder(QuestionOrder order) async {
