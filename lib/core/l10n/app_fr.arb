@@ -1634,5 +1634,141 @@
   "featureComingSoon": "Bientôt disponible ! Restez à l'écoute des nouveautés.",
   "@featureComingSoon": {
     "description": "Message pour les fonctionnalités qui ne sont pas encore disponibles"
+  },
+  "showOnboarding": "Afficher l'accueil",
+  "@showOnboarding": {
+    "description": "Libellé du bouton pour rouvrir le flux d'accueil"
+  },
+  "showOnboardingDescription": "Voir à nouveau le tutoriel de bienvenue",
+  "@showOnboardingDescription": {
+    "description": "Description du bouton pour rouvrir le flux d'accueil"
+  },
+  "onboardingBack": "Retour",
+  "@onboardingBack": {
+    "description": "Bouton retour dans la navigation de l'accueil"
+  },
+  "onboardingGetStarted": "Commencer",
+  "@onboardingGetStarted": {
+    "description": "Bouton commencer sur la dernière page de l'accueil"
+  },
+  "onboardingWelcomeTitle": "Bienvenue sur QuizLab AI",
+  "@onboardingWelcomeTitle": {
+    "description": "Titre de la première page de l'accueil"
+  },
+  "onboardingWelcomeDescription": "Votre compagnon de quiz interactif avec des fonctionnalités alimentées par l'IA, des questions personnalisables et un score en temps réel.",
+  "@onboardingWelcomeDescription": {
+    "description": "Description de la première page de l'accueil"
+  },
+  "onboardingWelcomeSubtitle": "Votre compagnon de quiz interactif",
+  "@onboardingWelcomeSubtitle": {
+    "description": "Sous-titre de la première page de l'accueil en mode bureau"
+  },
+  "onboardingStartQuizTitle": "Démarrer un Quiz",
+  "@onboardingStartQuizTitle": {
+    "description": "Titre de la deuxième page de l'accueil"
+  },
+  "onboardingStartQuizDescription": "Chargez un fichier .quiz existant ou créez-en un nouveau. Glissez et déposez des fichiers directement ou utilisez le sélecteur de fichiers.",
+  "@onboardingStartQuizDescription": {
+    "description": "Description de la deuxième page de l'accueil"
+  },
+  "onboardingStartQuizSubtitle": "Charger, créer et jouer",
+  "@onboardingStartQuizSubtitle": {
+    "description": "Sous-titre de la deuxième page de l'accueil en mode bureau"
+  },
+  "onboardingCreateQuestionsTitle": "Créer des Questions",
+  "@onboardingCreateQuestionsTitle": {
+    "description": "Titre de la troisième page de l'accueil"
+  },
+  "onboardingCreateQuestionsDescription": "Construisez des quiz avec plusieurs types de questions. Personnalisez chaque question avec des options, des réponses correctes et des explications.",
+  "@onboardingCreateQuestionsDescription": {
+    "description": "Description de la troisième page de l'accueil"
+  },
+  "onboardingCreateQuestionsSubtitle": "Concevez vos propres quiz",
+  "@onboardingCreateQuestionsSubtitle": {
+    "description": "Sous-titre de la troisième page de l'accueil en mode bureau"
+  },
+  "onboardingAiFeaturesTitle": "Fonctionnalités IA",
+  "@onboardingAiFeaturesTitle": {
+    "description": "Titre de la quatrième page de l'accueil"
+  },
+  "onboardingAiFeaturesDescription": "Générez des questions automatiquement avec l'IA, obtenez de l'aide à l'étude en temps réel et apprenez plus intelligemment avec le tutorat intelligent.",
+  "@onboardingAiFeaturesDescription": {
+    "description": "Description de la quatrième page de l'accueil"
+  },
+  "onboardingAiFeaturesSubtitle": "Propulsé par l'IA",
+  "@onboardingAiFeaturesSubtitle": {
+    "description": "Sous-titre de la quatrième page de l'accueil en mode bureau"
+  },
+  "onboardingFeatureAiTitle": "Génération de questions par l'IA",
+  "@onboardingFeatureAiTitle": {
+    "description": "Titre de la fonctionnalité sur la page d'accueil"
+  },
+  "onboardingFeatureAiDescription": "Générez des quiz à partir de n'importe quel texte avec GPT ou Gemini",
+  "@onboardingFeatureAiDescription": {
+    "description": "Description de la fonctionnalité sur la page d'accueil"
+  },
+  "onboardingFeatureTypesTitle": "Plusieurs types de questions",
+  "@onboardingFeatureTypesTitle": {
+    "description": "Titre de la fonctionnalité sur la page d'accueil"
+  },
+  "onboardingFeatureTypesDescription": "Choix unique, choix multiple, vrai/faux et essai",
+  "@onboardingFeatureTypesDescription": {
+    "description": "Description de la fonctionnalité sur la page d'accueil"
+  },
+  "onboardingFeatureLanguagesTitle": "13 langues supportées",
+  "@onboardingFeatureLanguagesTitle": {
+    "description": "Titre de la fonctionnalité sur la page d'accueil"
+  },
+  "onboardingFeatureLanguagesDescription": "Créez et passez des quiz dans plusieurs langues",
+  "@onboardingFeatureLanguagesDescription": {
+    "description": "Description de la fonctionnalité sur la page d'accueil"
+  },
+  "onboardingStepCreateTitle": "Créer Quiz",
+  "@onboardingStepCreateTitle": {
+    "description": "Titre de l'étape sur la page de démarrage"
+  },
+  "onboardingStepCreateDescription": "Partez de zéro avec vos propres questions",
+  "@onboardingStepCreateDescription": {
+    "description": "Description de l'étape sur la page de démarrage"
+  },
+  "onboardingStepLoadTitle": "Charger Fichier",
+  "@onboardingStepLoadTitle": {
+    "description": "Titre de l'étape sur la page de démarrage"
+  },
+  "onboardingStepLoadDescription": "Importez un fichier .quiz depuis votre appareil",
+  "@onboardingStepLoadDescription": {
+    "description": "Description de l'étape sur la page de démarrage"
+  },
+  "onboardingStepTakeTitle": "Répondre au Quiz",
+  "@onboardingStepTakeTitle": {
+    "description": "Titre de l'étape sur la page de démarrage"
+  },
+  "onboardingStepTakeDescription": "Répondez aux questions et obtenez votre score en temps réel",
+  "@onboardingStepTakeDescription": {
+    "description": "Description de l'étape sur la page de démarrage"
+  },
+  "onboardingAiAutoGenerateTitle": "Auto-génération de questions",
+  "@onboardingAiAutoGenerateTitle": {
+    "description": "Titre de la fonctionnalité IA dans l'accueil"
+  },
+  "onboardingAiAutoGenerateDescription": "Depuis n'importe quel texte avec GPT ou Gemini",
+  "@onboardingAiAutoGenerateDescription": {
+    "description": "Description de la fonctionnalité IA dans l'accueil"
+  },
+  "onboardingAiStudyAssistantTitle": "Assistant d'étude IA",
+  "@onboardingAiStudyAssistantTitle": {
+    "description": "Titre de la fonctionnalité IA dans l'accueil"
+  },
+  "onboardingAiStudyAssistantDescription": "Obtenez des explications pendant votre apprentissage",
+  "@onboardingAiStudyAssistantDescription": {
+    "description": "Description de la fonctionnalité IA dans l'accueil"
+  },
+  "onboardingAiMultiLanguageTitle": "Support multi-langue",
+  "@onboardingAiMultiLanguageTitle": {
+    "description": "Titre de la fonctionnalité IA dans l'accueil"
+  },
+  "onboardingAiMultiLanguageDescription": "Générez dans 13 langues différentes",
+  "@onboardingAiMultiLanguageDescription": {
+    "description": "Description de la fonctionnalité IA dans l'accueil"
   }
 }

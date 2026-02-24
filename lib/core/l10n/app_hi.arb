@@ -1592,5 +1592,141 @@
   "featureComingSoon": "जल्द ही आ रहा है! अपडेट के लिए बने रहें।",
   "@featureComingSoon": {
     "description": "उन सुविधाओं के लिए संदेश जो अभी उपलब्ध नहीं हैं"
+  },
+  "showOnboarding": "स्वागत स्क्रीन दिखाएं",
+  "@showOnboarding": {
+    "description": "स्वागत प्रवाह को फिर से खोलने के लिए बटन का लेबल"
+  },
+  "showOnboardingDescription": "स्वागत ट्यूटोरियल फिर से देखें",
+  "@showOnboardingDescription": {
+    "description": "स्वागत प्रवाह को फिर से खोलने के लिए बटन का विवरण"
+  },
+  "onboardingBack": "पीछे",
+  "@onboardingBack": {
+    "description": "स्वागत नेविगेशन में पीछे का बटन"
+  },
+  "onboardingGetStarted": "शुरू करें",
+  "@onboardingGetStarted": {
+    "description": "अंतिम स्वागत पृष्ठ पर शुरू करें बटन"
+  },
+  "onboardingWelcomeTitle": "QuizLab AI में आपका स्वागत है",
+  "@onboardingWelcomeTitle": {
+    "description": "पहले स्वागत पृष्ठ के लिए शीर्षक"
+  },
+  "onboardingWelcomeDescription": "एआई-संचालित सुविधाओं, अनुकूलन योग्य प्रश्नों और रीयल-टाइम स्कोरिंग के साथ आपका इंटरैक्टिव प्रश्नोत्तरी साथी।",
+  "@onboardingWelcomeDescription": {
+    "description": "पहले स्वागत पृष्ठ के लिए विवरण"
+  },
+  "onboardingWelcomeSubtitle": "आपका इंटरैक्टिव प्रश्नोत्तरी साथी",
+  "@onboardingWelcomeSubtitle": {
+    "description": "डेस्कटॉप लेआउट में पहले स्वागत पृष्ठ के लिए उपशीर्षक"
+  },
+  "onboardingStartQuizTitle": "प्रश्नोत्तरी शुरू करें",
+  "@onboardingStartQuizTitle": {
+    "description": "दूसरे स्वागत पृष्ठ के लिए शीर्षक"
+  },
+  "onboardingStartQuizDescription": "एक मौजूदा .quiz फ़ाइल लोड करें या शुरुआत से एक नई फ़ाइल बनाएं। फ़ाइलों को सीधे ड्रैग और ड्रॉप करें या फ़ाइल पिकर का उपयोग करें।",
+  "@onboardingStartQuizDescription": {
+    "description": "दूसरे स्वागत पृष्ठ के लिए विवरण"
+  },
+  "onboardingStartQuizSubtitle": "लोड करें, बनाएं और खेलें",
+  "@onboardingStartQuizSubtitle": {
+    "description": "डेस्कटॉप लेआउट में दूसरे स्वागत पृष्ठ के लिए उपशीर्षक"
+  },
+  "onboardingCreateQuestionsTitle": "प्रश्न बनाएं",
+  "@onboardingCreateQuestionsTitle": {
+    "description": "तीसरे स्वागत पृष्ठ के लिए शीर्षक"
+  },
+  "onboardingCreateQuestionsDescription": "विभिन्न प्रकार के प्रश्नों के साथ प्रश्नोत्तरी बनाएं। प्रत्येक प्रश्न को विकल्पों, सही उत्तरों और स्पष्टीकरणों के साथ अनुकूलित करें।",
+  "@onboardingCreateQuestionsDescription": {
+    "description": "तीसरे स्वागत पृष्ठ के लिए विवरण"
+  },
+  "onboardingCreateQuestionsSubtitle": "अपनी खुद की प्रश्नोत्तरी डिजाइन करें",
+  "@onboardingCreateQuestionsSubtitle": {
+    "description": "डेस्कटॉप लेआउट में तीसरे स्वागत पृष्ठ के लिए उपशीर्षक"
+  },
+  "onboardingAiFeaturesTitle": "एआई-संचालित विशेषताएं",
+  "@onboardingAiFeaturesTitle": {
+    "description": "चौथे स्वागत पृष्ठ के लिए शीर्षक"
+  },
+  "onboardingAiFeaturesDescription": "एआई के साथ स्वचालित रूप से प्रश्न उत्पन्न करें, रीयल-टाइम अध्ययन सहायता प्राप्त करें, और इंटेलिजेंट ट्यूटरिंग के साथ स्मार्ट तरीके से सीखें।",
+  "@onboardingAiFeaturesDescription": {
+    "description": "चौथे स्वागत पृष्ठ के लिए विवरण"
+  },
+  "onboardingAiFeaturesSubtitle": "एआई द्वारा संचालित",
+  "@onboardingAiFeaturesSubtitle": {
+    "description": "डेस्कटॉप लेआउट में चौथे स्वागत पृष्ठ के लिए उपशीर्षक"
+  },
+  "onboardingFeatureAiTitle": "एआई-संचालित प्रश्न निर्माण",
+  "@onboardingFeatureAiTitle": {
+    "description": "स्वागत पृष्ठ पर सुविधा शीर्षक"
+  },
+  "onboardingFeatureAiDescription": "GPT या Gemini के साथ किसी भी टेक्स्ट से प्रश्नोत्तरी उत्पन्न करें",
+  "@onboardingFeatureAiDescription": {
+    "description": "स्वागत पृष्ठ पर सुविधा विवरण"
+  },
+  "onboardingFeatureTypesTitle": "विभिन्न प्रकार के प्रश्न",
+  "@onboardingFeatureTypesTitle": {
+    "description": "स्वागत पृष्ठ पर सुविधा शीर्षक"
+  },
+  "onboardingFeatureTypesDescription": "एकल विकल्प, बहुविकल्पी, सही/गलत और निबंध",
+  "@onboardingFeatureTypesDescription": {
+    "description": "स्वागत पृष्ठ पर सुविधा विवरण"
+  },
+  "onboardingFeatureLanguagesTitle": "13 भाषाओं का समर्थन",
+  "@onboardingFeatureLanguagesTitle": {
+    "description": "स्वागत पृष्ठ पर सुविधा शीर्षक"
+  },
+  "onboardingFeatureLanguagesDescription": "कई भाषाओं में प्रश्नोत्तरी बनाएं और दें",
+  "@onboardingFeatureLanguagesDescription": {
+    "description": "स्वागत पृष्ठ पर सुविधा विवरण"
+  },
+  "onboardingStepCreateTitle": "प्रश्नोत्तरी बनाएं",
+  "@onboardingStepCreateTitle": {
+    "description": "प्रश्नोत्तरी शुरू करने वाले पृष्ठ पर चरण शीर्षक"
+  },
+  "onboardingStepCreateDescription": "अपने स्वयं के प्रश्नों के साथ शुरुआत से शुरू करें",
+  "@onboardingStepCreateDescription": {
+    "description": "प्रश्नोत्तरी शुरू करने वाले पृष्ठ पर चरण विवरण"
+  },
+  "onboardingStepLoadTitle": "फ़ाइल लोड करें",
+  "@onboardingStepLoadTitle": {
+    "description": "प्रश्नोत्तरी शुरू करने वाले पृष्ठ पर चरण शीर्षक"
+  },
+  "onboardingStepLoadDescription": "अपने डिवाइस से .quiz फ़ाइल आयात करें",
+  "@onboardingStepLoadDescription": {
+    "description": "प्रश्नोत्तरी शुरू करने वाले पृष्ठ पर चरण विवरण"
+  },
+  "onboardingStepTakeTitle": "प्रश्नोत्तरी दें",
+  "@onboardingStepTakeTitle": {
+    "description": "प्रश्नोत्तरी शुरू करने वाले पृष्ठ पर चरण शीर्षक"
+  },
+  "onboardingStepTakeDescription": "प्रश्नों के उत्तर दें और वास्तविक समय में स्कोर प्राप्त करें",
+  "@onboardingStepTakeDescription": {
+    "description": "प्रश्नोत्तरी शुरू करने वाले पृष्ठ पर चरण विवरण"
+  },
+  "onboardingAiAutoGenerateTitle": "स्वचालित रूप से प्रश्न उत्पन्न करें",
+  "@onboardingAiAutoGenerateTitle": {
+    "description": "स्वागत प्रवाह में एआई सुविधा शीर्षक"
+  },
+  "onboardingAiAutoGenerateDescription": "GPT या Gemini के साथ किसी भी टेक्स्ट से",
+  "@onboardingAiAutoGenerateDescription": {
+    "description": "स्वागत प्रवाह में एआई सुविधा विवरण"
+  },
+  "onboardingAiStudyAssistantTitle": "एआई अध्ययन सहायक",
+  "@onboardingAiStudyAssistantTitle": {
+    "description": "स्वागत प्रवाह में एआई सुविधा शीर्षक"
+  },
+  "onboardingAiStudyAssistantDescription": "सीखते समय स्पष्टीकरण प्राप्त करें",
+  "@onboardingAiStudyAssistantDescription": {
+    "description": "स्वागत प्रवाह में एआई सुविधा विवरण"
+  },
+  "onboardingAiMultiLanguageTitle": "बहु-भाषा समर्थन",
+  "@onboardingAiMultiLanguageTitle": {
+    "description": "स्वागत प्रवाह में एआई सुविधा शीर्षक"
+  },
+  "onboardingAiMultiLanguageDescription": "13 अलग-अलग भाषाओं में उत्पन्न करें",
+  "@onboardingAiMultiLanguageDescription": {
+    "description": "स्वागत प्रवाह में एआई सुविधा विवरण"
   }
 }

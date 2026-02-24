@@ -1589,5 +1589,141 @@
   "featureComingSoon": "Proximamente dispoñible! Mantente ao tanto das novidades.",
   "@featureComingSoon": {
     "description": "Mensaxe para funcionalidades que aínda non están dispoñibles"
+  },
+  "showOnboarding": "Amosar o acollemento",
+  "@showOnboarding": {
+    "description": "Etiqueta do botón para volver abrir o fluxo de acollemento"
+  },
+  "showOnboardingDescription": "Ver o titorial de benvida de novo",
+  "@showOnboardingDescription": {
+    "description": "Descrición do botón para volver abrir o fluxo de acollemento"
+  },
+  "onboardingBack": "Atrás",
+  "@onboardingBack": {
+    "description": "Botón atrás na navegación do acollemento"
+  },
+  "onboardingGetStarted": "Comezar",
+  "@onboardingGetStarted": {
+    "description": "Botón de comezar na última páxina do acollemento"
+  },
+  "onboardingWelcomeTitle": "Benvido a QuizLab AI",
+  "@onboardingWelcomeTitle": {
+    "description": "Título da primeira páxina do acollemento"
+  },
+  "onboardingWelcomeDescription": "O teu compañeiro interactivo de cuestionarios con funcións impulsadas por IA, preguntas personalizables e puntuación en tempo real.",
+  "@onboardingWelcomeDescription": {
+    "description": "Descrición da primeira páxina do acollemento"
+  },
+  "onboardingWelcomeSubtitle": "O teu compañeiro interactivo de cuestionarios",
+  "@onboardingWelcomeSubtitle": {
+    "description": "Subtítulo da primeira páxina do acollemento en deseño de escritorio"
+  },
+  "onboardingStartQuizTitle": "Iniciar un Cuestionario",
+  "@onboardingStartQuizTitle": {
+    "description": "Título da segunda páxina do acollemento"
+  },
+  "onboardingStartQuizDescription": "Carga un ficheiro .quiz existente o crea un novo desde cero. Arrastra e solta ficheiros directamente ou usa o selector de ficheiros.",
+  "@onboardingStartQuizDescription": {
+    "description": "Descrición da segunda páxina do acollemento"
+  },
+  "onboardingStartQuizSubtitle": "Carga, crea e xoga",
+  "@onboardingStartQuizSubtitle": {
+    "description": "Subtítulo da segunda páxina do acollemento en deseño de escritorio"
+  },
+  "onboardingCreateQuestionsTitle": "Crear Preguntas",
+  "@onboardingCreateQuestionsTitle": {
+    "description": "Título da terceira páxina do acollemento"
+  },
+  "onboardingCreateQuestionsDescription": "Crea cuestionarios con múltiples tipos de preguntas. Personaliza cada pregunta con opcións, respostas correctas e explicacións.",
+  "@onboardingCreateQuestionsDescription": {
+    "description": "Descrición da terceira páxina do acollemento"
+  },
+  "onboardingCreateQuestionsSubtitle": "Deseña os teus propios cuestionarios",
+  "@onboardingCreateQuestionsSubtitle": {
+    "description": "Subtítulo da terceira páxina do acollemento en deseño de escritorio"
+  },
+  "onboardingAiFeaturesTitle": "Funcións impulsadas por IA",
+  "@onboardingAiFeaturesTitle": {
+    "description": "Título da cuarta páxina do acollemento"
+  },
+  "onboardingAiFeaturesDescription": "Xera preguntas automaticamente con IA, obtén asistencia de estudo en tempo real e aprende de forma máis intelixeinte con titoría intelixente.",
+  "@onboardingAiFeaturesDescription": {
+    "description": "Descrición da cuarta páxina do acollemento"
+  },
+  "onboardingAiFeaturesSubtitle": "Impulsado por IA",
+  "@onboardingAiFeaturesSubtitle": {
+    "description": "Subtítulo da cuarta páxina do acollemento en deseño de escritorio"
+  },
+  "onboardingFeatureAiTitle": "Xeración de preguntas con IA",
+  "@onboardingFeatureAiTitle": {
+    "description": "Título da función na páxina de benvida"
+  },
+  "onboardingFeatureAiDescription": "Xera cuestionarios desde calquera texto con GPT ou Gemini",
+  "@onboardingFeatureAiDescription": {
+    "description": "Descrición da función na páxina de benvida"
+  },
+  "onboardingFeatureTypesTitle": "Múltiples tipos de preguntas",
+  "@onboardingFeatureTypesTitle": {
+    "description": "Título da función na páxina de benvida"
+  },
+  "onboardingFeatureTypesDescription": "Opción única, opción múltiple, verdadeiro/falso e ensaio",
+  "@onboardingFeatureTypesDescription": {
+    "description": "Descrición da función na páxina de benvida"
+  },
+  "onboardingFeatureLanguagesTitle": "13 idiomas compatibles",
+  "@onboardingFeatureLanguagesTitle": {
+    "description": "Título da función na páxina de benvida"
+  },
+  "onboardingFeatureLanguagesDescription": "Crea e fai cuestionarios en varios idiomas",
+  "@onboardingFeatureLanguagesDescription": {
+    "description": "Descrición da función na páxina de benvida"
+  },
+  "onboardingStepCreateTitle": "Crear Cuestionario",
+  "@onboardingStepCreateTitle": {
+    "description": "Título do paso na páxina de inicio de cuestionario"
+  },
+  "onboardingStepCreateDescription": "Comeza de cero coas túas propias preguntas",
+  "@onboardingStepCreateDescription": {
+    "description": "Descrición do paso na páxina de inicio de cuestionario"
+  },
+  "onboardingStepLoadTitle": "Cargar Ficheiro",
+  "@onboardingStepLoadTitle": {
+    "description": "Título do paso na páxina de inicio de cuestionario"
+  },
+  "onboardingStepLoadDescription": "Importa un ficheiro .quiz desde o teu dispositivo",
+  "@onboardingStepLoadDescription": {
+    "description": "Descrición do paso na páxina de inicio de cuestionario"
+  },
+  "onboardingStepTakeTitle": "Facer o Cuestionario",
+  "@onboardingStepTakeTitle": {
+    "description": "Título do paso na páxina de inicio de cuestionario"
+  },
+  "onboardingStepTakeDescription": "Responde ás preguntas e obtén a puntuación en tempo real",
+  "@onboardingStepTakeDescription": {
+    "description": "Descrición do paso na páxina de inicio de cuestionario"
+  },
+  "onboardingAiAutoGenerateTitle": "Xerar preguntas automaticamente",
+  "@onboardingAiAutoGenerateTitle": {
+    "description": "Título da función IA no acollemento"
+  },
+  "onboardingAiAutoGenerateDescription": "Desde calquera texto con GPT ou Gemini",
+  "@onboardingAiAutoGenerateDescription": {
+    "description": "Descrición da función IA no acollemento"
+  },
+  "onboardingAiStudyAssistantTitle": "Asistente de Estudo IA",
+  "@onboardingAiStudyAssistantTitle": {
+    "description": "Título da función IA no acollemento"
+  },
+  "onboardingAiStudyAssistantDescription": "Obtén explicacións mentres aprendes",
+  "@onboardingAiStudyAssistantDescription": {
+    "description": "Descrición da función IA no acollemento"
+  },
+  "onboardingAiMultiLanguageTitle": "Soporte multi-idioma",
+  "@onboardingAiMultiLanguageTitle": {
+    "description": "Título da función IA no acollemento"
+  },
+  "onboardingAiMultiLanguageDescription": "Xera en 13 idiomas diferentes",
+  "@onboardingAiMultiLanguageDescription": {
+    "description": "Descrición da función IA no acollemento"
   }
 }

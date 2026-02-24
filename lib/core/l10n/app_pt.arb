@@ -1680,5 +1680,141 @@
   "featureComingSoon": "Em breve disponível! Fique atento às novidades.",
   "@featureComingSoon": {
     "description": "Mensagem para funcionalidades que ainda não estão disponíveis"
+  },
+  "showOnboarding": "Mostrar as boas-vindas",
+  "@showOnboarding": {
+    "description": "Rótulo do botão para reabrir o fluxo de boas-vindas"
+  },
+  "showOnboardingDescription": "Ver o tutorial de boas-vindas novamente",
+  "@showOnboardingDescription": {
+    "description": "Descrição do botão para reabrir o fluxo de boas-vindas"
+  },
+  "onboardingBack": "Voltar",
+  "@onboardingBack": {
+    "description": "Botão voltar na navegação de boas-vindas"
+  },
+  "onboardingGetStarted": "Começar",
+  "@onboardingGetStarted": {
+    "description": "Botão começar na última página de boas-vindas"
+  },
+  "onboardingWelcomeTitle": "Bem-vindo ao QuizLab AI",
+  "@onboardingWelcomeTitle": {
+    "description": "Título da primeira página de boas-vindas"
+  },
+  "onboardingWelcomeDescription": "Seu companheiro interativo de quizzes com recursos baseados em IA, perguntas personalizáveis e pontuação em tempo real.",
+  "@onboardingWelcomeDescription": {
+    "description": "Descrição da primeira página de boas-vindas"
+  },
+  "onboardingWelcomeSubtitle": "Seu companheiro interativo de quizzes",
+  "@onboardingWelcomeSubtitle": {
+    "description": "Subtítulo da primeira página de boas-vindas em layout desktop"
+  },
+  "onboardingStartQuizTitle": "Iniciar um Quiz",
+  "@onboardingStartQuizTitle": {
+    "description": "Título da segunda página de boas-vindas"
+  },
+  "onboardingStartQuizDescription": "Carregue um arquivo .quiz existente ou crie um novo do zero. Arraste e solte arquivos diretamente ou use o seletor de arquivos.",
+  "@onboardingStartQuizDescription": {
+    "description": "Descrição da segunda página de boas-vindas"
+  },
+  "onboardingStartQuizSubtitle": "Carregar, criar e jogar",
+  "@onboardingStartQuizSubtitle": {
+    "description": "Subtítulo da segunda página de boas-vindas em layout desktop"
+  },
+  "onboardingCreateQuestionsTitle": "Criar Perguntas",
+  "@onboardingCreateQuestionsTitle": {
+    "description": "Título da terceira página de boas-vindas"
+  },
+  "onboardingCreateQuestionsDescription": "Crie quizzes com múltiplos tipos de perguntas. Personalize cada pergunta com opções, respostas corretas e explicações.",
+  "@onboardingCreateQuestionsDescription": {
+    "description": "Descrição da terceira página de boas-vindas"
+  },
+  "onboardingCreateQuestionsSubtitle": "Desenvolva seus próprios quizzes",
+  "@onboardingCreateQuestionsSubtitle": {
+    "description": "Subtítulo da terceira página de boas-vindas em layout desktop"
+  },
+  "onboardingAiFeaturesTitle": "Recursos de IA",
+  "@onboardingAiFeaturesTitle": {
+    "description": "Título da quarta página de boas-vindas"
+  },
+  "onboardingAiFeaturesDescription": "Gere perguntas automaticamente com IA, obtenha ajuda de estudo em tempo real e aprenda de forma mais inteligente com tutoria inteligente.",
+  "@onboardingAiFeaturesDescription": {
+    "description": "Descrição da quarta página de boas-vindas"
+  },
+  "onboardingAiFeaturesSubtitle": "Potencializado por IA",
+  "@onboardingAiFeaturesSubtitle": {
+    "description": "Subtítulo da quarta página de boas-vindas em layout desktop"
+  },
+  "onboardingFeatureAiTitle": "Geração de perguntas com IA",
+  "@onboardingFeatureAiTitle": {
+    "description": "Título do recurso na página de boas-vindas"
+  },
+  "onboardingFeatureAiDescription": "Gere quizzes a partir de qualquer texto com GPT ou Gemini",
+  "@onboardingFeatureAiDescription": {
+    "description": "Descrição do recurso na página de boas-vindas"
+  },
+  "onboardingFeatureTypesTitle": "Múltiplos tipos de perguntas",
+  "@onboardingFeatureTypesTitle": {
+    "description": "Título do recurso na página de boas-vindas"
+  },
+  "onboardingFeatureTypesDescription": "Escolha única, múltipla escolha, verdadeiro/falso e dissertativa",
+  "@onboardingFeatureTypesDescription": {
+    "description": "Descrição do recurso na página de boas-vindas"
+  },
+  "onboardingFeatureLanguagesTitle": "13 idiomas suportados",
+  "@onboardingFeatureLanguagesTitle": {
+    "description": "Título do recurso na página de boas-vindas"
+  },
+  "onboardingFeatureLanguagesDescription": "Crie e responda quizzes em vários idiomas",
+  "@onboardingFeatureLanguagesDescription": {
+    "description": "Descrição do recurso na página de boas-vindas"
+  },
+  "onboardingStepCreateTitle": "Criar Quiz",
+  "@onboardingStepCreateTitle": {
+    "description": "Título da etapa na página de início do quiz"
+  },
+  "onboardingStepCreateDescription": "Comece do zero com suas próprias perguntas",
+  "@onboardingStepCreateDescription": {
+    "description": "Descrição da etapa na página de início do quiz"
+  },
+  "onboardingStepLoadTitle": "Carregar Arquivo",
+  "@onboardingStepLoadTitle": {
+    "description": "Título da etapa na página de início do quiz"
+  },
+  "onboardingStepLoadDescription": "Importe um arquivo .quiz do seu dispositivo",
+  "@onboardingStepLoadDescription": {
+    "description": "Descrição da etapa na página de início do quiz"
+  },
+  "onboardingStepTakeTitle": "Responder Quiz",
+  "@onboardingStepTakeTitle": {
+    "description": "Título da etapa na página de início do quiz"
+  },
+  "onboardingStepTakeDescription": "Responda às perguntas e obtenha a pontuação em tempo real",
+  "@onboardingStepTakeDescription": {
+    "description": "Descrição da etapa na página de início do quiz"
+  },
+  "onboardingAiAutoGenerateTitle": "Auto-geração de perguntas",
+  "@onboardingAiAutoGenerateTitle": {
+    "description": "Título do recurso de IA nas boas-vindas"
+  },
+  "onboardingAiAutoGenerateDescription": "De qualquer texto com GPT ou Gemini",
+  "@onboardingAiAutoGenerateDescription": {
+    "description": "Descrição do recurso de IA nas boas-vindas"
+  },
+  "onboardingAiStudyAssistantTitle": "Assistente de Estudo IA",
+  "@onboardingAiStudyAssistantTitle": {
+    "description": "Título do recurso de IA nas boas-vindas"
+  },
+  "onboardingAiStudyAssistantDescription": "Obtenha explicações enquanto aprende",
+  "@onboardingAiStudyAssistantDescription": {
+    "description": "Descrição do recurso de IA nas boas-vindas"
+  },
+  "onboardingAiMultiLanguageTitle": "Suporte multi-idioma",
+  "@onboardingAiMultiLanguageTitle": {
+    "description": "Título do recurso de IA nas boas-vindas"
+  },
+  "onboardingAiMultiLanguageDescription": "Gere em 13 idiomas diferentes",
+  "@onboardingAiMultiLanguageDescription": {
+    "description": "Descrição do recurso de IA nas boas-vindas"
   }
 }

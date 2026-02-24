@@ -2412,6 +2412,210 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Coming soon! Stay tuned for updates.'**
   String get featureComingSoon;
+
+  /// Label for the button to re-open the onboarding flow
+  ///
+  /// In en, this message translates to:
+  /// **'Show onboarding'**
+  String get showOnboarding;
+
+  /// Description for the button to re-open the onboarding flow
+  ///
+  /// In en, this message translates to:
+  /// **'View the welcome tutorial again'**
+  String get showOnboardingDescription;
+
+  /// Back button in onboarding navigation
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get onboardingBack;
+
+  /// Get Started button on the last onboarding page
+  ///
+  /// In en, this message translates to:
+  /// **'Get Started'**
+  String get onboardingGetStarted;
+
+  /// Title for the first onboarding page
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to QuizLab AI'**
+  String get onboardingWelcomeTitle;
+
+  /// Description for the first onboarding page
+  ///
+  /// In en, this message translates to:
+  /// **'Your interactive quiz companion with AI-powered features, customizable questions, and real-time scoring.'**
+  String get onboardingWelcomeDescription;
+
+  /// Subtitle for the first onboarding page in desktop layout
+  ///
+  /// In en, this message translates to:
+  /// **'Your interactive quiz companion'**
+  String get onboardingWelcomeSubtitle;
+
+  /// Title for the second onboarding page
+  ///
+  /// In en, this message translates to:
+  /// **'Start a Quiz'**
+  String get onboardingStartQuizTitle;
+
+  /// Description for the second onboarding page
+  ///
+  /// In en, this message translates to:
+  /// **'Load an existing .quiz file or create a new one from scratch. Drag and drop files directly or use the file picker.'**
+  String get onboardingStartQuizDescription;
+
+  /// Subtitle for the second onboarding page in desktop layout
+  ///
+  /// In en, this message translates to:
+  /// **'Load, create, and play'**
+  String get onboardingStartQuizSubtitle;
+
+  /// Title for the third onboarding page
+  ///
+  /// In en, this message translates to:
+  /// **'Create Questions'**
+  String get onboardingCreateQuestionsTitle;
+
+  /// Description for the third onboarding page
+  ///
+  /// In en, this message translates to:
+  /// **'Build quizzes with multiple question types. Customize each question with options, correct answers, and explanations.'**
+  String get onboardingCreateQuestionsDescription;
+
+  /// Subtitle for the third onboarding page in desktop layout
+  ///
+  /// In en, this message translates to:
+  /// **'Design your own quizzes'**
+  String get onboardingCreateQuestionsSubtitle;
+
+  /// Title for the fourth onboarding page
+  ///
+  /// In en, this message translates to:
+  /// **'AI-Powered Features'**
+  String get onboardingAiFeaturesTitle;
+
+  /// Description for the fourth onboarding page
+  ///
+  /// In en, this message translates to:
+  /// **'Generate questions automatically with AI, get real-time study assistance, and learn smarter with intelligent tutoring.'**
+  String get onboardingAiFeaturesDescription;
+
+  /// Subtitle for the fourth onboarding page in desktop layout
+  ///
+  /// In en, this message translates to:
+  /// **'Powered by AI'**
+  String get onboardingAiFeaturesSubtitle;
+
+  /// Feature title in onboarding welcome page
+  ///
+  /// In en, this message translates to:
+  /// **'AI-powered question generation'**
+  String get onboardingFeatureAiTitle;
+
+  /// Feature description in onboarding welcome page
+  ///
+  /// In en, this message translates to:
+  /// **'Generate quizzes from any text with GPT or Gemini'**
+  String get onboardingFeatureAiDescription;
+
+  /// Feature title in onboarding welcome page
+  ///
+  /// In en, this message translates to:
+  /// **'Multiple question types'**
+  String get onboardingFeatureTypesTitle;
+
+  /// Feature description in onboarding welcome page
+  ///
+  /// In en, this message translates to:
+  /// **'Single choice, multiple choice, true/false, and essay'**
+  String get onboardingFeatureTypesDescription;
+
+  /// Feature title in onboarding welcome page
+  ///
+  /// In en, this message translates to:
+  /// **'13 languages supported'**
+  String get onboardingFeatureLanguagesTitle;
+
+  /// Feature description in onboarding welcome page
+  ///
+  /// In en, this message translates to:
+  /// **'Create and take quizzes in multiple languages'**
+  String get onboardingFeatureLanguagesDescription;
+
+  /// Step title in onboarding start quiz page
+  ///
+  /// In en, this message translates to:
+  /// **'Create Quiz'**
+  String get onboardingStepCreateTitle;
+
+  /// Step description in onboarding start quiz page
+  ///
+  /// In en, this message translates to:
+  /// **'Start from scratch with your own questions'**
+  String get onboardingStepCreateDescription;
+
+  /// Step title in onboarding start quiz page
+  ///
+  /// In en, this message translates to:
+  /// **'Load File'**
+  String get onboardingStepLoadTitle;
+
+  /// Step description in onboarding start quiz page
+  ///
+  /// In en, this message translates to:
+  /// **'Import a .quiz file from your device'**
+  String get onboardingStepLoadDescription;
+
+  /// Step title in onboarding start quiz page
+  ///
+  /// In en, this message translates to:
+  /// **'Take the Quiz'**
+  String get onboardingStepTakeTitle;
+
+  /// Step description in onboarding start quiz page
+  ///
+  /// In en, this message translates to:
+  /// **'Answer questions and get scored in real-time'**
+  String get onboardingStepTakeDescription;
+
+  /// AI feature title in onboarding
+  ///
+  /// In en, this message translates to:
+  /// **'Auto-Generate Questions'**
+  String get onboardingAiAutoGenerateTitle;
+
+  /// AI feature description in onboarding
+  ///
+  /// In en, this message translates to:
+  /// **'From any text with GPT or Gemini'**
+  String get onboardingAiAutoGenerateDescription;
+
+  /// AI feature title in onboarding
+  ///
+  /// In en, this message translates to:
+  /// **'AI Study Assistant'**
+  String get onboardingAiStudyAssistantTitle;
+
+  /// AI feature description in onboarding
+  ///
+  /// In en, this message translates to:
+  /// **'Get explanations while you learn'**
+  String get onboardingAiStudyAssistantDescription;
+
+  /// AI feature title in onboarding
+  ///
+  /// In en, this message translates to:
+  /// **'Multi-Language Support'**
+  String get onboardingAiMultiLanguageTitle;
+
+  /// AI feature description in onboarding
+  ///
+  /// In en, this message translates to:
+  /// **'Generate in 13 different languages'**
+  String get onboardingAiMultiLanguageDescription;
 }
 
 class _AppLocalizationsDelegate

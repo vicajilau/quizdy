@@ -1649,5 +1649,141 @@
   "featureComingSoon": "الميزة قادمة قريبا! ابقَ على اطلاع على التحديثات.",
   "@featureComingSoon": {
     "description": "رسالة للميزات التي لم تتوفر بعد"
+  },
+  "showOnboarding": "عرض العرض الترحيبي",
+  "@showOnboarding": {
+    "description": "تسمية الزر لإعادة فتح تدفق العرض الترحيبي"
+  },
+  "showOnboardingDescription": "عرض البرنامج التعليمي الترحيبي مرة أخرى",
+  "@showOnboardingDescription": {
+    "description": "وصف الزر لإعادة فتح تدفق العرض الترحيبي"
+  },
+  "onboardingBack": "عودة",
+  "@onboardingBack": {
+    "description": "زر العودة في التنقل عبر العرض الترحيبي"
+  },
+  "onboardingGetStarted": "ابدأ الآن",
+  "@onboardingGetStarted": {
+    "description": "زر ابدأ الآن في الصفحة الأخيرة من العرض الترحيبي"
+  },
+  "onboardingWelcomeTitle": "مرحباً بك في QuizLab AI",
+  "@onboardingWelcomeTitle": {
+    "description": "عنوان الصفحة الأولى من العرض الترحيبي"
+  },
+  "onboardingWelcomeDescription": "رفيقك التفاعلي للاختبارات مع ميزات مدعومة بالذكاء الاصطناعي، وأسئلة قابلة للتخصيص، وتسجيل في الوقت الفعلي.",
+  "@onboardingWelcomeDescription": {
+    "description": "وصف الصفحة الأولى من العرض الترحيبي"
+  },
+  "onboardingWelcomeSubtitle": "رفيقك التفاعلي للاختبارات",
+  "@onboardingWelcomeSubtitle": {
+    "description": "العنوان الفرعي للصفحة الأولى من العرض الترحيبي في تخطيط سطح المكتب"
+  },
+  "onboardingStartQuizTitle": "ابدأ اختباراً",
+  "@onboardingStartQuizTitle": {
+    "description": "عنوان الصفحة الثانية من العرض الترحيبي"
+  },
+  "onboardingStartQuizDescription": "قم بتحميل ملف .quiz موجود أو أنشئ ملفاً جديداً من الصفر. اسحب الملفات وأفلتها مباشرة أو استخدم منتقي الملفات.",
+  "@onboardingStartQuizDescription": {
+    "description": "وصف الصفحة الثانية من العرض الترحيبي"
+  },
+  "onboardingStartQuizSubtitle": "تحميل، إنشاء، ولعب",
+  "@onboardingStartQuizSubtitle": {
+    "description": "العنوان الفرعي للصفحة الثانية من العرض الترحيبي في تخطيط سطح المكتب"
+  },
+  "onboardingCreateQuestionsTitle": "إنشاء أسئلة",
+  "@onboardingCreateQuestionsTitle": {
+    "description": "عنوان الصفحة الثالثة من العرض الترحيبي"
+  },
+  "onboardingCreateQuestionsDescription": "قم ببناء اختبارات بأنواع أسئلة متعددة. خصص كل سؤال بالخيارات، والإجابات الصحيحة، والشروحات.",
+  "@onboardingCreateQuestionsDescription": {
+    "description": "وصف الصفحة الثالثة من العرض الترحيبي"
+  },
+  "onboardingCreateQuestionsSubtitle": "صمم اختباراتك الخاصة",
+  "@onboardingCreateQuestionsSubtitle": {
+    "description": "العنوان الفرعي للصفحة الثالثة من العرض الترحيبي في تخطيط سطح المكتب"
+  },
+  "onboardingAiFeaturesTitle": "ميزات مدعومة بالذكاء الاصطناعي",
+  "@onboardingAiFeaturesTitle": {
+    "description": "عنوان الصفحة الرابعة من العرض الترحيبي"
+  },
+  "onboardingAiFeaturesDescription": "قم بتوليد الأسئلة تلقائياً باستخدام الذكاء الاصطناعي، واحصل على مساعدة دراسية في الوقت الفعلي، وتعلّم بذكاء أكبر مع التدريس الذكي.",
+  "@onboardingAiFeaturesDescription": {
+    "description": "وصف الصفحة الرابعة من العرض الترحيبي"
+  },
+  "onboardingAiFeaturesSubtitle": "مدعوم بالذكاء الاصطناعي",
+  "@onboardingAiFeaturesSubtitle": {
+    "description": "العنوان الفرعي للصفحة الرابعة من العرض الترحيبي في تخطيط سطح المكتب"
+  },
+  "onboardingFeatureAiTitle": "توليد الأسئلة بالذكاء الاصطناعي",
+  "@onboardingFeatureAiTitle": {
+    "description": "عنوان الميزة في صفحة الترحيب بالعرض الترحيبي"
+  },
+  "onboardingFeatureAiDescription": "توليد اختبارات من أي نص باستخدام GPT أو Gemini",
+  "@onboardingFeatureAiDescription": {
+    "description": "وصف الميزة في صفحة الترحيب بالعرض الترحيبي"
+  },
+  "onboardingFeatureTypesTitle": "أنواع أسئلة متعددة",
+  "@onboardingFeatureTypesTitle": {
+    "description": "عنوان الميزة في صفحة الترحيب بالعرض الترحيبي"
+  },
+  "onboardingFeatureTypesDescription": "اختيار واحد، اختيار متعدد، صح/خطأ، ومقالي",
+  "@onboardingFeatureTypesDescription": {
+    "description": "وصف الميزة في صفحة الترحيب بالعرض الترحيبي"
+  },
+  "onboardingFeatureLanguagesTitle": "دعم 13 لغة",
+  "@onboardingFeatureLanguagesTitle": {
+    "description": "عنوان الميزة في صفحة الترحيب بالعرض الترحيبي"
+  },
+  "onboardingFeatureLanguagesDescription": "إنشاء وإجراء الاختبارات بلغات متعددة",
+  "@onboardingFeatureLanguagesDescription": {
+    "description": "وصف الميزة في صفحة الترحيب بالعرض الترحيبي"
+  },
+  "onboardingStepCreateTitle": "إنشاء اختبار",
+  "@onboardingStepCreateTitle": {
+    "description": "عنوان الخطوة في صفحة بدء الاختبار بالعرض الترحيبي"
+  },
+  "onboardingStepCreateDescription": "ابدأ من الصفر بأسئلتك الخاصة",
+  "@onboardingStepCreateDescription": {
+    "description": "وصف الخطوة في صفحة بدء الاختبار بالعرض الترحيبي"
+  },
+  "onboardingStepLoadTitle": "تحميل ملف",
+  "@onboardingStepLoadTitle": {
+    "description": "عنوان الخطوة في صفحة بدء الاختبار بالعرض الترحيبي"
+  },
+  "onboardingStepLoadDescription": "استيراد ملف .quiz من جهازك",
+  "@onboardingStepLoadDescription": {
+    "description": "وصف الخطوة في صفحة بدء الاختبار بالعرض الترحيبي"
+  },
+  "onboardingStepTakeTitle": "إجراء الاختبار",
+  "@onboardingStepTakeTitle": {
+    "description": "عنوان الخطوة في صفحة بدء الاختبار بالعرض الترحيبي"
+  },
+  "onboardingStepTakeDescription": "أجب عن الأسئلة واحصل على النتائج في الوقت الفعلي",
+  "@onboardingStepTakeDescription": {
+    "description": "وصف الخطوة في صفحة بدء الاختبار بالعرض الترحيبي"
+  },
+  "onboardingAiAutoGenerateTitle": "توليد تلقائي للأسئلة",
+  "@onboardingAiAutoGenerateTitle": {
+    "description": "عنوان ميزة الذكاء الاصطناعي في العرض الترحيبي"
+  },
+  "onboardingAiAutoGenerateDescription": "من أي نص باستخدام GPT أو Gemini",
+  "@onboardingAiAutoGenerateDescription": {
+    "description": "وصف ميزة الذكاء الاصطناعي في العرض الترحيبي"
+  },
+  "onboardingAiStudyAssistantTitle": "مساعد الدراسة بالذكاء الاصطناعي",
+  "@onboardingAiStudyAssistantTitle": {
+    "description": "عنوان ميزة الذكاء الاصطناعي في العرض الترحيبي"
+  },
+  "onboardingAiStudyAssistantDescription": "احصل على شروحات أثناء التعلم",
+  "@onboardingAiStudyAssistantDescription": {
+    "description": "وصف ميزة الذكاء الاصطناعي في العرض الترحيبي"
+  },
+  "onboardingAiMultiLanguageTitle": "دعم لغات متعددة",
+  "@onboardingAiMultiLanguageTitle": {
+    "description": "عنوان ميزة الذكاء الاصطناعي في العرض الترحيبي"
+  },
+  "onboardingAiMultiLanguageDescription": "توليد بـ 13 لغة مختلفة",
+  "@onboardingAiMultiLanguageDescription": {
+    "description": "وصف ميزة الذكاء الاصطناعي في العرض الترحيبي"
   }
 }

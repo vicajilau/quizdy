@@ -1830,5 +1830,141 @@
   "featureComingSoon": "Coming soon! Stay tuned for updates.",
   "@featureComingSoon": {
     "description": "Message for features that are not yet available"
+  },
+  "showOnboarding": "Show onboarding",
+  "@showOnboarding": {
+    "description": "Label for the button to re-open the onboarding flow"
+  },
+  "showOnboardingDescription": "View the welcome tutorial again",
+  "@showOnboardingDescription": {
+    "description": "Description for the button to re-open the onboarding flow"
+  },
+  "onboardingBack": "Back",
+  "@onboardingBack": {
+    "description": "Back button in onboarding navigation"
+  },
+  "onboardingGetStarted": "Get Started",
+  "@onboardingGetStarted": {
+    "description": "Get Started button on the last onboarding page"
+  },
+  "onboardingWelcomeTitle": "Welcome to QuizLab AI",
+  "@onboardingWelcomeTitle": {
+    "description": "Title for the first onboarding page"
+  },
+  "onboardingWelcomeDescription": "Your interactive quiz companion with AI-powered features, customizable questions, and real-time scoring.",
+  "@onboardingWelcomeDescription": {
+    "description": "Description for the first onboarding page"
+  },
+  "onboardingWelcomeSubtitle": "Your interactive quiz companion",
+  "@onboardingWelcomeSubtitle": {
+    "description": "Subtitle for the first onboarding page in desktop layout"
+  },
+  "onboardingStartQuizTitle": "Start a Quiz",
+  "@onboardingStartQuizTitle": {
+    "description": "Title for the second onboarding page"
+  },
+  "onboardingStartQuizDescription": "Load an existing .quiz file or create a new one from scratch. Drag and drop files directly or use the file picker.",
+  "@onboardingStartQuizDescription": {
+    "description": "Description for the second onboarding page"
+  },
+  "onboardingStartQuizSubtitle": "Load, create, and play",
+  "@onboardingStartQuizSubtitle": {
+    "description": "Subtitle for the second onboarding page in desktop layout"
+  },
+  "onboardingCreateQuestionsTitle": "Create Questions",
+  "@onboardingCreateQuestionsTitle": {
+    "description": "Title for the third onboarding page"
+  },
+  "onboardingCreateQuestionsDescription": "Build quizzes with multiple question types. Customize each question with options, correct answers, and explanations.",
+  "@onboardingCreateQuestionsDescription": {
+    "description": "Description for the third onboarding page"
+  },
+  "onboardingCreateQuestionsSubtitle": "Design your own quizzes",
+  "@onboardingCreateQuestionsSubtitle": {
+    "description": "Subtitle for the third onboarding page in desktop layout"
+  },
+  "onboardingAiFeaturesTitle": "AI-Powered Features",
+  "@onboardingAiFeaturesTitle": {
+    "description": "Title for the fourth onboarding page"
+  },
+  "onboardingAiFeaturesDescription": "Generate questions automatically with AI, get real-time study assistance, and learn smarter with intelligent tutoring.",
+  "@onboardingAiFeaturesDescription": {
+    "description": "Description for the fourth onboarding page"
+  },
+  "onboardingAiFeaturesSubtitle": "Powered by AI",
+  "@onboardingAiFeaturesSubtitle": {
+    "description": "Subtitle for the fourth onboarding page in desktop layout"
+  },
+  "onboardingFeatureAiTitle": "AI-powered question generation",
+  "@onboardingFeatureAiTitle": {
+    "description": "Feature title in onboarding welcome page"
+  },
+  "onboardingFeatureAiDescription": "Generate quizzes from any text with GPT or Gemini",
+  "@onboardingFeatureAiDescription": {
+    "description": "Feature description in onboarding welcome page"
+  },
+  "onboardingFeatureTypesTitle": "Multiple question types",
+  "@onboardingFeatureTypesTitle": {
+    "description": "Feature title in onboarding welcome page"
+  },
+  "onboardingFeatureTypesDescription": "Single choice, multiple choice, true/false, and essay",
+  "@onboardingFeatureTypesDescription": {
+    "description": "Feature description in onboarding welcome page"
+  },
+  "onboardingFeatureLanguagesTitle": "13 languages supported",
+  "@onboardingFeatureLanguagesTitle": {
+    "description": "Feature title in onboarding welcome page"
+  },
+  "onboardingFeatureLanguagesDescription": "Create and take quizzes in multiple languages",
+  "@onboardingFeatureLanguagesDescription": {
+    "description": "Feature description in onboarding welcome page"
+  },
+  "onboardingStepCreateTitle": "Create Quiz",
+  "@onboardingStepCreateTitle": {
+    "description": "Step title in onboarding start quiz page"
+  },
+  "onboardingStepCreateDescription": "Start from scratch with your own questions",
+  "@onboardingStepCreateDescription": {
+    "description": "Step description in onboarding start quiz page"
+  },
+  "onboardingStepLoadTitle": "Load File",
+  "@onboardingStepLoadTitle": {
+    "description": "Step title in onboarding start quiz page"
+  },
+  "onboardingStepLoadDescription": "Import a .quiz file from your device",
+  "@onboardingStepLoadDescription": {
+    "description": "Step description in onboarding start quiz page"
+  },
+  "onboardingStepTakeTitle": "Take the Quiz",
+  "@onboardingStepTakeTitle": {
+    "description": "Step title in onboarding start quiz page"
+  },
+  "onboardingStepTakeDescription": "Answer questions and get scored in real-time",
+  "@onboardingStepTakeDescription": {
+    "description": "Step description in onboarding start quiz page"
+  },
+  "onboardingAiAutoGenerateTitle": "Auto-Generate Questions",
+  "@onboardingAiAutoGenerateTitle": {
+    "description": "AI feature title in onboarding"
+  },
+  "onboardingAiAutoGenerateDescription": "From any text with GPT or Gemini",
+  "@onboardingAiAutoGenerateDescription": {
+    "description": "AI feature description in onboarding"
+  },
+  "onboardingAiStudyAssistantTitle": "AI Study Assistant",
+  "@onboardingAiStudyAssistantTitle": {
+    "description": "AI feature title in onboarding"
+  },
+  "onboardingAiStudyAssistantDescription": "Get explanations while you learn",
+  "@onboardingAiStudyAssistantDescription": {
+    "description": "AI feature description in onboarding"
+  },
+  "onboardingAiMultiLanguageTitle": "Multi-Language Support",
+  "@onboardingAiMultiLanguageTitle": {
+    "description": "AI feature title in onboarding"
+  },
+  "onboardingAiMultiLanguageDescription": "Generate in 13 different languages",
+  "@onboardingAiMultiLanguageDescription": {
+    "description": "AI feature description in onboarding"
   }
 }

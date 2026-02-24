@@ -547,5 +547,141 @@
   "featureComingSoon": "Σύντομα διαθέσιμο! Μείνετε συντονισμένοι.",
   "@featureComingSoon": {
     "description": "Μήνυμα για λειτουργίες που δεν είναι ακόμη διαθέσιμες"
+  },
+  "showOnboarding": "Εμφάνιση καλωσορίσματος",
+  "@showOnboarding": {
+    "description": "Ετικέτα για το κουμπί επανεκκίνησης της ροής καλωσορίσματος"
+  },
+  "showOnboardingDescription": "Δείτε ξανά το σεμινάριο καλωσορίσματος",
+  "@showOnboardingDescription": {
+    "description": "Περιγραφή για το κουμπί επανεκκίνησης της ροής καλωσορίσματος"
+  },
+  "onboardingBack": "Πίσω",
+  "@onboardingBack": {
+    "description": "Κουμπί πίσω στην πλοήγηση καλωσορίσματος"
+  },
+  "onboardingGetStarted": "Ξεκινήστε",
+  "@onboardingGetStarted": {
+    "description": "Κουμπί έναρξης στην τελευταία σελίδα καλωσορίσματος"
+  },
+  "onboardingWelcomeTitle": "Καλώς ήρθατε στο QuizLab AI",
+  "@onboardingWelcomeTitle": {
+    "description": "Τίτλος για την πρώτη σελίδα καλωσορίσματος"
+  },
+  "onboardingWelcomeDescription": "Ο διαδραστικός σας σύντροφος κουίζ με λειτουργίες που υποστηρίζονται από AI, προσαρμόσιμες ερωτήσεις και βαθμολογία σε πραγματικό χρόνο.",
+  "@onboardingWelcomeDescription": {
+    "description": "Περιγραφή για την πρώτη σελίδα καλωσορίσματος"
+  },
+  "onboardingWelcomeSubtitle": "Ο διαδραστικός σας σύντροφος κουίζ",
+  "@onboardingWelcomeSubtitle": {
+    "description": "Υπότιτλος για την πρώτη σελίδα καλωσορίσματος σε διάταξη επιφάνειας εργασίας"
+  },
+  "onboardingStartQuizTitle": "Ξεκινήστε ένα Κουίζ",
+  "@onboardingStartQuizTitle": {
+    "description": "Τίτλος για τη δεύτερη σελίδα καλωσορίσματος"
+  },
+  "onboardingStartQuizDescription": "Φορτώστε ένα υπάρχον αρχείο .quiz ή δημιουργήστε ένα νέο από το μηδέν. Σύρετε και αποθέστε αρχεία απευθείας ή χρησιμοποιήστε τον επιλογέα αρχείων.",
+  "@onboardingStartQuizDescription": {
+    "description": "Περιγραφή για τη δεύτερη σελίδα καλωσορίσματος"
+  },
+  "onboardingStartQuizSubtitle": "Φόρτωση, δημιουργία και παιχνίδι",
+  "@onboardingStartQuizSubtitle": {
+    "description": "Υπότιτλος για τη δεύτερη σελίδα καλωσορίσματος σε διάταξη επιφάνειας εργασίας"
+  },
+  "onboardingCreateQuestionsTitle": "Δημιουργία Ερωτήσεων",
+  "@onboardingCreateQuestionsTitle": {
+    "description": "Τίτλος για την τρίτη σελίδα καλωσορίσματος"
+  },
+  "onboardingCreateQuestionsDescription": "Δημιουργήστε κουίζ με πολλαπλούς τύπους ερωτήσεων. Προσαρμόστε κάθε ερώτηση με επιλογές, σωστές απαντήσεις και επεξηγήσεις.",
+  "@onboardingCreateQuestionsDescription": {
+    "description": "Περιγραφή για την τρίτη σελίδα καλωσορίσματος"
+  },
+  "onboardingCreateQuestionsSubtitle": "Σχεδιάστε τα δικά σας κουίζ",
+  "@onboardingCreateQuestionsSubtitle": {
+    "description": "Υπότιτλος για την τρίτη σελίδα καλωσορίσματος σε διάταξη επιφάνειας εργασίας"
+  },
+  "onboardingAiFeaturesTitle": "Λειτουργίες με βάση το AI",
+  "@onboardingAiFeaturesTitle": {
+    "description": "Τίτλος για την τέταρτη σελίδα καλωσορίσματος"
+  },
+  "onboardingAiFeaturesDescription": "Δημιουργήστε ερωτήσεις αυτόματα με το AI, λάβετε βοήθεια μελέτης σε πραγματικό χρόνο και μάθετε πιο έξυπνα με έξυπνη διδασκαλία.",
+  "@onboardingAiFeaturesDescription": {
+    "description": "Περιγραφή για την τέταρτη σελίδα καλωσορίσματος"
+  },
+  "onboardingAiFeaturesSubtitle": "Με την υποστήριξη του AI",
+  "@onboardingAiFeaturesSubtitle": {
+    "description": "Υπότιτλος για την τέταρτη σελίδα καλωσορίσματος σε διάταξη επιφάνειας εργασίας"
+  },
+  "onboardingFeatureAiTitle": "Δημιουργία ερωτήσεων με AI",
+  "@onboardingFeatureAiTitle": {
+    "description": "Τίτλος λειτουργίας στη σελίδα καλωσορίσματος"
+  },
+  "onboardingFeatureAiDescription": "Δημιουργήστε κουίζ από οποιοδήποτε κείμενο με GPT ή Gemini",
+  "@onboardingFeatureAiDescription": {
+    "description": "Περιγραφή λειτουργίας στη σελίδα καλωσορίσματος"
+  },
+  "onboardingFeatureTypesTitle": "Πολλαπλοί τύποι ερωτήσεων",
+  "@onboardingFeatureTypesTitle": {
+    "description": "Τίτλος λειτουργίας στη σελίδα καλωσορίσματος"
+  },
+  "onboardingFeatureTypesDescription": "Μονή επιλογή, πολλαπλή επιλογή, σωστό/λάθος και δοκίμιο",
+  "@onboardingFeatureTypesDescription": {
+    "description": "Περιγραφή λειτουργίας στη σελίδα καλωσορίσματος"
+  },
+  "onboardingFeatureLanguagesTitle": "Υποστήριξη 13 γλωσσών",
+  "@onboardingFeatureLanguagesTitle": {
+    "description": "Τίτλος λειτουργίας στη σελίδα καλωσορίσματος"
+  },
+  "onboardingFeatureLanguagesDescription": "Δημιουργήστε και κάντε κουίζ σε πολλές γλώσσες",
+  "@onboardingFeatureLanguagesDescription": {
+    "description": "Περιγραφή λειτουργίας στη σελίδα καλωσορίσματος"
+  },
+  "onboardingStepCreateTitle": "Δημιουργία Κουίζ",
+  "@onboardingStepCreateTitle": {
+    "description": "Τίτλος βήματος στη σελίδα έναρξης κουίζ"
+  },
+  "onboardingStepCreateDescription": "Ξεκινήστε από το μηδέν με τις δικές σας ερωτήσεις",
+  "@onboardingStepCreateDescription": {
+    "description": "Περιγραφή βήματος στη σελίδα έναρξης κουίζ"
+  },
+  "onboardingStepLoadTitle": "Φόρτωση Αρχείου",
+  "@onboardingStepLoadTitle": {
+    "description": "Τίτλος βήματος στη σελίδα έναρξης κουίζ"
+  },
+  "onboardingStepLoadDescription": "Εισαγωγή αρχείου .quiz από τη συσκευή σας",
+  "@onboardingStepLoadDescription": {
+    "description": "Περιγραφή βήματος στη σελίδα έναρξης κουίζ"
+  },
+  "onboardingStepTakeTitle": "Κάντε το Κουίζ",
+  "@onboardingStepTakeTitle": {
+    "description": "Τίτλος βήματος στη σελίδα έναρξης κουίζ"
+  },
+  "onboardingStepTakeDescription": "Απαντήστε σε ερωτήσεις και λάβετε βαθμολογία σε πραγματικό χρόνο",
+  "@onboardingStepTakeDescription": {
+    "description": "Περιγραφή βήματος στη σελίδα έναρξης κουίζ"
+  },
+  "onboardingAiAutoGenerateTitle": "Αυτόματη Δημιουργία Ερωτήσεων",
+  "@onboardingAiAutoGenerateTitle": {
+    "description": "Τίτλος λειτουργίας AI στο καλωσόρισμα"
+  },
+  "onboardingAiAutoGenerateDescription": "Από οποιοδήποτε κείμενο με GPT ή Gemini",
+  "@onboardingAiAutoGenerateDescription": {
+    "description": "Περιγραφή λειτουργίας AI στο καλωσόρισμα"
+  },
+  "onboardingAiStudyAssistantTitle": "Βοηθός Μελέτης AI",
+  "@onboardingAiStudyAssistantTitle": {
+    "description": "Τίτλος λειτουργίας AI στο καλωσόρισμα"
+  },
+  "onboardingAiStudyAssistantDescription": "Λάβετε εξηγήσεις ενώ μαθαίνετε",
+  "@onboardingAiStudyAssistantDescription": {
+    "description": "Περιγραφή λειτουργίας AI στο καλωσόρισμα"
+  },
+  "onboardingAiMultiLanguageTitle": "Υποστήριξη Πολλαπλών Γλωσσών",
+  "@onboardingAiMultiLanguageTitle": {
+    "description": "Τίτλος λειτουργίας AI στο καλωσόρισμα"
+  },
+  "onboardingAiMultiLanguageDescription": "Δημιουργία σε 13 διαφορετικές γλώσσες",
+  "@onboardingAiMultiLanguageDescription": {
+    "description": "Περιγραφή λειτουργίας AI στο καλωσόρισμα"
   }
 }

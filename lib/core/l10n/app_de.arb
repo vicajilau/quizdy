@@ -1685,5 +1685,141 @@
   "featureComingSoon": "Demnächst verfügbar! Bleiben Sie auf dem Laufenden.",
   "@featureComingSoon": {
     "description": "Nachricht für Funktionen, die noch nicht verfügbar sind"
+  },
+  "showOnboarding": "Onboarding anzeigen",
+  "@showOnboarding": {
+    "description": "Beschriftung der Schaltfläche zum erneuten Öffnen des Onboarding-Flows"
+  },
+  "showOnboardingDescription": "Das Begrüßungs-Tutorial erneut ansehen",
+  "@showOnboardingDescription": {
+    "description": "Beschreibung der Schaltfläche zum erneuten Öffnen des Onboarding-Flows"
+  },
+  "onboardingBack": "Zurück",
+  "@onboardingBack": {
+    "description": "Zurück-Schaltfläche in der Onboarding-Navigation"
+  },
+  "onboardingGetStarted": "Loslegen",
+  "@onboardingGetStarted": {
+    "description": "Loslegen-Schaltfläche auf der letzten Onboarding-Seite"
+  },
+  "onboardingWelcomeTitle": "Willkommen bei QuizLab AI",
+  "@onboardingWelcomeTitle": {
+    "description": "Titel für die erste Onboarding-Seite"
+  },
+  "onboardingWelcomeDescription": "Ihr interaktiver Quiz-Begleiter mit KI-gestützten Funktionen, anpassbaren Fragen und Echtzeit-Auswertung.",
+  "@onboardingWelcomeDescription": {
+    "description": "Beschreibung für die erste Onboarding-Seite"
+  },
+  "onboardingWelcomeSubtitle": "Ihr interaktiver Quiz-Begleiter",
+  "@onboardingWelcomeSubtitle": {
+    "description": "Untertitel für die erste Onboarding-Seite im Desktop-Layout"
+  },
+  "onboardingStartQuizTitle": "Ein Quiz starten",
+  "@onboardingStartQuizTitle": {
+    "description": "Titel für die zweite Onboarding-Seite"
+  },
+  "onboardingStartQuizDescription": "Laden Sie eine vorhandene .quiz-Datei oder erstellen Sie eine neue von Grund auf. Ziehen Sie Dateien direkt per Drag & Drop oder nutzen Sie die Dateiauswahl.",
+  "@onboardingStartQuizDescription": {
+    "description": "Beschreibung für die zweite Onboarding-Seite"
+  },
+  "onboardingStartQuizSubtitle": "Laden, erstellen und spielen",
+  "@onboardingStartQuizSubtitle": {
+    "description": "Untertitel für die zweite Onboarding-Seite im Desktop-Layout"
+  },
+  "onboardingCreateQuestionsTitle": "Fragen erstellen",
+  "@onboardingCreateQuestionsTitle": {
+    "description": "Titel für die dritte Onboarding-Seite"
+  },
+  "onboardingCreateQuestionsDescription": "Erstellen Sie Quizze mit mehreren Fragetypen. Passen Sie jede Frage mit Optionen, richtigen Antworten und Erklärungen an.",
+  "@onboardingCreateQuestionsDescription": {
+    "description": "Beschreibung für die dritte Onboarding-Seite"
+  },
+  "onboardingCreateQuestionsSubtitle": "Eigene Quizze entwerfen",
+  "@onboardingCreateQuestionsSubtitle": {
+    "description": "Untertitel für die dritte Onboarding-Seite im Desktop-Layout"
+  },
+  "onboardingAiFeaturesTitle": "KI-gestützte Funktionen",
+  "@onboardingAiFeaturesTitle": {
+    "description": "Titel für die vierte Onboarding-Seite"
+  },
+  "onboardingAiFeaturesDescription": "Erstellen Sie Fragen automatisch mit KI, erhalten Sie Studienunterstützung in Echtzeit und lernen Sie intelligenter mit intelligentem Tutoring.",
+  "@onboardingAiFeaturesDescription": {
+    "description": "Beschreibung für die vierte Onboarding-Seite"
+  },
+  "onboardingAiFeaturesSubtitle": "Unterstützt durch KI",
+  "@onboardingAiFeaturesSubtitle": {
+    "description": "Untertitel für die vierte Onboarding-Seite im Desktop-Layout"
+  },
+  "onboardingFeatureAiTitle": "KI-gestützte Fragengenerierung",
+  "@onboardingFeatureAiTitle": {
+    "description": "Funktionstitel auf der Onboarding-Begrüßungsseite"
+  },
+  "onboardingFeatureAiDescription": "Erstellen Sie Quizze aus beliebigem Text mit GPT oder Gemini",
+  "@onboardingFeatureAiDescription": {
+    "description": "Funktionsbeschreibung auf der Onboarding-Begrüßungsseite"
+  },
+  "onboardingFeatureTypesTitle": "Mehrere Fragetypen",
+  "@onboardingFeatureTypesTitle": {
+    "description": "Funktionstitel auf der Onboarding-Begrüßungsseite"
+  },
+  "onboardingFeatureTypesDescription": "Single Choice, Multiple Choice, Wahr/Falsch und Aufsatz",
+  "@onboardingFeatureTypesDescription": {
+    "description": "Funktionsbeschreibung auf der Onboarding-Begrüßungsseite"
+  },
+  "onboardingFeatureLanguagesTitle": "13 Sprachen unterstützt",
+  "@onboardingFeatureLanguagesTitle": {
+    "description": "Funktionstitel auf der Onboarding-Begrüßungsseite"
+  },
+  "onboardingFeatureLanguagesDescription": "Erstellen und absolvieren Sie Quizze in mehreren Sprachen",
+  "@onboardingFeatureLanguagesDescription": {
+    "description": "Funktionsbeschreibung auf der Onboarding-Begrüßungsseite"
+  },
+  "onboardingStepCreateTitle": "Quiz erstellen",
+  "@onboardingStepCreateTitle": {
+    "description": "Schritt-Titel auf der Onboarding-Seite 'Quiz starten'"
+  },
+  "onboardingStepCreateDescription": "Beginnen Sie von Grund auf mit Ihren eigenen Fragen",
+  "@onboardingStepCreateDescription": {
+    "description": "Schritt-Beschreibung auf der Onboarding-Seite 'Quiz starten'"
+  },
+  "onboardingStepLoadTitle": "Datei laden",
+  "@onboardingStepLoadTitle": {
+    "description": "Schritt-Titel auf der Onboarding-Seite 'Quiz starten'"
+  },
+  "onboardingStepLoadDescription": "Importieren Sie eine .quiz-Datei von Ihrem Gerät",
+  "@onboardingStepLoadDescription": {
+    "description": "Schritt-Beschreibung auf der Onboarding-Seite 'Quiz starten'"
+  },
+  "onboardingStepTakeTitle": "Das Quiz absolvieren",
+  "@onboardingStepTakeTitle": {
+    "description": "Schritt-Titel auf der Onboarding-Seite 'Quiz starten'"
+  },
+  "onboardingStepTakeDescription": "Fragen beantworten und Ergebnisse in Echtzeit erhalten",
+  "@onboardingStepTakeDescription": {
+    "description": "Schritt-Beschreibung auf der Onboarding-Seite 'Quiz starten'"
+  },
+  "onboardingAiAutoGenerateTitle": "Fragen automatisch generieren",
+  "@onboardingAiAutoGenerateTitle": {
+    "description": "KI-Funktionstitel im Onboarding"
+  },
+  "onboardingAiAutoGenerateDescription": "Aus beliebigem Text mit GPT oder Gemini",
+  "@onboardingAiAutoGenerateDescription": {
+    "description": "KI-Funktionsbeschreibung im Onboarding"
+  },
+  "onboardingAiStudyAssistantTitle": "KI-Studienassistent",
+  "@onboardingAiStudyAssistantTitle": {
+    "description": "KI-Funktionstitel im Onboarding"
+  },
+  "onboardingAiStudyAssistantDescription": "Erhalten Sie Erklärungen während des Lernens",
+  "@onboardingAiStudyAssistantDescription": {
+    "description": "KI-Funktionsbeschreibung im Onboarding"
+  },
+  "onboardingAiMultiLanguageTitle": "Mehrsprachige Unterstützung",
+  "@onboardingAiMultiLanguageTitle": {
+    "description": "KI-Funktionstitel im Onboarding"
+  },
+  "onboardingAiMultiLanguageDescription": "In 13 verschiedenen Sprachen generieren",
+  "@onboardingAiMultiLanguageDescription": {
+    "description": "KI-Funktionsbeschreibung im Onboarding"
   }
 }

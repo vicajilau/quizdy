@@ -1589,5 +1589,141 @@
   "featureComingSoon": "Laster eskuragarri! Egon adi albisteetara.",
   "@featureComingSoon": {
     "description": "Oraindik erabilgarri ez dauden funtzionalitateentzako mezua"
+  },
+  "showOnboarding": "Erakutsi ongietorria",
+  "@showOnboarding": {
+    "description": "Ongietorri fluxua berriro irekitzeko botoiaren etiketa"
+  },
+  "showOnboardingDescription": "Ikusi ongietorri tutoriala berriro",
+  "@showOnboardingDescription": {
+    "description": "Ongietorri fluxua berriro irekitzeko botoiaren deskribapena"
+  },
+  "onboardingBack": "Atzera",
+  "@onboardingBack": {
+    "description": "Atzera botoia ongietorri nabigazioan"
+  },
+  "onboardingGetStarted": "Hasi",
+  "@onboardingGetStarted": {
+    "description": "Hasi botoia ongietorriko azken orrialdean"
+  },
+  "onboardingWelcomeTitle": "Ongi etorri QuizLab AI-ra",
+  "@onboardingWelcomeTitle": {
+    "description": "Ongietorriko lehen orrialdeko titulua"
+  },
+  "onboardingWelcomeDescription": "Zure galdetegi interaktiboen laguntzailea, IAk bultzatutako funtzioekin, galdera pertsonalizagarriekin eta denbora errealeko puntuazioarekin.",
+  "@onboardingWelcomeDescription": {
+    "description": "Ongietorriko lehen orrialdeko deskribapena"
+  },
+  "onboardingWelcomeSubtitle": "Zure galdetegi interaktiboen laguntzailea",
+  "@onboardingWelcomeSubtitle": {
+    "description": "Ongietorriko lehen orrialdeko azpititulua mahaigaineko diseinuan"
+  },
+  "onboardingStartQuizTitle": "Hasi galdetegi bat",
+  "@onboardingStartQuizTitle": {
+    "description": "Ongietorriko bigarren orrialdeko titulua"
+  },
+  "onboardingStartQuizDescription": "Kargatu existitzen den .quiz fitxategi bat edo sortu berri bat hasieratik. Arrastatu eta askatu fitxategiak zuzenean edo erabili fitxategi-hautatzailea.",
+  "@onboardingStartQuizDescription": {
+    "description": "Ongietorriko bigarren orrialdeko deskribapena"
+  },
+  "onboardingStartQuizSubtitle": "Kargatu, sortu eta jolastu",
+  "@onboardingStartQuizSubtitle": {
+    "description": "Ongietorriko bigarren orrialdeko azpititulua mahaigaineko diseinuan"
+  },
+  "onboardingCreateQuestionsTitle": "Sortu Galderak",
+  "@onboardingCreateQuestionsTitle": {
+    "description": "Ongietorriko hirugarren orrialdeko titulua"
+  },
+  "onboardingCreateQuestionsDescription": "Eraiki galdetegiak galdera mota anitzekin. Pertsonalizatu galdera bakoitza aukerekin, erantzun zuzenekin eta azalpenekin.",
+  "@onboardingCreateQuestionsDescription": {
+    "description": "Ongietorriko hirugarren orrialdeko deskribapena"
+  },
+  "onboardingCreateQuestionsSubtitle": "Diseinatu zure galdetegiak",
+  "@onboardingCreateQuestionsSubtitle": {
+    "description": "Ongietorriko hirugarren orrialdeko azpititulua mahaigaineko diseinuan"
+  },
+  "onboardingAiFeaturesTitle": "IAk bultzatutako funtzioak",
+  "@onboardingAiFeaturesTitle": {
+    "description": "Ongietorriko laugarren orrialdeko titulua"
+  },
+  "onboardingAiFeaturesDescription": "Sortu galderak automatikament IArekin, lortu ikasketa laguntza denbora errealean eta ikasi modu adimentsuagoan tutoretza adimentsuarekin.",
+  "@onboardingAiFeaturesDescription": {
+    "description": "Ongietorriko laugarren orrialdeko deskribapena"
+  },
+  "onboardingAiFeaturesSubtitle": "IAk bultzatuta",
+  "@onboardingAiFeaturesSubtitle": {
+    "description": "Ongietorriko laugarren orrialdeko azpititulua mahaigaineko diseinuan"
+  },
+  "onboardingFeatureAiTitle": "Galderak sortzea IArekin",
+  "@onboardingFeatureAiTitle": {
+    "description": "Funtzioaren titulua ongietorri orrialdean"
+  },
+  "onboardingFeatureAiDescription": "Sortu galdetegiak edozein testutik GPT edo Geminirekin",
+  "@onboardingFeatureAiDescription": {
+    "description": "Funtzioaren deskribapena ongietorri orrialdean"
+  },
+  "onboardingFeatureTypesTitle": "Galdera mota anitz",
+  "@onboardingFeatureTypesTitle": {
+    "description": "Funtzioaren titulua ongietorri orrialdean"
+  },
+  "onboardingFeatureTypesDescription": "Aukera bakarra, aukera anitza, egia/gezurra eta saiakera",
+  "@onboardingFeatureTypesDescription": {
+    "description": "Funtzioaren deskribapena ongietorri orrialdean"
+  },
+  "onboardingFeatureLanguagesTitle": "13 hizkuntza onartzen dira",
+  "@onboardingFeatureLanguagesTitle": {
+    "description": "Funtzioaren titulua ongietorri orrialdean"
+  },
+  "onboardingFeatureLanguagesDescription": "Sortu eta egin galdetegiak hainbat hizkuntzatan",
+  "@onboardingFeatureLanguagesDescription": {
+    "description": "Funtzioaren deskribapena ongietorri orrialdean"
+  },
+  "onboardingStepCreateTitle": "Sortu Galdetegia",
+  "@onboardingStepCreateTitle": {
+    "description": "Urratsaren titulua galdetegia hasteko orrialdean"
+  },
+  "onboardingStepCreateDescription": "Hasi hutsetik zure galderekin",
+  "@onboardingStepCreateDescription": {
+    "description": "Urratsaren deskribapena galdetegia hasteko orrialdean"
+  },
+  "onboardingStepLoadTitle": "Kargatu Fitxategia",
+  "@onboardingStepLoadTitle": {
+    "description": "Urratsaren titulua galdetegia hasteko orrialdean"
+  },
+  "onboardingStepLoadDescription": "Inportatu .quiz fitxategi bat zure gailutik",
+  "@onboardingStepLoadDescription": {
+    "description": "Urratsaren deskribapena galdetegia hasteko orrialdean"
+  },
+  "onboardingStepTakeTitle": "Egin Galdetegia",
+  "@onboardingStepTakeTitle": {
+    "description": "Urratsaren titulua galdetegia hasteko orrialdean"
+  },
+  "onboardingStepTakeDescription": "Erantzun galderak eta lortu puntuazioa denbora errealean",
+  "@onboardingStepTakeDescription": {
+    "description": "Urratsaren deskribapena galdetegia hasteko orrialdean"
+  },
+  "onboardingAiAutoGenerateTitle": "Sortu galderak automatikoki",
+  "@onboardingAiAutoGenerateTitle": {
+    "description": "IA funtzioaren titulua ongietorrian"
+  },
+  "onboardingAiAutoGenerateDescription": "Edozein testutik GPT edo Geminirekin",
+  "@onboardingAiAutoGenerateDescription": {
+    "description": "IA funtzioaren deskribapena ongietorrian"
+  },
+  "onboardingAiStudyAssistantTitle": "IA Ikasketa Laguntzailea",
+  "@onboardingAiStudyAssistantTitle": {
+    "description": "IA funtzioaren titulua ongietorrian"
+  },
+  "onboardingAiStudyAssistantDescription": "Lortu azalpenak ikasten duzun bitartean",
+  "@onboardingAiStudyAssistantDescription": {
+    "description": "IA funtzioaren deskribapena ongietorrian"
+  },
+  "onboardingAiMultiLanguageTitle": "Hizkuntza anitzeko euskarria",
+  "@onboardingAiMultiLanguageTitle": {
+    "description": "IA funtzioaren titulua ongietorrian"
+  },
+  "onboardingAiMultiLanguageDescription": "Sortu 13 hizkuntza desberdinetan",
+  "@onboardingAiMultiLanguageDescription": {
+    "description": "IA funtzioaren deskribapena ongietorrian"
   }
 }

@@ -1691,5 +1691,141 @@
   "featureComingSoon": "Properament disponible! Estigues atent a les novetats.",
   "@featureComingSoon": {
     "description": "Missatge per a funcionalitats que encara no estan disponibles"
+  },
+  "showOnboarding": "Mostra la benvinguda",
+  "@showOnboarding": {
+    "description": "Etiqueta del botó per tornar a obrir el flux de benvinguda"
+  },
+  "showOnboardingDescription": "Torna a veure el tutorial de benvinguda",
+  "@showOnboardingDescription": {
+    "description": "Descripció del botó per tornar a obrir el flux de benvinguda"
+  },
+  "onboardingBack": "Enrere",
+  "@onboardingBack": {
+    "description": "Botó enrere en la navegació de la benvinguda"
+  },
+  "onboardingGetStarted": "Comença",
+  "@onboardingGetStarted": {
+    "description": "Botó de comença a l'última pàgina de la benvinguda"
+  },
+  "onboardingWelcomeTitle": "Benvingut a QuizLab AI",
+  "@onboardingWelcomeTitle": {
+    "description": "Títol de la primera pàgina de la benvinguda"
+  },
+  "onboardingWelcomeDescription": "El teu company de qüestionaris interactius amb funcions impulsades per IA, preguntes personalitzables i puntuació en temps real.",
+  "@onboardingWelcomeDescription": {
+    "description": "Descripció de la primera pàgina de la benvinguda"
+  },
+  "onboardingWelcomeSubtitle": "El teu company de qüestionaris interactius",
+  "@onboardingWelcomeSubtitle": {
+    "description": "Subtítol de la primera pàgina de la benvinguda en format escriptori"
+  },
+  "onboardingStartQuizTitle": "Inicia un qüestionari",
+  "@onboardingStartQuizTitle": {
+    "description": "Títol de la segona pàgina de la benvinguda"
+  },
+  "onboardingStartQuizDescription": "Carrega un fitxer .quiz existent o crea'n un de nou des de zero. Arrossega i deixa anar els fitxers directament o utilitza el selector de fitxers.",
+  "@onboardingStartQuizDescription": {
+    "description": "Descripció de la segona pàgina de la benvinguda"
+  },
+  "onboardingStartQuizSubtitle": "Carrega, crea i juga",
+  "@onboardingStartQuizSubtitle": {
+    "description": "Subtítol de la segona pàgina de la benvinguda en format escriptori"
+  },
+  "onboardingCreateQuestionsTitle": "Crea preguntes",
+  "@onboardingCreateQuestionsTitle": {
+    "description": "Títol de la tercera pàgina de la benvinguda"
+  },
+  "onboardingCreateQuestionsDescription": "Crea qüestionaris amb múltiples tipus de preguntes. Personalitza cada pregunta amb opcions, respostes correctes i explicacions.",
+  "@onboardingCreateQuestionsDescription": {
+    "description": "Descripció de la tercera pàgina de la benvinguda"
+  },
+  "onboardingCreateQuestionsSubtitle": "Dissenya els teus propis qüestionaris",
+  "@onboardingCreateQuestionsSubtitle": {
+    "description": "Subtítol de la tercera pàgina de la benvinguda en format escriptori"
+  },
+  "onboardingAiFeaturesTitle": "Funcions impulsades per IA",
+  "@onboardingAiFeaturesTitle": {
+    "description": "Títol de la quarta pàgina de la benvinguda"
+  },
+  "onboardingAiFeaturesDescription": "Genera preguntes automàticament amb IA, obté assistència d'estudi en temps real i aprèn de manera més intel·ligent amb tutoria intel·ligent.",
+  "@onboardingAiFeaturesDescription": {
+    "description": "Descripció de la quarta pàgina de la benvinguda"
+  },
+  "onboardingAiFeaturesSubtitle": "Impulsat per IA",
+  "@onboardingAiFeaturesSubtitle": {
+    "description": "Subtítol de la quarta pàgina de la benvinguda en format escriptori"
+  },
+  "onboardingFeatureAiTitle": "Generació de preguntes amb IA",
+  "@onboardingFeatureAiTitle": {
+    "description": "Títol de la funció a la pàgina de benvinguda"
+  },
+  "onboardingFeatureAiDescription": "Genera qüestionaris des de qualsevol text amb GPT o Gemini",
+  "@onboardingFeatureAiDescription": {
+    "description": "Descripció de la funció a la pàgina de benvinguda"
+  },
+  "onboardingFeatureTypesTitle": "Múltiples tipus de preguntes",
+  "@onboardingFeatureTypesTitle": {
+    "description": "Títol de la funció a la pàgina de benvinguda"
+  },
+  "onboardingFeatureTypesDescription": "Opció única, opció múltiple, vertader/fals i assaig",
+  "@onboardingFeatureTypesDescription": {
+    "description": "Descripció de la funció a la pàgina de benvinguda"
+  },
+  "onboardingFeatureLanguagesTitle": "13 idiomes compatibles",
+  "@onboardingFeatureLanguagesTitle": {
+    "description": "Títol de la funció a la pàgina de benvinguda"
+  },
+  "onboardingFeatureLanguagesDescription": "Crea i respon qüestionaris en diversos idiomes",
+  "@onboardingFeatureLanguagesDescription": {
+    "description": "Descripció de la funció a la pàgina de benvinguda"
+  },
+  "onboardingStepCreateTitle": "Crea qüestionari",
+  "@onboardingStepCreateTitle": {
+    "description": "Títol del pas a la pàgina d'inici de qüestionari"
+  },
+  "onboardingStepCreateDescription": "Començ de zero amb les teves pròpies preguntes",
+  "@onboardingStepCreateDescription": {
+    "description": "Descripció del pas a la pàgina d'inici de qüestionari"
+  },
+  "onboardingStepLoadTitle": "Carrega fitxer",
+  "@onboardingStepLoadTitle": {
+    "description": "Títol del pas a la pàgina d'inici de qüestionari"
+  },
+  "onboardingStepLoadDescription": "Importa un fitxer .quiz des del teu dispositiu",
+  "@onboardingStepLoadDescription": {
+    "description": "Descripció del pas a la pàgina d'inici de qüestionari"
+  },
+  "onboardingStepTakeTitle": "Fes el qüestionari",
+  "@onboardingStepTakeTitle": {
+    "description": "Títol del pas a la pàgina d'inici de qüestionari"
+  },
+  "onboardingStepTakeDescription": "Respon preguntes i obté la puntuació en temps real",
+  "@onboardingStepTakeDescription": {
+    "description": "Descripció del pas a la pàgina d'inici de qüestionari"
+  },
+  "onboardingAiAutoGenerateTitle": "Auto-genera preguntes",
+  "@onboardingAiAutoGenerateTitle": {
+    "description": "Títol de la funció IA a la benvinguda"
+  },
+  "onboardingAiAutoGenerateDescription": "Des de qualsevol text amb GPT o Gemini",
+  "@onboardingAiAutoGenerateDescription": {
+    "description": "Descripció de la funció IA a la benvinguda"
+  },
+  "onboardingAiStudyAssistantTitle": "Assistent d'estudi IA",
+  "@onboardingAiStudyAssistantTitle": {
+    "description": "Títol de la funció IA a la benvinguda"
+  },
+  "onboardingAiStudyAssistantDescription": "Obtén explicacions mentre aprens",
+  "@onboardingAiStudyAssistantDescription": {
+    "description": "Descripció de la funció IA a la benvinguda"
+  },
+  "onboardingAiMultiLanguageTitle": "Suport multi-idioma",
+  "@onboardingAiMultiLanguageTitle": {
+    "description": "Títol de la funció IA a la benvinguda"
+  },
+  "onboardingAiMultiLanguageDescription": "Genera en 13 idiomes diferents",
+  "@onboardingAiMultiLanguageDescription": {
+    "description": "Descripció de la funció IA a la benvinguda"
   }
 }
