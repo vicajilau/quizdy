@@ -12,10 +12,11 @@ import 'package:quizlab_ai/presentation/blocs/file_bloc/file_event.dart';
 import 'package:quizlab_ai/presentation/blocs/locale_cubit/locale_cubit.dart';
 import 'package:quizlab_ai/presentation/blocs/locale_cubit/locale_state.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setUrlStrategy(null);
   ServiceLocator.instance.setup();
+  await initAppRouter();
 
   runApp(const QuizApplication());
 }
