@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fix: Use proportional essay AI scores and delegate evaluation to bloc for correct JSON parsing.
 - fix: Disable/lock essay answer textarea after "Check answer" in Study Mode to prevent modifications during review.
 - feat: Renamed the application across all platforms to "QuizLab AI" for consistent branding.
+- feat: Defined and replaced all the buttons in order to follow the proper design guidelines.
 
 ## [1.7.0] - 2026-02-23
 
