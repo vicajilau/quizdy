@@ -8,11 +8,14 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:quizlab_ai/core/service_locator.dart';
 import 'package:quizlab_ai/main.dart';
+import 'package:quizlab_ai/routes/app_router.dart';
 
 void main() {
   ServiceLocator.instance.setup();
 
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+    // Initialize the router directly to avoid SharedPreferences in tests.
+    appRouter = buildAppRouter(showOnboarding: false);
     // Build our app and trigger a frame.
     await tester.pumpWidget(const QuizApplication());
 
