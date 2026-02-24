@@ -58,12 +58,7 @@ dependencies:
   lucide_icons: ^0.257.0
   path_provider: ^2.1.5
   collection: ^1.19.1
-  # Until https://github.com/MixinNetwork/flutter-plugins/pull/463 gets merged
-  pasteboard:
-    git:
-      url: https://github.com/vicajilau/flutter-plugins.git
-      ref: feature/spm-support
-      path: packages/pasteboard
+  pasteboard: ^0.5.0
 
 dev_dependencies:
   flutter_test:
