@@ -1279,4 +1279,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get errorStatus => 'エラー';
+
+  @override
+  String get featureComingSoon => '近日公開！最新情報をお楽しみに。';
 }

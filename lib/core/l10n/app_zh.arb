@@ -1637,5 +1637,9 @@
   "retryButton": "重试评估",
   "@retryButton": {
     "description": "重试 AI 评估的按钮文本"
+  },
+  "featureComingSoon": "即将推出！敬请关注。",
+  "@featureComingSoon": {
+    "description": "尚未发布的功能的消息"
   }
 }

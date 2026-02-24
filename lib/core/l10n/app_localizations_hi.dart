@@ -1332,4 +1332,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get errorStatus => 'Error';
+
+  @override
+  String get featureComingSoon => 'जल्द ही आ रहा है! अपडेट के लिए बने रहें।';
 }

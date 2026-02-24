@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/core/theme/app_theme.dart';
 import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
 
 class AbandonQuizDialog extends StatelessWidget {
   const AbandonQuizDialog({super.key});
@@ -10,7 +10,6 @@ class AbandonQuizDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.appColors;
-    const primaryColor = AppTheme.primaryColor;
 
     return Dialog(
       backgroundColor: Colors.transparent,
@@ -79,26 +78,14 @@ class AbandonQuizDialog extends StatelessWidget {
             const SizedBox(height: 32),
 
             // Buttons
-            ElevatedButton(
+            QuizLabAIButton(
+              type: QuizlabAIButtonType.warning,
+              title: AppLocalizations.of(context)!.abandon,
+              expanded: true,
               onPressed: () {
                 context.pop(); // Close dialog
                 context.pop(); // Exit screen
               },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: primaryColor,
-                foregroundColor: Colors.white,
-                elevation: 0,
-                minimumSize: const Size(double.infinity, 56),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                textStyle: const TextStyle(
-                  fontFamily: 'Inter',
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              child: Text(AppLocalizations.of(context)!.abandon),
             ),
           ],
         ),

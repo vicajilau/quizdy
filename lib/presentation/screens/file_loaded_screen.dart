@@ -597,14 +597,12 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
                         margin: const EdgeInsets.only(right: 24),
                         constraints: const BoxConstraints(minWidth: 40),
                         child: Material(
-                          color: _isSelectionMode
-                              ? Theme.of(context).primaryColor
-                              : context
-                                    .fileLoadedTheme
-                                    .selectionInactiveBackgroundColor,
-                          borderRadius: BorderRadius.circular(20),
+                          color: context
+                              .fileLoadedTheme
+                              .selectionInactiveBackgroundColor,
+                          borderRadius: BorderRadius.circular(12),
                           child: InkWell(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(12),
                             onTap: () {
                               _toggleSelectionMode();
                             },
@@ -615,11 +613,6 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
                               ),
                               child: LayoutBuilder(
                                 builder: (context, constraints) {
-                                  // Breakpoint for showing text:
-                                  // MediaQuery check or local constraints if possible.
-                                  // In an AppBar action, we might get unconstrained width
-                                  // unless we wrap it.
-                                  // Using a conservative screen width check for reliability.
                                   final showText =
                                       MediaQuery.of(context).size.width > 500;
 

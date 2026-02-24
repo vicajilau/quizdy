@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
 
 enum QuestionsPosition { beginning, end }
 
@@ -38,17 +39,18 @@ class ImportQuestionsDialog extends StatelessWidget {
         ],
       ),
       actions: [
-        TextButton(
+        QuizLabAIButton(
+          type: QuizlabAIButtonType.tertiary,
+          title: localizations.cancelButton,
           onPressed: () => context.pop(null),
-          child: Text(localizations.cancelButton),
         ),
-        ElevatedButton(
+        QuizLabAIButton(
+          title: localizations.importAtBeginning,
           onPressed: () => context.pop(QuestionsPosition.beginning),
-          child: Text(localizations.importAtBeginning),
         ),
-        ElevatedButton(
+        QuizLabAIButton(
+          title: localizations.importAtEnd,
           onPressed: () => context.pop(QuestionsPosition.end),
-          child: Text(localizations.importAtEnd),
         ),
       ],
     );

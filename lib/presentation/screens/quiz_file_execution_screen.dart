@@ -20,6 +20,7 @@ import 'package:quizlab_ai/routes/app_router.dart';
 import 'package:quizlab_ai/presentation/screens/quiz_execution/quiz_in_progress_view.dart';
 import 'package:quizlab_ai/presentation/screens/quiz_execution/quiz_completed_view.dart';
 import 'package:quizlab_ai/core/theme/app_theme.dart';
+import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
 
 class QuizFileExecutionScreen extends StatefulWidget {
   final QuizFile quizFile;
@@ -125,21 +126,21 @@ class _QuizFileExecutionScreenState extends State<QuizFileExecutionScreen> {
                           AppLocalizations.of(context)!.abortQuizMessage,
                         ),
                         actions: [
-                          TextButton(
+                          QuizLabAIButton(
+                            type: QuizlabAIButtonType.tertiary,
+                            title: AppLocalizations.of(context)!.cancelButton,
                             onPressed: () {
                               Navigator.of(context).pop(false);
                             },
-                            child: Text(
-                              AppLocalizations.of(context)!.cancelButton,
-                            ),
                           ),
-                          TextButton(
+                          QuizLabAIButton(
+                            type: QuizlabAIButtonType.tertiary,
+                            title: AppLocalizations.of(
+                              context,
+                            )!.stopAndOpenButton,
                             onPressed: () {
                               Navigator.of(context).pop(true);
                             },
-                            child: Text(
-                              AppLocalizations.of(context)!.stopAndOpenButton,
-                            ),
                           ),
                         ],
                       );

@@ -1676,5 +1676,9 @@
   "retryButton": "Repetir avaliação",
   "@retryButton": {
     "description": "Texto do botão para repetir uma avaliação de IA"
+  },
+  "featureComingSoon": "Em breve disponível! Fique atento às novidades.",
+  "@featureComingSoon": {
+    "description": "Mensagem para funcionalidades que ainda não estão disponíveis"
   }
 }

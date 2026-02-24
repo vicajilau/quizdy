@@ -1687,5 +1687,9 @@
   "retryButton": "Reintentar avaluació",
   "@retryButton": {
     "description": "Text del botó per reintentar una avaluació d'IA"
+  },
+  "featureComingSoon": "Properament disponible! Estigues atent a les novetats.",
+  "@featureComingSoon": {
+    "description": "Missatge per a funcionalitats que encara no estan disponibles"
   }
 }

@@ -1344,4 +1344,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get errorStatus => 'Error';
+
+  @override
+  String get featureComingSoon => 'Laster eskuragarri! Egon adi albisteetara.';
 }

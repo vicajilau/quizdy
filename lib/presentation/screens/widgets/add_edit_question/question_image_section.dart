@@ -8,6 +8,7 @@ import 'package:quizlab_ai/core/context_extension.dart';
 import 'package:quizlab_ai/core/l10n/app_localizations.dart';
 import 'package:quizlab_ai/presentation/utils/clipboard_image_helper.dart';
 import 'package:quizlab_ai/presentation/widgets/dialog_drop_zone.dart';
+import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
 
 class QuestionImageSection extends StatefulWidget {
   final String? imageData;
@@ -149,25 +150,24 @@ class _QuestionImageSectionState extends State<QuestionImageSection> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton.icon(
+                  QuizLabAIButton(
+                    title: localizations.changeImage,
+                    icon: Icons.swap_horiz,
                     onPressed: () => _pickImage(context),
-                    icon: const Icon(Icons.swap_horiz),
-                    label: Text(localizations.changeImage),
                   ),
                   const SizedBox(width: 8),
-                  OutlinedButton.icon(
+                  QuizLabAIButton(
+                    type: QuizlabAIButtonType.secondary,
+                    title: localizations.pasteImage,
+                    icon: LucideIcons.clipboardPaste,
                     onPressed: () => _pasteFromClipboard(context),
-                    icon: const Icon(LucideIcons.clipboardPaste),
-                    label: Text(localizations.pasteImage),
                   ),
                   const SizedBox(width: 8),
-                  OutlinedButton.icon(
+                  QuizLabAIButton(
+                    type: QuizlabAIButtonType.warning,
+                    title: localizations.removeImage,
+                    icon: Icons.delete_outline,
                     onPressed: widget.onImageRemoved,
-                    icon: const Icon(Icons.delete_outline),
-                    label: Text(localizations.removeImage),
-                    style: OutlinedButton.styleFrom(
-                      foregroundColor: Theme.of(context).colorScheme.error,
-                    ),
                   ),
                 ],
               ),
@@ -227,13 +227,12 @@ class _QuestionImageSectionState extends State<QuestionImageSection> {
               ),
             ),
             const SizedBox(height: 8),
-            SizedBox(
-              width: double.infinity,
-              child: OutlinedButton.icon(
-                onPressed: () => _pasteFromClipboard(context),
-                icon: const Icon(LucideIcons.clipboardPaste, size: 18),
-                label: Text(localizations.pasteFromClipboard),
-              ),
+            QuizLabAIButton(
+              type: QuizlabAIButtonType.secondary,
+              title: localizations.pasteFromClipboard,
+              icon: LucideIcons.clipboardPaste,
+              expanded: true,
+              onPressed: () => _pasteFromClipboard(context),
             ),
           ],
         ],

@@ -1,8 +1,9 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/core/theme/app_theme.dart';
 import 'package:lucide_icons/lucide_icons.dart';
+import 'package:quizlab_ai/core/theme/app_theme.dart';
+import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
 
 class FileLoadedBottomBar extends StatefulWidget {
   final VoidCallback onAddQuestion;
@@ -93,37 +94,12 @@ class _FileLoadedBottomBarState extends State<FileLoadedBottomBar> {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-
-    // Add Button Colors
-    final addBtnBg = isDark ? AppTheme.borderColorDark : Colors.white;
-    final addBtnBorder = isDark ? AppTheme.zinc600 : AppTheme.borderColor;
-    final addBtnText = isDark ? Colors.white : AppTheme.textColor;
-    final addBtnIcon = isDark ? Colors.white : AppTheme.textColor;
-
-    // Secondary Button Colors (Import, Save)
-    final secondaryBtnBg = isDark
-        ? AppTheme.borderColorDark
-        : AppTheme.borderColor;
-    final secondaryBtnText = isDark ? Colors.white : AppTheme.textColor;
-    final secondaryBtnIcon = isDark ? Colors.white : AppTheme.textColor;
-
-    // Delete Button Colors
-    final deleteBtnBg = isDark
-        ? AppTheme.errorColor.withValues(alpha: 0.2)
-        : AppTheme.errorColor.withValues(alpha: 0.1);
-    final deleteBtnText = isDark
-        ? const Color(0xFFFCA5A5)
-        : const Color(0xFFDC2626);
-    final deleteBtnIcon = isDark
-        ? const Color(0xFFFCA5A5)
-        : const Color(0xFFDC2626);
-
     final backgroundColor = Theme.of(context).cardColor;
 
     return Container(
       color: Colors.transparent,
       child: Container(
-        padding: const EdgeInsets.all(24.0),
+        padding: const EdgeInsets.all(20.0),
         decoration: BoxDecoration(
           color: backgroundColor,
           borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
@@ -171,15 +147,12 @@ class _FileLoadedBottomBarState extends State<FileLoadedBottomBar> {
                                 padding: const EdgeInsetsGeometry.only(
                                   right: 12,
                                 ),
-                                child: _buildActionButton(
-                                  context,
+                                child: QuizLabAIButton(
+                                  type: QuizlabAIButtonType.warning,
                                   icon: LucideIcons.trash2,
-                                  label:
+                                  title:
                                       '${AppLocalizations.of(context)!.deleteButton} (${widget.selectedQuestionCount})',
                                   onPressed: widget.onDelete,
-                                  backgroundColor: deleteBtnBg,
-                                  textColor: deleteBtnText,
-                                  iconColor: deleteBtnIcon,
                                 ),
                               ),
                             // Save Action Button
@@ -188,41 +161,34 @@ class _FileLoadedBottomBarState extends State<FileLoadedBottomBar> {
                                 padding: const EdgeInsetsGeometry.only(
                                   right: 12,
                                 ),
-                                child: _buildActionButton(
-                                  context,
+                                child: QuizLabAIButton(
+                                  type: QuizlabAIButtonType.secondary,
                                   icon: LucideIcons.save,
-                                  label: AppLocalizations.of(
+                                  title: AppLocalizations.of(
                                     context,
                                   )!.saveButton,
                                   onPressed: widget.onSave,
-                                  backgroundColor: secondaryBtnBg,
-                                  textColor: secondaryBtnText,
-                                  iconColor: secondaryBtnIcon,
                                 ),
                               ),
                             // Add Question Action Button
                             Padding(
                               padding: const EdgeInsetsGeometry.only(right: 12),
-                              child: _buildActionButton(
-                                context,
+                              child: QuizLabAIButton(
+                                type: QuizlabAIButtonType.secondary,
                                 icon: LucideIcons.plus,
-                                label: AppLocalizations.of(
+                                title: AppLocalizations.of(
                                   context,
                                 )!.addQuestion,
                                 onPressed: widget.onAddQuestion,
-                                backgroundColor: addBtnBg,
-                                borderColor: addBtnBorder,
-                                textColor: addBtnText,
-                                iconColor: addBtnIcon,
                               ),
                             ),
                             // Generate Questions Action Button
                             Padding(
                               padding: const EdgeInsetsGeometry.only(right: 12),
-                              child: _buildActionButton(
-                                context,
+                              child: QuizLabAIButton(
+                                backgroundColor: AppTheme.secondaryColor,
                                 icon: LucideIcons.sparkles,
-                                label: widget.hasQuestions
+                                title: widget.hasQuestions
                                     ? AppLocalizations.of(
                                         context,
                                       )!.addQuestionsWithAI
@@ -230,20 +196,14 @@ class _FileLoadedBottomBarState extends State<FileLoadedBottomBar> {
                                         context,
                                       )!.generateQuestionsWithAI,
                                 onPressed: widget.onGenerateAI,
-                                backgroundColor: const Color(
-                                  0xFF14B8A6,
-                                ), // Teal 500
                               ),
                             ),
                             // Upload Action Button
-                            _buildActionButton(
-                              context,
+                            QuizLabAIButton(
+                              type: QuizlabAIButtonType.secondary,
                               icon: LucideIcons.upload,
-                              label: AppLocalizations.of(context)!.importButton,
+                              title: AppLocalizations.of(context)!.importButton,
                               onPressed: widget.onImport,
-                              backgroundColor: secondaryBtnBg,
-                              textColor: secondaryBtnText,
-                              iconColor: secondaryBtnIcon,
                             ),
                           ],
                         ),
@@ -299,89 +259,14 @@ class _FileLoadedBottomBarState extends State<FileLoadedBottomBar> {
                 ],
               ),
 
-              const SizedBox(height: 24),
+              const SizedBox(height: 12),
 
               // Start Quiz Button
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: widget.isPlayEnabled ? widget.onPlay : null,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppTheme.primaryColor, // Violet 500
-                    foregroundColor: Colors.white,
-                    disabledBackgroundColor: AppTheme.primaryColor.withValues(
-                      alpha: 0.5,
-                    ),
-                    disabledForegroundColor: Colors.white.withValues(
-                      alpha: 0.5,
-                    ),
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(24),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(LucideIcons.play, size: 22),
-                      const SizedBox(width: 8),
-                      Text(
-                        AppLocalizations.of(context)!.startQuizButton,
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                          fontFamily: 'Plus Jakarta Sans',
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildActionButton(
-    BuildContext context, {
-    required IconData icon,
-    required String label,
-    required VoidCallback onPressed,
-    required Color backgroundColor,
-    Color? borderColor,
-    Color textColor = Colors.white,
-    Color iconColor = Colors.white,
-  }) {
-    return Material(
-      color: backgroundColor,
-      borderRadius: BorderRadius.circular(24),
-      child: InkWell(
-        onTap: onPressed,
-        borderRadius: BorderRadius.circular(24),
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(24),
-            border: borderColor != null
-                ? Border.all(color: borderColor, width: 2)
-                : null,
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(icon, size: 20, color: iconColor),
-              const SizedBox(width: 8),
-              Text(
-                label,
-                style: TextStyle(
-                  color: textColor,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  fontFamily: 'Inter',
-                ),
+              QuizLabAIButton(
+                title: AppLocalizations.of(context)!.startQuizButton,
+                icon: LucideIcons.play,
+                expanded: true,
+                onPressed: widget.isPlayEnabled ? widget.onPlay : null,
               ),
             ],
           ),

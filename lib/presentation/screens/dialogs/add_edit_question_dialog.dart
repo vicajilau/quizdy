@@ -16,6 +16,7 @@ import 'package:quizlab_ai/presentation/screens/widgets/add_edit_question/questi
 import 'package:quizlab_ai/presentation/screens/dialogs/mixins/option_management_mixin.dart';
 import 'package:quizlab_ai/presentation/screens/dialogs/mixins/validation_mixin.dart';
 import 'package:quizlab_ai/presentation/widgets/latex_text.dart';
+import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
 
 /// Dialog widget for creating or editing a Question.
 class AddEditQuestionDialog extends StatefulWidget {
@@ -581,23 +582,10 @@ class _AddEditQuestionDialogState extends State<AddEditQuestionDialog>
             // Footer / Actions
             Padding(
               padding: const EdgeInsets.fromLTRB(32, 0, 32, 32),
-              child: ElevatedButton(
+              child: QuizLabAIButton(
+                title: localizations.save,
+                expanded: true,
                 onPressed: _saveQuestion,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Theme.of(context).primaryColor,
-                  foregroundColor: AppTheme.surfaceColor,
-                  elevation: 0,
-                  minimumSize: const Size(double.infinity, 56),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  textStyle: const TextStyle(
-                    fontFamily: 'Inter',
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                child: Text(localizations.save),
               ),
             ),
           ],
@@ -618,13 +606,14 @@ class _AddEditQuestionDialogState extends State<AddEditQuestionDialog>
               localizations.confirmDeleteMessage(widget.question!.text),
             ),
             actions: [
-              TextButton(
+              QuizLabAIButton(
+                type: QuizlabAIButtonType.tertiary,
+                title: localizations.cancelButton,
                 onPressed: () => context.pop(false),
-                child: Text(localizations.cancelButton),
               ),
-              ElevatedButton(
+              QuizLabAIButton(
+                title: localizations.deleteButton,
                 onPressed: () => context.pop(true),
-                child: Text(localizations.deleteButton),
               ),
             ],
           ),

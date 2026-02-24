@@ -1349,4 +1349,8 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get errorStatus => 'Fehler';
+
+  @override
+  String get featureComingSoon =>
+      'Demnächst verfügbar! Bleiben Sie auf dem Laufenden.';
 }

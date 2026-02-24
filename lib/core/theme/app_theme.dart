@@ -11,7 +11,7 @@ import 'package:quizlab_ai/core/theme/extensions/ai_assistant_theme.dart';
 class AppTheme {
   // Define main application colors
   static const Color primaryColor = Color(0xFF8B5CF6);
-  static const Color secondaryColor = Color(0xFF03DAC6);
+  static const Color secondaryColor = Color(0xFF14B8A6);
   static const Color backgroundColor = Colors.white;
   static const Color cardColorLight = Color(0xFFF4F4F5); // Zinc 100
   static const Color surfaceColor = Colors.white;

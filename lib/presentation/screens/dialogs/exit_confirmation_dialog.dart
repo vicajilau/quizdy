@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/core/theme/app_theme.dart';
 import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
 
 class ExitConfirmationDialog extends StatelessWidget {
   const ExitConfirmationDialog({super.key});
@@ -78,23 +78,11 @@ class ExitConfirmationDialog extends StatelessWidget {
             const SizedBox(height: 32),
 
             // Buttons
-            ElevatedButton(
+            QuizLabAIButton(
+              type: QuizlabAIButtonType.warning,
+              title: AppLocalizations.of(context)!.exitButton,
+              expanded: true,
               onPressed: () => context.pop(true),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppTheme.errorColor,
-                foregroundColor: Colors.white,
-                elevation: 0,
-                minimumSize: const Size(double.infinity, 56),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                textStyle: const TextStyle(
-                  fontFamily: 'Inter',
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              child: Text(AppLocalizations.of(context)!.exitButton),
             ),
           ],
         ),

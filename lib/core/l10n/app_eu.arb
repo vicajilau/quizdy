@@ -1585,5 +1585,9 @@
   "retryButton": "Ebaluazioa berriro saiatu",
   "@retryButton": {
     "description": "IA ebaluazioa berriro saiatzeko botoiaren testua"
+  },
+  "featureComingSoon": "Laster eskuragarri! Egon adi albisteetara.",
+  "@featureComingSoon": {
+    "description": "Oraindik erabilgarri ez dauden funtzionalitateentzako mezua"
   }
 }

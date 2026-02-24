@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:quizlab_ai/core/theme/app_theme.dart';
 import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
 import 'package:quizlab_ai/core/extensions/string_extensions.dart';
 import 'package:quizlab_ai/core/l10n/app_localizations.dart';
 import 'package:quizlab_ai/presentation/widgets/ai_service_model_selector.dart';
@@ -361,38 +362,11 @@ class AiSettingsSection extends StatelessWidget {
             const SizedBox(height: 4),
             Align(
               alignment: Alignment.centerRight,
-              child: TextButton.icon(
+              child: QuizLabAIButton(
+                type: QuizlabAIButtonType.tertiary,
+                title: buttonLabel.toUpperCase(),
+                icon: Icons.open_in_new,
                 onPressed: onInfoPressed,
-                icon: const Icon(Icons.open_in_new, size: 16),
-                label: Text(
-                  // Use the tooltip text as the button label for clarity
-                  // (e.g. "Get API Key from OpenAI")
-                  // We need to access the tooltip text dynamically based on the passed string?
-                  // The passed string was just the description.
-                  // The tooltip was passed in the build method.
-                  // Wait, onInfoPressed is a callback, but we need the label text.
-                  // In the build method, we see:
-                  // tooltip: AppLocalizations.of(context)!.getApiKeyTooltip
-                  // We should probably pass the button label as a parameter to this method instead of just 'description'.
-                  // Checking usage:
-                  // _buildApiKeyField(..., onInfoPressed: () => ...)
-                  // Let's see how to get the text.
-                  // The original code used a hardcoded tooltip lookup inside the method for one case?
-                  // No, wait.
-                  // In lines 381-385:
-                  // tooltip: AppLocalizations.of(context)!.getApiKeyTooltip
-                  // This was hardcoded in the method! This is a bug for Gemini potentially if it used the same tooltip?
-                  // Let's check the usage in build().
-                  // Line 231: onInfoPressed: () => _openGeminiApiKeysUrl(context)
-                  // Line 243: onInfoPressed: () => _openAiApiKeysUrl(context)
-                  // But the *tooltip* was hardcoded in _buildApiKeyField to `getApiKeyTooltip` which is "Get API Key from OpenAI" (based on the variable name usually, but let's check arb).
-                  // validGeminiApiKeyTooltip is "Get API Key from Google AI Studio"
-                  // getApiKeyTooltip is "Get API Key from OpenAI"
-                  // customization is needed.
-                  // I will add a `buttonLabel` parameter to `_buildApiKeyField`.
-                  buttonLabel.toUpperCase(),
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
               ),
             ),
           ],
