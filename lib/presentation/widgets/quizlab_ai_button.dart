@@ -147,7 +147,7 @@ class QuizLabAIButton extends StatelessWidget {
           Flexible(
             child: Text(
               title,
-              style: theme.textTheme.bodyLarge?.copyWith(color: textColor),
+              style: theme.textTheme.bodyMedium?.copyWith(color: textColor),
               overflow: TextOverflow.ellipsis,
             ),
           ),

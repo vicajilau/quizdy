@@ -1624,5 +1624,9 @@
   "retryButton": "Riprova valutazione",
   "@retryButton": {
     "description": "Testo del pulsante per riprovare una valutazione IA"
+  },
+  "featureComingSoon": "Prossimamente disponibile! Resta sintonizzato per gli aggiornamenti.",
+  "@featureComingSoon": {
+    "description": "Messaggio per le funzionalità non ancora disponibili"
   }
 }

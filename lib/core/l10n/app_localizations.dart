@@ -2406,6 +2406,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Error'**
   String get errorStatus;
+
+  /// Message for features that are not yet available
+  ///
+  /// In en, this message translates to:
+  /// **'Coming soon! Stay tuned for updates.'**
+  String get featureComingSoon;
 }
 
 class _AppLocalizationsDelegate

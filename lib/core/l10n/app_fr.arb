@@ -1630,5 +1630,9 @@
   "retryButton": "Réessayer l'évaluation",
   "@retryButton": {
     "description": "Texte du bouton pour réessayer une évaluation d'IA"
+  },
+  "featureComingSoon": "Bientôt disponible ! Restez à l'écoute des nouveautés.",
+  "@featureComingSoon": {
+    "description": "Message pour les fonctionnalités qui ne sont pas encore disponibles"
   }
 }

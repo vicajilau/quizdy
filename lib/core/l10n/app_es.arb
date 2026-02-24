@@ -1666,5 +1666,9 @@
   "remainingTimeWithWeeks": "{weeks}s {days}d {hours}:{minutes}:{seconds}",
   "validationMax30DaysError": "Máximo 30 días",
   "validationMin0GenericError": "Mínimo 0",
-  "errorStatus": "Error"
+  "errorStatus": "Error",
+  "featureComingSoon": "¡Próximamente disponible! Mantente al tanto de las novedades.",
+  "@featureComingSoon": {
+    "description": "Mensaje para funcionalidades que aún no están disponibles"
+  }
 }

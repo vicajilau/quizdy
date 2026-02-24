@@ -1585,5 +1585,9 @@
   "retryButton": "Reintentar avaliación",
   "@retryButton": {
     "description": "Texto do botón para reintentar unha avaliación de IA"
+  },
+  "featureComingSoon": "Proximamente dispoñible! Mantente ao tanto das novidades.",
+  "@featureComingSoon": {
+    "description": "Mensaxe para funcionalidades que aínda non están dispoñibles"
   }
 }

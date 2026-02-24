@@ -1320,4 +1320,8 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get errorStatus => 'خطأ';
+
+  @override
+  String get featureComingSoon =>
+      'الميزة قادمة قريبا! ابقَ على اطلاع على التحديثات.';
 }

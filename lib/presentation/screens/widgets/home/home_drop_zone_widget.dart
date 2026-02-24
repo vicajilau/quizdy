@@ -83,14 +83,6 @@ class HomeDropZoneWidget extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 48),
-          Text(
-            AppLocalizations.of(context)!.clickOrDragFile,
-            style: Theme.of(
-              context,
-            ).textTheme.bodyMedium?.copyWith(fontSize: 18),
-            textAlign: TextAlign.center,
-          ),
         ],
       ),
     );

@@ -1271,4 +1271,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get errorStatus => '错误';
+
+  @override
+  String get featureComingSoon => '即将推出！敬请关注。';
 }

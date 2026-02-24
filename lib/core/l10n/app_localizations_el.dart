@@ -1351,4 +1351,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get errorStatus => 'Error';
+
+  @override
+  String get featureComingSoon => 'Σύντομα διαθέσιμο! Μείνετε συντονισμένοι.';
 }

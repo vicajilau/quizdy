@@ -1588,5 +1588,9 @@
   "retryButton": "評価を再試行",
   "@retryButton": {
     "description": "AI評価を再試行するためのボタンテキスト"
+  },
+  "featureComingSoon": "近日公開！最新情報をお楽しみに。",
+  "@featureComingSoon": {
+    "description": "未リリースの機能に関するメッセージ"
   }
 }

@@ -1348,4 +1348,8 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get errorStatus => 'Error';
+
+  @override
+  String get featureComingSoon =>
+      'Properament disponible! Estigues atent a les novetats.';
 }

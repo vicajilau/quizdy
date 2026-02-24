@@ -1826,5 +1826,9 @@
   "errorStatus": "Error",
   "@errorStatus": {
     "description": "Status label for a failed AI evaluation"
+  },
+  "featureComingSoon": "Coming soon! Stay tuned for updates.",
+  "@featureComingSoon": {
+    "description": "Message for features that are not yet available"
   }
 }
