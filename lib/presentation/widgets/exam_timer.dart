@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quizlab_ai/core/l10n/app_localizations.dart';
 import 'package:quizlab_ai/core/theme/extensions/exam_timer_theme.dart';
+import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
 
 /// A widget that displays a countdown timer for an exam.
 ///
@@ -168,26 +169,13 @@ class _ExamTimerWidgetState extends State<ExamTimerWidget>
                 const SizedBox(height: 32),
 
                 // Finish Button
-                ElevatedButton(
+                QuizLabAIButton(
+                  title: AppLocalizations.of(context)!.finish,
+                  expanded: true,
                   onPressed: () {
                     context.pop();
                     widget.onTimeExpired();
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: theme.dialogButtonColor,
-                    foregroundColor: theme.dialogButtonTextColor,
-                    elevation: 0,
-                    minimumSize: const Size(double.infinity, 56),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    textStyle: const TextStyle(
-                      fontFamily: 'Inter',
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  child: Text(AppLocalizations.of(context)!.finish),
                 ),
               ],
             ),

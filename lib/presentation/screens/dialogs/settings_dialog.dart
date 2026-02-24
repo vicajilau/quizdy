@@ -4,8 +4,8 @@ import 'package:lucide_icons/lucide_icons.dart';
 import 'package:quizlab_ai/core/extensions/string_extensions.dart';
 import 'package:quizlab_ai/core/l10n/app_localizations.dart';
 import 'package:quizlab_ai/data/services/configuration_service.dart';
-import 'package:quizlab_ai/core/theme/app_theme.dart';
 import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
 import 'package:quizlab_ai/presentation/screens/dialogs/settings_widgets/ai_settings_section.dart';
 import 'package:flutter/foundation.dart';
 import 'package:quizlab_ai/presentation/screens/dialogs/settings_widgets/advanced_settings_section.dart';
@@ -288,32 +288,11 @@ class _SettingsDialogState extends State<SettingsDialog> {
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(32, 0, 32, 32),
-              child: ElevatedButton(
+              child: QuizLabAIButton(
+                title: AppLocalizations.of(context)!.saveButton,
+                expanded: true,
+                isLoading: _isLoading,
                 onPressed: _isLoading ? null : _saveSettings,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppTheme.primaryColor,
-                  foregroundColor: Colors.white,
-                  elevation: 0,
-                  minimumSize: const Size(double.infinity, 56),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  textStyle: const TextStyle(
-                    fontFamily: 'Inter',
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                child: _isLoading
-                    ? const SizedBox(
-                        width: 24,
-                        height: 24,
-                        child: CircularProgressIndicator(
-                          color: Colors.white,
-                          strokeWidth: 2,
-                        ),
-                      )
-                    : Text(AppLocalizations.of(context)!.saveButton),
               ),
             ),
           ],

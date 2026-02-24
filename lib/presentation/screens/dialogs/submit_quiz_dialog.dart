@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/core/theme/app_theme.dart';
+import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
 import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
 import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
 import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
@@ -123,47 +123,21 @@ class SubmitQuizDialog {
                             }
 
                             if (firstUnansweredIndex != null) {
-                              return SizedBox(
-                                height: 56,
-                                width: double.infinity,
-                                child: OutlinedButton.icon(
-                                  onPressed: () {
-                                    context.pop();
-                                    QuestionsOverviewBottomSheet.show(
-                                      context,
-                                      state as QuizExecutionInProgress,
-                                      bloc,
-                                    );
-                                  },
-                                  style: OutlinedButton.styleFrom(
-                                    backgroundColor: colors.card,
-                                    side: BorderSide(
-                                      color: colors.border,
-                                      width: 2,
-                                    ),
-                                    elevation: 0,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                    padding: EdgeInsets.zero,
-                                  ),
-                                  icon: Icon(
-                                    Icons.near_me_outlined,
-                                    size: 20,
-                                    color: colors.subtitle,
-                                  ),
-                                  label: Text(
-                                    AppLocalizations.of(
-                                      context,
-                                    )!.resolveUnansweredQuestions,
-                                    style: TextStyle(
-                                      fontFamily: 'Inter',
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600,
-                                      color: colors.subtitle,
-                                    ),
-                                  ),
-                                ),
+                              return QuizLabAIButton(
+                                type: QuizlabAIButtonType.secondary,
+                                title: AppLocalizations.of(
+                                  context,
+                                )!.resolveUnansweredQuestions,
+                                icon: Icons.near_me_outlined,
+                                expanded: true,
+                                onPressed: () {
+                                  context.pop();
+                                  QuestionsOverviewBottomSheet.show(
+                                    context,
+                                    state as QuizExecutionInProgress,
+                                    bloc,
+                                  );
+                                },
                               );
                             }
                             return const SizedBox.shrink();
@@ -172,38 +146,16 @@ class SubmitQuizDialog {
                       }
 
                       Widget buildFinishButton() {
-                        return SizedBox(
-                          height: 56,
-                          width: double.infinity,
-                          child: ElevatedButton.icon(
-                            onPressed: () {
-                              context.pop();
-                              bloc.add(
-                                QuizSubmitted(isAiAvailable: isAiAvailable),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: AppTheme.primaryColor,
-                              foregroundColor: Colors.white,
-                              elevation: 0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              padding: EdgeInsets.zero,
-                            ),
-                            icon: const Icon(
-                              Icons.check_circle_outline,
-                              size: 20,
-                            ),
-                            label: Text(
-                              AppLocalizations.of(context)!.finish,
-                              style: const TextStyle(
-                                fontFamily: 'Inter',
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ),
+                        return QuizLabAIButton(
+                          title: AppLocalizations.of(context)!.finish,
+                          icon: Icons.check_circle_outline,
+                          expanded: true,
+                          onPressed: () {
+                            context.pop();
+                            bloc.add(
+                              QuizSubmitted(isAiAvailable: isAiAvailable),
+                            );
+                          },
                         );
                       }
 

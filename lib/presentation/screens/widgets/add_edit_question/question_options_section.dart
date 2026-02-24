@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
 import 'package:quizlab_ai/core/l10n/app_localizations.dart';
 import 'package:quizlab_ai/presentation/screens/widgets/add_edit_question/question_option_row.dart';
+import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
 
 class QuestionOptionsSection extends StatelessWidget {
   final QuestionType questionType;
@@ -97,10 +98,11 @@ class QuestionOptionsSection extends StatelessWidget {
         if (questionType == QuestionType.multipleChoice ||
             questionType == QuestionType.singleChoice)
           RepaintBoundary(
-            child: TextButton.icon(
+            child: QuizLabAIButton(
+              type: QuizlabAIButtonType.tertiary,
+              title: localizations.addOption,
+              icon: Icons.add,
               onPressed: onAddOption,
-              icon: const Icon(Icons.add),
-              label: Text(localizations.addOption),
             ),
           ),
       ],

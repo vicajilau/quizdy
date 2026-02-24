@@ -8,6 +8,7 @@ import 'package:quizlab_ai/domain/models/ai/ai_question_type.dart';
 import 'package:quizlab_ai/presentation/screens/dialogs/widgets/ai_question_type_chip.dart';
 import 'package:quizlab_ai/core/theme/app_theme.dart';
 import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
 
 class AiGenerateStep1Widget extends StatelessWidget {
   final bool isLoadingServices;
@@ -407,33 +408,11 @@ class AiGenerateStep1Widget extends StatelessWidget {
             const SizedBox(height: 24),
 
             // Footer (Fixed Next Button)
-            SizedBox(
-              width: double.infinity,
-              height: 48,
-              child: ElevatedButton(
-                onPressed: selectedService != null ? onNext : null,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppTheme.primaryColor,
-                  foregroundColor: Colors.white,
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  textStyle: const TextStyle(
-                    fontFamily: 'Inter',
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(AppLocalizations.of(context)!.next),
-                    const SizedBox(width: 8),
-                    const Icon(LucideIcons.arrowRight, size: 16),
-                  ],
-                ),
-              ),
+            QuizLabAIButton(
+              title: AppLocalizations.of(context)!.next,
+              icon: LucideIcons.arrowRight,
+              expanded: true,
+              onPressed: selectedService != null ? onNext : null,
             ),
           ],
         ),

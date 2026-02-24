@@ -4,6 +4,7 @@ import 'package:lucide_icons/lucide_icons.dart';
 
 import 'package:quizlab_ai/core/l10n/app_localizations.dart';
 import 'package:quizlab_ai/core/theme/app_theme.dart';
+import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
 
 /// A dialog that allows the user to create or edit quiz metadata.
 ///
@@ -272,30 +273,12 @@ class _QuizMetadataDialogState extends State<QuizMetadataDialog> {
               const SizedBox(height: 32),
 
               // Submit Button
-              SizedBox(
-                height: 56,
-                child: ElevatedButton(
-                  onPressed: _submit,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppTheme.primaryColor,
-                    foregroundColor: Colors.white,
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    padding: EdgeInsets.zero,
-                  ),
-                  child: Text(
-                    widget.isEditing
-                        ? AppLocalizations.of(context)!.saveButton
-                        : AppLocalizations.of(context)!.createButton,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      fontFamily: 'Inter',
-                    ),
-                  ),
-                ),
+              QuizLabAIButton(
+                title: widget.isEditing
+                    ? AppLocalizations.of(context)!.saveButton
+                    : AppLocalizations.of(context)!.createButton,
+                expanded: true,
+                onPressed: _submit,
               ),
             ],
           ),

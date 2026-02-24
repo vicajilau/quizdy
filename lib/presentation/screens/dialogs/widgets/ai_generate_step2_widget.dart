@@ -9,6 +9,7 @@ import 'package:quizlab_ai/domain/models/ai/ai_file_attachment.dart';
 import 'package:quizlab_ai/core/l10n/app_localizations.dart';
 import 'package:quizlab_ai/core/theme/app_theme.dart';
 import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
 import 'package:quizlab_ai/domain/models/ai/ai_generation_config.dart';
 import 'package:quizlab_ai/domain/models/ai/ai_question_type.dart';
 import 'package:quizlab_ai/domain/models/ai/ai_generation_category.dart';
@@ -328,22 +329,12 @@ class _AiGenerateStep2WidgetState extends State<AiGenerateStep2Widget> {
                       ),
                       if (widget.fileAttachment == null) ...[
                         const SizedBox(height: 8),
-                        SizedBox(
-                          width: double.infinity,
-                          child: OutlinedButton.icon(
-                            onPressed: widget.onPasteFromClipboard,
-                            icon: const Icon(
-                              LucideIcons.clipboardPaste,
-                              size: 18,
-                            ),
-                            label: Text(localizations.pasteFromClipboard),
-                            style: OutlinedButton.styleFrom(
-                              side: BorderSide(color: attachStroke),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                            ),
-                          ),
+                        QuizLabAIButton(
+                          type: QuizlabAIButtonType.secondary,
+                          title: localizations.pasteFromClipboard,
+                          icon: LucideIcons.clipboardPaste,
+                          expanded: true,
+                          onPressed: widget.onPasteFromClipboard,
                         ),
                       ],
                       const SizedBox(height: 24),
@@ -527,94 +518,41 @@ class _AiGenerateStep2WidgetState extends State<AiGenerateStep2Widget> {
               Row(
                 children: [
                   Expanded(
-                    child: SizedBox(
-                      height: 48,
-                      child: ElevatedButton(
-                        onPressed: widget.onBack,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: colors.surface,
-                          foregroundColor: colors.title,
-                          elevation: 0,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          textStyle: const TextStyle(
-                            fontFamily: 'Inter',
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        child: FittedBox(
-                          fit: BoxFit.scaleDown,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Icon(LucideIcons.arrowLeft, size: 16),
-                              const SizedBox(width: 8),
-                              Text(
-                                localizations.backButton,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+                    child: QuizLabAIButton(
+                      type: QuizlabAIButtonType.secondary,
+                      title: localizations.backButton,
+                      icon: LucideIcons.arrowLeft,
+                      expanded: true,
+                      onPressed: widget.onBack,
                     ),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
-                    child: SizedBox(
-                      height: 48,
-                      child: ElevatedButton(
-                        onPressed:
-                            (widget.textController.text.isNotEmpty ||
-                                widget.fileAttachment != null)
-                            ? () {
-                                final config = AiQuestionGenerationConfig(
-                                  questionCount: widget.questionCount,
-                                  questionTypes: widget.selectedQuestionTypes
-                                      .toList(),
-                                  language: widget.selectedLanguage,
-                                  content: widget.textController.text.trim(),
-                                  preferredService: widget.selectedService,
-                                  preferredModel: widget.selectedModel,
-                                  file: widget.fileAttachment,
-                                  isTopicMode:
-                                      widget.fileAttachment == null &&
-                                      widget.getTopicCount() <= 10,
-                                  generationCategory: _selectedCategory,
-                                );
-                                context.pop(config);
-                              }
-                            : null,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppTheme.primaryColor,
-                          foregroundColor: Colors.white,
-                          elevation: 0,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          textStyle: const TextStyle(
-                            fontFamily: 'Inter',
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        child: FittedBox(
-                          fit: BoxFit.scaleDown,
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const Icon(LucideIcons.sparkles, size: 16),
-                              const SizedBox(width: 8),
-                              Text(
-                                localizations.generateButton,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+                    child: QuizLabAIButton(
+                      title: localizations.generateButton,
+                      icon: LucideIcons.sparkles,
+                      expanded: true,
+                      onPressed:
+                          (widget.textController.text.isNotEmpty ||
+                              widget.fileAttachment != null)
+                          ? () {
+                              final config = AiQuestionGenerationConfig(
+                                questionCount: widget.questionCount,
+                                questionTypes: widget.selectedQuestionTypes
+                                    .toList(),
+                                language: widget.selectedLanguage,
+                                content: widget.textController.text.trim(),
+                                preferredService: widget.selectedService,
+                                preferredModel: widget.selectedModel,
+                                file: widget.fileAttachment,
+                                isTopicMode:
+                                    widget.fileAttachment == null &&
+                                    widget.getTopicCount() <= 10,
+                                generationCategory: _selectedCategory,
+                              );
+                              context.pop(config);
+                            }
+                          : null,
                     ),
                   ),
                 ],

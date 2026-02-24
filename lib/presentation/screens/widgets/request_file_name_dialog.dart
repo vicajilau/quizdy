@@ -4,6 +4,7 @@ import 'package:lucide_icons/lucide_icons.dart';
 
 import 'package:quizlab_ai/core/l10n/app_localizations.dart';
 import 'package:quizlab_ai/core/theme/app_theme.dart';
+import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
 
 /// A dialog widget for requesting a file name from the user.
 /// Styled according to design node 75JA2.
@@ -181,28 +182,10 @@ class _RequestFileNameDialogState extends State<RequestFileNameDialog> {
             const SizedBox(height: 32),
 
             // Submit Button
-            SizedBox(
-              height: 56,
-              child: ElevatedButton(
-                onPressed: _submit,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppTheme.primaryColor, // Violet 500
-                  foregroundColor: Colors.white,
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  padding: EdgeInsets.zero,
-                ),
-                child: Text(
-                  AppLocalizations.of(context)!.acceptButton,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    fontFamily: 'Inter',
-                  ),
-                ),
-              ),
+            QuizLabAIButton(
+              title: AppLocalizations.of(context)!.acceptButton,
+              expanded: true,
+              onPressed: _submit,
             ),
           ],
         ),

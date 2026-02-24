@@ -4,6 +4,7 @@ import 'package:lucide_icons/lucide_icons.dart';
 import 'package:quizlab_ai/core/l10n/app_localizations.dart';
 import 'package:quizlab_ai/presentation/blocs/file_bloc/file_bloc.dart';
 import 'package:quizlab_ai/presentation/blocs/file_bloc/file_event.dart';
+import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
 
 class HomeFooterWidget extends StatelessWidget {
   final bool isLoading;
@@ -25,29 +26,11 @@ class HomeFooterWidget extends StatelessWidget {
         children: [
           ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 412, minWidth: 292),
-            child: SizedBox(
-              height: 56,
-              width: double.infinity,
-              child: ElevatedButton.icon(
-                onPressed: isLoading ? null : onGenerateAITap,
-                icon: Icon(
-                  LucideIcons.sparkles,
-                  size: 20,
-                  color: Theme.of(context).colorScheme.onPrimary,
-                ),
-                label: Text(
-                  AppLocalizations.of(context)!.generateQuestionsWithAI,
-                  style: const TextStyle(fontWeight: FontWeight.w600),
-                  overflow: TextOverflow.ellipsis,
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Theme.of(context).primaryColor,
-                  foregroundColor: Theme.of(context).colorScheme.onPrimary,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                ),
-              ),
+            child: QuizLabAIButton(
+              title: AppLocalizations.of(context)!.generateQuestionsWithAI,
+              icon: LucideIcons.sparkles,
+              expanded: true,
+              onPressed: isLoading ? null : onGenerateAITap,
             ),
           ),
           const SizedBox(height: 12),
@@ -58,51 +41,27 @@ class HomeFooterWidget extends StatelessWidget {
             children: [
               ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 200, minWidth: 140),
-                child: SizedBox(
-                  height: 56,
-                  width: double.infinity,
-                  child: OutlinedButton.icon(
-                    onPressed: isLoading ? null : onCreateTap,
-                    icon: const Icon(LucideIcons.plus, size: 22),
-                    label: Text(
-                      AppLocalizations.of(context)!.create,
-                      style: const TextStyle(fontWeight: FontWeight.w600),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    style: OutlinedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                    ),
-                  ),
+                child: QuizLabAIButton(
+                  type: QuizlabAIButtonType.secondary,
+                  title: AppLocalizations.of(context)!.create,
+                  icon: LucideIcons.plus,
+                  expanded: true,
+                  onPressed: isLoading ? null : onCreateTap,
                 ),
               ),
               ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 200, minWidth: 140),
-                child: SizedBox(
-                  height: 56,
-                  width: double.infinity,
-                  child: OutlinedButton.icon(
-                    onPressed: isLoading
-                        ? null
-                        : () {
-                            context.read<FileBloc>().add(QuizFileReset());
-                            context.read<FileBloc>().add(
-                              QuizFilePickRequested(),
-                            );
-                          },
-                    icon: const Icon(LucideIcons.folderOpen, size: 22),
-                    label: Text(
-                      AppLocalizations.of(context)!.load,
-                      style: const TextStyle(fontWeight: FontWeight.w600),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    style: OutlinedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                    ),
-                  ),
+                child: QuizLabAIButton(
+                  type: QuizlabAIButtonType.secondary,
+                  title: AppLocalizations.of(context)!.load,
+                  icon: LucideIcons.folderOpen,
+                  expanded: true,
+                  onPressed: isLoading
+                      ? null
+                      : () {
+                          context.read<FileBloc>().add(QuizFileReset());
+                          context.read<FileBloc>().add(QuizFilePickRequested());
+                        },
                 ),
               ),
             ],

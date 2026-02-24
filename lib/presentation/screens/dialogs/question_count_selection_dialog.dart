@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
 
 import 'package:quizlab_ai/data/services/configuration_service.dart';
 import 'package:quizlab_ai/domain/models/quiz/quiz_config.dart';
@@ -745,71 +746,32 @@ class _QuestionCountSelectionDialogState
 
             // Start with selected questions button
             if (widget.selectedQuestionCount > 0) ...[
-              OutlinedButton(
+              QuizLabAIButton(
+                type: QuizlabAIButtonType.secondary,
+                title: l10n.startWithSelectedQuestions(
+                  widget.selectedQuestionCount,
+                ),
+                icon: LucideIcons.checkCircle,
+                expanded: true,
                 onPressed:
                     ((_examTimeEnabled && _hasExamTimeError) ||
                         (_enableMaxIncorrectAnswers && _hasMaxIncorrectError))
                     ? null
                     : () => _startQuiz(useSelectedOnly: true),
-                style: OutlinedButton.styleFrom(
-                  foregroundColor: primaryColor,
-                  elevation: 0,
-                  minimumSize: const Size(double.infinity, 56),
-                  side: BorderSide(color: primaryColor, width: 1.5),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  textStyle: const TextStyle(
-                    fontFamily: 'Inter',
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(LucideIcons.checkCircle, size: 20),
-                    const SizedBox(width: 8),
-                    Text(
-                      l10n.startWithSelectedQuestions(
-                        widget.selectedQuestionCount,
-                      ),
-                    ),
-                  ],
-                ),
               ),
               const SizedBox(height: 12),
             ],
 
             // Start Button
-            ElevatedButton(
+            QuizLabAIButton(
+              title: AppLocalizations.of(context)!.startQuiz,
+              icon: LucideIcons.play,
+              expanded: true,
               onPressed:
                   ((_examTimeEnabled && _hasExamTimeError) ||
                       (_enableMaxIncorrectAnswers && _hasMaxIncorrectError))
                   ? null
                   : () => _startQuiz(),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: primaryColor,
-                foregroundColor: Colors.white,
-                elevation: 0,
-                minimumSize: const Size(double.infinity, 56),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                textStyle: const TextStyle(
-                  fontFamily: 'Inter',
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(LucideIcons.play, size: 20),
-                  const SizedBox(width: 8),
-                  Text(AppLocalizations.of(context)!.startQuiz),
-                ],
-              ),
             ),
           ],
         ),

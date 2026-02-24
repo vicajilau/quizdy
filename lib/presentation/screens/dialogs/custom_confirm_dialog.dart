@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:quizlab_ai/core/theme/app_theme.dart';
 import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
 
 /// A custom confirmation dialog that matches the app's design language.
 ///
@@ -134,31 +135,16 @@ class CustomConfirmDialog extends StatelessWidget {
             const SizedBox(height: 32),
 
             // Actions
-            SizedBox(
-              width: double.infinity,
-              height: 56,
-              child: FilledButton(
-                onPressed: () {
-                  onConfirm?.call();
-                  context.pop(true);
-                },
-                style: FilledButton.styleFrom(
-                  backgroundColor: isDestructive
-                      ? AppTheme
-                            .errorColor // Red 600
-                      : Theme.of(context).primaryColor,
-                  foregroundColor: Colors.white,
-                  textStyle: const TextStyle(
-                    fontFamily: 'Inter',
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                child: Text(confirmText),
-              ),
+            QuizLabAIButton(
+              type: isDestructive
+                  ? QuizlabAIButtonType.warning
+                  : QuizlabAIButtonType.primary,
+              title: confirmText,
+              expanded: true,
+              onPressed: () {
+                onConfirm?.call();
+                context.pop(true);
+              },
             ),
           ],
         ),

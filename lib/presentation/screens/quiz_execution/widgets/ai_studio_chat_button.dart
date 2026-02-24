@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:quizlab_ai/core/l10n/app_localizations.dart';
 import 'package:quizlab_ai/domain/models/quiz/question.dart';
+import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
 
 /// A button that opens the AI chat sidebar/panel for a specific question.
 ///
@@ -34,16 +35,11 @@ class AiStudioChatButton extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            TextButton.icon(
+            QuizLabAIButton(
+              type: QuizlabAIButtonType.tertiary,
+              title: l10n.askAiAboutQuestion,
+              icon: Icons.auto_awesome,
               onPressed: isAiAvailable == true ? onPressed : null,
-              icon: const Icon(Icons.auto_awesome),
-              label: Text(l10n.askAiAboutQuestion, textAlign: TextAlign.center),
-              style: TextButton.styleFrom(
-                foregroundColor: Theme.of(context).colorScheme.primary,
-                disabledForegroundColor: Theme.of(
-                  context,
-                ).colorScheme.onSurface.withValues(alpha: 0.38),
-              ),
             ),
             if (isAiAvailable == false)
               Padding(
