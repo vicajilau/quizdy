@@ -47,7 +47,7 @@ When you choose to use AI-powered question generation features, you may connect 
 - No data is transmitted to our servers
 
 ### Open Source Transparency
-- QuizLab AI is open source under the BSD 3-Clause license
+- QuizLab AI is open source under the GPL-3.0-or-later license
 - You can review the complete source code at: [https://github.com/vicajilau/quizlab_ai](https://github.com/vicajilau/quizlab_ai)
 - The code is transparent about how data is handled
 
@@ -80,7 +80,7 @@ QuizLab AI does not collect any personal information from users of any age. The 
 
 ## Open Source License
 
-QuizLab AI is released under the BSD 3-Clause License, which means:
+QuizLab AI is released under the GPL-3.0-or-later License, which means:
 - The source code is publicly available for review
 - You can modify and distribute the app according to the license terms
 - The transparency of open source development ensures privacy by design
@@ -128,4 +128,4 @@ QuizLab AI may request the following permissions:
 
 **Note**: This privacy policy applies to the open-source QuizLab AI project. If you're using a modified version of this app, please check with the specific distributor for their privacy practices.
 
-**BSD 3-Clause License**: This project is licensed under the BSD 3-Clause License - see the [LICENSE](LICENSE) file for details.
+**GPL-3.0-or-later License**: This project is licensed under the GPL-3.0-or-later License - see the [LICENSE](LICENSE) file for details.
