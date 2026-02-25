@@ -23,25 +23,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
 
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-
-      - name: Get dependencies
-        run: flutter pub get
-
-      - name: Build web
-        run: flutter build web --release --base-href /${{ github.event.repository.name }}/
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+      - name: Build & Publish web
+        uses: Spaccesi/flutter-actions-suite@main
         with:
-          enablement: true
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: "./build/web"
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          base-href: ${{ github.event.repository.name }}
+          run-test: 'false'
+          run-build-runner: 'false'
+          run-analyze: 'false'
+          run-license: 'false'
+          build-platform: 'web'
+          publish-destination: 'github-pages'
