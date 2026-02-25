@@ -15,16 +15,16 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:quizlab_ai/core/context_extension.dart';
-import 'package:quizlab_ai/domain/models/quiz/question.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_file.dart';
-import 'package:quizlab_ai/presentation/screens/dialogs/add_edit_question_dialog.dart';
-import 'package:quizlab_ai/presentation/screens/dialogs/ai_question_dialog.dart';
-import 'package:quizlab_ai/data/services/configuration_service.dart';
-import 'package:quizlab_ai/presentation/screens/widgets/question_preview_card.dart';
-import 'package:quizlab_ai/presentation/screens/dialogs/custom_confirm_dialog.dart';
+import 'package:quizdy/core/context_extension.dart';
+import 'package:quizdy/domain/models/quiz/question.dart';
+import 'package:quizdy/domain/models/quiz/quiz_file.dart';
+import 'package:quizdy/presentation/screens/dialogs/add_edit_question_dialog.dart';
+import 'package:quizdy/presentation/screens/dialogs/ai_question_dialog.dart';
+import 'package:quizdy/data/services/configuration_service.dart';
+import 'package:quizdy/presentation/screens/widgets/question_preview_card.dart';
+import 'package:quizdy/presentation/screens/dialogs/custom_confirm_dialog.dart';
 
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
 
 class QuestionListWidget extends StatefulWidget {
   final QuizFile quizFile;

@@ -2440,7 +2440,7 @@ abstract class AppLocalizations {
   /// Title for the first onboarding page
   ///
   /// In en, this message translates to:
-  /// **'Welcome to QuizLab AI'**
+  /// **'Welcome to Quizdy'**
   String get onboardingWelcomeTitle;
 
   /// Description for the first onboarding page

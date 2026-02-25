@@ -17,15 +17,15 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:quizlab_ai/core/theme/app_theme.dart';
-import 'package:quizlab_ai/domain/models/quiz/question.dart';
-import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
-import 'package:quizlab_ai/presentation/screens/dialogs/submit_quiz_dialog.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_config.dart';
+import 'package:quizdy/core/theme/app_theme.dart';
+import 'package:quizdy/domain/models/quiz/question.dart';
+import 'package:quizdy/domain/models/quiz/question_type.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
+import 'package:quizdy/presentation/screens/dialogs/submit_quiz_dialog.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/domain/models/quiz/quiz_config.dart';
 
 class MockQuizExecutionBloc
     extends MockBloc<QuizExecutionEvent, QuizExecutionState>

@@ -15,11 +15,11 @@
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:quizlab_ai/domain/models/ai/ai_file_attachment.dart';
-import 'package:quizlab_ai/domain/models/ai/openai_content_block.dart';
-import 'package:quizlab_ai/data/services/configuration_service.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/data/services/ai/ai_service.dart';
+import 'package:quizdy/domain/models/ai/ai_file_attachment.dart';
+import 'package:quizdy/domain/models/ai/openai_content_block.dart';
+import 'package:quizdy/data/services/configuration_service.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/data/services/ai/ai_service.dart';
 
 class OpenAIService extends AIService {
   static const String _baseUrl = 'https://api.openai.com/v1';

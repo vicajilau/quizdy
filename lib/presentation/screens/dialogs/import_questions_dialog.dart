@@ -16,8 +16,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
 
 enum QuestionsPosition { beginning, end }
 
@@ -54,16 +54,16 @@ class ImportQuestionsDialog extends StatelessWidget {
         ],
       ),
       actions: [
-        QuizLabAIButton(
-          type: QuizlabAIButtonType.tertiary,
+        QuizdyButton(
+          type: QuizdyButtonType.tertiary,
           title: localizations.cancelButton,
           onPressed: () => context.pop(null),
         ),
-        QuizLabAIButton(
+        QuizdyButton(
           title: localizations.importAtBeginning,
           onPressed: () => context.pop(QuestionsPosition.beginning),
         ),
-        QuizLabAIButton(
+        QuizdyButton(
           title: localizations.importAtEnd,
           onPressed: () => context.pop(QuestionsPosition.end),
         ),

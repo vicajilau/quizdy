@@ -1645,7 +1645,7 @@
   "@onboardingGetStarted": {
     "description": "Pulsante inizia nell'ultima pagina del benvenuto"
   },
-  "onboardingWelcomeTitle": "Benvenuto in QuizLab AI",
+  "onboardingWelcomeTitle": "Benvenuto in Quizdy",
   "@onboardingWelcomeTitle": {
     "description": "Titolo per la prima pagina del benvenuto"
   },

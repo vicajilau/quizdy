@@ -15,23 +15,23 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:quizlab_ai/domain/models/quiz/question.dart';
-import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_file.dart';
+import 'package:quizdy/domain/models/quiz/question.dart';
+import 'package:quizdy/domain/models/quiz/question_type.dart';
+import 'package:quizdy/domain/models/quiz/quiz_file.dart';
 
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:quizlab_ai/core/theme/extensions/custom_colors.dart';
-import 'package:quizlab_ai/core/theme/app_theme.dart';
-import 'package:quizlab_ai/core/theme/extensions/question_dialog_theme.dart';
+import 'package:quizdy/core/theme/extensions/custom_colors.dart';
+import 'package:quizdy/core/theme/app_theme.dart';
+import 'package:quizdy/core/theme/extensions/question_dialog_theme.dart';
 
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/presentation/utils/question_translation_helper.dart';
-import 'package:quizlab_ai/presentation/screens/widgets/add_edit_question/question_image_section.dart';
-import 'package:quizlab_ai/presentation/screens/widgets/add_edit_question/question_options_section.dart';
-import 'package:quizlab_ai/presentation/screens/dialogs/mixins/option_management_mixin.dart';
-import 'package:quizlab_ai/presentation/screens/dialogs/mixins/validation_mixin.dart';
-import 'package:quizlab_ai/presentation/widgets/latex_text.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/presentation/utils/question_translation_helper.dart';
+import 'package:quizdy/presentation/screens/widgets/add_edit_question/question_image_section.dart';
+import 'package:quizdy/presentation/screens/widgets/add_edit_question/question_options_section.dart';
+import 'package:quizdy/presentation/screens/dialogs/mixins/option_management_mixin.dart';
+import 'package:quizdy/presentation/screens/dialogs/mixins/validation_mixin.dart';
+import 'package:quizdy/presentation/widgets/latex_text.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
 
 /// Dialog widget for creating or editing a Question.
 class AddEditQuestionDialog extends StatefulWidget {
@@ -597,7 +597,7 @@ class _AddEditQuestionDialogState extends State<AddEditQuestionDialog>
             // Footer / Actions
             Padding(
               padding: const EdgeInsets.fromLTRB(32, 0, 32, 32),
-              child: QuizLabAIButton(
+              child: QuizdyButton(
                 title: localizations.save,
                 expanded: true,
                 onPressed: _saveQuestion,
@@ -621,12 +621,12 @@ class _AddEditQuestionDialogState extends State<AddEditQuestionDialog>
               localizations.confirmDeleteMessage(widget.question!.text),
             ),
             actions: [
-              QuizLabAIButton(
-                type: QuizlabAIButtonType.tertiary,
+              QuizdyButton(
+                type: QuizdyButtonType.tertiary,
                 title: localizations.cancelButton,
                 onPressed: () => context.pop(false),
               ),
-              QuizLabAIButton(
+              QuizdyButton(
                 title: localizations.deleteButton,
                 onPressed: () => context.pop(true),
               ),

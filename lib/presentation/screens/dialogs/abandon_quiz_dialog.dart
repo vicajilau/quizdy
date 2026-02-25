@@ -15,9 +15,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
 
 class AbandonQuizDialog extends StatelessWidget {
   const AbandonQuizDialog({super.key});
@@ -93,8 +93,8 @@ class AbandonQuizDialog extends StatelessWidget {
             const SizedBox(height: 32),
 
             // Buttons
-            QuizLabAIButton(
-              type: QuizlabAIButtonType.warning,
+            QuizdyButton(
+              type: QuizdyButtonType.warning,
               title: AppLocalizations.of(context)!.abandon,
               expanded: true,
               onPressed: () {

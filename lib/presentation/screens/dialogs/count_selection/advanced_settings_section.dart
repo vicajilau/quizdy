@@ -15,13 +15,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/core/theme/app_theme.dart';
-import 'package:quizlab_ai/domain/models/quiz/question_order.dart';
-import 'package:quizlab_ai/presentation/screens/dialogs/count_selection/widgets/max_incorrect_limit_input.dart';
-import 'package:quizlab_ai/presentation/screens/dialogs/count_selection/widgets/max_incorrect_toggle.dart';
-import 'package:quizlab_ai/presentation/screens/dialogs/count_selection/widgets/penalty_amount_input.dart';
-import 'package:quizlab_ai/presentation/screens/dialogs/count_selection/widgets/subtract_points_toggle.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/core/theme/app_theme.dart';
+import 'package:quizdy/domain/models/quiz/question_order.dart';
+import 'package:quizdy/presentation/screens/dialogs/count_selection/widgets/max_incorrect_limit_input.dart';
+import 'package:quizdy/presentation/screens/dialogs/count_selection/widgets/max_incorrect_toggle.dart';
+import 'package:quizdy/presentation/screens/dialogs/count_selection/widgets/penalty_amount_input.dart';
+import 'package:quizdy/presentation/screens/dialogs/count_selection/widgets/subtract_points_toggle.dart';
 
 class AdvancedSettingsSection extends StatefulWidget {
   final bool isStudyMode;

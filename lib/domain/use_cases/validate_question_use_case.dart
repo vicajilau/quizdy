@@ -13,9 +13,9 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import 'package:quizlab_ai/domain/models/custom_exceptions/question_error.dart';
-import 'package:quizlab_ai/domain/models/custom_exceptions/question_error_type.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_file.dart';
+import 'package:quizdy/domain/models/custom_exceptions/question_error.dart';
+import 'package:quizdy/domain/models/custom_exceptions/question_error_type.dart';
+import 'package:quizdy/domain/models/quiz/quiz_file.dart';
 
 class ValidateQuestionUseCase {
   /// Validate a question for a quiz

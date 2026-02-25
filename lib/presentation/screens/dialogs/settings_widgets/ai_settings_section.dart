@@ -15,12 +15,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:quizlab_ai/core/theme/app_theme.dart';
-import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
-import 'package:quizlab_ai/core/extensions/string_extensions.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/presentation/widgets/ai_service_model_selector.dart';
+import 'package:quizdy/core/theme/app_theme.dart';
+import 'package:quizdy/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
+import 'package:quizdy/core/extensions/string_extensions.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/presentation/widgets/ai_service_model_selector.dart';
 
 /// A widget that handles the AI Assistant settings section.
 ///
@@ -377,8 +377,8 @@ class AiSettingsSection extends StatelessWidget {
             const SizedBox(height: 4),
             Align(
               alignment: Alignment.centerRight,
-              child: QuizLabAIButton(
-                type: QuizlabAIButtonType.tertiary,
+              child: QuizdyButton(
+                type: QuizdyButtonType.tertiary,
                 title: buttonLabel.toUpperCase(),
                 icon: Icons.open_in_new,
                 onPressed: onInfoPressed,

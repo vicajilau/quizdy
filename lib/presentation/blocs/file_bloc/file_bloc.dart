@@ -15,10 +15,10 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quizlab_ai/data/repositories/quiz_file_repository.dart';
-import 'package:quizlab_ai/presentation/blocs/file_bloc/file_event.dart';
-import 'package:quizlab_ai/presentation/blocs/file_bloc/file_state.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_file.dart';
+import 'package:quizdy/data/repositories/quiz_file_repository.dart';
+import 'package:quizdy/presentation/blocs/file_bloc/file_event.dart';
+import 'package:quizdy/presentation/blocs/file_bloc/file_state.dart';
+import 'package:quizdy/domain/models/quiz/quiz_file.dart';
 
 /// The `FileBloc` class handles file operations such as loading, saving, and picking files.
 /// It listens for file-related events and emits the corresponding states based on the outcome of those events.

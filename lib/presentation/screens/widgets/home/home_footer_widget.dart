@@ -16,12 +16,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:quizlab_ai/core/context_extension.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/core/theme/app_theme.dart';
-import 'package:quizlab_ai/presentation/blocs/file_bloc/file_bloc.dart';
-import 'package:quizlab_ai/presentation/blocs/file_bloc/file_event.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
+import 'package:quizdy/core/context_extension.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/core/theme/app_theme.dart';
+import 'package:quizdy/presentation/blocs/file_bloc/file_bloc.dart';
+import 'package:quizdy/presentation/blocs/file_bloc/file_event.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
 
 class HomeFooterWidget extends StatelessWidget {
   final bool isLoading;
@@ -42,7 +42,7 @@ class HomeFooterWidget extends StatelessWidget {
       child: Column(
         spacing: 12,
         children: [
-          QuizLabAIButton(
+          QuizdyButton(
             title: AppLocalizations.of(context)!.studyModeLabel,
             icon: LucideIcons.bookOpen,
             onPressed: () => context.presentSnackBar(
@@ -50,7 +50,7 @@ class HomeFooterWidget extends StatelessWidget {
             ),
             expanded: true,
           ),
-          QuizLabAIButton(
+          QuizdyButton(
             title: AppLocalizations.of(context)!.generateQuestionsWithAI,
             icon: LucideIcons.sparkles,
             backgroundColor: AppTheme.secondaryColor,
@@ -63,8 +63,8 @@ class HomeFooterWidget extends StatelessWidget {
               spacing: 12,
               children: [
                 Flexible(
-                  child: QuizLabAIButton(
-                    type: QuizlabAIButtonType.secondary,
+                  child: QuizdyButton(
+                    type: QuizdyButtonType.secondary,
                     title: AppLocalizations.of(context)!.create,
                     icon: LucideIcons.plus,
                     expanded: true,
@@ -72,8 +72,8 @@ class HomeFooterWidget extends StatelessWidget {
                   ),
                 ),
                 Flexible(
-                  child: QuizLabAIButton(
-                    type: QuizlabAIButtonType.secondary,
+                  child: QuizdyButton(
+                    type: QuizdyButtonType.secondary,
                     title: AppLocalizations.of(context)!.load,
                     icon: LucideIcons.folderOpen,
                     expanded: true,

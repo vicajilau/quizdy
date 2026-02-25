@@ -2,7 +2,7 @@
 
 ## Overview
 
-QuizLab AI supports LaTeX rendering in quiz questions and answer options. This enables educators to include mathematical equations, formulas, and scientific notation in their quizzes.
+Quizdy supports LaTeX rendering in quiz questions and answer options. This enables educators to include mathematical equations, formulas, and scientific notation in their quizzes.
 
 ## Features
 
@@ -56,7 +56,7 @@ The question text can contain LaTeX, but essay answers are plain text.
 
 ### Inline Mode Only
 
-QuizLab AI supports **inline math mode only** using `$...$` delimiters:
+Quizdy supports **inline math mode only** using `$...$` delimiters:
 ```
 The quadratic formula is $x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}$.
 ```

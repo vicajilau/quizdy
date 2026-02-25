@@ -14,11 +14,11 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:flutter/material.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/presentation/widgets/latex_text.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/presentation/widgets/latex_text.dart';
 
-import 'package:quizlab_ai/core/theme/app_theme.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
+import 'package:quizdy/core/theme/app_theme.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
 
 /// A dialog to preview how an option will appear with LaTeX rendering
 class LaTeXPreviewDialog extends StatelessWidget {
@@ -81,8 +81,8 @@ class LaTeXPreviewDialog extends StatelessWidget {
         ),
       ),
       actions: [
-        QuizLabAIButton(
-          type: QuizlabAIButtonType.tertiary,
+        QuizdyButton(
+          type: QuizdyButtonType.tertiary,
           title: AppLocalizations.of(context)!.close,
           onPressed: () => Navigator.pop(context),
         ),

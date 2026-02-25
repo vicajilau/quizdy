@@ -1702,7 +1702,7 @@
   "@onboardingGetStarted": {
     "description": "Loslegen-Schaltfläche auf der letzten Onboarding-Seite"
   },
-  "onboardingWelcomeTitle": "Willkommen bei QuizLab AI",
+  "onboardingWelcomeTitle": "Willkommen bei Quizdy",
   "@onboardingWelcomeTitle": {
     "description": "Titel für die erste Onboarding-Seite"
   },

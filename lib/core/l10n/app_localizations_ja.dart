@@ -1296,7 +1296,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get onboardingGetStarted => 'はじめる';
 
   @override
-  String get onboardingWelcomeTitle => 'QuizLab AI へようこそ';
+  String get onboardingWelcomeTitle => 'Quizdy へようこそ';
 
   @override
   String get onboardingWelcomeDescription =>

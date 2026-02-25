@@ -20,11 +20,11 @@ import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:platform_detail/platform_detail.dart';
-import 'package:quizlab_ai/data/services/file_service/i_file_service.dart';
-import 'package:quizlab_ai/domain/models/custom_exceptions/bad_quiz_file_exception.dart';
+import 'package:quizdy/data/services/file_service/i_file_service.dart';
+import 'package:quizdy/domain/models/custom_exceptions/bad_quiz_file_exception.dart';
 
-import 'package:quizlab_ai/domain/models/custom_exceptions/bad_quiz_file_error_type.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_file.dart';
+import 'package:quizdy/domain/models/custom_exceptions/bad_quiz_file_error_type.dart';
+import 'package:quizdy/domain/models/quiz/quiz_file.dart';
 
 /// The `QuizFileService` class provides functionalities for managing `.quiz` files.
 /// This includes reading a `.quiz` file, saving a `QuizFile` object to the file system,

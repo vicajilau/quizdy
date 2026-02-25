@@ -1847,7 +1847,7 @@
   "@onboardingGetStarted": {
     "description": "Get Started button on the last onboarding page"
   },
-  "onboardingWelcomeTitle": "Welcome to QuizLab AI",
+  "onboardingWelcomeTitle": "Welcome to Quizdy",
   "@onboardingWelcomeTitle": {
     "description": "Title for the first onboarding page"
   },

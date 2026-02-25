@@ -15,12 +15,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
-import 'package:quizlab_ai/presentation/screens/dialogs/submit_quiz_dialog.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
+import 'package:quizdy/presentation/screens/dialogs/submit_quiz_dialog.dart';
 
 class QuizNavigationButtons extends StatelessWidget {
   final QuizExecutionInProgress state;
@@ -50,8 +50,8 @@ class QuizNavigationButtons extends StatelessWidget {
           // Previous Button
           if (!state.isFirstQuestion) ...[
             Expanded(
-              child: QuizLabAIButton(
-                type: QuizlabAIButtonType.secondary,
+              child: QuizdyButton(
+                type: QuizdyButtonType.secondary,
                 title: AppLocalizations.of(context)!.previous,
                 icon: Icons.chevron_left,
                 expanded: true,
@@ -69,7 +69,7 @@ class QuizNavigationButtons extends StatelessWidget {
 
           // Next / Check / Finish Button
           Expanded(
-            child: QuizLabAIButton(
+            child: QuizdyButton(
               title: isCheckPhase
                   ? (state.hasCurrentQuestionAnswered
                         ? AppLocalizations.of(context)!.checkAnswer

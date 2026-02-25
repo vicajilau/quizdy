@@ -13,13 +13,13 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import 'package:quizlab_ai/core/debug_print.dart';
-import 'package:quizlab_ai/core/service_locator.dart';
-import 'package:quizlab_ai/data/services/file_service/i_file_service.dart';
+import 'package:quizdy/core/debug_print.dart';
+import 'package:quizdy/core/service_locator.dart';
+import 'package:quizdy/data/services/file_service/i_file_service.dart';
 
-import 'package:quizlab_ai/domain/models/quiz/question.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_file.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_metadata.dart';
+import 'package:quizdy/domain/models/quiz/question.dart';
+import 'package:quizdy/domain/models/quiz/quiz_file.dart';
+import 'package:quizdy/domain/models/quiz/quiz_metadata.dart';
 
 /// The `QuizFileRepository` class manages file-related operations such as loading, saving,
 /// and selecting quiz files. It delegates these tasks to an instance of `FileService`.

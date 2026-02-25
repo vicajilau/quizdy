@@ -18,16 +18,16 @@ import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
 
-import 'package:quizlab_ai/data/services/configuration_service.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_config.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_config_stored_settings.dart';
-import 'package:quizlab_ai/domain/models/quiz/question_order.dart';
-import 'package:quizlab_ai/presentation/screens/dialogs/count_selection/advanced_settings_section.dart';
-import 'package:quizlab_ai/presentation/screens/dialogs/count_selection/count_control_button.dart';
-import 'package:quizlab_ai/presentation/screens/dialogs/count_selection/quiz_mode_selection.dart';
+import 'package:quizdy/data/services/configuration_service.dart';
+import 'package:quizdy/domain/models/quiz/quiz_config.dart';
+import 'package:quizdy/domain/models/quiz/quiz_config_stored_settings.dart';
+import 'package:quizdy/domain/models/quiz/question_order.dart';
+import 'package:quizdy/presentation/screens/dialogs/count_selection/advanced_settings_section.dart';
+import 'package:quizdy/presentation/screens/dialogs/count_selection/count_control_button.dart';
+import 'package:quizdy/presentation/screens/dialogs/count_selection/quiz_mode_selection.dart';
 
 class QuestionCountSelectionDialog extends StatefulWidget {
   final int totalQuestions;
@@ -762,8 +762,8 @@ class _QuestionCountSelectionDialogState
 
             // Start with selected questions button
             if (widget.selectedQuestionCount > 0) ...[
-              QuizLabAIButton(
-                type: QuizlabAIButtonType.secondary,
+              QuizdyButton(
+                type: QuizdyButtonType.secondary,
                 title: l10n.startWithSelectedQuestions(
                   widget.selectedQuestionCount,
                 ),
@@ -779,7 +779,7 @@ class _QuestionCountSelectionDialogState
             ],
 
             // Start Button
-            QuizLabAIButton(
+            QuizdyButton(
               title: AppLocalizations.of(context)!.startQuiz,
               icon: LucideIcons.play,
               expanded: true,

@@ -17,9 +17,9 @@ import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:quizlab_ai/core/theme/app_theme.dart';
-import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
+import 'package:quizdy/core/theme/app_theme.dart';
+import 'package:quizdy/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
 
 /// A custom confirmation dialog that matches the app's design language.
 ///
@@ -150,10 +150,10 @@ class CustomConfirmDialog extends StatelessWidget {
             const SizedBox(height: 32),
 
             // Actions
-            QuizLabAIButton(
+            QuizdyButton(
               type: isDestructive
-                  ? QuizlabAIButtonType.warning
-                  : QuizlabAIButtonType.primary,
+                  ? QuizdyButtonType.warning
+                  : QuizdyButtonType.primary,
               title: confirmText,
               expanded: true,
               onPressed: () {

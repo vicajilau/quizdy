@@ -1,8 +1,8 @@
-# QuizLab AI - Application Structure
+# Quizdy - Application Structure
 
 ## Overview
 
-This document provides a comprehensive overview of the QuizLab AI's architecture, data models, and project structure. The app follows Clean Architecture principles with clear separation of concerns across multiple layers.
+This document provides a comprehensive overview of the Quizdy's architecture, data models, and project structure. The app follows Clean Architecture principles with clear separation of concerns across multiple layers.
 
 ## App Architecture
 
@@ -256,7 +256,7 @@ quiz_app/
 │   │   └── deploy-web.yml           # Web deployment
 │   └── assets/                      # Demo images and branding
 │       ├── demo.png                # App screenshots
-│       └── QuizLab_AI.png                # App icon
+│       └── Quizdy.png                # App icon
 │
 ├── lib/                             # Main application code
 │   ├── main.dart                    # Application entry point

@@ -14,8 +14,8 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:flutter/foundation.dart';
-import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
-import 'package:quizlab_ai/core/constants/question_constants.dart';
+import 'package:quizdy/domain/models/quiz/question_type.dart';
+import 'package:quizdy/core/constants/question_constants.dart';
 
 /// Represents a question in a quiz.
 class Question {

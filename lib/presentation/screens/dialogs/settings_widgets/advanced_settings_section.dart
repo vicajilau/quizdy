@@ -16,11 +16,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/core/l10n/extensions/app_localizations_extension.dart';
-import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
-import 'package:quizlab_ai/presentation/blocs/locale_cubit/locale_cubit.dart';
-import 'package:quizlab_ai/presentation/blocs/locale_cubit/locale_state.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/core/l10n/extensions/app_localizations_extension.dart';
+import 'package:quizdy/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizdy/presentation/blocs/locale_cubit/locale_cubit.dart';
+import 'package:quizdy/presentation/blocs/locale_cubit/locale_state.dart';
 
 class AdvancedSettingsSection extends StatelessWidget {
   const AdvancedSettingsSection({super.key});

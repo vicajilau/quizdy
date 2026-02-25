@@ -14,9 +14,9 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:flutter/material.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_file.dart';
+import 'package:quizdy/domain/models/quiz/quiz_file.dart';
 
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
 
 /// Abstract class representing the base state for file operations.
 abstract class FileState {}

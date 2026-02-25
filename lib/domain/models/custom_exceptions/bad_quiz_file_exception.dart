@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import 'package:quizlab_ai/domain/models/custom_exceptions/bad_quiz_file_error_type.dart';
+import 'package:quizdy/domain/models/custom_exceptions/bad_quiz_file_error_type.dart';
 
 /// Exception thrown when there are issues with a Quiz file.
 class BadQuizFileException implements Exception {

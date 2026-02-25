@@ -16,17 +16,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
 
 class QuizTryAgainButton extends StatelessWidget {
   const QuizTryAgainButton({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return QuizLabAIButton(
+    return QuizdyButton(
       title: AppLocalizations.of(context)!.tryAgain,
       icon: Icons.refresh,
       expanded: true,
@@ -50,8 +50,8 @@ class QuizRetryFailedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return QuizLabAIButton(
-      type: QuizlabAIButtonType.secondary,
+    return QuizdyButton(
+      type: QuizdyButtonType.secondary,
       title: AppLocalizations.of(context)!.retryFailedQuestions,
       icon: Icons.quiz_outlined,
       expanded: true,
@@ -67,8 +67,8 @@ class QuizHomeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return QuizLabAIButton(
-      type: QuizlabAIButtonType.secondary,
+    return QuizdyButton(
+      type: QuizdyButtonType.secondary,
       title: AppLocalizations.of(context)!.home,
       icon: Icons.home_outlined,
       expanded: true,

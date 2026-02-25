@@ -15,16 +15,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quizlab_ai/data/services/configuration_service.dart';
-import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/presentation/screens/quiz_execution/widgets/ai_studio_chat_button.dart';
-import 'package:quizlab_ai/presentation/screens/quiz_execution/widgets/essay_answer_input.dart';
-import 'package:quizlab_ai/presentation/screens/quiz_execution/widgets/question_option_tile.dart';
-import 'package:quizlab_ai/presentation/screens/quiz_execution/widgets/quiz_question_explanation.dart';
+import 'package:quizdy/data/services/configuration_service.dart';
+import 'package:quizdy/domain/models/quiz/question_type.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/presentation/screens/quiz_execution/widgets/ai_studio_chat_button.dart';
+import 'package:quizdy/presentation/screens/quiz_execution/widgets/essay_answer_input.dart';
+import 'package:quizdy/presentation/screens/quiz_execution/widgets/question_option_tile.dart';
+import 'package:quizdy/presentation/screens/quiz_execution/widgets/quiz_question_explanation.dart';
 
 /// A widget that displays the list of answer options for a quiz question.
 ///

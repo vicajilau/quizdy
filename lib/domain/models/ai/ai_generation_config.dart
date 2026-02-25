@@ -13,10 +13,10 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import 'package:quizlab_ai/data/services/ai/ai_service.dart';
-import 'package:quizlab_ai/domain/models/ai/ai_file_attachment.dart';
-import 'package:quizlab_ai/domain/models/ai/ai_generation_category.dart';
-import 'package:quizlab_ai/domain/models/ai/ai_question_type.dart';
+import 'package:quizdy/data/services/ai/ai_service.dart';
+import 'package:quizdy/domain/models/ai/ai_file_attachment.dart';
+import 'package:quizdy/domain/models/ai/ai_generation_category.dart';
+import 'package:quizdy/domain/models/ai/ai_question_type.dart';
 
 /// Configuration settings for AI-powered quiz question generation.
 class AiQuestionGenerationConfig {

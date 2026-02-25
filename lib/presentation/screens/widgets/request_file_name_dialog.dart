@@ -17,9 +17,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/core/theme/app_theme.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/core/theme/app_theme.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
 
 /// A dialog widget for requesting a file name from the user.
 /// Styled according to design node 75JA2.
@@ -197,7 +197,7 @@ class _RequestFileNameDialogState extends State<RequestFileNameDialog> {
             const SizedBox(height: 32),
 
             // Submit Button
-            QuizLabAIButton(
+            QuizdyButton(
               title: AppLocalizations.of(context)!.acceptButton,
               expanded: true,
               onPressed: _submit,

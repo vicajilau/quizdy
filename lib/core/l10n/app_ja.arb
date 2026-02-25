@@ -1609,7 +1609,7 @@
   "@onboardingGetStarted": {
     "description": "オンボーディングの最後のページにある開始ボタン"
   },
-  "onboardingWelcomeTitle": "QuizLab AI へようこそ",
+  "onboardingWelcomeTitle": "Quizdy へようこそ",
   "@onboardingWelcomeTitle": {
     "description": "オンボーディングの最初のページのタイトル"
   },

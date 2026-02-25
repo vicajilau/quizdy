@@ -13,8 +13,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import 'package:quizlab_ai/data/repositories/quiz_file_repository.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_file.dart';
+import 'package:quizdy/data/repositories/quiz_file_repository.dart';
+import 'package:quizdy/domain/models/quiz/quiz_file.dart';
 
 /// Use case for checking if a QuizFile has changed.
 class CheckFileChangesUseCase {

@@ -16,16 +16,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quizlab_ai/domain/models/quiz/question.dart';
-import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
-import 'package:quizlab_ai/presentation/screens/quiz_execution/quiz_question_options.dart';
-import 'package:quizlab_ai/presentation/screens/quiz_execution/widgets/question_option_tile.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizdy/domain/models/quiz/question.dart';
+import 'package:quizdy/domain/models/quiz/question_type.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
+import 'package:quizdy/presentation/screens/quiz_execution/quiz_question_options.dart';
+import 'package:quizdy/presentation/screens/quiz_execution/widgets/question_option_tile.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_config.dart';
+import 'package:quizdy/domain/models/quiz/quiz_config.dart';
 
 class FakeQuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState>
     implements QuizExecutionBloc {

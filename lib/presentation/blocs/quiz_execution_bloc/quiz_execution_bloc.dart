@@ -15,18 +15,18 @@
 
 import 'dart:convert';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quizlab_ai/domain/models/quiz/question.dart';
-import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_scoring_helper.dart';
-import 'package:quizlab_ai/domain/models/quiz/essay_ai_evaluation.dart';
-import 'package:quizlab_ai/data/services/ai/ai_service_selector.dart';
-import 'package:quizlab_ai/data/services/ai/ai_question_generation_service.dart';
-import 'package:quizlab_ai/data/services/configuration_service.dart';
-import 'package:quizlab_ai/data/services/ai/ai_service.dart';
-import 'package:quizlab_ai/core/extensions/string_extensions.dart';
+import 'package:quizdy/domain/models/quiz/question.dart';
+import 'package:quizdy/domain/models/quiz/question_type.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_scoring_helper.dart';
+import 'package:quizdy/domain/models/quiz/essay_ai_evaluation.dart';
+import 'package:quizdy/data/services/ai/ai_service_selector.dart';
+import 'package:quizdy/data/services/ai/ai_question_generation_service.dart';
+import 'package:quizdy/data/services/configuration_service.dart';
+import 'package:quizdy/data/services/ai/ai_service.dart';
+import 'package:quizdy/core/extensions/string_extensions.dart';
 
 /// BLoC for managing quiz execution state and logic.
 class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {

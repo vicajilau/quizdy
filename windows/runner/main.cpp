@@ -35,7 +35,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
   FlutterWindow window(project);
   Win32Window::Point origin(10, 10);
   Win32Window::Size size(1024, 800);
-  if (!window.Create(L"QuizLab AI", origin, size)) {
+  if (!window.Create(L"Quizdy", origin, size)) {
     return EXIT_FAILURE;
   }
   window.SetQuitOnClose(true);

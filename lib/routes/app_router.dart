@@ -14,18 +14,18 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:go_router/go_router.dart';
-import 'package:quizlab_ai/core/debug_print.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_file.dart';
-import 'package:quizlab_ai/presentation/screens/file_loaded_screen.dart';
-import 'package:quizlab_ai/presentation/screens/quiz_file_execution_screen.dart';
+import 'package:quizdy/core/debug_print.dart';
+import 'package:quizdy/domain/models/quiz/quiz_file.dart';
+import 'package:quizdy/presentation/screens/file_loaded_screen.dart';
+import 'package:quizdy/presentation/screens/quiz_file_execution_screen.dart';
 
-import 'package:quizlab_ai/core/service_locator.dart';
+import 'package:quizdy/core/service_locator.dart';
 
-import 'package:quizlab_ai/domain/use_cases/check_file_changes_use_case.dart';
-import 'package:quizlab_ai/presentation/blocs/file_bloc/file_bloc.dart';
-import 'package:quizlab_ai/presentation/screens/home_screen.dart';
-import 'package:quizlab_ai/presentation/screens/onboarding/onboarding_screen.dart';
-import 'package:quizlab_ai/data/services/configuration_service.dart';
+import 'package:quizdy/domain/use_cases/check_file_changes_use_case.dart';
+import 'package:quizdy/presentation/blocs/file_bloc/file_bloc.dart';
+import 'package:quizdy/presentation/screens/home_screen.dart';
+import 'package:quizdy/presentation/screens/onboarding/onboarding_screen.dart';
+import 'package:quizdy/data/services/configuration_service.dart';
 
 class AppRoutes {
   static const String home = '/';

@@ -1666,7 +1666,7 @@
   "@onboardingGetStarted": {
     "description": "زر ابدأ الآن في الصفحة الأخيرة من العرض الترحيبي"
   },
-  "onboardingWelcomeTitle": "مرحباً بك في QuizLab AI",
+  "onboardingWelcomeTitle": "مرحباً بك في Quizdy",
   "@onboardingWelcomeTitle": {
     "description": "عنوان الصفحة الأولى من العرض الترحيبي"
   },

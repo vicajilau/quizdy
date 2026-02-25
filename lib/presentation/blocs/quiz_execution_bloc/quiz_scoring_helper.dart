@@ -13,10 +13,10 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import 'package:quizlab_ai/domain/models/quiz/essay_ai_evaluation.dart';
-import 'package:quizlab_ai/domain/models/quiz/question.dart';
-import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_config.dart';
+import 'package:quizdy/domain/models/quiz/essay_ai_evaluation.dart';
+import 'package:quizdy/domain/models/quiz/question.dart';
+import 'package:quizdy/domain/models/quiz/question_type.dart';
+import 'package:quizdy/domain/models/quiz/quiz_config.dart';
 
 /// Helper class for quiz scoring calculations.
 class QuizScoringHelper {

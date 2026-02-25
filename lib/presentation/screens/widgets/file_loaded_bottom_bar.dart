@@ -15,10 +15,10 @@
 
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:quizlab_ai/core/theme/app_theme.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
+import 'package:quizdy/core/theme/app_theme.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
 
 class FileLoadedBottomBar extends StatefulWidget {
   final VoidCallback onAddQuestion;
@@ -162,8 +162,8 @@ class _FileLoadedBottomBarState extends State<FileLoadedBottomBar> {
                                 padding: const EdgeInsetsGeometry.only(
                                   right: 12,
                                 ),
-                                child: QuizLabAIButton(
-                                  type: QuizlabAIButtonType.warning,
+                                child: QuizdyButton(
+                                  type: QuizdyButtonType.warning,
                                   icon: LucideIcons.trash2,
                                   title:
                                       '${AppLocalizations.of(context)!.deleteButton} (${widget.selectedQuestionCount})',
@@ -176,8 +176,8 @@ class _FileLoadedBottomBarState extends State<FileLoadedBottomBar> {
                                 padding: const EdgeInsetsGeometry.only(
                                   right: 12,
                                 ),
-                                child: QuizLabAIButton(
-                                  type: QuizlabAIButtonType.secondary,
+                                child: QuizdyButton(
+                                  type: QuizdyButtonType.secondary,
                                   icon: LucideIcons.save,
                                   title: AppLocalizations.of(
                                     context,
@@ -188,8 +188,8 @@ class _FileLoadedBottomBarState extends State<FileLoadedBottomBar> {
                             // Add Question Action Button
                             Padding(
                               padding: const EdgeInsetsGeometry.only(right: 12),
-                              child: QuizLabAIButton(
-                                type: QuizlabAIButtonType.secondary,
+                              child: QuizdyButton(
+                                type: QuizdyButtonType.secondary,
                                 icon: LucideIcons.plus,
                                 title: AppLocalizations.of(
                                   context,
@@ -200,7 +200,7 @@ class _FileLoadedBottomBarState extends State<FileLoadedBottomBar> {
                             // Generate Questions Action Button
                             Padding(
                               padding: const EdgeInsetsGeometry.only(right: 12),
-                              child: QuizLabAIButton(
+                              child: QuizdyButton(
                                 backgroundColor: AppTheme.secondaryColor,
                                 icon: LucideIcons.sparkles,
                                 title: widget.hasQuestions
@@ -214,8 +214,8 @@ class _FileLoadedBottomBarState extends State<FileLoadedBottomBar> {
                               ),
                             ),
                             // Upload Action Button
-                            QuizLabAIButton(
-                              type: QuizlabAIButtonType.secondary,
+                            QuizdyButton(
+                              type: QuizdyButtonType.secondary,
                               icon: LucideIcons.upload,
                               title: AppLocalizations.of(context)!.importButton,
                               onPressed: widget.onImport,
@@ -277,7 +277,7 @@ class _FileLoadedBottomBarState extends State<FileLoadedBottomBar> {
               const SizedBox(height: 12),
 
               // Start Quiz Button
-              QuizLabAIButton(
+              QuizdyButton(
                 title: AppLocalizations.of(context)!.startQuizButton,
                 icon: LucideIcons.play,
                 expanded: true,
