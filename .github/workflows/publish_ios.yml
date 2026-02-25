@@ -12,73 +12,19 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v6
-
-      - uses: maxim-lobanov/setup-xcode@v1
+      - name: Build & Publish android
+        uses: Spaccesi/flutter-actions-suite@main
         with:
-          xcode-version: 'latest-stable'
+          run-test: 'false'
+          run-build-runner: 'false'
+          run-analyze: 'false'
+          run-license: 'false'
+          build-platform: 'ios'
+          publish-destination: 'store'
+          ios-distribution-certificate-base64: ${{ secrets.IOS_DIST_CERTIFICATE_BASE64 }}
+          ios-distribution-certificate-password: ${{ secrets.IOS_DIST_CERTIFICATE_PASSWORD }}
+          ios-provisioning-profile-base64: ${{ secrets.IOS_PROVISIONING_PROFILE_BASE64 }}
+          apple-api-key-id: ${{ secrets.APPLE_API_KEY_ID }}
+          apple-api-key-issuer: ${{ secrets.APPLE_API_KEY_ISSUER }}
+          apple-api-key-content: ${{ secrets.APPLE_API_KEY_CONTENT }}
       
-      - name: Install Apple Certificate
-        env:
-          BUILD_CERTIFICATE_BASE64: ${{ secrets.IOS_DIST_CERTIFICATE_BASE64 }}
-          P12_PASSWORD: ${{ secrets.IOS_DIST_CERTIFICATE_PASSWORD }}
-          KEYCHAIN_PASSWORD: "dist_password"
-        run: |
-          # create variables
-          CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
-          KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
-
-          # import certificate and provisioning profile from secrets
-          echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode -o $CERTIFICATE_PATH
-
-          # create temporary keychain
-          security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
-          security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
-          security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
-
-          # import certificate to keychain
-          security import $CERTIFICATE_PATH -P "$P12_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
-          security list-keychain -d user -s $KEYCHAIN_PATH
-
-      - name: Install Provisioning Profile
-        env:
-          PROVISIONING_PROFILE_BASE64: ${{ secrets.IOS_PROVISIONING_PROFILE_BASE64 }}
-        run: |
-          # create variables
-          PP_PATH=$RUNNER_TEMP/build_pp.mobileprovision
-
-          # import provisioning profile from secrets
-          echo -n "$PROVISIONING_PROFILE_BASE64" | base64 --decode -o $PP_PATH
-
-          # apply provisioning profile
-          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
-
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: 'stable'
-          
-      - name: Install dependencies
-        run: flutter pub get
-
-      - name: Build IPA
-        run: flutter build ipa --release --export-options-plist=ios/Runner/ExportOptions.plist
-
-      - name: Upload ipa to Artifacts
-        uses: actions/upload-artifact@v6
-        with:
-          name: ios-release-artifacts
-          if-no-files-found: error
-          path: build/ios/ipa/*.ipa
-
-      - name: Upload app to App Store Connect
-        env:
-          API_KEY_ID: ${{ secrets.APPLE_API_KEY_ID }}
-          API_ISSUER_ID: ${{ secrets.APPLE_API_KEY_ISSUER }}
-          API_KEY_CONTENT: ${{ secrets.APPLE_API_KEY_CONTENT }}
-        run: |
-          # Create private key file
-          mkdir -p ~/.appstoreconnect/private_keys
-          echo "$API_KEY_CONTENT" > ~/.appstoreconnect/private_keys/AuthKey_$API_KEY_ID.p8
-          
-          # Upload
-          xcrun altool --upload-app --type ios --file build/ios/ipa/*.ipa --apiKey "$API_KEY_ID" --apiIssuer "$API_ISSUER_ID"
