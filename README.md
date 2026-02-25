@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=".github/assets/QuizLab_AI.svg" alt="QuizLab AI logo" width="128" height="128">
+  <img src=".github/assets/QuizLab_AI.svg" alt="QuizLab AI logo" width="400" height="400">
 </p>
 
 <p align="center">
@@ -534,4 +534,4 @@ We welcome suggestions for:
 
 ## License
 
-This project is licensed under the GPL-3.0-or-later License - see the [LICENSE](LICENSE) file for details.
+- This project is licensed under the GPL-3.0-or-later License - see the [LICENSE](LICENSE) file for details.
