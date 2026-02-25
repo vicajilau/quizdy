@@ -15,30 +15,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-java@v4
-        with:
-          distribution: "zulu"
-          java-version: "12"
       - uses: subosito/flutter-action@v2
         with:
           channel: "stable"
-      - run: flutter pub get
-      - run: flutter analyze
-      - run: flutter test
-      - name: Generate localizations
-        run: flutter gen-l10n
-      - name: Check for untranslated messages
-        run: |
-          content=$(cat untranslated_messages.json)
-          if [ "$content" = "{}" ]; then
-            echo "✅ All translations are complete!"
-          else
-            echo "❌ Found untranslated messages:"
-            cat untranslated_messages.json
-            echo ""
-            echo "Please add the missing translations to the corresponding .arb files"
-            exit 1
-          fi
+
+      - name: Prepare
+        uses: Spaccesi/flutter-actions-suite/prepare@main
+        with:
+          run-build-runner: 'false' 
+          run-gen-l10n: 'true'
+          gen-l10n-fails-if-untranslated: 'true'
+
+      - name: Check
+        uses: Spaccesi/flutter-actions-suite/check@main
+        with:
+          run-license: 'true'
+          compatible-licenses-conf-path: '.github/licenses_checker.yaml'
+
       - name: Check license headers
         run: |
           MISSING_HEADERS=$(find lib test -name "*.dart" ! -name "*.g.dart" ! -name "*.freezed.dart" ! -name "*.mocks.dart" ! -name "app_localizations*.dart" -exec sh -c '! grep -q "^// Copyright (C) 2026 Víctor Carreras" "$1" && echo "$1"' _ {} \;)

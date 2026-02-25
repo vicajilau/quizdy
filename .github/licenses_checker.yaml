@@ -1,0 +1,18 @@
+permittedLicenses:
+  - MIT
+  - BSD-3-Clause
+  - MIT-Modern-Variant
+  - Zlib
+  - Apache-2.0
+  - BSD-2-Clause
+  - ISC
+  - MPL-2.0 
+
+approvedPackages:
+  no-file:
+    - flutter_localizations
+    - flutter_test
+    - flutter_web_plugins
+
+rejectedLicenses:
+  - GPL
