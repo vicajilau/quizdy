@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=".github/assets/quiz.png" alt="QuizLab AI logo" width="128" height="128">
+  <img src=".github/assets/QuizLab_AI.svg" alt="QuizLab AI logo" width="128" height="128">
 </p>
 
 <p align="center">

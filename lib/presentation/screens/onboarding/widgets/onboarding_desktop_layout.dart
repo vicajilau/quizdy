@@ -21,6 +21,7 @@ import 'package:quizlab_ai/presentation/blocs/onboarding_cubit/onboarding_state.
 import 'package:quizlab_ai/presentation/screens/onboarding/widgets/onboarding_nav_buttons.dart';
 import 'package:quizlab_ai/presentation/screens/onboarding/widgets/onboarding_page_data.dart';
 import 'package:quizlab_ai/presentation/screens/onboarding/widgets/onboarding_page_indicator.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class OnboardingMobileLayout extends StatelessWidget {
   final OnboardingState state;
@@ -119,7 +120,7 @@ class OnboardingMobilePageContent extends StatelessWidget {
 
           // Icon or Image
           if (page.imagePath != null)
-            Image.asset(page.imagePath!, width: 250, height: 250)
+            SvgPicture.asset(page.imagePath!, width: 250, height: 250)
           else
             Container(
               width: 120,

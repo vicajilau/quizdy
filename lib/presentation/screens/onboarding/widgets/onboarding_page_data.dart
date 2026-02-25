@@ -39,7 +39,7 @@ List<OnboardingPageData> buildOnboardingPages(BuildContext context) {
   final localizations = AppLocalizations.of(context)!;
   return [
     OnboardingPageData(
-      imagePath: 'images/QUIZ.png',
+      imagePath: 'images/QuizLab_AI.svg',
       title: localizations.onboardingWelcomeTitle,
       description: localizations.onboardingWelcomeDescription,
       subtitle: localizations.onboardingWelcomeSubtitle,

@@ -21,6 +21,7 @@ import 'package:quizlab_ai/presentation/blocs/onboarding_cubit/onboarding_state.
 import 'package:quizlab_ai/presentation/screens/onboarding/widgets/onboarding_nav_buttons.dart';
 import 'package:quizlab_ai/presentation/screens/onboarding/widgets/onboarding_page_data.dart';
 import 'package:quizlab_ai/presentation/screens/onboarding/widgets/onboarding_page_indicator.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class OnboardingDesktopLayout extends StatelessWidget {
   final OnboardingState state;
@@ -124,7 +125,7 @@ class OnboardingDesktopPageContent extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               if (page.imagePath != null)
-                Image.asset(page.imagePath!, width: 400, height: 400)
+                SvgPicture.asset(page.imagePath!, width: 400, height: 400)
               else
                 Container(
                   width: 160,

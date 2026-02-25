@@ -17,6 +17,7 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:quizlab_ai/core/l10n/app_localizations.dart';
 import 'package:quizlab_ai/core/theme/extensions/home_theme.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeDropZoneWidget extends StatelessWidget {
   final bool isDragging;
@@ -67,8 +68,8 @@ class HomeDropZoneWidget extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      'images/QUIZ.png',
+                    SvgPicture.asset(
+                      'images/QuizLab_AI.svg',
                       height: 180,
                       fit: BoxFit.contain,
                     ),
