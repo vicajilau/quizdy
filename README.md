@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=".github/assets/Quizdy.svg" alt="Quizdy logo" width="400" height="400">
+  <img src=".github/assets/Quizdy.svg" alt="Quizdy logo" width="400" >
 </p>
 
 <p align="center">
