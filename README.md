@@ -1,22 +1,22 @@
 <p align="center">
-  <img src=".github/assets/QuizLab_AI.svg" alt="QuizLab AI logo" width="400" height="400">
+  <img src=".github/assets/Quizdy.svg" alt="Quizdy logo" width="400" height="400">
 </p>
 
 <p align="center">
-  <img src="https://github.com/vicajilau/quizlab_ai/actions/workflows/flutter_workflow.yml/badge.svg" alt="CI Status">
-  <img src="https://github.com/vicajilau/quizlab_ai/actions/workflows/deploy_web.yml/badge.svg" alt="Web CD Status">
-  <img src="https://github.com/vicajilau/quizlab_ai/actions/workflows/publish_android.yml/badge.svg" alt="Android CD Status">
-  <img src="https://github.com/vicajilau/quizlab_ai/actions/workflows/publish_ios.yml/badge.svg" alt="iOS CD Status">
-  <img src="https://github.com/vicajilau/quizlab_ai/actions/workflows/publish_macos.yml/badge.svg" alt="MacOS CD Status">
-  <img src="https://github.com/vicajilau/quizlab_ai/actions/workflows/publish_microsoft_store.yml/badge.svg" alt="Windows Store CD Status">
+  <img src="https://github.com/vicajilau/quizdy/actions/workflows/flutter_workflow.yml/badge.svg" alt="CI Status">
+  <img src="https://github.com/vicajilau/quizdy/actions/workflows/deploy_web.yml/badge.svg" alt="Web CD Status">
+  <img src="https://github.com/vicajilau/quizdy/actions/workflows/publish_android.yml/badge.svg" alt="Android CD Status">
+  <img src="https://github.com/vicajilau/quizdy/actions/workflows/publish_ios.yml/badge.svg" alt="iOS CD Status">
+  <img src="https://github.com/vicajilau/quizdy/actions/workflows/publish_macos.yml/badge.svg" alt="MacOS CD Status">
+  <img src="https://github.com/vicajilau/quizdy/actions/workflows/publish_microsoft_store.yml/badge.svg" alt="Windows Store CD Status">
   <img src="https://snapcraft.io/quiz-app/badge.svg" alt="Linux Snapcraft Status">
 </p>
 
 **🌟 Official Versions**
 
-Access QuizLab AI on your favorite platform:
+Access Quizdy on your favorite platform:
 
-- 🌐 **Web**: [vicajilau.github.io/quizlab_ai](https://vicajilau.github.io/quizlab_ai/)
+- 🌐 **Web**: [vicajilau.github.io/quizdy](https://vicajilau.github.io/quizdy/)
   Enjoy the full experience from any browser.
 
 - 📱 **Android**: [Google Play Store](https://play.google.com/store/apps/details?id=es.victorcarreras.quiz_app)
@@ -37,7 +37,7 @@ Access QuizLab AI on your favorite platform:
 Interactive quiz experience with AI-powered question generation, customizable questions, real-time scoring, and beautiful animations
 
 
-![QuizLab AI Demo](.github/assets/demo.png)
+![Quizdy Demo](.github/assets/demo.png)
 
 _The app provides an intuitive interface for taking quizzes with smooth animations, real-time feedback, and comprehensive score tracking, as shown above._
 
@@ -74,7 +74,7 @@ _The app provides an intuitive interface for taking quizzes with smooth animatio
 
 ## App Structure
 
-QuizLab AI follows Clean Architecture principles with clear separation of concerns across multiple layers. The app is designed for maintainability, testability, and extensibility.
+Quizdy follows Clean Architecture principles with clear separation of concerns across multiple layers. The app is designed for maintainability, testability, and extensibility.
 
 ### Architecture Overview
 
@@ -228,8 +228,8 @@ For detailed information about AI service limits and configuration, see: **[AI L
 1. **Clone this repository**
 
    ```bash
-   git clone https://github.com/vicajilau/quizlab_ai.git
-   cd quizlab_ai
+   git clone https://github.com/vicajilau/quizdy.git
+   cd quizdy
    ```
 
 2. **Install dependencies**

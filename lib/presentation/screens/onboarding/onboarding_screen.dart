@@ -16,12 +16,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:quizlab_ai/presentation/blocs/onboarding_cubit/onboarding_cubit.dart';
-import 'package:quizlab_ai/presentation/blocs/onboarding_cubit/onboarding_state.dart';
-import 'package:quizlab_ai/presentation/screens/onboarding/widgets/onboarding_desktop_layout.dart';
-import 'package:quizlab_ai/presentation/screens/onboarding/widgets/onboarding_mobile_layout.dart';
-import 'package:quizlab_ai/presentation/screens/onboarding/widgets/onboarding_widgets.dart';
-import 'package:quizlab_ai/routes/app_router.dart';
+import 'package:quizdy/presentation/blocs/onboarding_cubit/onboarding_cubit.dart';
+import 'package:quizdy/presentation/blocs/onboarding_cubit/onboarding_state.dart';
+import 'package:quizdy/presentation/screens/onboarding/widgets/onboarding_desktop_layout.dart';
+import 'package:quizdy/presentation/screens/onboarding/widgets/onboarding_mobile_layout.dart';
+import 'package:quizdy/presentation/screens/onboarding/widgets/onboarding_widgets.dart';
+import 'package:quizdy/routes/app_router.dart';
 
 class OnboardingScreen extends StatefulWidget {
   final bool fromSettings;

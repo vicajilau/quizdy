@@ -14,8 +14,8 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quizlab_ai/data/services/configuration_service.dart';
-import 'package:quizlab_ai/presentation/blocs/onboarding_cubit/onboarding_state.dart';
+import 'package:quizdy/data/services/configuration_service.dart';
+import 'package:quizdy/presentation/blocs/onboarding_cubit/onboarding_state.dart';
 
 class OnboardingCubit extends Cubit<OnboardingState> {
   OnboardingCubit() : super(const OnboardingState());

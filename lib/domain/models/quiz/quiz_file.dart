@@ -14,10 +14,10 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:flutter/foundation.dart';
-import 'package:quizlab_ai/domain/models/custom_exceptions/bad_quiz_file_exception.dart';
-import 'package:quizlab_ai/domain/models/custom_exceptions/bad_quiz_file_error_type.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_metadata.dart';
-import 'package:quizlab_ai/domain/models/quiz/question.dart';
+import 'package:quizdy/domain/models/custom_exceptions/bad_quiz_file_exception.dart';
+import 'package:quizdy/domain/models/custom_exceptions/bad_quiz_file_error_type.dart';
+import 'package:quizdy/domain/models/quiz/quiz_metadata.dart';
+import 'package:quizdy/domain/models/quiz/question.dart';
 
 /// The `QuizFile` class represents a Quiz file, which consists of metadata
 /// and a list of questions. This class provides methods for deserialization,

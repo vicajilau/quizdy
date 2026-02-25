@@ -14,8 +14,8 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'dart:math';
-import 'package:quizlab_ai/domain/models/quiz/question.dart';
-import 'package:quizlab_ai/domain/models/quiz/question_order.dart';
+import 'package:quizdy/domain/models/quiz/question.dart';
+import 'package:quizdy/domain/models/quiz/question_order.dart';
 
 /// Service to handle quiz question selection and randomization
 class QuizService {

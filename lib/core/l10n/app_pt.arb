@@ -1697,7 +1697,7 @@
   "@onboardingGetStarted": {
     "description": "Botão começar na última página de boas-vindas"
   },
-  "onboardingWelcomeTitle": "Bem-vindo ao QuizLab AI",
+  "onboardingWelcomeTitle": "Bem-vindo ao Quizdy",
   "@onboardingWelcomeTitle": {
     "description": "Título da primeira página de boas-vindas"
   },

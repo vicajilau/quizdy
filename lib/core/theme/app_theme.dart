@@ -15,13 +15,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
-import 'package:quizlab_ai/core/theme/extensions/custom_colors.dart';
-import 'package:quizlab_ai/core/theme/extensions/exam_timer_theme.dart';
-import 'package:quizlab_ai/core/theme/extensions/home_theme.dart';
-import 'package:quizlab_ai/core/theme/extensions/file_loaded_theme.dart';
-import 'package:quizlab_ai/core/theme/extensions/question_dialog_theme.dart';
-import 'package:quizlab_ai/core/theme/extensions/ai_assistant_theme.dart';
+import 'package:quizdy/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizdy/core/theme/extensions/custom_colors.dart';
+import 'package:quizdy/core/theme/extensions/exam_timer_theme.dart';
+import 'package:quizdy/core/theme/extensions/home_theme.dart';
+import 'package:quizdy/core/theme/extensions/file_loaded_theme.dart';
+import 'package:quizdy/core/theme/extensions/question_dialog_theme.dart';
+import 'package:quizdy/core/theme/extensions/ai_assistant_theme.dart';
 
 class AppTheme {
   // Define main application colors

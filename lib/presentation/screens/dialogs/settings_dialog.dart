@@ -16,15 +16,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:quizlab_ai/core/extensions/string_extensions.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/data/services/configuration_service.dart';
-import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
-import 'package:quizlab_ai/presentation/screens/dialogs/settings_widgets/ai_settings_section.dart';
+import 'package:quizdy/core/extensions/string_extensions.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/data/services/configuration_service.dart';
+import 'package:quizdy/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
+import 'package:quizdy/presentation/screens/dialogs/settings_widgets/ai_settings_section.dart';
 import 'package:flutter/foundation.dart';
-import 'package:quizlab_ai/presentation/screens/dialogs/settings_widgets/advanced_settings_section.dart';
-import 'package:quizlab_ai/routes/app_router.dart';
+import 'package:quizdy/presentation/screens/dialogs/settings_widgets/advanced_settings_section.dart';
+import 'package:quizdy/routes/app_router.dart';
 
 class SettingsDialog extends StatefulWidget {
   const SettingsDialog({super.key});
@@ -308,7 +308,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(32, 0, 32, 32),
-              child: QuizLabAIButton(
+              child: QuizdyButton(
                 title: AppLocalizations.of(context)!.saveButton,
                 expanded: true,
                 isLoading: _isLoading,
@@ -380,11 +380,7 @@ class _OnboardingRow extends StatelessWidget {
                 ],
               ),
             ),
-            Icon(
-              LucideIcons.chevronRight,
-              size: 18,
-              color: colors.subtitle,
-            ),
+            Icon(LucideIcons.chevronRight, size: 18, color: colors.subtitle),
           ],
         ),
       ),

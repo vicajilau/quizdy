@@ -564,7 +564,7 @@
   "@onboardingGetStarted": {
     "description": "Κουμπί έναρξης στην τελευταία σελίδα καλωσορίσματος"
   },
-  "onboardingWelcomeTitle": "Καλώς ήρθατε στο QuizLab AI",
+  "onboardingWelcomeTitle": "Καλώς ήρθατε στο Quizdy",
   "@onboardingWelcomeTitle": {
     "description": "Τίτλος για την πρώτη σελίδα καλωσορίσματος"
   },

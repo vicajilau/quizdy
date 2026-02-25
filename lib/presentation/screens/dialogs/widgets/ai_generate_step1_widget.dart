@@ -16,14 +16,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/core/l10n/extensions/app_localizations_extension.dart';
-import 'package:quizlab_ai/data/services/ai/ai_service.dart';
-import 'package:quizlab_ai/domain/models/ai/ai_question_type.dart';
-import 'package:quizlab_ai/presentation/screens/dialogs/widgets/ai_question_type_chip.dart';
-import 'package:quizlab_ai/core/theme/app_theme.dart';
-import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/core/l10n/extensions/app_localizations_extension.dart';
+import 'package:quizdy/data/services/ai/ai_service.dart';
+import 'package:quizdy/domain/models/ai/ai_question_type.dart';
+import 'package:quizdy/presentation/screens/dialogs/widgets/ai_question_type_chip.dart';
+import 'package:quizdy/core/theme/app_theme.dart';
+import 'package:quizdy/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
 
 class AiGenerateStep1Widget extends StatelessWidget {
   final bool isLoadingServices;
@@ -423,7 +423,7 @@ class AiGenerateStep1Widget extends StatelessWidget {
             const SizedBox(height: 24),
 
             // Footer (Fixed Next Button)
-            QuizLabAIButton(
+            QuizdyButton(
               title: AppLocalizations.of(context)!.next,
               icon: LucideIcons.arrowRight,
               expanded: true,

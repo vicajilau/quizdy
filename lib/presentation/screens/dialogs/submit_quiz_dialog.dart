@@ -15,13 +15,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
-import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
-import 'package:quizlab_ai/presentation/screens/quiz_execution/questions_overview_bottom_sheet.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
+import 'package:quizdy/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
+import 'package:quizdy/presentation/screens/quiz_execution/questions_overview_bottom_sheet.dart';
 
 class SubmitQuizDialog {
   static void show(
@@ -138,8 +138,8 @@ class SubmitQuizDialog {
                             }
 
                             if (firstUnansweredIndex != null) {
-                              return QuizLabAIButton(
-                                type: QuizlabAIButtonType.secondary,
+                              return QuizdyButton(
+                                type: QuizdyButtonType.secondary,
                                 title: AppLocalizations.of(
                                   context,
                                 )!.resolveUnansweredQuestions,
@@ -161,7 +161,7 @@ class SubmitQuizDialog {
                       }
 
                       Widget buildFinishButton() {
-                        return QuizLabAIButton(
+                        return QuizdyButton(
                           title: AppLocalizations.of(context)!.finish,
                           icon: Icons.check_circle_outline,
                           expanded: true,

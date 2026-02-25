@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import 'package:quizlab_ai/domain/models/quiz/quiz_file.dart';
+import 'package:quizdy/domain/models/quiz/quiz_file.dart';
 
 /// Interface for file handling services, defining methods for reading,
 /// saving, and exporting `.quiz` files across different platforms.

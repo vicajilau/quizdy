@@ -14,19 +14,19 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:flutter/material.dart';
-import 'package:quizlab_ai/core/extensions/string_extensions.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/core/theme/app_theme.dart';
-import 'package:quizlab_ai/core/theme/extensions/ai_assistant_theme.dart';
-import 'package:quizlab_ai/core/extensions/focus_node_extension.dart';
-import 'package:quizlab_ai/data/services/ai/ai_question_generation_service.dart';
-import 'package:quizlab_ai/data/services/ai/ai_service.dart';
-import 'package:quizlab_ai/data/services/configuration_service.dart';
-import 'package:quizlab_ai/domain/models/ai/chat_message.dart';
-import 'package:quizlab_ai/domain/models/quiz/question.dart';
-import 'package:quizlab_ai/presentation/screens/dialogs/widgets/ai_chat_bubble.dart';
-import 'package:quizlab_ai/presentation/screens/dialogs/widgets/question_context_widget.dart';
-import 'package:quizlab_ai/presentation/widgets/ai_service_model_selector.dart';
+import 'package:quizdy/core/extensions/string_extensions.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/core/theme/app_theme.dart';
+import 'package:quizdy/core/theme/extensions/ai_assistant_theme.dart';
+import 'package:quizdy/core/extensions/focus_node_extension.dart';
+import 'package:quizdy/data/services/ai/ai_question_generation_service.dart';
+import 'package:quizdy/data/services/ai/ai_service.dart';
+import 'package:quizdy/data/services/configuration_service.dart';
+import 'package:quizdy/domain/models/ai/chat_message.dart';
+import 'package:quizdy/domain/models/quiz/question.dart';
+import 'package:quizdy/presentation/screens/dialogs/widgets/ai_chat_bubble.dart';
+import 'package:quizdy/presentation/screens/dialogs/widgets/question_context_widget.dart';
+import 'package:quizdy/presentation/widgets/ai_service_model_selector.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 class AiStudioChatSidePanel extends StatefulWidget {

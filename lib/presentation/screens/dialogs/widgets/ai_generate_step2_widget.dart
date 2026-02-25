@@ -19,16 +19,16 @@ import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:mime/mime.dart';
-import 'package:quizlab_ai/data/services/ai/ai_service.dart';
-import 'package:quizlab_ai/domain/models/ai/ai_file_attachment.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/core/theme/app_theme.dart';
-import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
-import 'package:quizlab_ai/domain/models/ai/ai_generation_config.dart';
-import 'package:quizlab_ai/domain/models/ai/ai_question_type.dart';
-import 'package:quizlab_ai/domain/models/ai/ai_generation_category.dart';
-import 'package:quizlab_ai/presentation/widgets/dialog_drop_zone.dart';
+import 'package:quizdy/data/services/ai/ai_service.dart';
+import 'package:quizdy/domain/models/ai/ai_file_attachment.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/core/theme/app_theme.dart';
+import 'package:quizdy/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
+import 'package:quizdy/domain/models/ai/ai_generation_config.dart';
+import 'package:quizdy/domain/models/ai/ai_question_type.dart';
+import 'package:quizdy/domain/models/ai/ai_generation_category.dart';
+import 'package:quizdy/presentation/widgets/dialog_drop_zone.dart';
 
 class AiGenerateStep2Widget extends StatefulWidget {
   final TextEditingController textController;
@@ -346,8 +346,8 @@ class _AiGenerateStep2WidgetState extends State<AiGenerateStep2Widget> {
                       ),
                       if (widget.fileAttachment == null) ...[
                         const SizedBox(height: 8),
-                        QuizLabAIButton(
-                          type: QuizlabAIButtonType.secondary,
+                        QuizdyButton(
+                          type: QuizdyButtonType.secondary,
                           title: localizations.pasteFromClipboard,
                           icon: LucideIcons.clipboardPaste,
                           expanded: true,
@@ -537,8 +537,8 @@ class _AiGenerateStep2WidgetState extends State<AiGenerateStep2Widget> {
               Row(
                 children: [
                   Expanded(
-                    child: QuizLabAIButton(
-                      type: QuizlabAIButtonType.secondary,
+                    child: QuizdyButton(
+                      type: QuizdyButtonType.secondary,
                       title: localizations.backButton,
                       icon: LucideIcons.arrowLeft,
                       expanded: true,
@@ -547,7 +547,7 @@ class _AiGenerateStep2WidgetState extends State<AiGenerateStep2Widget> {
                   ),
                   const SizedBox(width: 16),
                   Expanded(
-                    child: QuizLabAIButton(
+                    child: QuizdyButton(
                       title: localizations.generateButton,
                       icon: LucideIcons.sparkles,
                       expanded: true,

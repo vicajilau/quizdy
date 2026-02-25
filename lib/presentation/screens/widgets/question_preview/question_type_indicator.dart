@@ -15,8 +15,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/domain/models/quiz/question_type.dart';
 
 class QuestionTypeIndicator extends StatelessWidget {
   final QuestionType questionType;

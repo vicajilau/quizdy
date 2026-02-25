@@ -1609,7 +1609,7 @@
   "@onboardingGetStarted": {
     "description": "अंतिम स्वागत पृष्ठ पर शुरू करें बटन"
   },
-  "onboardingWelcomeTitle": "QuizLab AI में आपका स्वागत है",
+  "onboardingWelcomeTitle": "Quizdy में आपका स्वागत है",
   "@onboardingWelcomeTitle": {
     "description": "पहले स्वागत पृष्ठ के लिए शीर्षक"
   },

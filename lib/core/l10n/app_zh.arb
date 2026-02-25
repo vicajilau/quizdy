@@ -1658,7 +1658,7 @@
   "@onboardingGetStarted": {
     "description": "欢迎流程最后一页的开始按钮"
   },
-  "onboardingWelcomeTitle": "欢迎使用 QuizLab AI",
+  "onboardingWelcomeTitle": "欢迎使用 Quizdy",
   "@onboardingWelcomeTitle": {
     "description": "第一页欢迎页面的标题"
   },

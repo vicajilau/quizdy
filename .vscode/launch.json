@@ -2,19 +2,19 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "QuizLab AI (debug mode)",
+            "name": "Quizdy (debug mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug"
         },
         {
-            "name": "QuizLab AI (profile mode)",
+            "name": "Quizdy (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "QuizLab AI (release mode)",
+            "name": "Quizdy (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

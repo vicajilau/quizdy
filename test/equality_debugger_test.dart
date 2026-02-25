@@ -14,10 +14,10 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_file.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_metadata.dart';
-import 'package:quizlab_ai/domain/models/quiz/question.dart';
-import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
+import 'package:quizdy/domain/models/quiz/quiz_file.dart';
+import 'package:quizdy/domain/models/quiz/quiz_metadata.dart';
+import 'package:quizdy/domain/models/quiz/question.dart';
+import 'package:quizdy/domain/models/quiz/question_type.dart';
 
 void main() {
   test('QuizFile deepCopy equality test', () {

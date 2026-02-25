@@ -1606,7 +1606,7 @@
   "@onboardingGetStarted": {
     "description": "Hasi botoia ongietorriko azken orrialdean"
   },
-  "onboardingWelcomeTitle": "Ongi etorri QuizLab AI-ra",
+  "onboardingWelcomeTitle": "Ongi etorri Quizdy-ra",
   "@onboardingWelcomeTitle": {
     "description": "Ongietorriko lehen orrialdeko titulua"
   },

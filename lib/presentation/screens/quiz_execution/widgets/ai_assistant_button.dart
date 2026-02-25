@@ -15,10 +15,10 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/domain/models/quiz/question.dart';
-import 'package:quizlab_ai/presentation/screens/dialogs/ai_question_dialog.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/domain/models/quiz/question.dart';
+import 'package:quizdy/presentation/screens/dialogs/ai_question_dialog.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
 
 /// A button that triggers the AI Assistant dialog for a specific question.
 ///
@@ -47,8 +47,8 @@ class AiAssistantButton extends StatelessWidget {
       child: Column(
         children: [
           Center(
-            child: QuizLabAIButton(
-              type: QuizlabAIButtonType.tertiary,
+            child: QuizdyButton(
+              type: QuizdyButtonType.tertiary,
               title: l10n.askAiAssistant,
               icon: Icons.auto_awesome,
               onPressed: isAiAvailable

@@ -5,13 +5,13 @@
 
 ## Overview
 
-QuizLab AI is an open-source cross-platform application designed to provide an interactive quiz experience. This privacy policy explains how we handle information when you use our application.
+Quizdy is an open-source cross-platform application designed to provide an interactive quiz experience. This privacy policy explains how we handle information when you use our application.
 
 ## Information We Collect
 
 ### Local Data Storage
 
-QuizLab AI stores data locally on your device, including:
+Quizdy stores data locally on your device, including:
 
 - **Quiz Data**: Questions, answers, and quiz configurations you create or import
 - **User Preferences**: App settings, language preferences, and UI customizations
@@ -47,8 +47,8 @@ When you choose to use AI-powered question generation features, you may connect 
 - No data is transmitted to our servers
 
 ### Open Source Transparency
-- QuizLab AI is open source under the GPL-3.0-or-later license
-- You can review the complete source code at: [https://github.com/vicajilau/quizlab_ai](https://github.com/vicajilau/quizlab_ai)
+- Quizdy is open source under the GPL-3.0-or-later license
+- You can review the complete source code at: [https://github.com/vicajilau/quizdy](https://github.com/vicajilau/quizdy)
 - The code is transparent about how data is handled
 
 ## Data Control
@@ -65,14 +65,14 @@ When you choose to use AI-powered question generation features, you may connect 
 
 ## International Users
 
-Since QuizLab AI operates entirely on your device:
+Since Quizdy operates entirely on your device:
 - No data crosses international borders through our systems
 - AI service usage follows the data handling policies of OpenAI and Google respectively
 - The app supports 13 languages with full localization
 
 ## Children's Privacy
 
-QuizLab AI does not collect any personal information from users of any age. The app can be safely used by children under parental guidance, as:
+Quizdy does not collect any personal information from users of any age. The app can be safely used by children under parental guidance, as:
 - No personal data is collected
 - No online accounts are required
 - All data remains on the device
@@ -80,14 +80,14 @@ QuizLab AI does not collect any personal information from users of any age. The 
 
 ## Open Source License
 
-QuizLab AI is released under the GPL-3.0-or-later License, which means:
+Quizdy is released under the GPL-3.0-or-later License, which means:
 - The source code is publicly available for review
 - You can modify and distribute the app according to the license terms
 - The transparency of open source development ensures privacy by design
 
 ## Changes to This Privacy Policy
 
-Since QuizLab AI is open source:
+Since Quizdy is open source:
 - Privacy policy changes will be reflected in the project repository
 - Updates will be documented in the project's changelog
 - You can track all changes through the Git history
@@ -100,10 +100,10 @@ Since QuizLab AI is open source:
 
 ## Contact Information
 
-For privacy-related questions about QuizLab AI:
+For privacy-related questions about Quizdy:
 
-- **GitHub Issues**: [https://github.com/vicajilau/quizlab_ai/issues](https://github.com/vicajilau/quizlab_ai/issues)
-- **Project Repository**: [https://github.com/vicajilau/quizlab_ai](https://github.com/vicajilau/quizlab_ai)
+- **GitHub Issues**: [https://github.com/vicajilau/quizdy/issues](https://github.com/vicajilau/quizdy/issues)
+- **Project Repository**: [https://github.com/vicajilau/quizdy](https://github.com/vicajilau/quizdy)
 
 For questions about AI service data handling, please contact the respective service providers directly.
 
@@ -115,7 +115,7 @@ For questions about AI service data handling, please contact the respective serv
 - No crash reports are automatically sent (though you may choose to report issues via GitHub)
 
 ### Permissions
-QuizLab AI may request the following permissions:
+Quizdy may request the following permissions:
 - **Storage**: To save and load quiz files
 - **Network**: Only when using optional AI features with your explicit API keys
 
@@ -126,6 +126,6 @@ QuizLab AI may request the following permissions:
 
 ---
 
-**Note**: This privacy policy applies to the open-source QuizLab AI project. If you're using a modified version of this app, please check with the specific distributor for their privacy practices.
+**Note**: This privacy policy applies to the open-source Quizdy project. If you're using a modified version of this app, please check with the specific distributor for their privacy practices.
 
 **GPL-3.0-or-later License**: This project is licensed under the GPL-3.0-or-later License - see the [LICENSE](LICENSE) file for details.

@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.8.1]
 
 - ui: Updated app icon for all platforms.
+- feat: Renamed the application across all platforms to "Quizdy" for consistent branding.
 
 ## [1.8.0] - 2026-02-24
 

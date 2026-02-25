@@ -15,8 +15,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
 
 class OnboardingNavButtons extends StatelessWidget {
   final bool isFirstPage;
@@ -38,7 +38,7 @@ class OnboardingNavButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
     if (isFirstPage) {
-      return QuizLabAIButton(
+      return QuizdyButton(
         title: localizations.next,
         icon: LucideIcons.arrowRight,
         expanded: true,
@@ -49,8 +49,8 @@ class OnboardingNavButtons extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: QuizLabAIButton(
-            type: QuizlabAIButtonType.secondary,
+          child: QuizdyButton(
+            type: QuizdyButtonType.secondary,
             title: localizations.onboardingBack,
             icon: LucideIcons.arrowLeft,
             expanded: true,
@@ -59,7 +59,7 @@ class OnboardingNavButtons extends StatelessWidget {
         ),
         const SizedBox(width: 12),
         Expanded(
-          child: QuizLabAIButton(
+          child: QuizdyButton(
             title: isLastPage
                 ? localizations.onboardingGetStarted
                 : localizations.next,

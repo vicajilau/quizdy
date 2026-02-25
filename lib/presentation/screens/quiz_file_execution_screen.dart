@@ -17,25 +17,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'dart:async';
-import 'package:quizlab_ai/core/service_locator.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/data/services/configuration_service.dart';
-import 'package:quizlab_ai/domain/models/quiz/question.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_config.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_file.dart';
-import 'package:quizlab_ai/data/services/quiz_service.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
+import 'package:quizdy/core/service_locator.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/data/services/configuration_service.dart';
+import 'package:quizdy/domain/models/quiz/question.dart';
+import 'package:quizdy/domain/models/quiz/quiz_config.dart';
+import 'package:quizdy/domain/models/quiz/quiz_file.dart';
+import 'package:quizdy/data/services/quiz_service.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
 import 'package:go_router/go_router.dart';
-import 'package:quizlab_ai/presentation/blocs/file_bloc/file_bloc.dart';
-import 'package:quizlab_ai/presentation/blocs/file_bloc/file_event.dart';
-import 'package:quizlab_ai/presentation/blocs/file_bloc/file_state.dart';
-import 'package:quizlab_ai/routes/app_router.dart';
-import 'package:quizlab_ai/presentation/screens/quiz_execution/quiz_in_progress_view.dart';
-import 'package:quizlab_ai/presentation/screens/quiz_execution/quiz_completed_view.dart';
-import 'package:quizlab_ai/core/theme/app_theme.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
+import 'package:quizdy/presentation/blocs/file_bloc/file_bloc.dart';
+import 'package:quizdy/presentation/blocs/file_bloc/file_event.dart';
+import 'package:quizdy/presentation/blocs/file_bloc/file_state.dart';
+import 'package:quizdy/routes/app_router.dart';
+import 'package:quizdy/presentation/screens/quiz_execution/quiz_in_progress_view.dart';
+import 'package:quizdy/presentation/screens/quiz_execution/quiz_completed_view.dart';
+import 'package:quizdy/core/theme/app_theme.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
 
 class QuizFileExecutionScreen extends StatefulWidget {
   final QuizFile quizFile;
@@ -141,15 +141,15 @@ class _QuizFileExecutionScreenState extends State<QuizFileExecutionScreen> {
                           AppLocalizations.of(context)!.abortQuizMessage,
                         ),
                         actions: [
-                          QuizLabAIButton(
-                            type: QuizlabAIButtonType.tertiary,
+                          QuizdyButton(
+                            type: QuizdyButtonType.tertiary,
                             title: AppLocalizations.of(context)!.cancelButton,
                             onPressed: () {
                               Navigator.of(context).pop(false);
                             },
                           ),
-                          QuizLabAIButton(
-                            type: QuizlabAIButtonType.tertiary,
+                          QuizdyButton(
+                            type: QuizdyButtonType.tertiary,
                             title: AppLocalizations.of(
                               context,
                             )!.stopAndOpenButton,

@@ -19,11 +19,11 @@ import 'package:desktop_drop/desktop_drop.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:quizlab_ai/core/context_extension.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/presentation/utils/clipboard_image_helper.dart';
-import 'package:quizlab_ai/presentation/widgets/dialog_drop_zone.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
+import 'package:quizdy/core/context_extension.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/presentation/utils/clipboard_image_helper.dart';
+import 'package:quizdy/presentation/widgets/dialog_drop_zone.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
 
 class QuestionImageSection extends StatefulWidget {
   final String? imageData;
@@ -165,21 +165,21 @@ class _QuestionImageSectionState extends State<QuestionImageSection> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  QuizLabAIButton(
+                  QuizdyButton(
                     title: localizations.changeImage,
                     icon: Icons.swap_horiz,
                     onPressed: () => _pickImage(context),
                   ),
                   const SizedBox(width: 8),
-                  QuizLabAIButton(
-                    type: QuizlabAIButtonType.secondary,
+                  QuizdyButton(
+                    type: QuizdyButtonType.secondary,
                     title: localizations.pasteImage,
                     icon: LucideIcons.clipboardPaste,
                     onPressed: () => _pasteFromClipboard(context),
                   ),
                   const SizedBox(width: 8),
-                  QuizLabAIButton(
-                    type: QuizlabAIButtonType.warning,
+                  QuizdyButton(
+                    type: QuizdyButtonType.warning,
                     title: localizations.removeImage,
                     icon: Icons.delete_outline,
                     onPressed: widget.onImageRemoved,
@@ -242,8 +242,8 @@ class _QuestionImageSectionState extends State<QuestionImageSection> {
               ),
             ),
             const SizedBox(height: 8),
-            QuizLabAIButton(
-              type: QuizlabAIButtonType.secondary,
+            QuizdyButton(
+              type: QuizdyButtonType.secondary,
               title: localizations.pasteFromClipboard,
               icon: LucideIcons.clipboardPaste,
               expanded: true,

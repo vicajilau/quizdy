@@ -19,12 +19,12 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/domain/models/quiz/question.dart';
-import 'package:quizlab_ai/presentation/widgets/latex_text.dart';
-import 'package:quizlab_ai/core/theme/extensions/custom_colors.dart';
-import 'package:quizlab_ai/presentation/screens/widgets/question_preview/question_options_list.dart';
-import 'package:quizlab_ai/presentation/screens/widgets/question_preview/question_type_indicator.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/domain/models/quiz/question.dart';
+import 'package:quizdy/presentation/widgets/latex_text.dart';
+import 'package:quizdy/core/theme/extensions/custom_colors.dart';
+import 'package:quizdy/presentation/screens/widgets/question_preview/question_options_list.dart';
+import 'package:quizdy/presentation/screens/widgets/question_preview/question_type_indicator.dart';
 
 class QuestionPreviewCard extends StatefulWidget {
   final Question question;

@@ -15,12 +15,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/presentation/blocs/onboarding_cubit/onboarding_cubit.dart';
-import 'package:quizlab_ai/presentation/blocs/onboarding_cubit/onboarding_state.dart';
-import 'package:quizlab_ai/presentation/screens/onboarding/widgets/onboarding_nav_buttons.dart';
-import 'package:quizlab_ai/presentation/screens/onboarding/widgets/onboarding_page_data.dart';
-import 'package:quizlab_ai/presentation/screens/onboarding/widgets/onboarding_page_indicator.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/presentation/blocs/onboarding_cubit/onboarding_cubit.dart';
+import 'package:quizdy/presentation/blocs/onboarding_cubit/onboarding_state.dart';
+import 'package:quizdy/presentation/screens/onboarding/widgets/onboarding_nav_buttons.dart';
+import 'package:quizdy/presentation/screens/onboarding/widgets/onboarding_page_data.dart';
+import 'package:quizdy/presentation/screens/onboarding/widgets/onboarding_page_indicator.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class OnboardingDesktopLayout extends StatelessWidget {

@@ -16,9 +16,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/core/theme/extensions/exam_timer_theme.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/core/theme/extensions/exam_timer_theme.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
 
 /// A widget that displays a countdown timer for an exam.
 ///
@@ -184,7 +184,7 @@ class _ExamTimerWidgetState extends State<ExamTimerWidget>
                 const SizedBox(height: 32),
 
                 // Finish Button
-                QuizLabAIButton(
+                QuizdyButton(
                   title: AppLocalizations.of(context)!.finish,
                   expanded: true,
                   onPressed: () {

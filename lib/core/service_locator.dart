@@ -14,16 +14,16 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:get_it/get_it.dart';
-import 'package:quizlab_ai/domain/use_cases/check_file_changes_use_case.dart';
+import 'package:quizdy/domain/use_cases/check_file_changes_use_case.dart';
 
-import 'package:quizlab_ai/data/repositories/quiz_file_repository.dart';
-import 'package:quizlab_ai/data/services/file_service/mobile_desktop_file_service.dart'
+import 'package:quizdy/data/repositories/quiz_file_repository.dart';
+import 'package:quizdy/data/services/file_service/mobile_desktop_file_service.dart'
     if (dart.library.js_interop) '../../data/services/file_service/web_file_service.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_file.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_config.dart';
+import 'package:quizdy/domain/models/quiz/quiz_file.dart';
+import 'package:quizdy/domain/models/quiz/quiz_config.dart';
 
-import 'package:quizlab_ai/presentation/blocs/file_bloc/file_bloc.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
+import 'package:quizdy/presentation/blocs/file_bloc/file_bloc.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
 
 // Singleton class for managing service registrations
 class ServiceLocator {

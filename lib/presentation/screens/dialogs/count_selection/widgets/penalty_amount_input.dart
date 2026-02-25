@@ -16,9 +16,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/core/theme/app_theme.dart';
-import 'package:quizlab_ai/presentation/screens/dialogs/count_selection/count_control_button.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/core/theme/app_theme.dart';
+import 'package:quizdy/presentation/screens/dialogs/count_selection/count_control_button.dart';
 
 class PenaltyAmountInput extends StatelessWidget {
   final Color textColor;

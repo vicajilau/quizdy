@@ -14,15 +14,15 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:flutter/material.dart';
-import 'package:quizlab_ai/presentation/screens/quiz_execution/widgets/quiz_question_essay_result.dart';
-import 'package:quizlab_ai/presentation/screens/quiz_execution/widgets/quiz_question_explanation.dart';
-import 'package:quizlab_ai/presentation/screens/quiz_execution/widgets/quiz_question_image.dart';
-import 'package:quizlab_ai/presentation/screens/quiz_execution/widgets/quiz_question_options_result.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
-import 'package:quizlab_ai/domain/models/quiz/essay_ai_evaluation.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
-import 'package:quizlab_ai/presentation/widgets/latex_text.dart';
+import 'package:quizdy/presentation/screens/quiz_execution/widgets/quiz_question_essay_result.dart';
+import 'package:quizdy/presentation/screens/quiz_execution/widgets/quiz_question_explanation.dart';
+import 'package:quizdy/presentation/screens/quiz_execution/widgets/quiz_question_image.dart';
+import 'package:quizdy/presentation/screens/quiz_execution/widgets/quiz_question_options_result.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/domain/models/quiz/question_type.dart';
+import 'package:quizdy/domain/models/quiz/essay_ai_evaluation.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
+import 'package:quizdy/presentation/widgets/latex_text.dart';
 
 /// A card widget that displays the result of a quiz question.
 ///

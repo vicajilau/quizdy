@@ -12,7 +12,7 @@ We actively support and provide security updates for the following versions:
 
 ## Reporting a Vulnerability
 
-We take security vulnerabilities seriously. If you discover a security vulnerability in QuizLab AI, please follow these steps:
+We take security vulnerabilities seriously. If you discover a security vulnerability in Quizdy, please follow these steps:
 
 ### How to Report
 
@@ -20,7 +20,7 @@ We take security vulnerabilities seriously. If you discover a security vulnerabi
 2. **Contact us privately** through one of these methods:
    - Create a private security advisory on GitHub
    - Send an email to the maintainer via GitHub profile
-   - Open a draft security advisory at: https://github.com/vicajilau/quizlab_ai/security/advisories
+   - Open a draft security advisory at: https://github.com/vicajilau/quizdy/security/advisories
 
 ### What to Include
 
@@ -43,7 +43,7 @@ When reporting a vulnerability, please include:
 
 ### Data Handling
 
-QuizLab AI is designed with privacy in mind:
+Quizdy is designed with privacy in mind:
 
 - **Local Storage Only**: All quiz data is stored locally
 - **No External Data**: The app doesn't send personal data to external servers
@@ -69,7 +69,7 @@ Users should be aware of these areas:
 
 This security policy applies to:
 
-- The main QuizLab AI application
+- The main Quizdy application
 - Official deployments and releases
 - Dependencies and third-party integrations
 
@@ -98,4 +98,4 @@ For security-related questions or concerns:
 - **General Questions**: Create a GitHub Discussion
 - **Maintainer**: [@vicajilau](https://github.com/vicajilau)
 
-Thank you for helping keep QuizLab AI secure!
+Thank you for helping keep Quizdy secure!

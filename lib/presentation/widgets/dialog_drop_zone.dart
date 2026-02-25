@@ -15,7 +15,7 @@
 
 import 'package:desktop_drop/desktop_drop.dart';
 import 'package:flutter/material.dart';
-import 'package:quizlab_ai/presentation/utils/dialog_drop_guard.dart';
+import 'package:quizdy/presentation/utils/dialog_drop_guard.dart';
 
 /// A drop zone wrapper for use inside dialogs.
 ///

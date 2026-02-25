@@ -14,8 +14,8 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:flutter/material.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/data/services/ai/ai_service.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/data/services/ai/ai_service.dart';
 
 /// A dropdown selector for choosing an AI service.
 ///

@@ -1288,7 +1288,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get onboardingGetStarted => '开始体验';
 
   @override
-  String get onboardingWelcomeTitle => '欢迎使用 QuizLab AI';
+  String get onboardingWelcomeTitle => '欢迎使用 Quizdy';
 
   @override
   String get onboardingWelcomeDescription =>

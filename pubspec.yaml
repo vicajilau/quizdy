@@ -1,5 +1,5 @@
-name: quizlab_ai
-description: "QuizLab AI - An interactive quiz application built with Flutter."
+name: quizdy
+description: "Quizdy - An interactive quiz application built with Flutter."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
@@ -123,7 +123,7 @@ flutter_launcher_icons:
   # Android
   android: "launcher_icon"
   adaptive_icon_background: "#FFFFFF"
-  adaptive_icon_foreground: "images/QuizLab_AI.png"
+  adaptive_icon_foreground: "images/Quizdy.png"
 
   # iOS
   ios: true
@@ -132,36 +132,36 @@ flutter_launcher_icons:
   # Windows
   windows:
     generate: true
-    image_path: "images/QuizLab_AI.png"
+    image_path: "images/Quizdy.png"
     icon_size: 48
 
   # macOS
   macos:
     generate: true
-    image_path: "images/QuizLab_AI_macos.png"
+    image_path: "images/Quizdy_macos.png"
 
   # Linux
   linux:
     generate: true
-    image_path: "images/QuizLab_AI.png"
+    image_path: "images/Quizdy.png"
 
   # Web
   web:
     generate: true
-    image_path: "images/QuizLab_AI.png"
+    image_path: "images/Quizdy.png"
     background_color: "#FFFFFF"
     theme_color: "#000000"
 
   # Imagen base
-  image_path: "images/QuizLab_AI.png"
+  image_path: "images/Quizdy.png"
   min_sdk_android: 21
 
 msix_config:
-  display_name: QuizLab AI
+  display_name: Quizdy
   identity_name: vicajilau.QuizzApp
   publisher: CN=B0585DC6-ACE7-4F2B-956B-CDC4AFBAFCCF
   publisher_display_name: vicajilau
-  logo_path: .\images\QuizLab_AI.png
+  logo_path: .\images\Quizdy.png
   languages: ar-sa, ca-es, de-de, en-GB, es-ES, eu-ES, fr-fr, gl-es, hi-in, it-it, ja-jp, pt-br, zh-cn
   capabilities: internetClient
   file_extension: .quiz

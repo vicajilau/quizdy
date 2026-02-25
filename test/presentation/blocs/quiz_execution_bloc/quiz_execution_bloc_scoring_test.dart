@@ -16,12 +16,12 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:quizlab_ai/domain/models/quiz/question.dart';
-import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
-import 'package:quizlab_ai/domain/models/quiz/quiz_config.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
+import 'package:quizdy/domain/models/quiz/question.dart';
+import 'package:quizdy/domain/models/quiz/question_type.dart';
+import 'package:quizdy/domain/models/quiz/quiz_config.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();

@@ -14,10 +14,10 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:flutter/material.dart';
-import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/presentation/screens/widgets/add_edit_question/question_option_row.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
+import 'package:quizdy/domain/models/quiz/question_type.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/presentation/screens/widgets/add_edit_question/question_option_row.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
 
 class QuestionOptionsSection extends StatelessWidget {
   final QuestionType questionType;
@@ -113,8 +113,8 @@ class QuestionOptionsSection extends StatelessWidget {
         if (questionType == QuestionType.multipleChoice ||
             questionType == QuestionType.singleChoice)
           RepaintBoundary(
-            child: QuizLabAIButton(
-              type: QuizlabAIButtonType.tertiary,
+            child: QuizdyButton(
+              type: QuizdyButtonType.tertiary,
               title: localizations.addOption,
               icon: Icons.add,
               onPressed: onAddOption,

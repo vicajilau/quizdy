@@ -1,11 +1,11 @@
-# Contributing to QuizLab AI
+# Contributing to Quizdy
 
 _tl;dr: be [courteous](CODE_OF_CONDUCT.md), check existing issues, follow the development setup below, and submit quality PRs._
 
 Welcome
 -------
 
-We invite you to contribute to QuizLab AI! This project is built with Flutter and focuses on creating an interactive quiz application with features like AI-powered question generation and multilingual support.
+We invite you to contribute to Quizdy! This project is built with Flutter and focuses on creating an interactive quiz application with features like AI-powered question generation and multilingual support.
 
 There are many ways to contribute:
 - Writing code and fixing bugs
@@ -35,8 +35,8 @@ Before you get started, please read:
 
 2. **Clone the Repository**
    ```bash
-   git clone https://github.com/vicajilau/quizlab_ai.git
-   cd quizlab_ai
+   git clone https://github.com/vicajilau/quizdy.git
+   cd quizdy
    ```
 
 3. **Install Dependencies**
@@ -218,6 +218,6 @@ Check [CHANGELOG.md](CHANGELOG.md) for release history.
 
 ---
 
-Thank you for contributing to QuizLab AI! 🎉
+Thank you for contributing to Quizdy! 🎉
 
 Every contribution, no matter how small, helps make this project better for everyone.

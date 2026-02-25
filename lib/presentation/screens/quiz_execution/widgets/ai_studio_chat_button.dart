@@ -15,9 +15,9 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/domain/models/quiz/question.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/domain/models/quiz/question.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
 
 /// A button that opens the AI chat sidebar/panel for a specific question.
 ///
@@ -50,8 +50,8 @@ class AiStudioChatButton extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            QuizLabAIButton(
-              type: QuizlabAIButtonType.tertiary,
+            QuizdyButton(
+              type: QuizdyButtonType.tertiary,
               title: l10n.askAiAboutQuestion,
               icon: Icons.auto_awesome,
               onPressed: isAiAvailable == true ? onPressed : null,

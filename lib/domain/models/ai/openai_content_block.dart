@@ -15,7 +15,7 @@
 
 import 'dart:convert';
 
-import 'package:quizlab_ai/domain/models/ai/ai_file_attachment.dart';
+import 'package:quizdy/domain/models/ai/ai_file_attachment.dart';
 
 /// Represents a block of content in an OpenAI chat message.
 ///

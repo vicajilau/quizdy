@@ -1,6 +1,6 @@
 name: quiz-app
 version: "1.0.0"
-summary: QuizLab AI
+summary: Quizdy
 description: |
   A Quiz application that provides an interactive and engaging quiz experience.
 base: core24

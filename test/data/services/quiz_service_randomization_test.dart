@@ -14,9 +14,9 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:quizlab_ai/data/services/quiz_service.dart';
-import 'package:quizlab_ai/domain/models/quiz/question.dart';
-import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
+import 'package:quizdy/data/services/quiz_service.dart';
+import 'package:quizdy/domain/models/quiz/question.dart';
+import 'package:quizdy/domain/models/quiz/question_type.dart';
 
 void main() {
   group('QuizService Randomization Tests', () {

@@ -14,15 +14,15 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:flutter/material.dart';
-import 'package:quizlab_ai/core/theme/app_theme.dart';
+import 'package:quizdy/core/theme/app_theme.dart';
 
-enum QuizlabAIButtonType { primary, secondary, tertiary, warning }
+enum QuizdyButtonType { primary, secondary, tertiary, warning }
 
-enum QuizlabAIButtonSize { normal }
+enum QuizdyButtonSize { normal }
 
-extension on QuizlabAIButtonSize {
+extension on QuizdyButtonSize {
   EdgeInsets get padding => switch (this) {
-    QuizlabAIButtonSize.normal => const EdgeInsets.symmetric(
+    QuizdyButtonSize.normal => const EdgeInsets.symmetric(
       vertical: 20.0,
       horizontal: 28.0,
     ),
@@ -30,70 +30,68 @@ extension on QuizlabAIButtonSize {
 }
 
 extension _ButtonColors on ThemeData {
-  Color enabledButtonColor(BuildContext context, QuizlabAIButtonType type) =>
+  Color enabledButtonColor(BuildContext context, QuizdyButtonType type) =>
       switch (type) {
-        QuizlabAIButtonType.primary => Theme.of(context).primaryColor,
-        QuizlabAIButtonType.secondary => cardColor,
-        QuizlabAIButtonType.tertiary => Colors.transparent,
-        QuizlabAIButtonType.warning => AppTheme.errorColor,
+        QuizdyButtonType.primary => Theme.of(context).primaryColor,
+        QuizdyButtonType.secondary => cardColor,
+        QuizdyButtonType.tertiary => Colors.transparent,
+        QuizdyButtonType.warning => AppTheme.errorColor,
       };
 
-  Color disabledButtonColor(QuizlabAIButtonType type) => switch (type) {
-    QuizlabAIButtonType.primary => AppTheme.zinc700,
-    QuizlabAIButtonType.secondary => cardColor.withValues(alpha: .5),
-    QuizlabAIButtonType.tertiary => Colors.transparent,
-    QuizlabAIButtonType.warning => AppTheme.errorColor.withValues(alpha: .5),
+  Color disabledButtonColor(QuizdyButtonType type) => switch (type) {
+    QuizdyButtonType.primary => AppTheme.zinc700,
+    QuizdyButtonType.secondary => cardColor.withValues(alpha: .5),
+    QuizdyButtonType.tertiary => Colors.transparent,
+    QuizdyButtonType.warning => AppTheme.errorColor.withValues(alpha: .5),
   };
 
-  Color enabledTextColor(BuildContext context, QuizlabAIButtonType type) =>
+  Color enabledTextColor(BuildContext context, QuizdyButtonType type) =>
       switch (type) {
-        QuizlabAIButtonType.primary => Colors.white,
-        QuizlabAIButtonType.secondary => colorScheme.onSurface,
-        QuizlabAIButtonType.tertiary => Theme.of(context).primaryColor,
-        QuizlabAIButtonType.warning => Colors.white,
+        QuizdyButtonType.primary => Colors.white,
+        QuizdyButtonType.secondary => colorScheme.onSurface,
+        QuizdyButtonType.tertiary => Theme.of(context).primaryColor,
+        QuizdyButtonType.warning => Colors.white,
       };
 
-  Color disabledTextColor(QuizlabAIButtonType type) => switch (type) {
-    QuizlabAIButtonType.primary => Colors.white,
-    QuizlabAIButtonType.secondary => colorScheme.onSurface.withValues(
-      alpha: .5,
-    ),
-    QuizlabAIButtonType.tertiary => AppTheme.zinc400,
-    QuizlabAIButtonType.warning => Colors.white.withValues(alpha: 0.5),
+  Color disabledTextColor(QuizdyButtonType type) => switch (type) {
+    QuizdyButtonType.primary => Colors.white,
+    QuizdyButtonType.secondary => colorScheme.onSurface.withValues(alpha: .5),
+    QuizdyButtonType.tertiary => AppTheme.zinc400,
+    QuizdyButtonType.warning => Colors.white.withValues(alpha: 0.5),
   };
 
-  Color enabledBorderColor(BuildContext context, QuizlabAIButtonType type) =>
+  Color enabledBorderColor(BuildContext context, QuizdyButtonType type) =>
       switch (type) {
-        QuizlabAIButtonType.primary => Theme.of(context).primaryColor,
-        QuizlabAIButtonType.secondary => dividerColor,
-        QuizlabAIButtonType.tertiary => Colors.transparent,
-        QuizlabAIButtonType.warning => AppTheme.errorColor,
+        QuizdyButtonType.primary => Theme.of(context).primaryColor,
+        QuizdyButtonType.secondary => dividerColor,
+        QuizdyButtonType.tertiary => Colors.transparent,
+        QuizdyButtonType.warning => AppTheme.errorColor,
       };
 
-  Color disabledBorderColor(QuizlabAIButtonType type) => switch (type) {
-    QuizlabAIButtonType.primary => AppTheme.zinc700,
-    QuizlabAIButtonType.secondary => dividerColor.withValues(alpha: .5),
-    QuizlabAIButtonType.tertiary => Colors.transparent,
-    QuizlabAIButtonType.warning => AppTheme.errorColor.withValues(alpha: .5),
+  Color disabledBorderColor(QuizdyButtonType type) => switch (type) {
+    QuizdyButtonType.primary => AppTheme.zinc700,
+    QuizdyButtonType.secondary => dividerColor.withValues(alpha: .5),
+    QuizdyButtonType.tertiary => Colors.transparent,
+    QuizdyButtonType.warning => AppTheme.errorColor.withValues(alpha: .5),
   };
 
-  Color loaderColor(BuildContext context, QuizlabAIButtonType type) =>
+  Color loaderColor(BuildContext context, QuizdyButtonType type) =>
       switch (type) {
-        QuizlabAIButtonType.primary => Colors.white,
-        QuizlabAIButtonType.secondary => AppTheme.zinc200,
-        QuizlabAIButtonType.tertiary => Theme.of(context).primaryColor,
-        QuizlabAIButtonType.warning => Colors.white,
+        QuizdyButtonType.primary => Colors.white,
+        QuizdyButtonType.secondary => AppTheme.zinc200,
+        QuizdyButtonType.tertiary => Theme.of(context).primaryColor,
+        QuizdyButtonType.warning => Colors.white,
       };
 
-  double borderWidth(QuizlabAIButtonType type) => switch (type) {
-    QuizlabAIButtonType.secondary => 2,
+  double borderWidth(QuizdyButtonType type) => switch (type) {
+    QuizdyButtonType.secondary => 2,
     _ => 1,
   };
 }
 
-class QuizLabAIButton extends StatelessWidget {
-  final QuizlabAIButtonType type;
-  final QuizlabAIButtonSize size;
+class QuizdyButton extends StatelessWidget {
+  final QuizdyButtonType type;
+  final QuizdyButtonSize size;
   final String title;
   final bool isLoading;
   final VoidCallback? onPressed;
@@ -103,10 +101,10 @@ class QuizLabAIButton extends StatelessWidget {
 
   static const double _maxWidth = 620;
 
-  const QuizLabAIButton({
+  const QuizdyButton({
     super.key,
-    this.type = QuizlabAIButtonType.primary,
-    this.size = QuizlabAIButtonSize.normal,
+    this.type = QuizdyButtonType.primary,
+    this.size = QuizdyButtonSize.normal,
     this.title = '',
     this.isLoading = false,
     this.onPressed,
@@ -148,7 +146,7 @@ class QuizLabAIButton extends StatelessWidget {
             : bgColor,
         foregroundColor: backgroundColor != null ? Colors.white : null,
         shadowColor: Colors.transparent,
-        overlayColor: type == QuizlabAIButtonType.tertiary
+        overlayColor: type == QuizdyButtonType.tertiary
             ? Colors.transparent
             : null,
         elevation: 0,

@@ -15,9 +15,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:quizlab_ai/domain/models/quiz/question.dart';
-import 'package:quizlab_ai/presentation/widgets/latex_text.dart';
-import 'package:quizlab_ai/core/theme/extensions/custom_colors.dart';
+import 'package:quizdy/domain/models/quiz/question.dart';
+import 'package:quizdy/presentation/widgets/latex_text.dart';
+import 'package:quizdy/core/theme/extensions/custom_colors.dart';
 
 class QuestionOptionsList extends StatelessWidget {
   final Question question;

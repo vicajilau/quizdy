@@ -14,9 +14,9 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:flutter/material.dart';
-import 'package:quizlab_ai/core/service_locator.dart';
-import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
-import 'package:quizlab_ai/presentation/screens/quiz_execution/quiz_question_options.dart';
+import 'package:quizdy/core/service_locator.dart';
+import 'package:quizdy/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
+import 'package:quizdy/presentation/screens/quiz_execution/quiz_question_options.dart';
 
 /// Wrapper widget that loads quiz configuration and passes it to QuizQuestionOptions
 class QuizOptionsWrapper extends StatefulWidget {

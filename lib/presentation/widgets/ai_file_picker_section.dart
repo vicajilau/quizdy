@@ -16,9 +16,9 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:mime/mime.dart';
-import 'package:quizlab_ai/core/l10n/app_localizations.dart';
-import 'package:quizlab_ai/domain/models/ai/ai_file_attachment.dart';
-import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
+import 'package:quizdy/core/l10n/app_localizations.dart';
+import 'package:quizdy/domain/models/ai/ai_file_attachment.dart';
+import 'package:quizdy/presentation/widgets/quizdy_button.dart';
 
 class AiFilePickerSection extends StatelessWidget {
   final AiFileAttachment? fileAttachment;
@@ -85,8 +85,8 @@ class AiFilePickerSection extends StatelessWidget {
             deleteButtonTooltipMessage: localizations.aiRemoveFile,
           )
         else
-          QuizLabAIButton(
-            type: QuizlabAIButtonType.secondary,
+          QuizdyButton(
+            type: QuizdyButtonType.secondary,
             title: localizations.aiAttachFile,
             icon: Icons.upload_file,
             onPressed: () => _pickFile(context),

@@ -1368,7 +1368,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get onboardingGetStarted => 'Loslegen';
 
   @override
-  String get onboardingWelcomeTitle => 'Willkommen bei QuizLab AI';
+  String get onboardingWelcomeTitle => 'Willkommen bei Quizdy';
 
   @override
   String get onboardingWelcomeDescription =>

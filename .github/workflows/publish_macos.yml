@@ -119,13 +119,13 @@ jobs:
            echo "Using App Identity for signing: $APP_IDENTITY"
            
            echo "Embedding Provisioning Profile..."
-           cp "$PP_PATH" "build/macos/Build/Products/Release/QuizLab AI.app/Contents/embedded.provisionprofile"
+           cp "$PP_PATH" "build/macos/Build/Products/Release/Quizdy.app/Contents/embedded.provisionprofile"
            
-           codesign --force --deep --options runtime --verbose --sign "$APP_IDENTITY" --entitlements macos/Runner/Release.entitlements "build/macos/Build/Products/Release/QuizLab AI.app"
+           codesign --force --deep --options runtime --verbose --sign "$APP_IDENTITY" --entitlements macos/Runner/Release.entitlements "build/macos/Build/Products/Release/Quizdy.app"
 
-           productbuild --component "build/macos/Build/Products/Release/QuizLab AI.app" /Applications \
+           productbuild --component "build/macos/Build/Products/Release/Quizdy.app" /Applications \
                         --sign "$INSTALLER_IDENTITY" \
-                        "build/macos/pkg/QuizLab AI.pkg"
+                        "build/macos/pkg/Quizdy.pkg"
 
 
       - name: Upload pkg to Artifacts
