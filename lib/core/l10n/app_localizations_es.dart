@@ -1414,7 +1414,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get onboardingFeatureTypesDescription =>
-      'Opción única, opción múltiple, verdadero/falso y ensayo';
+      'Opción única, múltiple, verdadero/falso y desarrollo';
 
   @override
   String get onboardingFeatureLanguagesTitle => '13 idiomas soportados';

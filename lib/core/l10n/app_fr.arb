@@ -1711,7 +1711,7 @@
   "@onboardingFeatureTypesTitle": {
     "description": "Titre de la fonctionnalité sur la page d'accueil"
   },
-  "onboardingFeatureTypesDescription": "Choix unique, choix multiple, vrai/faux et essai",
+  "onboardingFeatureTypesDescription": "Choix unique, choix multiple, vrai/faux et développement",
   "@onboardingFeatureTypesDescription": {
     "description": "Description de la fonctionnalité sur la page d'accueil"
   },

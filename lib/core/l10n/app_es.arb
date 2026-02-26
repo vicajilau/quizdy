@@ -616,7 +616,7 @@
   },
   "notEvaluatedStatus": "Sin evaluar",
   "@notEvaluatedStatus": {
-    "description": "Etiqueta de estado para una pregunta de ensayo que no fue evaluada por IA"
+    "description": "Etiqueta de estado para una pregunta de desarrollo que no fue evaluada por IA"
   },
   "retryButton": "Reintentar Evaluación",
   "@retryButton": {
@@ -1747,7 +1747,7 @@
   "@onboardingFeatureTypesTitle": {
     "description": "Título de característica en la página de bienvenida del onboarding"
   },
-  "onboardingFeatureTypesDescription": "Opción única, opción múltiple, verdadero/falso y ensayo",
+  "onboardingFeatureTypesDescription": "Opción única, múltiple, verdadero/falso y desarrollo",
   "@onboardingFeatureTypesDescription": {
     "description": "Descripción de característica en la página de bienvenida del onboarding"
   },

@@ -1413,7 +1413,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get onboardingFeatureTypesDescription =>
-      'Aukera bakarra, aukera anitza, egia/gezurra eta saiakera';
+      'Aukera bakarra, aukera anitza, egia/gezurra eta galdera irekia';
 
   @override
   String get onboardingFeatureLanguagesTitle => '13 hizkuntza onartzen dira';

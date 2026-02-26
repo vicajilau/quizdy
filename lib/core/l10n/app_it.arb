@@ -1705,7 +1705,7 @@
   "@onboardingFeatureTypesTitle": {
     "description": "Titolo della funzione nella pagina di benvenuto"
   },
-  "onboardingFeatureTypesDescription": "Scelta singola, scelta multipla, vero/falso e saggio",
+  "onboardingFeatureTypesDescription": "Scelta singola, scelta multipla, vero/falso e risposta aperta",
   "@onboardingFeatureTypesDescription": {
     "description": "Descripzione della funzione nella pagina di benvenuto"
   },

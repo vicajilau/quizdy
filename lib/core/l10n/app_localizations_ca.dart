@@ -1420,7 +1420,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get onboardingFeatureTypesDescription =>
-      'Opció única, opció múltiple, vertader/fals i assaig';
+      'Opció única, opció múltiple, vertader/fals i desenvolupament';
 
   @override
   String get onboardingFeatureLanguagesTitle => '13 idiomes compatibles';

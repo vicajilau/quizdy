@@ -1420,7 +1420,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get onboardingFeatureTypesDescription =>
-      'Μονή επιλογή, πολλαπλή επιλογή, σωστό/λάθος και δοκίμιο';
+      'Μονή επιλογή, πολλαπλή επιλογή, σωστό/λάθος και ανάπτυξης';
 
   @override
   String get onboardingFeatureLanguagesTitle => 'Υποστήριξη 13 γλωσσών';

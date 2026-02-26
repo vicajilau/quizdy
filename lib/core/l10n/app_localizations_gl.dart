@@ -1419,7 +1419,7 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get onboardingFeatureTypesDescription =>
-      'Opción única, opción múltiple, verdadeiro/falso e ensaio';
+      'Opción única, opción múltiple, verdadeiro/falso e desenvolvemento';
 
   @override
   String get onboardingFeatureLanguagesTitle => '13 idiomas compatibles';

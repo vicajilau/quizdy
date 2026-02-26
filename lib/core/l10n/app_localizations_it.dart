@@ -1409,7 +1409,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get onboardingFeatureTypesDescription =>
-      'Scelta singola, scelta multipla, vero/falso e saggio';
+      'Scelta singola, scelta multipla, vero/falso e risposta aperta';
 
   @override
   String get onboardingFeatureLanguagesTitle => '13 lingue supportate';

@@ -1666,7 +1666,7 @@
   "@onboardingFeatureTypesTitle": {
     "description": "Funtzioaren titulua ongietorri orrialdean"
   },
-  "onboardingFeatureTypesDescription": "Aukera bakarra, aukera anitza, egia/gezurra eta saiakera",
+  "onboardingFeatureTypesDescription": "Aukera bakarra, aukera anitza, egia/gezurra eta galdera irekia",
   "@onboardingFeatureTypesDescription": {
     "description": "Funtzioaren deskribapena ongietorri orrialdean"
   },

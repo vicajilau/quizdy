@@ -1423,7 +1423,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get onboardingFeatureTypesDescription =>
-      'Choix unique, choix multiple, vrai/faux et essai';
+      'Choix unique, choix multiple, vrai/faux et développement';
 
   @override
   String get onboardingFeatureLanguagesTitle => '13 langues supportées';

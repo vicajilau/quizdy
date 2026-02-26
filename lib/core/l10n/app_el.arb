@@ -624,7 +624,7 @@
   "@onboardingFeatureTypesTitle": {
     "description": "Τίτλος λειτουργίας στη σελίδα καλωσορίσματος"
   },
-  "onboardingFeatureTypesDescription": "Μονή επιλογή, πολλαπλή επιλογή, σωστό/λάθος και δοκίμιο",
+  "onboardingFeatureTypesDescription": "Μονή επιλογή, πολλαπλή επιλογή, σωστό/λάθος και ανάπτυξης",
   "@onboardingFeatureTypesDescription": {
     "description": "Περιγραφή λειτουργίας στη σελίδα καλωσορίσματος"
   },

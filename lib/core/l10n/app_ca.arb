@@ -1768,7 +1768,7 @@
   "@onboardingFeatureTypesTitle": {
     "description": "Títol de la funció a la pàgina de benvinguda"
   },
-  "onboardingFeatureTypesDescription": "Opció única, opció múltiple, vertader/fals i assaig",
+  "onboardingFeatureTypesDescription": "Opció única, opció múltiple, vertader/fals i desenvolupament",
   "@onboardingFeatureTypesDescription": {
     "description": "Descripció de la funció a la pàgina de benvinguda"
   },

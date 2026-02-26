@@ -1666,7 +1666,7 @@
   "@onboardingFeatureTypesTitle": {
     "description": "Título da función na páxina de benvida"
   },
-  "onboardingFeatureTypesDescription": "Opción única, opción múltiple, verdadeiro/falso e ensaio",
+  "onboardingFeatureTypesDescription": "Opción única, opción múltiple, verdadeiro/falso e desenvolvemento",
   "@onboardingFeatureTypesDescription": {
     "description": "Descrición da función na páxina de benvida"
   },
