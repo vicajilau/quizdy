@@ -123,7 +123,7 @@ flutter_launcher_icons:
   # Android
   android: "launcher_icon"
   adaptive_icon_background: "#FFFFFF"
-  adaptive_icon_foreground: "images/Quizdy.png"
+  adaptive_icon_foreground: "images/pictorial_mark.png"
 
   # iOS
   ios: true
@@ -132,7 +132,7 @@ flutter_launcher_icons:
   # Windows
   windows:
     generate: true
-    image_path: "images/Quizdy.png"
+    image_path: "images/pictorial_mark.png"
     icon_size: 48
 
   # macOS
@@ -143,17 +143,17 @@ flutter_launcher_icons:
   # Linux
   linux:
     generate: true
-    image_path: "images/Quizdy.png"
+    image_path: "images/pictorial_mark.png"
 
   # Web
   web:
     generate: true
-    image_path: "images/Quizdy.png"
+    image_path: "images/pictorial_mark.png"
     background_color: "#FFFFFF"
     theme_color: "#000000"
 
   # Imagen base
-  image_path: "images/Quizdy.png"
+  image_path: "images/pictorial_mark.png"
   min_sdk_android: 21
 
 msix_config:
@@ -161,7 +161,7 @@ msix_config:
   identity_name: vicajilau.QuizzApp
   publisher: CN=B0585DC6-ACE7-4F2B-956B-CDC4AFBAFCCF
   publisher_display_name: vicajilau
-  logo_path: .\images\Quizdy.png
+  logo_path: .\images\pictorial_mark.png
   languages: ar-sa, ca-es, de-de, en-GB, es-ES, eu-ES, fr-fr, gl-es, hi-in, it-it, ja-jp, pt-br, zh-cn
   capabilities: internetClient
   file_extension: .quiz
