@@ -18,6 +18,13 @@ import 'package:quizdy/core/l10n/app_localizations.dart';
 import 'package:quizdy/data/services/ai/gemini_service.dart';
 import 'package:quizdy/domain/models/quiz/source_reference.dart';
 
+class _TextBatch {
+  final String text;
+  final int baseOffset;
+
+  const _TextBatch({required this.text, required this.baseOffset});
+}
+
 /// Service responsible for parsing documents into semantic chunks using AI.
 class AiDocumentChunkingService {
   static AiDocumentChunkingService? _instance;
@@ -30,42 +37,119 @@ class AiDocumentChunkingService {
 
   /// Identifies semantic chunks within a document using Gemini.
   ///
-  /// The AI processes the full [documentText] and returns logical boundaries
-  /// representing distinct concepts, sections, or topics.
+  /// The AI processes the full [documentText] iteratively in ~15K character bursts
+  /// to avoid output tokens limitations when parsing big files like PDFs.
   ///
   /// - [documentText]: The full text extracted from the document.
-  /// - [documentId]: A unique identifier for the document, attached to the generated references.
+  /// - [documentId]: A unique identifier for the document.
   /// - [localizations]: Localization bundle for error messages.
-  /// - Returns: A list of `SourceReference` indicating the text slices.
+  /// - Returns: A mapped global list of `SourceReference` indicating the text slices.
   Future<List<SourceReference>> chunkDocument(
     String documentText,
     String documentId,
     AppLocalizations localizations,
   ) async {
-    final prompt = _buildSystemPrompt(documentText);
+    const maxCharsPerBatch = 15000;
+    final batches = _splitTextIntoLocalBatches(documentText, maxCharsPerBatch);
 
-    try {
-      final responseBody = await GeminiService.instance.getChatResponse(
-        prompt,
-        localizations,
-        responseMimeType: 'application/json',
-      );
+    List<SourceReference> allReferences = [];
 
-      final cleanJsonString = _extractJsonFromResponse(responseBody);
-      return _parseJsonToSourceReferences(
-        cleanJsonString,
-        documentId,
-        localizations,
-      );
-    } catch (e) {
-      if (e is FormatException) {
-        // En el caso de JSON truncado por Límite de Output Tokens en este MVP.
-        throw Exception(
-          '${localizations.aiErrorResponse}: $e\n${localizations.documentTooLongForProcessing}',
+    for (final batch in batches) {
+      final prompt = _buildSystemPrompt(batch.text);
+
+      try {
+        final responseBody = await GeminiService.instance.getChatResponse(
+          prompt,
+          localizations,
+          responseMimeType: 'application/json',
         );
+
+        final cleanJsonString = _extractJsonFromResponse(responseBody);
+        final parsedReferences = _parseJsonToSourceReferences(
+          cleanJsonString,
+          documentId,
+          localizations,
+        );
+
+        // Map the relative chunk offsets back to the global document offsets
+        for (final ref in parsedReferences) {
+          allReferences.add(
+            ref.copyWith(
+              startOffset: ref.startOffset + batch.baseOffset,
+              endOffset: ref.endOffset + batch.baseOffset,
+            ),
+          );
+        }
+      } catch (e) {
+        if (e is FormatException) {
+          throw Exception(
+            '${localizations.aiErrorResponse}: $e\n${localizations.documentTooLongForProcessing}',
+          );
+        }
+        throw Exception('Failed to chunk document: ${e.toString()}');
       }
-      throw Exception('Failed to chunk document: ${e.toString()}');
     }
+
+    return allReferences;
+  }
+
+  /// Splits [text] into sequential batches respecting paragraph/sentence boundaries
+  /// up to roughly [maxChars] characters per chunk to prevent semantic breakdown.
+  List<_TextBatch> _splitTextIntoLocalBatches(String text, int maxChars) {
+    List<_TextBatch> batches = [];
+    int currentOffset = 0;
+    final int textLength = text.length;
+
+    while (currentOffset < textLength) {
+      if (textLength - currentOffset <= maxChars) {
+        // The remaining text fits exactly within the limit
+        batches.add(
+          _TextBatch(
+            text: text.substring(currentOffset),
+            baseOffset: currentOffset,
+          ),
+        );
+        break;
+      }
+
+      int end = currentOffset + maxChars;
+
+      // Ensure we do not slice words or paragraphs aggressively if feasible
+      int breakIndex = text.lastIndexOf('\n\n', end);
+      if (breakIndex <= currentOffset) {
+        breakIndex = text.lastIndexOf('\n', end);
+      }
+      if (breakIndex <= currentOffset) {
+        breakIndex = text.lastIndexOf('. ', end);
+      }
+
+      // If we couldn't find a semantic boundary, fall back to a hard slice at the nearest space
+      if (breakIndex <= currentOffset) {
+        breakIndex = text.lastIndexOf(' ', end);
+      }
+      if (breakIndex <= currentOffset) {
+        breakIndex = end; // Last resort hard-cut limit
+      }
+
+      // In the case of paragraphs/sentences dot, we want to include the separator itself
+      if (breakIndex != end &&
+          text[breakIndex] == '.' &&
+          text.length > breakIndex + 1 &&
+          text[breakIndex + 1] == ' ') {
+        breakIndex += 1; // Include the period
+      } else if (breakIndex != end && text[breakIndex] == '\n') {
+        breakIndex += 1; // Include newline
+      }
+
+      final chunkText = text.substring(currentOffset, breakIndex).trim();
+
+      if (chunkText.isNotEmpty) {
+        batches.add(_TextBatch(text: chunkText, baseOffset: currentOffset));
+      }
+      currentOffset = breakIndex;
+    }
+
+    return batches;
   }
 
   /// Builds the instruction set and appends the document text.
@@ -126,10 +210,10 @@ $text
         // Defaulting to 1, capable of being mapped later if PDF layout context is integrated.
         return SourceReference(
           documentId: documentId,
-          startPage: map['start_page'] as int? ?? 1,
-          endPage: map['end_page'] as int? ?? 1,
-          startOffset: map['start_offset'] as int? ?? 0,
-          endOffset: map['end_offset'] as int? ?? 0,
+          startPage: (map['start_page'] as num?)?.toInt() ?? 1,
+          endPage: (map['end_page'] as num?)?.toInt() ?? 1,
+          startOffset: (map['start_offset'] as num?)?.toInt() ?? 0,
+          endOffset: (map['end_offset'] as num?)?.toInt() ?? 0,
           blockType: map['block_type'] as String? ?? 'unknown',
         );
       }).toList();

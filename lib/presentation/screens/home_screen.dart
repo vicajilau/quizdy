@@ -18,6 +18,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quizdy/core/context_extension.dart';
+import 'package:quizdy/data/services/file_service/document_text_extractor.dart';
 import 'package:quizdy/domain/models/custom_exceptions/bad_quiz_file_exception.dart';
 import 'package:quizdy/presentation/utils/dialog_drop_guard.dart';
 
@@ -30,8 +31,13 @@ import 'package:quizdy/presentation/blocs/file_bloc/file_event.dart';
 import 'package:quizdy/presentation/blocs/file_bloc/file_state.dart';
 import 'package:quizdy/presentation/screens/dialogs/quiz_metadata_dialog.dart';
 import 'package:quizdy/presentation/screens/dialogs/settings_dialog.dart';
-import 'package:quizdy/domain/models/ai/ai_generation_config.dart';
 import 'package:quizdy/presentation/screens/dialogs/ai_generate_questions_dialog.dart';
+import 'package:quizdy/presentation/screens/dialogs/ai_generate_study_dialog.dart';
+import 'package:quizdy/domain/models/ai/ai_generation_config.dart';
+import 'package:quizdy/domain/models/ai/ai_study_generation_config.dart';
+import 'package:quizdy/data/services/ai/ai_document_chunking_service.dart';
+import 'package:quizdy/domain/models/quiz/study_chunk.dart';
+import 'package:quizdy/domain/models/quiz/study_chunk_state.dart';
 import 'package:quizdy/presentation/screens/dialogs/custom_confirm_dialog.dart';
 import 'package:quizdy/data/services/configuration_service.dart';
 import 'package:quizdy/data/services/ai/ai_question_generation_service.dart';
@@ -120,8 +126,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
       // Show loading
       setState(() => _isLoading = true);
-      // Wait a frame to show loading
-      await Future.delayed(Duration.zero);
 
       try {
         // Generate questions with AI
@@ -155,6 +159,117 @@ class _HomeScreenState extends State<HomeScreen> {
               author: unknownValue,
               questions: generatedQuestions,
             ),
+          );
+        }
+      } catch (e) {
+        if (context.mounted) {
+          setState(() => _isLoading = false);
+          await showDialog(
+            context: context,
+            builder: (context) => CustomConfirmDialog(
+              title: AppLocalizations.of(context)!.aiGenerationErrorTitle,
+              message: e.toString().cleanExceptionPrefix(),
+              confirmText: AppLocalizations.of(context)!.acceptButton,
+              showCloseButton: false,
+            ),
+          );
+        }
+      }
+    } catch (e) {
+      if (context.mounted) {
+        setState(() => _isLoading = false);
+        context.presentSnackBar('Error: ${e.toString()}');
+      }
+    }
+  }
+
+  Future<void> _startStudyModeWithAI(BuildContext context) async {
+    try {
+      final isAiAvailable = await ConfigurationService.instance
+          .getIsAiAvailable();
+
+      if (!isAiAvailable) {
+        if (context.mounted) {
+          context.presentSnackBar(
+            AppLocalizations.of(context)!.aiApiKeyRequired,
+          );
+        }
+        return;
+      }
+
+      // Show AI generation dialog
+      if (!context.mounted) return;
+      final config = await showDialog<AiStudyGenerationConfig>(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => const AiGenerateStudyDialog(),
+      );
+
+      if (config == null || !context.mounted) return;
+
+      // Show loading state immediately (compute handles yielding)
+      setState(() => _isLoading = true);
+
+      try {
+        if (!context.mounted) return;
+        final localizations = AppLocalizations.of(context)!;
+
+        String documentText = '';
+        String documentTitle = '';
+
+        if (config.hasFile) {
+          try {
+            documentText = await DocumentTextExtractor.extractText(
+              config.file!,
+            );
+            documentTitle = config.file!.name;
+          } catch (e) {
+            throw Exception(e.toString());
+          }
+        } else {
+          documentText = config.content;
+          documentTitle = localizations.studyModeLabel; // Generic title
+        }
+
+        if (documentText.isEmpty) {
+          throw Exception('Document text cannot be empty.');
+        }
+
+        final documentId = 'study_${DateTime.now().millisecondsSinceEpoch}';
+
+        // 1. Chunk the document
+        final chunkingService = AiDocumentChunkingService.instance;
+        final sourceReferences = await chunkingService.chunkDocument(
+          documentText,
+          documentId,
+          localizations,
+        );
+
+        if (sourceReferences.isEmpty) {
+          throw Exception(localizations.aiGenerationFailed);
+        }
+
+        // 2. Create chunks
+        final initialChunks = sourceReferences.asMap().entries.map((entry) {
+          return StudyChunk(
+            chunkIndex: entry.key,
+            status: StudyChunkState.created,
+            sourceReference: entry.value,
+            aiSummary: null,
+            slides: null,
+          );
+        }).toList();
+
+        if (context.mounted) {
+          setState(() => _isLoading = false);
+          // 3. Navigate to Study screen
+          context.push(
+            AppRoutes.studyScreen,
+            extra: {
+              'initialChunks': initialChunks,
+              'documentText': documentText,
+              'documentTitle': documentTitle,
+            },
           );
         }
       } catch (e) {
@@ -278,6 +393,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                             _showCreateQuizFileDialog(context),
                                         onGenerateAITap: () =>
                                             _generateQuestionsWithAI(context),
+                                        onStudyModeTap: () =>
+                                            _startStudyModeWithAI(context),
                                       ),
                                     ],
                                   ),

@@ -61,4 +61,29 @@ class AiQuestionGenerationConfig {
     this.isTopicMode = false,
     this.generationCategory = AiGenerationCategory.both,
   });
+
+  /// Creates a copy of this config but with the given fields replaced with the new values.
+  AiQuestionGenerationConfig copyWith({
+    int? questionCount,
+    List<AiQuestionType>? questionTypes,
+    String? language,
+    String? content,
+    AIService? preferredService,
+    String? preferredModel,
+    AiFileAttachment? file,
+    bool? isTopicMode,
+    AiGenerationCategory? generationCategory,
+  }) {
+    return AiQuestionGenerationConfig(
+      questionCount: questionCount ?? this.questionCount,
+      questionTypes: questionTypes ?? this.questionTypes,
+      language: language ?? this.language,
+      content: content ?? this.content,
+      preferredService: preferredService ?? this.preferredService,
+      preferredModel: preferredModel ?? this.preferredModel,
+      file: file ?? this.file,
+      isTopicMode: isTopicMode ?? this.isTopicMode,
+      generationCategory: generationCategory ?? this.generationCategory,
+    );
+  }
 }

@@ -16,7 +16,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:quizdy/core/context_extension.dart';
 import 'package:quizdy/core/l10n/app_localizations.dart';
 import 'package:quizdy/core/theme/app_theme.dart';
 import 'package:quizdy/presentation/blocs/file_bloc/file_bloc.dart';
@@ -27,12 +26,14 @@ class HomeFooterWidget extends StatelessWidget {
   final bool isLoading;
   final VoidCallback onCreateTap;
   final VoidCallback onGenerateAITap;
+  final VoidCallback onStudyModeTap;
 
   const HomeFooterWidget({
     super.key,
     required this.isLoading,
     required this.onCreateTap,
     required this.onGenerateAITap,
+    required this.onStudyModeTap,
   });
 
   @override
@@ -45,9 +46,7 @@ class HomeFooterWidget extends StatelessWidget {
           QuizdyButton(
             title: AppLocalizations.of(context)!.studyModeLabel,
             icon: LucideIcons.bookOpen,
-            onPressed: () => context.presentSnackBar(
-              AppLocalizations.of(context)!.featureComingSoon,
-            ),
+            onPressed: isLoading ? null : onStudyModeTap,
             expanded: true,
           ),
           QuizdyButton(

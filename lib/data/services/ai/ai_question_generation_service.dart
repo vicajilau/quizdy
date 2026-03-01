@@ -26,6 +26,7 @@ import 'package:quizdy/domain/models/quiz/question_type.dart';
 import 'package:quizdy/domain/models/ai/ai_generation_config.dart';
 import 'package:quizdy/domain/models/ai/ai_question_type.dart';
 import 'package:quizdy/domain/models/ai/ai_generation_category.dart';
+import 'package:quizdy/data/services/file_service/document_text_extractor.dart';
 
 class AiQuestionGenerationService {
   static const String _openaiApiUrl =
@@ -37,11 +38,25 @@ class AiQuestionGenerationService {
     AppLocalizations? localizations,
   }) async {
     try {
+      // If we have a file attached, let's extract its text first and convert to a content flow
+      AiQuestionGenerationConfig executionConfig = config;
+      if (config.hasFile) {
+        final extractedText = await DocumentTextExtractor.extractText(
+          config.file!,
+        );
+        executionConfig = config.copyWith(
+          content:
+              '${config.content}\n\n---\n\nFile Content (${config.file!.name}):\n$extractedText',
+          file:
+              null, // Clear file so it processes as a standard text-based prompt
+        );
+      }
+
       // If a preferred service is specified, use it directly
-      if (config.preferredService != null && localizations != null) {
+      if (executionConfig.preferredService != null && localizations != null) {
         return await _generateWithService(
-          config,
-          config.preferredService!,
+          executionConfig,
+          executionConfig.preferredService!,
           localizations,
         );
       }
@@ -57,11 +72,15 @@ class AiQuestionGenerationService {
       // Try OpenAI first, then Gemini if it fails
       if (openaiKey?.isNotEmpty == true) {
         try {
-          return await _generateWithOpenAI(config, openaiKey!, localizations!);
+          return await _generateWithOpenAI(
+            executionConfig,
+            openaiKey!,
+            localizations!,
+          );
         } catch (e) {
           if (geminiKey?.isNotEmpty == true) {
             return await _generateWithGemini(
-              config,
+              executionConfig,
               geminiKey!,
               localizations!,
             );
@@ -69,7 +88,11 @@ class AiQuestionGenerationService {
           rethrow;
         }
       } else if (geminiKey?.isNotEmpty == true) {
-        return await _generateWithGemini(config, geminiKey!, localizations!);
+        return await _generateWithGemini(
+          executionConfig,
+          geminiKey!,
+          localizations!,
+        );
       }
 
       throw Exception('Could not generate questions with any AI service');
@@ -213,7 +236,7 @@ class AiQuestionGenerationService {
           : '';
       header =
           '''
-          Based on the attached file, generate $questionCountText quiz questions $questionTypesText in $languageText.
+          Based on the given context, generate $questionCountText quiz questions $questionTypesText in $languageText.
           $commentsSection''';
     } else if (config.isTopicMode) {
       header =
