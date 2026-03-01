@@ -1728,5 +1728,9 @@
   "onboardingAiMultiLanguageDescription": "13 अलग-अलग भाषाओं में उत्पन्न करें",
   "@onboardingAiMultiLanguageDescription": {
     "description": "स्वागत प्रवाह में एआई सुविधा विवरण"
+  },
+  "documentTooLongForProcessing": "सकता है कि दस्तावेज़ इस MVP में एक ही पास में संसाधित करने के लिए बहुत लंबा हो।",
+  "@documentTooLongForProcessing": {
+    "description": "Error message when AI document processing fails due to document length"
   }
 }

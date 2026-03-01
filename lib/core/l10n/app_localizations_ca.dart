@@ -1470,4 +1470,8 @@ class AppLocalizationsCa extends AppLocalizations {
   @override
   String get onboardingAiMultiLanguageDescription =>
       'Genera en 13 idiomes diferents';
+
+  @override
+  String get documentTooLongForProcessing =>
+      'El document pot ser massa llarg per processar-lo d\'una vegada en aquest MVP.';
 }

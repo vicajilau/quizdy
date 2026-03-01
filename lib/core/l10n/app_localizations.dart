@@ -2616,6 +2616,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Generate in 13 different languages'**
   String get onboardingAiMultiLanguageDescription;
+
+  /// Error message when AI document processing fails due to document length
+  ///
+  /// In en, this message translates to:
+  /// **'The document might be too long to process in a single pass in this MVP.'**
+  String get documentTooLongForProcessing;
 }
 
 class _AppLocalizationsDelegate

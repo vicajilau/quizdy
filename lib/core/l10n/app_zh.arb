@@ -1777,5 +1777,9 @@
   "onboardingAiMultiLanguageDescription": "支持 13 种不同语言生成",
   "@onboardingAiMultiLanguageDescription": {
     "description": "欢迎流程中的 AI 功能描述"
+  },
+  "documentTooLongForProcessing": "该文档可能太长，无法在此MVP中一次性处理。",
+  "@documentTooLongForProcessing": {
+    "description": "Error message when AI document processing fails due to document length"
   }
 }

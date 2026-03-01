@@ -1821,5 +1821,9 @@
   "onboardingAiMultiLanguageDescription": "In 13 verschiedenen Sprachen generieren",
   "@onboardingAiMultiLanguageDescription": {
     "description": "KI-Funktionsbeschreibung im Onboarding"
+  },
+  "documentTooLongForProcessing": "Das Dokument ist möglicherweise zu lang, um in diesem MVP in einem Durchgang verarbeitet zu werden.",
+  "@documentTooLongForProcessing": {
+    "description": "Error message when AI document processing fails due to document length"
   }
 }

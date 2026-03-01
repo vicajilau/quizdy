@@ -62,6 +62,7 @@ class GeminiService extends AIService {
     String prompt,
     AppLocalizations localizations, {
     String? model,
+    String? responseMimeType,
   }) async {
     final apiKey = await ConfigurationService.instance.getGeminiApiKey();
 
@@ -148,6 +149,7 @@ class GeminiService extends AIService {
     String prompt,
     AppLocalizations localizations, {
     String? model,
+    String? responseMimeType,
     required AiFileAttachment file,
   }) async {
     final apiKey = await ConfigurationService.instance.getGeminiApiKey();

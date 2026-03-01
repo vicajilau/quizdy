@@ -1764,5 +1764,9 @@
   "onboardingAiMultiLanguageDescription": "Genera in 13 lingue diverse",
   "@onboardingAiMultiLanguageDescription": {
     "description": "Descripzione funzione IA nel benvenuto"
+  },
+  "documentTooLongForProcessing": "Il documento potrebbe essere troppo lungo per essere elaborato in un solo passaggio in questo MVP.",
+  "@documentTooLongForProcessing": {
+    "description": "Error message when AI document processing fails due to document length"
   }
 }

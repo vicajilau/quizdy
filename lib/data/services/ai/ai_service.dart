@@ -22,6 +22,7 @@ abstract class AIService {
     String prompt,
     AppLocalizations localizations, {
     String? model,
+    String? responseMimeType,
   });
 
   /// Obtiene una respuesta del servicio de IA enviando un fichero adjunto
@@ -29,6 +30,7 @@ abstract class AIService {
     String prompt,
     AppLocalizations localizations, {
     String? model,
+    String? responseMimeType,
     required AiFileAttachment file,
   });
 

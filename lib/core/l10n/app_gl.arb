@@ -1725,5 +1725,9 @@
   "onboardingAiMultiLanguageDescription": "Xera en 13 idiomas diferentes",
   "@onboardingAiMultiLanguageDescription": {
     "description": "Descrición da función IA no acollemento"
+  },
+  "documentTooLongForProcessing": "O documento podería ser demasiado longo para procesalo dunha soa vez neste MVP.",
+  "@documentTooLongForProcessing": {
+    "description": "Error message when AI document processing fails due to document length"
   }
 }

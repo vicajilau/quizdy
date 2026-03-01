@@ -1469,4 +1469,8 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get onboardingAiMultiLanguageDescription =>
       'In 13 verschiedenen Sprachen generieren';
+
+  @override
+  String get documentTooLongForProcessing =>
+      'Das Dokument ist möglicherweise zu lang, um in diesem MVP in einem Durchgang verarbeitet zu werden.';
 }

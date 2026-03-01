@@ -1470,4 +1470,8 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get onboardingAiMultiLanguageDescription =>
       'Δημιουργία σε 13 διαφορετικές γλώσσες';
+
+  @override
+  String get documentTooLongForProcessing =>
+      'Το έγγραφο ενδέχεται να είναι πολύ μεγάλο για να επεξεργαστεί με ένα μόνο πέρασμα σε αυτό το MVP.';
 }

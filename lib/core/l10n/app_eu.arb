@@ -1725,5 +1725,9 @@
   "onboardingAiMultiLanguageDescription": "Sortu 13 hizkuntza desberdinetan",
   "@onboardingAiMultiLanguageDescription": {
     "description": "IA funtzioaren deskribapena ongietorrian"
+  },
+  "documentTooLongForProcessing": "Dokumentua luzeegia izan daiteke MVP honetan pasaldi batean prozesatzeko.",
+  "@documentTooLongForProcessing": {
+    "description": "Error message when AI document processing fails due to document length"
   }
 }

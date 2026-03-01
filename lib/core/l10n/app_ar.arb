@@ -1785,5 +1785,9 @@
   "onboardingAiMultiLanguageDescription": "توليد بـ 13 لغة مختلفة",
   "@onboardingAiMultiLanguageDescription": {
     "description": "وصف ميزة الذكاء الاصطناعي في العرض الترحيبي"
+  },
+  "documentTooLongForProcessing": "قد يكون المستند طويلاً جدًا بحيث لا يمكن معالجته في مسار واحد في أفضل منتج ممكن (MVP).",
+  "@documentTooLongForProcessing": {
+    "description": "Error message when AI document processing fails due to document length"
   }
 }

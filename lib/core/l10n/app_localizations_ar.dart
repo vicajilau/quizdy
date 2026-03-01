@@ -1438,4 +1438,8 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get onboardingAiMultiLanguageDescription => 'توليد بـ 13 لغة مختلفة';
+
+  @override
+  String get documentTooLongForProcessing =>
+      'قد يكون المستند طويلاً جدًا بحيث لا يمكن معالجته في مسار واحد في أفضل منتج ممكن (MVP).';
 }

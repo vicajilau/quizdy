@@ -1728,5 +1728,9 @@
   "onboardingAiMultiLanguageDescription": "13の異なる言語で生成可能",
   "@onboardingAiMultiLanguageDescription": {
     "description": "オンボーディングのAI機能説明"
+  },
+  "documentTooLongForProcessing": "ドキュメントが長すぎて、このMVPでは1回のパスで処理できない可能性があります。",
+  "@documentTooLongForProcessing": {
+    "description": "Error message when AI document processing fails due to document length"
   }
 }

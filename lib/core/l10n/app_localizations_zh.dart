@@ -1380,4 +1380,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get onboardingAiMultiLanguageDescription => '支持 13 种不同语言生成';
+
+  @override
+  String get documentTooLongForProcessing => '该文档可能太长，无法在此MVP中一次性处理。';
 }
