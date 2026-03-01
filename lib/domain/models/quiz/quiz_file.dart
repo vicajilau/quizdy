@@ -18,6 +18,7 @@ import 'package:quizdy/domain/models/custom_exceptions/bad_quiz_file_exception.d
 import 'package:quizdy/domain/models/custom_exceptions/bad_quiz_file_error_type.dart';
 import 'package:quizdy/domain/models/quiz/quiz_metadata.dart';
 import 'package:quizdy/domain/models/quiz/question.dart';
+import 'package:quizdy/domain/models/quiz/study.dart';
 
 /// The `QuizFile` class represents a Quiz file, which consists of metadata
 /// and a list of questions. This class provides methods for deserialization,
@@ -31,8 +32,16 @@ class QuizFile {
   /// The questions described in the Quiz file.
   final List<Question> questions;
 
+  /// The interactive study sequence content associated with the Quiz file.
+  final Study? study;
+
   /// Constructor for creating a `QuizFile` instance with metadata and questions.
-  QuizFile({required this.metadata, required this.questions, this.filePath});
+  QuizFile({
+    required this.metadata,
+    required this.questions,
+    this.study,
+    this.filePath,
+  });
 
   /// Creates a `QuizFile` instance from a JSON map.
   ///
@@ -43,6 +52,8 @@ class QuizFile {
   factory QuizFile.fromJson(Map<String, dynamic> json, {String? filePath}) {
     try {
       final metadata = QuizMetadata.fromJson(json['metadata'] ?? {});
+      final studyJson = json['study'] as Map<String, dynamic>?;
+      final study = studyJson != null ? Study.fromJson(studyJson) : null;
       final questionsJson = json['questions'] as List<dynamic>? ?? [];
       final questions = questionsJson
           .map((questionJson) => Question.fromJson(questionJson))
@@ -51,6 +62,7 @@ class QuizFile {
       return QuizFile(
         metadata: metadata,
         questions: questions,
+        study: study,
         filePath: filePath,
       );
     } catch (e) {
@@ -67,6 +79,7 @@ class QuizFile {
   Map<String, dynamic> toJson() {
     return {
       'metadata': metadata.toJson(),
+      if (study != null) 'study': study!.toJson(),
       'questions': questions.map((question) => question.toJson()).toList(),
     };
   }
@@ -80,11 +93,13 @@ class QuizFile {
   QuizFile copyWith({
     QuizMetadata? metadata,
     List<Question>? questions,
+    Study? study,
     String? filePath,
   }) {
     return QuizFile(
       metadata: metadata ?? this.metadata,
       questions: questions ?? this.questions,
+      study: study ?? this.study,
       filePath: filePath ?? this.filePath,
     );
   }
@@ -99,6 +114,7 @@ class QuizFile {
     return QuizFile(
       metadata: metadata.copyWith(),
       questions: questions.map((q) => q.copyWith()).toList(),
+      study: study?.copyWith(),
       filePath: filePath,
     );
   }
@@ -109,16 +125,20 @@ class QuizFile {
     return other is QuizFile &&
         other.metadata == metadata &&
         listEquals(other.questions, questions) &&
+        other.study == study &&
         other.filePath == filePath;
   }
 
   @override
   int get hashCode {
-    return metadata.hashCode ^ Object.hashAll(questions) ^ filePath.hashCode;
+    return metadata.hashCode ^
+        Object.hashAll(questions) ^
+        study.hashCode ^
+        filePath.hashCode;
   }
 
   @override
   String toString() {
-    return 'QuizFile(metadata: $metadata, questions: ${questions.length}, filePath: $filePath)';
+    return 'QuizFile(metadata: $metadata, questions: ${questions.length}, study: ${study != null ? "Present" : "None"}, filePath: $filePath)';
   }
 }
