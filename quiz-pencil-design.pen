@@ -14003,12 +14003,7 @@
               "clip": true,
               "width": "fill_container",
               "height": 200,
-              "fill": {
-                "type": "image",
-                "enabled": true,
-                "url": "./images/generated-1771227801208.png",
-                "mode": "fill"
-              },
+              "fill": "#27272A",
               "cornerRadius": 12
             },
             {
