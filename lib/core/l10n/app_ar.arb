@@ -1789,5 +1789,25 @@
   "documentTooLongForProcessing": "قد يكون المستند طويلاً جدًا بحيث لا يمكن معالجته في مسار واحد في أفضل منتج ممكن (MVP).",
   "@documentTooLongForProcessing": {
     "description": "Error message when AI document processing fails due to document length"
-  }
+  },
+  "studyScreenNoSlidesAvailable": "لا توجد أقسام دراسية متاحة.",
+  "studyScreenGenerating": "جاري إنشاء مواد دراسية...",
+  "studyScreenError": "حدث خطأ أثناء إنشاء مواد دراسية.",
+  "studyScreenRetry": "إعادة المحاولة",
+  "studyScreenNoSlidesGenerated": "لم يتم إنشاء شرائح.",
+  "studyScreenPreviousSection": "الصفحة السابقة",
+  "studyScreenNextSection": "الصفحة التالية",
+  "studyScreenSectionIndicator": "صفحة {current} من {total}",
+  "@studyScreenSectionIndicator": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "studyScreenAiSummaryTitle": "ملخص الذكاء الاصطناعي",
+  "studyScreenNoSummary": "لا يوجد ملخص متاح."
 }

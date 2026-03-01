@@ -1774,5 +1774,25 @@
   "documentTooLongForProcessing": "Le document est peut-être trop long pour être traité en une seule passe dans ce MVP.",
   "@documentTooLongForProcessing": {
     "description": "Error message when AI document processing fails due to document length"
-  }
+  },
+  "studyScreenNoSlidesAvailable": "Aucune section d'étude disponible.",
+  "studyScreenGenerating": "Création du matériel d'étude...",
+  "studyScreenError": "Une erreur s'est produite lors de la création du matériel d'étude.",
+  "studyScreenRetry": "Réessayer",
+  "studyScreenNoSlidesGenerated": "Aucune diapositive générée.",
+  "studyScreenPreviousSection": "Page précédente",
+  "studyScreenNextSection": "Page suivante",
+  "studyScreenSectionIndicator": "Page {current} sur {total}",
+  "@studyScreenSectionIndicator": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "studyScreenAiSummaryTitle": "Résumé de l'IA",
+  "studyScreenNoSummary": "Aucun résumé disponible."
 }

@@ -883,6 +883,39 @@ class AppLocalizationsDe extends AppLocalizations {
   String get aiGenerateButton => 'Fragen generieren';
 
   @override
+  String get studyScreenNoSlidesAvailable => 'Keine Lernabschnitte verfügbar.';
+
+  @override
+  String get studyScreenGenerating => 'Lernmaterialien werden erstellt...';
+
+  @override
+  String get studyScreenError =>
+      'Beim Erstellen des Lernmaterials ist ein Fehler aufgetreten.';
+
+  @override
+  String get studyScreenRetry => 'Wiederholen';
+
+  @override
+  String get studyScreenNoSlidesGenerated => 'Keine Folien erstellt.';
+
+  @override
+  String get studyScreenPreviousSection => 'Vorherige Seite';
+
+  @override
+  String get studyScreenNextSection => 'Nächste Seite';
+
+  @override
+  String studyScreenSectionIndicator(int current, int total) {
+    return 'Seite $current von $total';
+  }
+
+  @override
+  String get studyScreenAiSummaryTitle => 'KI-Zusammenfassung';
+
+  @override
+  String get studyScreenNoSummary => 'Keine Zusammenfassung verfügbar.';
+
+  @override
   String get aiEnterContentTitle => 'Inhalt eingeben';
 
   @override

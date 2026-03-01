@@ -831,6 +831,38 @@ class AppLocalizationsJa extends AppLocalizations {
   String get aiGenerateButton => '問題を生成';
 
   @override
+  String get studyScreenNoSlidesAvailable => '利用可能な学習セクションはありません。';
+
+  @override
+  String get studyScreenGenerating => '学習資料を生成中...';
+
+  @override
+  String get studyScreenError => '学習資料の生成中にエラーが発生しました。';
+
+  @override
+  String get studyScreenRetry => '再試行';
+
+  @override
+  String get studyScreenNoSlidesGenerated => 'スライドが生成されていません。';
+
+  @override
+  String get studyScreenPreviousSection => '前のページ';
+
+  @override
+  String get studyScreenNextSection => '次のページ';
+
+  @override
+  String studyScreenSectionIndicator(int current, int total) {
+    return '$totalページ中$currentページ';
+  }
+
+  @override
+  String get studyScreenAiSummaryTitle => 'AIの要約';
+
+  @override
+  String get studyScreenNoSummary => '利用可能な要約はありません。';
+
+  @override
   String get aiEnterContentTitle => 'コンテンツを入力';
 
   @override

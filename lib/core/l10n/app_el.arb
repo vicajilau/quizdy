@@ -687,5 +687,25 @@
   "documentTooLongForProcessing": "Το έγγραφο ενδέχεται να είναι πολύ μεγάλο για να επεξεργαστεί με ένα μόνο πέρασμα σε αυτό το MVP.",
   "@documentTooLongForProcessing": {
     "description": "Error message when AI document processing fails due to document length"
-  }
+  },
+  "studyScreenNoSlidesAvailable": "Δεν υπάρχουν διαθέσιμες ενότητες μελέτης.",
+  "studyScreenGenerating": "Δημιουργία υλικού μελέτης...",
+  "studyScreenError": "Παρουσιάστηκε σφάλμα κατά τη δημιουργία του υλικού μελέτης.",
+  "studyScreenRetry": "Δοκιμάστε ξανά",
+  "studyScreenNoSlidesGenerated": "Δεν δημιουργήθηκαν διαφάνειες.",
+  "studyScreenPreviousSection": "Προηγούμενη σελίδα",
+  "studyScreenNextSection": "Επόμενη σελίδα",
+  "studyScreenSectionIndicator": "Σελίδα {current} από {total}",
+  "@studyScreenSectionIndicator": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "studyScreenAiSummaryTitle": "Σύνοψη τεχνητής νοημοσύνης",
+  "studyScreenNoSummary": "Δεν υπάρχει διαθέσιμη σύνοψη."
 }

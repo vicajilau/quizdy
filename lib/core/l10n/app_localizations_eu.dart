@@ -880,6 +880,40 @@ class AppLocalizationsEu extends AppLocalizations {
   String get aiGenerateButton => 'Galderak Sortu';
 
   @override
+  String get studyScreenNoSlidesAvailable =>
+      'Ez dago ikasketa atalik erabilgarri.';
+
+  @override
+  String get studyScreenGenerating => 'Ikasketa materiala sortzen...';
+
+  @override
+  String get studyScreenError =>
+      'Errore bat gertatu da ikasketa materiala sortzean.';
+
+  @override
+  String get studyScreenRetry => 'Saiatu berriro';
+
+  @override
+  String get studyScreenNoSlidesGenerated => 'Ez da diapositibarik sortu.';
+
+  @override
+  String get studyScreenPreviousSection => 'Aurreko orria';
+
+  @override
+  String get studyScreenNextSection => 'Hurrengo orria';
+
+  @override
+  String studyScreenSectionIndicator(int current, int total) {
+    return '$current/$total orria';
+  }
+
+  @override
+  String get studyScreenAiSummaryTitle => 'AI Laburpena';
+
+  @override
+  String get studyScreenNoSummary => 'Ez dago laburpenik erabilgarri.';
+
+  @override
   String get aiEnterContentTitle => 'Sartu edukia';
 
   @override

@@ -1781,5 +1781,25 @@
   "documentTooLongForProcessing": "该文档可能太长，无法在此MVP中一次性处理。",
   "@documentTooLongForProcessing": {
     "description": "Error message when AI document processing fails due to document length"
-  }
+  },
+  "studyScreenNoSlidesAvailable": "没有可用的学习部分。",
+  "studyScreenGenerating": "正在生成学习材料...",
+  "studyScreenError": "生成学习材料时发生错误。",
+  "studyScreenRetry": "重试",
+  "studyScreenNoSlidesGenerated": "没有生成幻灯片。",
+  "studyScreenPreviousSection": "上一页",
+  "studyScreenNextSection": "下一页",
+  "studyScreenSectionIndicator": "第 {current} 页，共 {total} 页",
+  "@studyScreenSectionIndicator": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "studyScreenAiSummaryTitle": "AI 总结",
+  "studyScreenNoSummary": "没有可用的总结。"
 }

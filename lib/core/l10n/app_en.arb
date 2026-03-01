@@ -1167,6 +1167,56 @@
   "@aiGenerateButton": {
     "description": "Text for the generate questions button."
   },
+  "studyScreenNoSlidesAvailable": "No study sections available.", 
+  "@studyScreenNoSlidesAvailable": { 
+    "description": "Text displayed when there are no chunks available to study." 
+  }, 
+  "studyScreenGenerating": "Generating study materials...", 
+  "@studyScreenGenerating": { 
+    "description": "Text displayed while the AI is computing study materials." 
+  }, 
+  "studyScreenError": "An error occurred while generating study material.", 
+  "@studyScreenError": { 
+    "description": "Text displayed when chunk generation fails." 
+  }, 
+  "studyScreenRetry": "Retry", 
+  "@studyScreenRetry": { 
+    "description": "Button text to retry parsing a failed chunk." 
+  }, 
+  "studyScreenNoSlidesGenerated": "No slides generated.", 
+  "@studyScreenNoSlidesGenerated": { 
+    "description": "Text displayed if AI returns back empty slides for the current view." 
+  }, 
+  "studyScreenPreviousSection": "Previous Page", 
+  "@studyScreenPreviousSection": { 
+    "description": "Button to go back to the previous study chunk." 
+  }, 
+  "studyScreenNextSection": "Next Page", 
+  "@studyScreenNextSection": { 
+    "description": "Button to go to the next study chunk." 
+  }, 
+  "studyScreenSectionIndicator": "Page {current} of {total}", 
+  "@studyScreenSectionIndicator": { 
+    "description": "Indicates the current chunk view versus the total available chunks.", 
+    "placeholders": { 
+      "current": { 
+        "type": "int", 
+        "example": "1" 
+      }, 
+      "total": { 
+        "type": "int", 
+        "example": "5" 
+      } 
+    } 
+  }, 
+  "studyScreenAiSummaryTitle": "AI Summary", 
+  "@studyScreenAiSummaryTitle": { 
+    "description": "Title header above the AI summary overview." 
+  }, 
+  "studyScreenNoSummary": "No summary available.", 
+  "@studyScreenNoSummary": { 
+    "description": "Placeholder when there is no AI summary processed." 
+  },
   "aiEnterContentTitle": "Enter Content",
   "@aiEnterContentTitle": {
     "description": "Title for the step 2 of AI question generation"

@@ -885,6 +885,40 @@ class AppLocalizationsEl extends AppLocalizations {
   String get aiGenerateButton => 'Δημιουργία Ερωτήσεων';
 
   @override
+  String get studyScreenNoSlidesAvailable =>
+      'Δεν υπάρχουν διαθέσιμες ενότητες μελέτης.';
+
+  @override
+  String get studyScreenGenerating => 'Δημιουργία υλικού μελέτης...';
+
+  @override
+  String get studyScreenError =>
+      'Παρουσιάστηκε σφάλμα κατά τη δημιουργία του υλικού μελέτης.';
+
+  @override
+  String get studyScreenRetry => 'Δοκιμάστε ξανά';
+
+  @override
+  String get studyScreenNoSlidesGenerated => 'Δεν δημιουργήθηκαν διαφάνειες.';
+
+  @override
+  String get studyScreenPreviousSection => 'Προηγούμενη σελίδα';
+
+  @override
+  String get studyScreenNextSection => 'Επόμενη σελίδα';
+
+  @override
+  String studyScreenSectionIndicator(int current, int total) {
+    return 'Σελίδα $current από $total';
+  }
+
+  @override
+  String get studyScreenAiSummaryTitle => 'Σύνοψη τεχνητής νοημοσύνης';
+
+  @override
+  String get studyScreenNoSummary => 'Δεν υπάρχει διαθέσιμη σύνοψη.';
+
+  @override
   String get aiEnterContentTitle => 'Εισαγωγή περιεχομένου';
 
   @override

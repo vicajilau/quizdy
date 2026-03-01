@@ -871,6 +871,39 @@ class AppLocalizationsHi extends AppLocalizations {
   String get aiGenerateButton => 'प्रश्न बनाएं';
 
   @override
+  String get studyScreenNoSlidesAvailable =>
+      'कोई अध्ययन अनुभाग उपलब्ध नहीं है।';
+
+  @override
+  String get studyScreenGenerating => 'अध्ययन सामग्री तैयार की जा रही है...';
+
+  @override
+  String get studyScreenError => 'अध्ययन सामग्री तैयार करते समय एक त्रुटि हुई।';
+
+  @override
+  String get studyScreenRetry => 'पुनः प्रयास करें';
+
+  @override
+  String get studyScreenNoSlidesGenerated => 'कोई स्लाइड नहीं बनाई गई।';
+
+  @override
+  String get studyScreenPreviousSection => 'पिछला पृष्ठ';
+
+  @override
+  String get studyScreenNextSection => 'अगला पृष्ठ';
+
+  @override
+  String studyScreenSectionIndicator(int current, int total) {
+    return 'पृष्ठ $total में से $current';
+  }
+
+  @override
+  String get studyScreenAiSummaryTitle => 'AI सारांश';
+
+  @override
+  String get studyScreenNoSummary => 'कोई सारांश उपलब्ध नहीं है।';
+
+  @override
   String get aiEnterContentTitle => 'सामग्री दर्ज करें';
 
   @override

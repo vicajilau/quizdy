@@ -57,6 +57,8 @@ class StudyScreenView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
         title: BlocBuilder<StudyExecutionBloc, StudyExecutionState>(
@@ -69,25 +71,43 @@ class StudyScreenView extends StatelessWidget {
         builder: (context, state) {
           final currentChunk = state.currentChunk;
           if (currentChunk == null) {
-            return const Center(child: Text('No chunks available.'));
+            return Center(
+              child: Text(localizations.studyScreenNoSlidesAvailable),
+            );
           }
 
           if (currentChunk.status == StudyChunkState.processing) {
-            return const Center(
+            return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CircularProgressIndicator(),
-                  SizedBox(height: 16),
-                  Text('Generating study materials...'),
+                  const CircularProgressIndicator(),
+                  const SizedBox(height: 16),
+                  Text(localizations.studyScreenGenerating),
                 ],
               ),
             );
           }
 
           if (currentChunk.status == StudyChunkState.error) {
-            return const Center(
-              child: Text('Error generating study material.'),
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(localizations.studyScreenError),
+                  const SizedBox(height: 16),
+                  ElevatedButton(
+                    onPressed: () {
+                      context.read<StudyExecutionBloc>().add(
+                        const StudyChunkRequested(
+                          0,
+                        ), // Trigger retry on current (the bloc handles index re-processing internally)
+                      );
+                    },
+                    child: Text(localizations.studyScreenRetry),
+                  ),
+                ],
+              ),
             );
           }
 
@@ -147,7 +167,11 @@ class StudyScreenView extends StatelessWidget {
                                   );
                                 },
                               )
-                            : const Center(child: Text('No slides generated.')),
+                            : Center(
+                                child: Text(
+                                  localizations.studyScreenNoSlidesGenerated,
+                                ),
+                              ),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -158,10 +182,15 @@ class StudyScreenView extends StatelessWidget {
                                     PreviousStudyChunkRequested(),
                                   )
                                 : null,
-                            child: const Text('Previous Chunk'),
+                            child: Text(
+                              localizations.studyScreenPreviousSection,
+                            ),
                           ),
                           Text(
-                            'Chunk ${state.currentChunkIndex + 1} of ${state.chunks.length}',
+                            localizations.studyScreenSectionIndicator(
+                              state.currentChunkIndex + 1,
+                              state.chunks.length,
+                            ),
                           ),
                           ElevatedButton(
                             onPressed: state.hasNext
@@ -169,7 +198,7 @@ class StudyScreenView extends StatelessWidget {
                                     NextStudyChunkRequested(),
                                   )
                                 : null,
-                            child: const Text('Next Chunk'),
+                            child: Text(localizations.studyScreenNextSection),
                           ),
                         ],
                       ),
@@ -186,14 +215,15 @@ class StudyScreenView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'AI Summary',
+                        localizations.studyScreenAiSummaryTitle,
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
                       const SizedBox(height: 16),
                       Expanded(
                         child: SingleChildScrollView(
                           child: Text(
-                            currentChunk.aiSummary ?? 'No summary available.',
+                            currentChunk.aiSummary ??
+                                localizations.studyScreenNoSummary,
                           ),
                         ),
                       ),

@@ -883,6 +883,40 @@ class AppLocalizationsCa extends AppLocalizations {
   String get aiGenerateButton => 'Generar Preguntes';
 
   @override
+  String get studyScreenNoSlidesAvailable =>
+      'No hi ha seccions d\'estudi disponibles.';
+
+  @override
+  String get studyScreenGenerating => 'Generant materials d\'estudi...';
+
+  @override
+  String get studyScreenError =>
+      'S\'ha produït un error en generar el material d\'estudi.';
+
+  @override
+  String get studyScreenRetry => 'Reintenta';
+
+  @override
+  String get studyScreenNoSlidesGenerated => 'No s\'han generat diapositives.';
+
+  @override
+  String get studyScreenPreviousSection => 'Pàgina anterior';
+
+  @override
+  String get studyScreenNextSection => 'Pàgina següent';
+
+  @override
+  String studyScreenSectionIndicator(int current, int total) {
+    return 'Pàgina $current de $total';
+  }
+
+  @override
+  String get studyScreenAiSummaryTitle => 'Resum d\'IA';
+
+  @override
+  String get studyScreenNoSummary => 'No hi ha cap resum disponible.';
+
+  @override
   String get aiEnterContentTitle => 'Introduir contingut';
 
   @override

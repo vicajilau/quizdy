@@ -1825,5 +1825,25 @@
   "documentTooLongForProcessing": "Das Dokument ist möglicherweise zu lang, um in diesem MVP in einem Durchgang verarbeitet zu werden.",
   "@documentTooLongForProcessing": {
     "description": "Error message when AI document processing fails due to document length"
-  }
+  },
+  "studyScreenNoSlidesAvailable": "Keine Lernabschnitte verfügbar.",
+  "studyScreenGenerating": "Lernmaterialien werden erstellt...",
+  "studyScreenError": "Beim Erstellen des Lernmaterials ist ein Fehler aufgetreten.",
+  "studyScreenRetry": "Wiederholen",
+  "studyScreenNoSlidesGenerated": "Keine Folien erstellt.",
+  "studyScreenPreviousSection": "Vorherige Seite",
+  "studyScreenNextSection": "Nächste Seite",
+  "studyScreenSectionIndicator": "Seite {current} von {total}",
+  "@studyScreenSectionIndicator": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "studyScreenAiSummaryTitle": "KI-Zusammenfassung",
+  "studyScreenNoSummary": "Keine Zusammenfassung verfügbar."
 }

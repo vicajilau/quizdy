@@ -1126,6 +1126,56 @@
   "@aiGenerateButton": {
     "description": "Texto para el botón de generar preguntas."
   },
+  "studyScreenNoSlidesAvailable": "No hay secciones de estudio disponibles.", 
+  "@studyScreenNoSlidesAvailable": { 
+    "description": "Texto mostrado cuando no hay secciones de estudio disponibles." 
+  }, 
+  "studyScreenGenerating": "Generando material de estudio...", 
+  "@studyScreenGenerating": { 
+    "description": "Texto mostrado mientras la IA calcula o carga materiales." 
+  }, 
+  "studyScreenError": "Ocurrió un error al generar el material.", 
+  "@studyScreenError": { 
+    "description": "Texto de error durante la generacion del material." 
+  }, 
+  "studyScreenRetry": "Reintentar", 
+  "@studyScreenRetry": { 
+    "description": "Texto de reintento sobre seccion erronea." 
+  }, 
+  "studyScreenNoSlidesGenerated": "No se generaron diapositivas.", 
+  "@studyScreenNoSlidesGenerated": { 
+    "description": "Texto cuando vienen diapositivas vacías tras la respuesta AI." 
+  }, 
+  "studyScreenPreviousSection": "Página Anterior", 
+  "@studyScreenPreviousSection": { 
+    "description": "Boton regresar a seccion anterior." 
+  }, 
+  "studyScreenNextSection": "Página Siguiente", 
+  "@studyScreenNextSection": { 
+    "description": "Boton avanzar seccion posterior." 
+  }, 
+  "studyScreenSectionIndicator": "Página {current} de {total}", 
+  "@studyScreenSectionIndicator": { 
+    "description": "Indicador de paginas disponibles totales de lectura", 
+    "placeholders": { 
+      "current": { 
+        "type": "int", 
+        "example": "1" 
+      }, 
+      "total": { 
+        "type": "int", 
+        "example": "5" 
+      } 
+    } 
+  }, 
+  "studyScreenAiSummaryTitle": "Resumen IA", 
+  "@studyScreenAiSummaryTitle": { 
+    "description": "Titulo del lateral u horizontal overview resumen iA" 
+  }, 
+  "studyScreenNoSummary": "No hay un resumen general disponible.", 
+  "@studyScreenNoSummary": { 
+    "description": "Fallback donde no existe summary provisto" 
+  },
   "aiEnterContentTitle": "Introducir contenido",
   "@aiEnterContentTitle": {
     "description": "Título para el paso 2 de la generación de preguntas con IA"
@@ -1810,5 +1860,15 @@
   "documentTooLongForProcessing": "El documento podría ser demasiado largo para procesarlo de una sola vez en este MVP.",
   "@documentTooLongForProcessing": {
     "description": "Error message when AI document processing fails due to document length"
-  }
+  },
+  "studyScreenNoSlidesAvailable": "No hay secciones de estudio disponibles.",
+  "studyScreenGenerating": "Generando material de estudio...",
+  "studyScreenError": "Ocurrió un error al generar el material.",
+  "studyScreenRetry": "Reintentar",
+  "studyScreenNoSlidesGenerated": "No se generaron diapositivas.",
+  "studyScreenPreviousSection": "Página Anterior",
+  "studyScreenNextSection": "Página Siguiente",
+  "studyScreenSectionIndicator": "Página {current} de {total}",
+  "studyScreenAiSummaryTitle": "Resumen IA",
+  "studyScreenNoSummary": "No hay un resumen general disponible."
 }

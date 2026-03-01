@@ -1732,5 +1732,25 @@
   "documentTooLongForProcessing": "सकता है कि दस्तावेज़ इस MVP में एक ही पास में संसाधित करने के लिए बहुत लंबा हो।",
   "@documentTooLongForProcessing": {
     "description": "Error message when AI document processing fails due to document length"
-  }
+  },
+  "studyScreenNoSlidesAvailable": "कोई अध्ययन अनुभाग उपलब्ध नहीं है।",
+  "studyScreenGenerating": "अध्ययन सामग्री तैयार की जा रही है...",
+  "studyScreenError": "अध्ययन सामग्री तैयार करते समय एक त्रुटि हुई।",
+  "studyScreenRetry": "पुनः प्रयास करें",
+  "studyScreenNoSlidesGenerated": "कोई स्लाइड नहीं बनाई गई।",
+  "studyScreenPreviousSection": "पिछला पृष्ठ",
+  "studyScreenNextSection": "अगला पृष्ठ",
+  "studyScreenSectionIndicator": "पृष्ठ {total} में से {current}",
+  "@studyScreenSectionIndicator": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "studyScreenAiSummaryTitle": "AI सारांश",
+  "studyScreenNoSummary": "कोई सारांश उपलब्ध नहीं है।"
 }

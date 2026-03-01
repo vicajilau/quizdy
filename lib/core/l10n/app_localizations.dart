@@ -1598,6 +1598,66 @@ abstract class AppLocalizations {
   /// **'Generate Questions'**
   String get aiGenerateButton;
 
+  /// Text displayed when there are no chunks available to study.
+  ///
+  /// In en, this message translates to:
+  /// **'No study sections available.'**
+  String get studyScreenNoSlidesAvailable;
+
+  /// Text displayed while the AI is computing study materials.
+  ///
+  /// In en, this message translates to:
+  /// **'Generating study materials...'**
+  String get studyScreenGenerating;
+
+  /// Text displayed when chunk generation fails.
+  ///
+  /// In en, this message translates to:
+  /// **'An error occurred while generating study material.'**
+  String get studyScreenError;
+
+  /// Button text to retry parsing a failed chunk.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get studyScreenRetry;
+
+  /// Text displayed if AI returns back empty slides for the current view.
+  ///
+  /// In en, this message translates to:
+  /// **'No slides generated.'**
+  String get studyScreenNoSlidesGenerated;
+
+  /// Button to go back to the previous study chunk.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous Page'**
+  String get studyScreenPreviousSection;
+
+  /// Button to go to the next study chunk.
+  ///
+  /// In en, this message translates to:
+  /// **'Next Page'**
+  String get studyScreenNextSection;
+
+  /// Indicates the current chunk view versus the total available chunks.
+  ///
+  /// In en, this message translates to:
+  /// **'Page {current} of {total}'**
+  String studyScreenSectionIndicator(int current, int total);
+
+  /// Title header above the AI summary overview.
+  ///
+  /// In en, this message translates to:
+  /// **'AI Summary'**
+  String get studyScreenAiSummaryTitle;
+
+  /// Placeholder when there is no AI summary processed.
+  ///
+  /// In en, this message translates to:
+  /// **'No summary available.'**
+  String get studyScreenNoSummary;
+
   /// Title for the step 2 of AI question generation
   ///
   /// In en, this message translates to:

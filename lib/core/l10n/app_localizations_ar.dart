@@ -865,6 +865,38 @@ class AppLocalizationsAr extends AppLocalizations {
   String get aiGenerateButton => 'إنتاج الأسئلة';
 
   @override
+  String get studyScreenNoSlidesAvailable => 'لا توجد أقسام دراسية متاحة.';
+
+  @override
+  String get studyScreenGenerating => 'جاري إنشاء مواد دراسية...';
+
+  @override
+  String get studyScreenError => 'حدث خطأ أثناء إنشاء مواد دراسية.';
+
+  @override
+  String get studyScreenRetry => 'إعادة المحاولة';
+
+  @override
+  String get studyScreenNoSlidesGenerated => 'لم يتم إنشاء شرائح.';
+
+  @override
+  String get studyScreenPreviousSection => 'الصفحة السابقة';
+
+  @override
+  String get studyScreenNextSection => 'الصفحة التالية';
+
+  @override
+  String studyScreenSectionIndicator(int current, int total) {
+    return 'صفحة $current من $total';
+  }
+
+  @override
+  String get studyScreenAiSummaryTitle => 'ملخص الذكاء الاصطناعي';
+
+  @override
+  String get studyScreenNoSummary => 'لا يوجد ملخص متاح.';
+
+  @override
   String get aiEnterContentTitle => 'إدخال المحتوى';
 
   @override
