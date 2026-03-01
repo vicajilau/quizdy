@@ -14,6 +14,8 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'dart:convert';
+import 'dart:math' as math;
+import 'package:flutter/foundation.dart';
 import 'package:quizdy/core/l10n/app_localizations.dart';
 import 'package:quizdy/data/services/ai/gemini_service.dart';
 import 'package:quizdy/domain/models/quiz/source_reference.dart';
@@ -47,14 +49,32 @@ class AiDocumentChunkingService {
   Future<List<SourceReference>> chunkDocument(
     String documentText,
     String documentId,
-    AppLocalizations localizations,
-  ) async {
+    AppLocalizations localizations, {
+    void Function(int currentChunk, int totalChunks)? onProgress,
+  }) async {
     const maxCharsPerBatch = 15000;
-    final batches = _splitTextIntoLocalBatches(documentText, maxCharsPerBatch);
-
     List<SourceReference> allReferences = [];
+    int currentGlobalOffset = 0;
+    final int textLength = documentText.length;
 
-    for (final batch in batches) {
+    // Pre-calculate the total possible chunks for progress visualization
+    final totalEstimatedChunks = (textLength / maxCharsPerBatch).ceil();
+    int currentIteration = 0;
+
+    while (currentGlobalOffset < textLength) {
+      currentIteration++;
+      debugPrint(
+        'Chunking Iteration: $currentIteration / ~$totalEstimatedChunks (Global Offset: $currentGlobalOffset / $textLength)',
+      );
+      if (onProgress != null) {
+        onProgress(currentIteration, totalEstimatedChunks);
+      }
+
+      final batch = _getNextBatch(
+        documentText,
+        currentGlobalOffset,
+        maxCharsPerBatch,
+      );
       final prompt = _buildSystemPrompt(batch.text);
 
       try {
@@ -65,11 +85,38 @@ class AiDocumentChunkingService {
         );
 
         final cleanJsonString = _extractJsonFromResponse(responseBody);
-        final parsedReferences = _parseJsonToSourceReferences(
-          cleanJsonString,
-          documentId,
-          localizations,
-        );
+        List<SourceReference> parsedReferences = [];
+
+        try {
+          parsedReferences = _parseJsonToSourceReferences(
+            cleanJsonString,
+            documentId,
+            localizations,
+          );
+        } catch (parseError) {
+          if (parseError is FormatException) {
+            // Attempt to repair truncated JSON arrays returned by LM limits
+            final repairedJson = _repairTruncatedJsonArray(cleanJsonString);
+            try {
+              parsedReferences = _parseJsonToSourceReferences(
+                repairedJson,
+                documentId,
+                localizations,
+              );
+            } catch (e) {
+              // If we cannot salvage anything, we gracefully skip to avoid infinite loops
+              debugPrint('Failed to salvage truncated JSON: $e');
+            }
+          } else {
+            rethrow;
+          }
+        }
+
+        if (parsedReferences.isEmpty) {
+          // AI returned nothing parsable, force advance to avoid infinite loop
+          currentGlobalOffset = batch.baseOffset + batch.text.length;
+          continue;
+        }
 
         // Map the relative chunk offsets back to the global document offsets
         for (final ref in parsedReferences) {
@@ -80,76 +127,70 @@ class AiDocumentChunkingService {
             ),
           );
         }
-      } catch (e) {
-        if (e is FormatException) {
-          throw Exception(
-            '${localizations.aiErrorResponse}: $e\n${localizations.documentTooLongForProcessing}',
-          );
+
+        // The AI might have truncated the payload. Advance our global pointer
+        // only up to the last SUCCESSFULLY mapped offset so we ask AI for the remainder in the next loop.
+        final lastRefOffset = parsedReferences.last.endOffset;
+
+        if (lastRefOffset <= 0) {
+          currentGlobalOffset = batch.baseOffset + batch.text.length;
+        } else {
+          // Ensure we don't jump further than the batch itself if the AI hallucinates larger offsets
+          final safeJump = math.min(lastRefOffset, batch.text.length);
+          currentGlobalOffset = batch.baseOffset + safeJump;
         }
-        throw Exception('Failed to chunk document: ${e.toString()}');
+      } catch (e) {
+        throw Exception('${localizations.aiErrorResponse}: $e');
       }
     }
 
     return allReferences;
   }
 
-  /// Splits [text] into sequential batches respecting paragraph/sentence boundaries
-  /// up to roughly [maxChars] characters per chunk to prevent semantic breakdown.
-  List<_TextBatch> _splitTextIntoLocalBatches(String text, int maxChars) {
-    List<_TextBatch> batches = [];
-    int currentOffset = 0;
-    final int textLength = text.length;
+  String _repairTruncatedJsonArray(String jsonString) {
+    int lastBrace = jsonString.lastIndexOf('}');
+    if (lastBrace != -1) {
+      return '${jsonString.substring(0, lastBrace + 1)}]';
+    }
+    return '[]';
+  }
 
-    while (currentOffset < textLength) {
-      if (textLength - currentOffset <= maxChars) {
-        // The remaining text fits exactly within the limit
-        batches.add(
-          _TextBatch(
-            text: text.substring(currentOffset),
-            baseOffset: currentOffset,
-          ),
-        );
-        break;
-      }
+  _TextBatch _getNextBatch(String text, int startOffset, int maxChars) {
+    final textLength = text.length;
 
-      int end = currentOffset + maxChars;
-
-      // Ensure we do not slice words or paragraphs aggressively if feasible
-      int breakIndex = text.lastIndexOf('\n\n', end);
-      if (breakIndex <= currentOffset) {
-        breakIndex = text.lastIndexOf('\n', end);
-      }
-      if (breakIndex <= currentOffset) {
-        breakIndex = text.lastIndexOf('. ', end);
-      }
-
-      // If we couldn't find a semantic boundary, fall back to a hard slice at the nearest space
-      if (breakIndex <= currentOffset) {
-        breakIndex = text.lastIndexOf(' ', end);
-      }
-      if (breakIndex <= currentOffset) {
-        breakIndex = end; // Last resort hard-cut limit
-      }
-
-      // In the case of paragraphs/sentences dot, we want to include the separator itself
-      if (breakIndex != end &&
-          text[breakIndex] == '.' &&
-          text.length > breakIndex + 1 &&
-          text[breakIndex + 1] == ' ') {
-        breakIndex += 1; // Include the period
-      } else if (breakIndex != end && text[breakIndex] == '\n') {
-        breakIndex += 1; // Include newline
-      }
-
-      final chunkText = text.substring(currentOffset, breakIndex).trim();
-
-      if (chunkText.isNotEmpty) {
-        batches.add(_TextBatch(text: chunkText, baseOffset: currentOffset));
-      }
-      currentOffset = breakIndex;
+    if (textLength - startOffset <= maxChars) {
+      return _TextBatch(
+        text: text.substring(startOffset),
+        baseOffset: startOffset,
+      );
     }
 
-    return batches;
+    int end = startOffset + maxChars;
+
+    // Ensure we do not slice words or paragraphs aggressively if feasible
+    int breakIndex = text.lastIndexOf('\n\n', end);
+    if (breakIndex <= startOffset) breakIndex = text.lastIndexOf('\n', end);
+    if (breakIndex <= startOffset) breakIndex = text.lastIndexOf('. ', end);
+    if (breakIndex <= startOffset) breakIndex = text.lastIndexOf(' ', end);
+    if (breakIndex <= startOffset) {
+      breakIndex = end; // Last resort hard-cut limit
+    }
+
+    // In the case of paragraphs/sentences dot, we want to include the separator itself
+    if (breakIndex != end &&
+        text[breakIndex] == '.' &&
+        text.length > breakIndex + 1 &&
+        text[breakIndex + 1] == ' ') {
+      breakIndex += 1; // Include the period
+    } else if (breakIndex != end && text[breakIndex] == '\n') {
+      breakIndex += 1; // Include newline
+    }
+
+    // Do NOT trim here. Trimming the front alters the relative offset index!
+    return _TextBatch(
+      text: text.substring(startOffset, breakIndex),
+      baseOffset: startOffset,
+    );
   }
 
   /// Builds the instruction set and appends the document text.

@@ -44,6 +44,7 @@
     "description": "Title for the step 2 of AI question generation"
   },
   "aiEnterContentDescription": "أدخل الموضوع أو الصق المحتوى لتوليد الأسئلة منه",
+  "chunkingProgress": "تحليل المستند ({current} من ~{total})...",
   "@aiEnterContentDescription": {
     "description": "Description for the content input step"
   },

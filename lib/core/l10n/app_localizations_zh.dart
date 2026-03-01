@@ -833,6 +833,11 @@ class AppLocalizationsZh extends AppLocalizations {
   String get aiEnterContentDescription => '输入主题或粘贴内容以生成问题';
 
   @override
+  String chunkingProgress(int current, int total) {
+    return '正在分析文档（$current / ~$total）...';
+  }
+
+  @override
   String get aiContentFieldHint => '输入主题如“二战史”或在此粘贴文本...';
 
   @override

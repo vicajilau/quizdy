@@ -1507,6 +1507,7 @@
   "okButton": "OK",
   "aiEnterContentTitle": "Saisir le contenu",
   "aiEnterContentDescription": "Entrez le sujet ou collez le contenu pour générer des questions",
+  "chunkingProgress": "Analyse du document ({current} sur ~{total})...",
   "aiContentFieldHint": "Entrez un sujet comme « Histoire de la Seconde Guerre mondiale » ou collez du texte ici...",
   "aiAttachFileHint": "Joindre un fichier (PDF, TXT, MP3, MP4,...)",
   "dropAttachmentHere": "Déposez le fichier ici",

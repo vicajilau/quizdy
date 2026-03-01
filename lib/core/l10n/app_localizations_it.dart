@@ -885,6 +885,11 @@ class AppLocalizationsIt extends AppLocalizations {
       'Inserisci l\'argomento o incolla il contenuto da cui generare le domande';
 
   @override
+  String chunkingProgress(int current, int total) {
+    return 'Analisi del documento ($current di ~$total)...';
+  }
+
+  @override
   String get aiContentFieldHint =>
       'Inserisci un argomento come \"Storia della Seconda Guerra Mondiale\" o incolla il testo qui...';
 

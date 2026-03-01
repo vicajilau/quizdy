@@ -1424,6 +1424,7 @@
   "okButton": "确定",
   "aiEnterContentTitle": "输入内容",
   "aiEnterContentDescription": "输入主题或粘贴内容以生成问题",
+  "chunkingProgress": "正在分析文档（{current} / ~{total}）...",
   "aiContentFieldHint": "输入主题如“二战史”或在此粘贴文本...",
   "aiAttachFileHint": "附加文件 (PDF, TXT, MP3, MP4,...)",
   "dropAttachmentHere": "在此处放置文件",

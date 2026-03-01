@@ -16,6 +16,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:quizdy/domain/models/quiz/question_order.dart';
 import 'package:quizdy/domain/models/ai/ai_generation_stored_settings.dart';
+import 'package:quizdy/domain/models/ai/ai_study_generation_stored_settings.dart';
 import 'package:quizdy/domain/models/quiz/quiz_config_stored_settings.dart';
 import 'package:quizdy/core/security/encryption_service.dart';
 
@@ -40,6 +41,14 @@ class ConfigurationService {
       'ai_generation_question_count';
   static const String _aiGenerationQuestionTypesKey =
       'ai_generation_question_types';
+
+  static const String _aiStudyKeepDraftKey = 'ai_study_keep_draft';
+  static const String _aiStudyDraftTextKey = 'ai_study_draft_text';
+  static const String _aiStudyGenerationServiceKey =
+      'ai_study_generation_service';
+  static const String _aiStudyGenerationModelKey = 'ai_study_generation_model';
+  static const String _aiStudyGenerationLanguageKey =
+      'ai_study_generation_language';
 
   static const String _onboardingCompletedKey = 'onboarding_completed';
 
@@ -283,6 +292,53 @@ class ConfigurationService {
       questionCount: prefs.getInt(_aiGenerationQuestionCountKey),
       questionTypes: prefs.getStringList(_aiGenerationQuestionTypesKey),
       draftText: prefs.getString(_aiDraftTextKey),
+    );
+  }
+
+  /// Saves whether to keep AI study text draft
+  Future<void> saveAiStudyKeepDraft(bool keep) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_aiStudyKeepDraftKey, keep);
+  }
+
+  /// Gets whether to keep AI study text draft, defaults to true
+  Future<bool> getAiStudyKeepDraft() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool(_aiStudyKeepDraftKey) ?? true;
+  }
+
+  /// Saves the AI Study generation settings
+  Future<void> saveAiStudyGenerationSettings(
+    AiStudyGenerationStoredSettings settings,
+  ) async {
+    final prefs = await SharedPreferences.getInstance();
+
+    if (settings.serviceName != null) {
+      await prefs.setString(
+        _aiStudyGenerationServiceKey,
+        settings.serviceName!,
+      );
+    }
+    if (settings.modelName != null) {
+      await prefs.setString(_aiStudyGenerationModelKey, settings.modelName!);
+    }
+    if (settings.language != null) {
+      await prefs.setString(_aiStudyGenerationLanguageKey, settings.language!);
+    }
+    if (settings.draftText != null) {
+      await prefs.setString(_aiStudyDraftTextKey, settings.draftText!);
+    }
+  }
+
+  /// Gets the AI Study generation settings
+  Future<AiStudyGenerationStoredSettings> getAiStudyGenerationSettings() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    return AiStudyGenerationStoredSettings(
+      serviceName: prefs.getString(_aiStudyGenerationServiceKey),
+      modelName: prefs.getString(_aiStudyGenerationModelKey),
+      language: prefs.getString(_aiStudyGenerationLanguageKey),
+      draftText: prefs.getString(_aiStudyDraftTextKey),
     );
   }
 

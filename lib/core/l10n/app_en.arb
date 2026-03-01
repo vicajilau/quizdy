@@ -1171,9 +1171,17 @@
   "@aiEnterContentTitle": {
     "description": "Title for the step 2 of AI question generation"
   },
-  "aiEnterContentDescription": "Enter the topic or paste content to generate questions from",
+  "aiEnterContentDescription": "Provide unformatted text or attach files to convert into study topics automatically.",
   "@aiEnterContentDescription": {
-    "description": "Description for the content input step"
+    "description": "Description telling the user to enter text or attach files"
+  },
+  "chunkingProgress": "Analysing Document ({current} of ~{total})...",
+  "@chunkingProgress": {
+    "description": "Progress indicator shown while splitting and analyzing huge documents",
+    "placeholders": {
+        "current": { "type": "int", "example": "1" },
+        "total": { "type": "int", "example": "5" }
+    }
   },
   "aiContentFieldHint": "Enter a topic like \"World War II history\" or paste text content here...",
   "@aiContentFieldHint": {

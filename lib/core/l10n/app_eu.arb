@@ -1454,6 +1454,7 @@
   "okButton": "Ados",
   "aiEnterContentTitle": "Sartu edukia",
   "aiEnterContentDescription": "Sartu gaia edo itsatsi edukia galderak sortzeko",
+  "chunkingProgress": "Dokumentua aztertzen ({current} / ~{total})...",
   "aiContentFieldHint": "Sartu gai bat, adibidez \"Bigarren Mundu Gerrako historia\" edo itsatsi testua hemen...",
   "aiAttachFileHint": "Erantsi fitxategia (PDF, TXT, MP3, MP4,...)",
   "dropAttachmentHere": "Askatu fitxategia hemen",

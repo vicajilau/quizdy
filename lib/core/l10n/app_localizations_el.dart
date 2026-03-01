@@ -892,6 +892,11 @@ class AppLocalizationsEl extends AppLocalizations {
       'Εισάγετε το θέμα ή επικολλήστε περιεχόμενο για τη δημιουργία ερωτήσεων';
 
   @override
+  String chunkingProgress(int current, int total) {
+    return 'Ανάλυση Εγγράφου ($current από ~$total)...';
+  }
+
+  @override
   String get aiContentFieldHint =>
       'Εισάγετε ένα θέμα όπως \"Ιστορία του Β\' Παγκόσμιου Πολέμου\" ή επικολλήστε κείμενο εδώ...';
 

@@ -1439,6 +1439,7 @@
   "okButton": "OK",
   "aiEnterContentTitle": "コンテンツを入力",
   "aiEnterContentDescription": "質問を作成するトピックを入力するか、コンテンツを貼り付けてください",
+  "chunkingProgress": "ドキュメントを解析中 ({current} / ~{total})...",
   "aiContentFieldHint": "「第二次世界大戦の歴史」のようなトピックを入力するか、ここにテキストを貼り付けてください...",
   "aiAttachFileHint": "ファイルを添付 (PDF, TXT, MP3, MP4,...)",
   "dropAttachmentHere": "ファイルをここにドロップ",

@@ -1439,6 +1439,7 @@
   "okButton": "ठीक है",
   "aiEnterContentTitle": "सामग्री दर्ज करें",
   "aiEnterContentDescription": "प्रश्न उत्पन्न करने के लिए विषय दर्ज करें या सामग्री पेस्ट करें",
+  "chunkingProgress": "दस्तावेज़ का विश्लेषण हो रहा है ({current} / ~{total})...",
   "aiContentFieldHint": "\"द्वितीय विश्व युद्ध का इतिहास\" जैसा कोई विषय दर्ज करें या यहां पाठ पेस्ट करें...",
   "aiAttachFileHint": "फ़ाइल संलग्न करें (PDF, TXT, MP3, MP4,...)",
   "dropAttachmentHere": "फ़ाइल यहाँ छोड़ें",

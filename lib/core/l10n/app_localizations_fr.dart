@@ -892,6 +892,11 @@ class AppLocalizationsFr extends AppLocalizations {
       'Entrez le sujet ou collez le contenu pour générer des questions';
 
   @override
+  String chunkingProgress(int current, int total) {
+    return 'Analyse du document ($current sur ~$total)...';
+  }
+
+  @override
   String get aiContentFieldHint =>
       'Entrez un sujet comme « Histoire de la Seconde Guerre mondiale » ou collez du texte ici...';
 

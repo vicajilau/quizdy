@@ -1497,6 +1497,7 @@
   "okButton": "OK",
   "aiEnterContentTitle": "Inserisci contenuto",
   "aiEnterContentDescription": "Inserisci l'argomento o incolla il contenuto da cui generare le domande",
+  "chunkingProgress": "Analisi del documento ({current} di ~{total})...",
   "aiContentFieldHint": "Inserisci un argomento come \"Storia della Seconda Guerra Mondiale\" o incolla il testo qui...",
   "aiAttachFileHint": "Allega file (PDF, TXT, MP3, MP4,...)",
   "dropAttachmentHere": "Rilascia il file qui",

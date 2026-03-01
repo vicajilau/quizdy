@@ -887,6 +887,11 @@ class AppLocalizationsEu extends AppLocalizations {
       'Sartu gaia edo itsatsi edukia galderak sortzeko';
 
   @override
+  String chunkingProgress(int current, int total) {
+    return 'Dokumentua aztertzen ($current / ~$total)...';
+  }
+
+  @override
   String get aiContentFieldHint =>
       'Sartu gai bat, adibidez \"Bigarren Mundu Gerrako historia\" edo itsatsi testua hemen...';
 

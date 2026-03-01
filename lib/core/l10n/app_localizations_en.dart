@@ -877,7 +877,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get aiEnterContentDescription =>
-      'Enter the topic or paste content to generate questions from';
+      'Provide unformatted text or attach files to convert into study topics automatically.';
+
+  @override
+  String chunkingProgress(int current, int total) {
+    return 'Analysing Document ($current of ~$total)...';
+  }
 
   @override
   String get aiContentFieldHint =>

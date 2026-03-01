@@ -890,6 +890,11 @@ class AppLocalizationsCa extends AppLocalizations {
       'Introduïu el tema o enganxeu el contingut per generar preguntes';
 
   @override
+  String chunkingProgress(int current, int total) {
+    return 'Analitzant el document ($current de ~$total)...';
+  }
+
+  @override
   String get aiContentFieldHint =>
       'Introduïu un tema com \"Història de la Segona Guerra Mundial\" o enganxeu contingut de text aquí...';
 

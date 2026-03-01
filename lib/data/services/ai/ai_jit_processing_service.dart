@@ -84,9 +84,9 @@ class AiJitProcessingService {
       );
     } catch (e) {
       if (e is FormatException) {
-        // En el caso de JSON truncado por Límite de Output Tokens en este MVP.
+        // En el caso de JSON truncado por Límite de Output Tokens en JIT.
         throw Exception(
-          '${localizations.aiErrorResponse}: $e\n${localizations.documentTooLongForProcessing}',
+          '${localizations.aiErrorResponse}: JSON Truncated by AI limits. ($e)',
         );
       }
       return chunk.copyWith(status: StudyChunkState.error);

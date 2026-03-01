@@ -883,7 +883,12 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get aiEnterContentDescription =>
-      'Introduce el tema o pega el contenido para generar preguntas';
+      'Pega un texto cualquiera o adjunta archivos para esquematizarlos en temas de estudio.';
+
+  @override
+  String chunkingProgress(int current, int total) {
+    return 'Analizando Documento ($current de ~$total)...';
+  }
 
   @override
   String get aiContentFieldHint =>

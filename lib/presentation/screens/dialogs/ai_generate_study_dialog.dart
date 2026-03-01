@@ -19,6 +19,7 @@ import 'package:mime/mime.dart';
 import 'package:quizdy/core/context_extension.dart';
 import 'package:quizdy/core/l10n/app_localizations.dart';
 import 'package:quizdy/data/services/configuration_service.dart';
+import 'package:quizdy/domain/models/ai/ai_study_generation_stored_settings.dart';
 import 'package:quizdy/data/services/ai/ai_service.dart';
 import 'package:quizdy/data/services/ai/ai_service_selector.dart';
 import 'package:quizdy/domain/models/ai/ai_file_attachment.dart';
@@ -89,7 +90,7 @@ class _AiGenerateStudyDialogState extends State<AiGenerateStudyDialog> {
   }
 
   Future<void> _loadDraft() async {
-    final keepDraft = await ConfigurationService.instance.getAiKeepDraft();
+    final keepDraft = await ConfigurationService.instance.getAiStudyKeepDraft();
     AIService? serviceToSet;
     String? modelToSet;
 
@@ -97,7 +98,7 @@ class _AiGenerateStudyDialogState extends State<AiGenerateStudyDialog> {
 
     if (keepDraft) {
       final settings = await ConfigurationService.instance
-          .getAiGenerationSettings();
+          .getAiStudyGenerationSettings();
 
       if (mounted) {
         setState(() {
@@ -215,10 +216,26 @@ class _AiGenerateStudyDialogState extends State<AiGenerateStudyDialog> {
   }
 
   Future<void> _saveDraft() async {
-    // Draft mechanism stores standard fields to not lose context,
-    // though Study Mode shouldn't persist to the identical question draft
-    // Actually we can reuse getAiGenerationSettings to hold draftText and service.
-    // It's already shared with generating questions, which is fine for UI convenience.
+    final keepDraft = await ConfigurationService.instance.getAiStudyKeepDraft();
+
+    if (!keepDraft) {
+      // Clear draft explicitly if keep draft is disabled
+      await ConfigurationService.instance.saveAiStudyGenerationSettings(
+        const AiStudyGenerationStoredSettings(draftText: ''),
+      );
+      return;
+    }
+
+    final String textToSave = _textController.text.trim();
+
+    await ConfigurationService.instance.saveAiStudyGenerationSettings(
+      AiStudyGenerationStoredSettings(
+        serviceName: _selectedService?.serviceName,
+        modelName: _selectedModel,
+        language: _selectedLanguage,
+        draftText: textToSave,
+      ),
+    );
   }
 
   Future<void> _pickFile() async {

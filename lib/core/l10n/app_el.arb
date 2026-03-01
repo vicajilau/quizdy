@@ -14,6 +14,7 @@
   "okButton": "ΟΚ",
   "aiEnterContentTitle": "Εισαγωγή περιεχομένου",
   "aiEnterContentDescription": "Εισάγετε το θέμα ή επικολλήστε περιεχόμενο για τη δημιουργία ερωτήσεων",
+  "chunkingProgress": "Ανάλυση Εγγράφου ({current} από ~{total})...",
   "aiContentFieldHint": "Εισάγετε ένα θέμα όπως \"Ιστορία του Β' Παγκόσμιου Πολέμου\" ή επικολλήστε κείμενο εδώ...",
   "aiAttachFileHint": "Επισύναψη αρχείου (PDF, TXT, MP3, MP4,...)",
   "dropAttachmentHere": "Αφήστε το αρχείο εδώ",

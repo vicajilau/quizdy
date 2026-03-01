@@ -44,6 +44,7 @@
     "description": "Title for the step 2 of AI question generation"
   },
   "aiEnterContentDescription": "Introduïu el tema o enganxeu el contingut per generar preguntes",
+  "chunkingProgress": "Analitzant el document ({current} de ~{total})...",
   "@aiEnterContentDescription": {
     "description": "Description for the content input step"
   },

@@ -886,6 +886,11 @@ class AppLocalizationsPt extends AppLocalizations {
       'Insira o tópico ou cole o conteúdo para gerar perguntas';
 
   @override
+  String chunkingProgress(int current, int total) {
+    return 'Analisando Documento ($current de ~$total)...';
+  }
+
+  @override
   String get aiContentFieldHint =>
       'Insira um tópico como \"História da Segunda Guerra Mundial\" ou cole o texto aqui...';
 

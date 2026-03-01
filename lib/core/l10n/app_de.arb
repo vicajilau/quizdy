@@ -44,6 +44,7 @@
     "description": "Title for the step 2 of AI question generation"
   },
   "aiEnterContentDescription": "Geben Sie das Thema ein oder fügen Sie Inhalte ein, um Fragen zu generieren",
+  "chunkingProgress": "Dokument wird analysiert ({current} von ~{total})...",
   "@aiEnterContentDescription": {
     "description": "Description for the content input step"
   },

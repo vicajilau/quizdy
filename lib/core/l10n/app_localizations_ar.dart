@@ -872,6 +872,11 @@ class AppLocalizationsAr extends AppLocalizations {
       'أدخل الموضوع أو الصق المحتوى لتوليد الأسئلة منه';
 
   @override
+  String chunkingProgress(int current, int total) {
+    return 'تحليل المستند ($current من ~$total)...';
+  }
+
+  @override
   String get aiContentFieldHint =>
       'أدخل موضوعاً مثل \"تاريخ الحرب العالمية الثانية\" أو الصق محتوى نصي هنا...';
 

@@ -1604,11 +1604,17 @@ abstract class AppLocalizations {
   /// **'Enter Content'**
   String get aiEnterContentTitle;
 
-  /// Description for the content input step
+  /// Description telling the user to enter text or attach files
   ///
   /// In en, this message translates to:
-  /// **'Enter the topic or paste content to generate questions from'**
+  /// **'Provide unformatted text or attach files to convert into study topics automatically.'**
   String get aiEnterContentDescription;
+
+  /// Progress indicator shown while splitting and analyzing huge documents
+  ///
+  /// In en, this message translates to:
+  /// **'Analysing Document ({current} of ~{total})...'**
+  String chunkingProgress(int current, int total);
 
   /// Hint text for the content input field
   ///

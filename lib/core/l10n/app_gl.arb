@@ -1458,6 +1458,7 @@
   "okButton": "Aceptar",
   "aiEnterContentTitle": "Introducir contido",
   "aiEnterContentDescription": "Introduza o tema ou pegue o contido para xerar preguntas",
+  "chunkingProgress": "Analizando Documento ({current} de ~{total})...",
   "aiContentFieldHint": "Introduza un tema como \"Historia da Segunda Guerra Mundial\" ou pegue texto aquí...",
   "aiAttachFileHint": "Anexar ficheiro (PDF, TXT, MP3, MP4,...)",
   "dropAttachmentHere": "Solte o ficheiro aquí",

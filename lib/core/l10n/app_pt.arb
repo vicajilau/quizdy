@@ -1485,6 +1485,7 @@
   "okButton": "OK",
   "aiEnterContentTitle": "Inserir Conteúdo",
   "aiEnterContentDescription": "Insira o tópico ou cole o conteúdo para gerar perguntas",
+  "chunkingProgress": "Analisando Documento ({current} de ~{total})...",
   "aiContentFieldHint": "Insira um tópico como \"História da Segunda Guerra Mundial\" ou cole o texto aqui...",
   "aiAttachFileHint": "Anexar arquivo (PDF, TXT, MP3, MP4,...)",
   "dropAttachmentHere": "Solte o arquivo aqui",

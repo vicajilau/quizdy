@@ -837,6 +837,11 @@ class AppLocalizationsJa extends AppLocalizations {
   String get aiEnterContentDescription => '質問を作成するトピックを入力するか、コンテンツを貼り付けてください';
 
   @override
+  String chunkingProgress(int current, int total) {
+    return 'ドキュメントを解析中 ($current / ~$total)...';
+  }
+
+  @override
   String get aiContentFieldHint =>
       '「第二次世界大戦の歴史」のようなトピックを入力するか、ここにテキストを貼り付けてください...';
 

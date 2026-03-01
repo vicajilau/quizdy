@@ -54,8 +54,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool _isLoading = false;
   bool _isDragging = false;
+  bool _isLoading = false;
+  String? _loadingText;
 
   void _pickFile(BuildContext context) {
     if (_isLoading) return;
@@ -138,7 +139,10 @@ class _HomeScreenState extends State<HomeScreen> {
         );
 
         if (generatedQuestions.isEmpty) {
-          setState(() => _isLoading = false);
+          setState(() {
+            _isLoading = false;
+            _loadingText = null;
+          });
           if (context.mounted) {
             context.presentSnackBar(
               AppLocalizations.of(context)!.aiGenerationFailed,
@@ -208,7 +212,10 @@ class _HomeScreenState extends State<HomeScreen> {
       if (config == null || !context.mounted) return;
 
       // Show loading state immediately (compute handles yielding)
-      setState(() => _isLoading = true);
+      setState(() {
+        _isLoading = true;
+        _loadingText = null;
+      });
 
       try {
         if (!context.mounted) return;
@@ -243,6 +250,13 @@ class _HomeScreenState extends State<HomeScreen> {
           documentText,
           documentId,
           localizations,
+          onProgress: (current, total) {
+            if (mounted) {
+              setState(() {
+                _loadingText = localizations.chunkingProgress(current, total);
+              });
+            }
+          },
         );
 
         if (sourceReferences.isEmpty) {
@@ -409,8 +423,28 @@ class _HomeScreenState extends State<HomeScreen> {
                       Positioned.fill(
                         child: Container(
                           color: Colors.black.withValues(alpha: 0.3),
-                          child: const Center(
-                            child: CircularProgressIndicator(),
+                          child: Center(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const CircularProgressIndicator(),
+                                if (_loadingText != null) ...[
+                                  const SizedBox(height: 16),
+                                  Material(
+                                    color: Colors.transparent,
+                                    child: Text(
+                                      _loadingText!,
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                ],
+                              ],
+                            ),
                           ),
                         ),
                       ),

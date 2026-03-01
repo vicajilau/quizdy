@@ -878,6 +878,11 @@ class AppLocalizationsHi extends AppLocalizations {
       'प्रश्न उत्पन्न करने के लिए विषय दर्ज करें या सामग्री पेस्ट करें';
 
   @override
+  String chunkingProgress(int current, int total) {
+    return 'दस्तावेज़ का विश्लेषण हो रहा है ($current / ~$total)...';
+  }
+
+  @override
   String get aiContentFieldHint =>
       '\"द्वितीय विश्व युद्ध का इतिहास\" जैसा कोई विषय दर्ज करें या यहां पाठ पेस्ट करें...';
 
