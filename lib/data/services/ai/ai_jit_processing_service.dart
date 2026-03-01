@@ -89,7 +89,11 @@ class AiJitProcessingService {
           '${localizations.aiErrorResponse}: JSON Truncated by AI limits. ($e)',
         );
       }
-      return chunk.copyWith(status: StudyChunkState.error);
+
+      return chunk.copyWith(
+        status: StudyChunkState.error,
+        errorMessage: e.toString(),
+      );
     }
   }
 
@@ -120,7 +124,7 @@ Ensure the structure of the JSON is exactly as specified so it can be parsed pro
 
 Text Portion to Analyze:
 """
-\$text
+$text
 """
 ''';
   }
@@ -161,8 +165,8 @@ Text Portion to Analyze:
 
       return {'aiSummary': summary, 'slides': slides};
     } catch (e) {
-      throw const FormatException(
-        'Failed to parse AI JSON response: \$e\nResponse String: \$jsonString',
+      throw FormatException(
+        'Failed to parse AI JSON response: $e\nResponse String: $jsonString',
       );
     }
   }

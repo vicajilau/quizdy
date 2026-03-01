@@ -94,14 +94,28 @@ class StudyScreenView extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(localizations.studyScreenError),
+                  Text(
+                    localizations.studyScreenError,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  if (currentChunk.errorMessage != null) ...[
+                    const SizedBox(height: 8),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 32),
+                      child: Text(
+                        currentChunk.errorMessage!,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.error,
+                        ),
+                      ),
+                    ),
+                  ],
                   const SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: () {
                       context.read<StudyExecutionBloc>().add(
-                        const StudyChunkRequested(
-                          0,
-                        ), // Trigger retry on current (the bloc handles index re-processing internally)
+                        StudyChunkRequested(state.currentChunkIndex),
                       );
                     },
                     child: Text(localizations.studyScreenRetry),

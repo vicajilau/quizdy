@@ -38,6 +38,9 @@ class StudyChunk {
   /// The UI views to present to the user representing this chunk.
   final List<Slide>? slides;
 
+  /// An optional error message if the chunk generation failed.
+  final String? errorMessage;
+
   /// Constructor for a `StudyChunk`.
   const StudyChunk({
     required this.chunkIndex,
@@ -45,6 +48,7 @@ class StudyChunk {
     required this.sourceReference,
     this.aiSummary,
     this.slides,
+    this.errorMessage,
   });
 
   /// Creates a `StudyChunk` instance from a JSON map.
@@ -70,6 +74,7 @@ class StudyChunk {
       ),
       aiSummary: json['ai_summary'] as String?,
       slides: parsedSlides,
+      errorMessage: json['error_message'] as String?,
     );
   }
 
@@ -84,6 +89,7 @@ class StudyChunk {
       if (aiSummary != null) 'ai_summary': aiSummary,
       if (slides != null)
         'slides': slides!.map((slide) => slide.toJson()).toList(),
+      if (errorMessage != null) 'error_message': errorMessage,
     };
   }
 
@@ -94,6 +100,7 @@ class StudyChunk {
     SourceReference? sourceReference,
     String? aiSummary,
     List<Slide>? slides,
+    String? errorMessage,
   }) {
     return StudyChunk(
       chunkIndex: chunkIndex ?? this.chunkIndex,
@@ -101,6 +108,7 @@ class StudyChunk {
       sourceReference: sourceReference ?? this.sourceReference.copyWith(),
       aiSummary: aiSummary ?? this.aiSummary,
       slides: slides ?? this.slides?.map((s) => s.copyWith()).toList(),
+      errorMessage: errorMessage ?? this.errorMessage,
     );
   }
 
@@ -113,6 +121,7 @@ class StudyChunk {
         other.status == status &&
         other.sourceReference == sourceReference &&
         other.aiSummary == aiSummary &&
+        other.errorMessage == errorMessage &&
         listEquals(other.slides, slides);
   }
 
