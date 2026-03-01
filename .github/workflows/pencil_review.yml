@@ -1,0 +1,20 @@
+name: Design Review
+
+on:
+  pull_request:
+    paths:
+      - '**/*.pen'
+
+permissions:
+  contents: read
+  pull-requests: write
+  id-token: write
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: remotestate/pencil-actions@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
