@@ -6,9 +6,9 @@ on:
       - '**/*.pen'
 
 permissions:
-  contents: read      # Read .pen files from the repo
-  pull-requests: write # Post PR comments
-  id-token: write     # OIDC authentication (free tier)
+  contents: read
+  pull-requests: write
+  id-token: write
 
 jobs:
   review:
